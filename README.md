@@ -1,4 +1,1 @@
 # EnvoyX Platform
-
-Overview
-[EOF]
