@@ -1,0 +1,30 @@
+name: Check Unused CSS
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run PurgeCSS
+        run: npx purgecss --css 'path/to/your/css/file.css' --content 'path/to/your/html/files/**/*.html' --output 'path/to/save/unused/css'
+
+      # Optionally, you can add steps to handle the results of PurgeCSS, like failing the workflow if unused classes are found,
+      # or sending notifications.
+

@@ -15,9 +15,10 @@
 
 
 - [Getting Started](#getting-started)
-  - [Push Repository](#push-repository)
+  - [Next JS App Router](#next-js-app-router)
+  - [Push Actions](#push-actions)
 - [Pull Requests](#pull-requests)
-- [Github Workflows (CI/CD)](#github-workflows-cicd)
+- [Github Workflows](#github-workflows)
 - [Learn More](#learn-more)
 - [Deploy on Vercel](#deploy-on-vercel)
    
@@ -42,7 +43,12 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Push Repository
+### Next JS App Router
+This repo uses the Next.js App Router, which introduces a new model for building applications using React's latest features such as Server Components, Streaming with Suspense, and Server Actions.
+
+To learn more visit [Next.js App Router Docs](https://nextjs.org/docs/app)
+
+### Push Actions
 When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
 ```bash
 git add .
@@ -53,12 +59,12 @@ git push origin envoyx-qa
 ## Pull Requests
 All pull requests must be reviewed and checks completed before the code is pushed/merged from the envoyx-qa branch to the master branch to be deployed to the website.
 
-<b>NOTE: DO NOT ATTEMPT TO DELETE the envoyx-qa branch after the pull request has been merged successfully</b>
+<b>NOTE: DO NOT ATTEMPT TO DELETE</b> the envoyx-qa branch after the pull request has been merged successfully
 
-## Github Workflows (CI/CD)
-1. lint.yml - content
-2. npm-build.yml - content
-3. stale-issues-pr.yml - content
+## Github Workflows
+This is where automated testing and deployment happens and can be found in this [path](./.github/workflows/lint.yml). 
+
+The project utilizes GitHub Actions for Continuous Integration and Deployment (CI/CD) each time a change is pushed to the <b>envoyx-qa</b> and <b>master</b> branches.
 
 ## Learn More
 
