@@ -15,6 +15,7 @@
 
 
 - [Getting Started](#getting-started)
+  - [Push Repository](#push-repository)
 - [Pull Requests](#pull-requests)
 - [Github Workflows (CI/CD)](#github-workflows-cicd)
 - [Learn More](#learn-more)
@@ -37,6 +38,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+### Push Repository
 When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
 ```bash
 git add .
@@ -59,6 +65,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
