@@ -23,5 +23,5 @@ jobs:
         working-directory: .
 
       - name: Run formatting/lint
-        run: npm lint
+        run: npm run lint
         working-directory: .
