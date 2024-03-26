@@ -2,7 +2,7 @@
   EnvoyX Platform
 </h1>
 <p align="center">
-  <img width="400" alt="EnvoyX" src="https://github.com/EnvoyX-Org/envoyx-platform/assets/envoyx-white.png" />
+  <img width="400" alt="EnvoyX" src="assets/envoyx-white.png" />
 </p>
 <p align="center">
   <a href="https://github.com/metaplex-foundation/mpl-bubblegum/actions/workflows/main.yml"><img src="https://img.shields.io/github/actions/workflow/status/metaplex-foundation/mpl-bubblegum/main.yml?logo=GitHub" /></a>
@@ -10,8 +10,7 @@
   <a href="https://www.npmjs.com/package/@metaplex-foundation/mpl-bubblegum"><img src="https://img.shields.io/npm/v/%40metaplex-foundation%2Fmpl-bubblegum?logo=npm&color=377CC0" /></a>
   <a href="https://crates.io/crates/mpl-bubblegum"><img src="https://img.shields.io/crates/v/mpl-bubblegum?logo=rust" /></a>
 </p>
-
-<p>
+<p align="center">
   Unlock financial potential and propel your business operations
 </p>
 
@@ -33,7 +32,6 @@ Point to or checkout the qa/testing branch (<b>envoyx-qa</b>)
 git checkout -b envoyx-qa
 ```
 run the development server:
-
 ```bash
 npm run dev
 ```
