@@ -16,6 +16,7 @@
 
 - [Getting Started](#getting-started)
   - [Next JS App Router](#next-js-app-router)
+  - [Webapp Templates](#webapp-templates)
   - [Push Actions](#push-actions)
 - [Pull Requests](#pull-requests)
 - [Github Workflows](#github-workflows)
@@ -47,6 +48,9 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 This repo uses the Next.js App Router, which introduces a new model for building applications using React's latest features such as Server Components, Streaming with Suspense, and Server Actions.
 
 To learn more visit [Next.js App Router Docs](https://nextjs.org/docs/app)
+
+### Webapp Templates
+[Alaffiahealth (CSS Template)](#https://www.alaffiahealth.com/)
 
 ### Push Actions
 When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
