@@ -53,6 +53,8 @@ git push origin envoyx-qa
 ## Pull Requests
 All pull requests must be reviewed and checks completed before the code is pushed/merged from the envoyx-qa branch to the master branch to be deployed to the website.
 
+<b>NOTE: DO NOT ATTEMPT TO DELETE the envoyx-qa branch after the pull request has been merged successfully</b>
+
 ## Github Workflows (CI/CD)
 1. lint.yml - content
 2. npm-build.yml - content
