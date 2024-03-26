@@ -40,7 +40,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-When modifications are completed commit your changes to the envoyx-qa branch
+When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
 ```bash
 git add .
 git commit -am "message for commit"
