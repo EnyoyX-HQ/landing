@@ -2,7 +2,7 @@
   EnvoyX Platform
 </h1>
 <p align="center">
-  <img width="400" alt="EnvoyX" src="assets/envoyx-white.png" />
+  <img width="400" alt="EnvoyX" src="assets/github/envoyx-white.png" />
 </p>
 <p align="center">
   <a href="https://github.com/metaplex-foundation/mpl-bubblegum/actions/workflows/main.yml"><img src="https://img.shields.io/github/actions/workflow/status/metaplex-foundation/mpl-bubblegum/main.yml?logo=GitHub" /></a>
@@ -41,7 +41,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
