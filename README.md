@@ -59,6 +59,7 @@ Follow the templates down below to build the envoyx-platform:
 2. Rebuild Dashboard Auth - [EnvoyX Login / SignUp](#https://envoyx.vercel.app/)
 3. Rebuild Dashboard View - [EnvoyX Dashboard](#https://envoyx.vercel.app/dashboard)
 4. CSS Template - [Alaffiahealth](#https://www.alaffiahealth.com/)
+5. NextJS Dashboard Template [NextJS](#https://github.com/Joshardals/Nextjs14-dashboard/tree/master/app/dashboard)
 
 ### Next JS App Router
 This repo uses the Next.js App Router, which introduces a new model for building applications using React's latest features such as Server Components, Streaming with Suspense, and Server Actions.
