@@ -15,9 +15,10 @@
 
 
 - [Getting Started](#getting-started)
+  - [Website URL Patterns](#website-url-patterns)
+  - [Website Templates](#website-templates)
   - [Next JS App Router](#next-js-app-router)
   - [Push Actions](#push-actions)
-- [Website Templates](#website-templates)
 - [Pull Requests](#pull-requests)
 - [Github Workflows](#github-workflows)
 - [Learn More](#learn-more)
@@ -44,12 +45,25 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+### Website URL Patterns
+1. <b>Landing Page</b>: `https://tryenvoyx.com`
+2. <b>Sign Up Auth URL</b>: `https://auth.tryenvoyx.com/signup?redirectUrl=https%3A%2F%2Fdashboard.tryenvoyx.com%2Fsignup%2F`
+3. <b>Sign In Auth URL</b> to redirect users to signin <b>dashboard</b>: `https://auth.tryenvoyx.com/?redirectUrl=https%3A%2F%2Fdashboard.tryenvoyx.com%2Fsignup%2F`
+4. <b>Dashboard URL</b>: `https://dashboard.tryenvoyx.com`
+
+
+Follow the templates down below to build the envoyx-platform:
+
+### Website Templates
+1. Rebuild Main Website - [EnvoyX](#https://tryenvoyx.com/)
+2. Rebuild Dashboard Auth - [EnvoyX Login / SignUp](#https://envoyx.vercel.app/)
+3. Rebuild Dashboard View - [EnvoyX Dashboard](#https://envoyx.vercel.app/dashboard)
+4. CSS Template - [Alaffiahealth](#https://www.alaffiahealth.com/)
+
 ### Next JS App Router
 This repo uses the Next.js App Router, which introduces a new model for building applications using React's latest features such as Server Components, Streaming with Suspense, and Server Actions.
 
 To learn more visit [Next.js App Router Docs](https://nextjs.org/docs/app)
-
-
 
 ### Push Actions
 When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
@@ -58,9 +72,7 @@ git add .
 git commit -am "message for commit"
 git push origin envoyx-qa
 ```
-## Website Templates
-1. Rebuild Main Website - [EnvoyX](#https://tryenvoyx.com/)
-2. CSS Template - [Alaffiahealth](#https://www.alaffiahealth.com/)
+
    
 ## Pull Requests
 All pull requests must be reviewed and checks completed before the code is pushed/merged from the envoyx-qa branch to the master branch to be deployed to the website.
