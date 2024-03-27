@@ -16,8 +16,8 @@
 
 - [Getting Started](#getting-started)
   - [Next JS App Router](#next-js-app-router)
-  - [Webapp Templates](#webapp-templates)
   - [Push Actions](#push-actions)
+- [Website Templates](#website-templates)
 - [Pull Requests](#pull-requests)
 - [Github Workflows](#github-workflows)
 - [Learn More](#learn-more)
@@ -49,8 +49,7 @@ This repo uses the Next.js App Router, which introduces a new model for building
 
 To learn more visit [Next.js App Router Docs](https://nextjs.org/docs/app)
 
-### Webapp Templates
-[Alaffiahealth (CSS Template)](#https://www.alaffiahealth.com/)
+
 
 ### Push Actions
 When modifications are completed follow these steps to commit your changes to the envoyx-qa branch
@@ -59,7 +58,10 @@ git add .
 git commit -am "message for commit"
 git push origin envoyx-qa
 ```
-
+## Website Templates
+1. Rebuild Main Website - [EnvoyX](#https://tryenvoyx.com/)
+2. CSS Template - [Alaffiahealth](#https://www.alaffiahealth.com/)
+   
 ## Pull Requests
 All pull requests must be reviewed and checks completed before the code is pushed/merged from the envoyx-qa branch to the master branch to be deployed to the website.
 
