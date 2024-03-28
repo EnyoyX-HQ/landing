@@ -1,4 +1,4 @@
-name: Lint JavaScript
+name: Lint Typescript
 
 on:
   workflow_dispatch:
@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - uses: actions/cache@v2
-        with:
-          path: "node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install modules
         run: npm install
