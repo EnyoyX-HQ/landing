@@ -47,9 +47,9 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ### Website URL Patterns
 1. <b>Landing Page</b>: `https://tryenvoyx.com`
-2. <b>Sign Up Auth URL</b>: `https://auth.tryenvoyx.com/signup?redirectUrl=https%3A%2F%2Fdashboard.tryenvoyx.com%2Fsignup%2F`
-3. <b>Sign In Auth URL</b> to redirect users to signin <b>dashboard</b>: `https://auth.tryenvoyx.com/?redirectUrl=https%3A%2F%2Fdashboard.tryenvoyx.com%2Fsignup%2F`
-4. <b>Dashboard URL</b>: `https://dashboard.tryenvoyx.com`
+2. <b>Sign Up Auth URL</b>: `https://auth.tryenvoyx.com/signup?redirectUrl=https%3A%2F%2Ftryenvoyx.com%2Fdashboard%2Fsignup%2F`
+3. <b>Sign In Auth URL</b>: `https://auth.tryenvoyx.com/?redirectUrl=https%3A%2F%2Ftryenvoyx.com%2Fdashboard%2Fsignup%2F`
+4. <b>Dashboard URL</b>: `https://tryenvoyx.com/dashboard`
 
 
 Follow the templates down below to build the envoyx-platform:
