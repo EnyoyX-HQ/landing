@@ -15,6 +15,7 @@
 
 
 - [Getting Started](#getting-started)
+  - [Reusable UI Components](#reusable-ui-components)
   - [Website URL Patterns](#website-url-patterns)
   - [Website Templates](#website-templates)
   - [Next JS App Router](#next-js-app-router)
@@ -44,6 +45,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+### Reusable UI Components
+Template library for Front End UI components are provided in [ui-component-library](#https://github.com/EnvoyX-Org/ui-component-library) repo to be used as a boilerplate and speed up development.
 
 ### Website URL Patterns
 1. <b>Landing Page</b>: `https://tryenvoyx.com`
