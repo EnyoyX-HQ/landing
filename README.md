@@ -58,7 +58,8 @@ Follow the templates down below to build the envoyx-platform:
 1. Rebuild Main Website - [EnvoyX](#https://tryenvoyx.com/)
 2. Rebuild Dashboard Auth - [EnvoyX Login / SignUp](#https://envoyx.vercel.app/)
 3. Rebuild Dashboard View - [EnvoyX Dashboard](#https://envoyx.vercel.app/dashboard)
-4. CSS Template - [Alaffiahealth](#https://www.alaffiahealth.com/)
+4. CSS Template 
+[NavBar, Footer, Hover Effects, Animations, Scroll Effects] - [Alaffiahealth](#https://www.alaffiahealth.com/)
 5. NextJS Dashboard Template [NextJS](#https://github.com/Joshardals/Nextjs14-dashboard/tree/master/app/dashboard)
 
 ### Next JS App Router
