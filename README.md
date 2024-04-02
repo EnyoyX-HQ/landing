@@ -51,8 +51,23 @@ Template library for Front End UI components are provided in [ui-component-libra
 
 ### Website URL Patterns
 1. <b>Landing Page</b>: `https://tryenvoyx.com`
-2. <b>Sign Up Auth URL</b>: `https://auth.tryenvoyx.com/signup?redirectUrl=https%3A%2F%2Ftryenvoyx.com%2Fdashboard%2Fsignup%2F`
-3. <b>Sign In Auth URL</b>: `https://auth.tryenvoyx.com/?redirectUrl=https%3A%2F%2Ftryenvoyx.com%2Fdashboard%2Fsignup%2F`
+2. <b>Sign Up Auth URL</b>: 
+   ```js
+   authUrl1 = 'https://auth.tryenvoyx.com/signup?redirectUrl=https://tryenvoyx.com/dashboard/signup/'
+  
+   authUrl2 = 'https://tryenvoyx.com/api/auth/signup?redirectUrl=https://tryenvoyx.com/dashboard/signup/'
+
+   redirectUrl1='https://tryenvoyx.com/dashboard/signup'
+   ```
+   
+3. <b>Sign In Auth URL</b>: 
+   ```js
+   authUrl1 = `https://auth.tryenvoyx.com/?redirectUrl=https://tryenvoyx.com/dashboard/signup/`
+
+   authUrl2 = `https://tryenvoyx.com/api/auth?redirectUrl=https://tryenvoyx.com/dashboard/signup/`
+
+   redirectUrl1='https://tryenvoyx.com/dashboard/signup'
+   ```
 4. <b>Dashboard URL</b>: `https://tryenvoyx.com/dashboard`
 
 
