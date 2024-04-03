@@ -1,0 +1,72 @@
+.glowing_ball {
+  overflow: visible;
+  filter: blur(9.627328872680664px);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+
+.eclipse1 {
+  @apply absolute right-0;
+  width: 93px;
+  height: 93px;
+  animation: anim-1 45s infinite;
+  -webkit-animation: anim-1 45s infinite;
+  -moz-animation: anim-1 45s infinite;
+}
+
+.eclipse2 {
+  @apply absolute top-1/2;
+  width: 162px;
+  height: 162px;
+  animation: anim-2 45s infinite;
+  -webkit-animation: anim-2 45s infinite;
+  -moz-animation: anim-2 45s infinite;
+}
+
+.eclipse3 {
+  @apply absolute -bottom-20 left-[45%];
+  width: 30px;
+  height: 30px;
+  animation: anim-3 45s infinite;
+  -webkit-animation: anim-3 45s infinite;
+  -moz-animation: anim-3 45s infinite;
+}
+
+/* Eclipse animations */
+
+@keyframes anim-1 {
+  0%,
+  100% {
+    right: 0;
+  }
+  50% {
+    right: 45%;
+  }
+}
+
+@keyframes anim-2 {
+  0%,
+  100% {
+    top: 50%;
+    left: 0;
+  }
+  50% {
+    left: 45%;
+  }
+}
+
+@keyframes anim-3 {
+  0%,
+  100% {
+    bottom: 0;
+    left: 45%;
+  }
+  50% {
+    left: 75%;
+  }
+  70% {
+    bottom: 50%;
+  }
+}
+/* Eclipse animations end */

@@ -1,0 +1,37 @@
+<svg width="430" height="335" viewBox="0 0 430 335" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.5">
+<mask id="mask0_939_146" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-95" width="430" height="430">
+<rect width="429.906" height="429.906" transform="matrix(-1 0 0 -1 429.906 335)" fill="url(#paint0_radial_939_146)"/>
+</mask>
+<g mask="url(#mask0_939_146)">
+<g clip-path="url(#clip0_939_146)">
+<g clip-path="url(#clip1_939_146)">
+<line x1="333.682" y1="335" x2="333.682" y2="-94.9063" stroke="#21312A" stroke-width="0.447819"/>
+<line x1="237.682" y1="335" x2="237.682" y2="-94.9063" stroke="#21312A" stroke-width="0.447819"/>
+<line x1="141.682" y1="335" x2="141.682" y2="-94.9063" stroke="#21312A" stroke-width="0.447819"/>
+<line x1="45.6823" y1="335" x2="45.6823" y2="-94.9063" stroke="#21312A" stroke-width="0.447819"/>
+</g>
+<g clip-path="url(#clip2_939_146)">
+<line x1="429.906" y1="239.224" x2="-9.15527e-05" y2="239.224" stroke="#21312A" stroke-width="0.447819"/>
+<line x1="429.906" y1="143.224" x2="-9.15527e-05" y2="143.224" stroke="#21312A" stroke-width="0.447819"/>
+<line x1="429.906" y1="47.2239" x2="-9.15527e-05" y2="47.2239" stroke="#21312A" stroke-width="0.447819"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_939_146" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(214.953 -5.12488e-05) rotate(90) scale(429.906 224.384)">
+<stop/>
+<stop offset="0.953125" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_939_146">
+<rect width="960" height="429.906" fill="white" transform="matrix(-1 0 0 -1 429.906 335)"/>
+</clipPath>
+<clipPath id="clip1_939_146">
+<rect width="960" height="429.906" fill="white" transform="matrix(-1 0 0 -1 429.906 335)"/>
+</clipPath>
+<clipPath id="clip2_939_146">
+<rect width="429.906" height="960" fill="white" transform="matrix(-1 0 0 -1 429.906 335)"/>
+</clipPath>
+</defs>
+</svg>
