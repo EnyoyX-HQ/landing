@@ -1,0 +1,6 @@
+export { default as Partner1 } from './Partner-1.png'
+export { default as Partner2 } from './Partner-2.png'
+export { default as Partner3 } from './Partner-3.png'
+export { default as Partner4 } from './Partner-4.png'
+export { default as Partner5 } from './Partner-5.png'
+export { default as Partner6 } from './Partner-6.png'

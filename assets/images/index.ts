@@ -1,0 +1,12 @@
+export { default as Logo } from './logo.png'
+export { default as HeroImg } from './herobg-ad-on.svg'
+export { default as Asteriks } from './asteriks.svg'
+export { default as IntroImg1 } from './image 1.png'
+export { default as IntroImg2 } from './image 2.png'
+export { default as Shred } from './shred.png'
+export { default as ToolCardImg } from './card.png'
+export { default as ToolCardImg2 } from './card2.png'
+export { default as Wish } from './Wish.png'
+export { default as Star } from './star-white.svg'
+
+export * from './partners'
