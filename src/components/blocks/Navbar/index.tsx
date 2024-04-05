@@ -92,7 +92,7 @@ const Navbar = () => {
     useDisclosure(false)
   const [linksOpenedCo, { toggle: toggleLinksCo }] = useDisclosure(false)
   const [linksOpenedClinic, { toggle: toggleLinksClinic }] = useDisclosure(false)
-  const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
+  //const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
   const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] = useDisclosure(false)
 
   const theme = useMantineTheme()
@@ -140,7 +140,7 @@ const Navbar = () => {
   ))
 
   return (
-    <Box pb={120}>
+    <Box pb={40}>
       <header className={`ex--container ${classes.header}`}>
         <Group justify='space-between' h='100%'>
           <Link href={'/'}>
@@ -148,9 +148,6 @@ const Navbar = () => {
           </Link>
 
           <Group h='100%' gap={0} visibleFrom='md'>
-            {/*<a href='#' className={classes.link}>
-              Company
-            </a>*/}
             <HoverCard
               width={600}
               position='bottom'
@@ -228,7 +225,7 @@ const Navbar = () => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <HoverCard
+            {/*<HoverCard
               width={600}
               position='bottom'
               radius='md'
@@ -277,7 +274,7 @@ const Navbar = () => {
                   </Group>
                 </div>
               </HoverCard.Dropdown>
-            </HoverCard>
+            </HoverCard>*/}
             <HoverCard
               width={600}
               position='bottom'
@@ -331,9 +328,6 @@ const Navbar = () => {
             <a href='#' className={classes.link}>
               Enterprise
             </a>
-            {/*<a href='#' className={classes.link}>
-              Careers
-            </a>*/}
           </Group>
 
           <Group visibleFrom='md'>
@@ -413,7 +407,7 @@ const Navbar = () => {
               <Collapse in={linksOpenedClinic} c={'white'}>
                 {links}
               </Collapse>
-              <UnstyledButton
+              {/*<UnstyledButton
                 className={classes.drawerLink}
                 onClick={toggleLinksPayer}
               >
@@ -429,7 +423,7 @@ const Navbar = () => {
               </UnstyledButton>
               <Collapse in={linksOpenedPayer} c={'white'}>
                 {links}
-              </Collapse>
+              </Collapse>*/}
               <UnstyledButton
                 className={classes.drawerLink}
                 onClick={toggleLinkSolutions}

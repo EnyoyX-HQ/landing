@@ -9,10 +9,10 @@ import { ExButton } from '@/components'
 
 const Tools = () => {
   return (
-    <section className='section--padding bg-ex-deep-green'>
+    <section id='tools' className='section--padding bg-ex-deep-green'>
       <div className='ex--container'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-5 lg:mx-40'>
-          <h1 className={`${EksellDisplay.variable} text-5xl text-white`}>
+          <h1 className={`text-5xl font-bold text-white`}>
             The tools you really need
           </h1>
           <p className='text-slate-300 w-full md:w-96'>
@@ -28,7 +28,7 @@ const Tools = () => {
               <div>
                 <Image src={Asteriks} className='w-16 md:w-20' alt='img' />
                 <h2
-                  className={`${EksellDisplay.variable} text-3xl md:text-5xl mt-5 mb-5 lg:mb-0`}
+                  className={`text-3xl font-bold md:text-5xl mt-5 mb-5 lg:mb-0`}
                 >
                   Invoice crediting
                 </h2>
@@ -57,7 +57,7 @@ const Tools = () => {
             <SwiperSlide>
               <div className='focus-card rounded-3xl p-8 lg:p-20'>
                 <h2
-                  className={`${EksellDisplay.variable} text-3xl lg:text-5xl text-white`}
+                  className={`text-3xl font-bold lg:text-5xl text-white`}
                 >
                   Focus on what matters. <br /> No more running out of cash.
                 </h2>
@@ -80,7 +80,7 @@ const Tools = () => {
               <div className='billing-card relative overflow-hidden rounded-3xl'>
                 <div className='px-8 lg:px-20 pt-8 lg:pt-20'>
                   <h2
-                    className={`${EksellDisplay.variable} text-3xl lg:text-5xl text-white`}
+                    className={`text-3xl font-bold lg:text-5xl text-white`}
                   >
                     Seamless billing
                   </h2>
