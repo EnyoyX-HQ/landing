@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import footerLinks from '@/lib/footerLinks'
-import { EksellDisplay } from '@/components/elements/FontContainer'
+import { EksellDisplay } from '@/components/elements/FontContainer' /*${EksellDisplay.variable}*/
 
 interface FooterLinksProps {
   title: string
@@ -18,7 +18,7 @@ interface Links {
 const FooterLinks = ({ title, links }: FooterLinksProps) => {
   return (
     <div className='footer-link'>
-      <h3 className={`${EksellDisplay.variable}`}>{title}</h3>
+      <h3 className={``}>{title}</h3>
       <ul className='links'>
         {links.map((item: any) => (
           <li key={item.label}>

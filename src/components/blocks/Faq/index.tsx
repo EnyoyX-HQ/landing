@@ -2,8 +2,7 @@
 
 import { Accordion, Text } from '@mantine/core'
 import faq from '@/lib/faq'
-import { EksellDisplay } from '@/components/elements/FontContainer'
-
+import { EksellDisplay } from '@/components/elements/FontContainer' /*${EksellDisplay.variable}*/
 const Faq = () => {
   const items = faq.map((item) => (
     <Accordion.Item value={item.value} key={item.value}>
@@ -18,7 +17,7 @@ const Faq = () => {
     <section className='section--padding'>
       <div className='ex--container'>
         <div className='header text-center'>
-          <h1 className={`${EksellDisplay.variable} text-3xl lg:text-5xl mb-3`}>
+          <h1 className={`text-3xl lg:text-5xl mb-3`}>
             Frequently Asked Questions
           </h1>
           <p className='text-slate-700 text-sm md:text-base w-full lg:w-[650px] flex mx-auto'>

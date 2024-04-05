@@ -1,6 +1,6 @@
 import { Box, Group, Text } from '@mantine/core'
 import { IconArrowRight } from '@tabler/icons-react'
-import { EksellDisplay } from '@/components/elements/FontContainer'
+import { EksellDisplay } from '@/components/elements/FontContainer' /*${EksellDisplay.variable}*/
 import { ExButton, GlowingBalls, Navbar } from '@/components'
 
 const Hero = () => {
@@ -8,10 +8,10 @@ const Hero = () => {
     <header className='h-screen relative hero-section'>
       <Navbar />
       <GlowingBalls />
-      <Box className='hero-text ex--container relative z-50 -mt-16 lg:mt-0'>
-        <div className='flex flex-col items-center text-center gap-8'>
+      <Box className='hero-text h-screen ex--container relative z-50 -mt-16 lg:-mt-10'>
+        <div className='flex flex-col items-center justify-center h-full text-center gap-8'>
           <h1
-            className={`${EksellDisplay.variable} text-white text-3xl lg:text-6xl w-full lg:w-[800px]`}
+            className={`text-white font-bold text-3xl lg:text-6xl w-full lg:w-[800px]`}
           >
             Unlock <span className='gradient-text'>Financial</span> Potential
             and propel your business operations
@@ -31,7 +31,7 @@ const Hero = () => {
             </ExButton>
             <ExButton
               type='link'
-              href='/'
+              href='#tools'
               rightIcon={<IconArrowRight />}
               className='text-ex-yellow'
             >
