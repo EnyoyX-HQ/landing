@@ -30,12 +30,14 @@ const Tools = () => {
                 <h2
                   className={`text-3xl font-bold md:text-5xl mt-5 mb-5 lg:mb-0`}
                 >
-                  Invoice crediting
+                  Claims Processing
+                  {/*Invoice Crediting*/}
                 </h2>
               </div>
               <div className='desc text-base lg:text-xl w-full md:w-[480px]'>
-                Quickly send an invoice for each insurance claims and get paid
-                in less than 48-hours.
+                {/*Quickly send an invoice for each insurance claims
+and get paid in less than 48-hours*/}
+                Envoyx's sophisticated AI powered solutions ensure swift and efficient resolution of invoices and insurance claims to increase operational efficiency. 
               </div>
             </div>
             <div className='-mt-3 md:pt-40'>
@@ -59,9 +61,13 @@ const Tools = () => {
                 <h2
                   className={`text-3xl font-bold lg:text-5xl text-white`}
                 >
-                  Focus on what matters. <br /> No more running out of cash.
+                  {/*Focus on what matters. <br /> No more running out of cash.*/}
+                  Reliable Fraud Detection
                 </h2>
-
+                <p className='text-white mt-5'>
+                  Envoyx's fraud detection solutions enables swift identification of suspicious patterns and anomalies in insurance claims to mitigate fraudulent activities,
+                 protect revenue streams and fortify financial security, ensuring the integrity of insurance operations.
+                </p>
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
                     type='link'
@@ -82,11 +88,15 @@ const Tools = () => {
                   <h2
                     className={`text-3xl font-bold lg:text-5xl text-white`}
                   >
-                    Seamless billing
+                    Enhanced Revenue
+                    {/*Seemless Billing*/} 
                   </h2>
                   <p className='text-white mt-5'>
-                    Handle your billing process, including claims submission,
-                    ensuring maximum reimbursement for your services.
+                    Quickly send an invoice for each insurance claim and get paid
+                in less than 48-hours.
+                {/*Handle your billing process, including claims submission,
+                  ensuring maximum reimbursement for your
+                  services.*/}
                   </p>
                 </div>
                 <div className='mt-4 lg:mt-[70px] flex justify-between items-center'>
