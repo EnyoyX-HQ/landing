@@ -136,7 +136,7 @@ const Services = () => {
                   alt='img'
                 />
                 <div className='user-info'>
-                  <h4 className='font-bold text-slate-800'>Loubao Kraka</h4>
+                  <h4 className='font-bold text-slate-800'>Dr. Halid</h4>
                   <p className='text-sm text-slate-700'>
                     Finance @ Lourdes medical clinic
                   </p>
@@ -265,7 +265,7 @@ const Services = () => {
                     alt='img'
                   />
                   <div className='user-info'>
-                    <h4 className='font-bold text-slate-800'>Loubao Kraka</h4>
+                    <h4 className='font-bold text-slate-800'>Dr. Halid</h4>
                     <p className='text-sm text-slate-700'>
                       Finance @ Lourdes medical clinic
                     </p>

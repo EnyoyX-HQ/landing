@@ -69,13 +69,56 @@ const mockdata = [
   },
 ]
 
+const company_mockdata = [
+  {
+    icon: IconCode,
+    title: 'About Us',
+    description: 'Learn more about our company',
+  },
+  {
+    icon: IconCoin,
+    title: 'Partner With Us',
+    description: 'Get started by partnering with us',
+  },
+  {
+    icon: IconBook,
+    title: 'Careers',
+    description: 'Join our team',
+  },
+]
+
 const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false)
-  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false)
+  const [linksOpenedCo, { toggle: toggleLinksCo }] = useDisclosure(false)
+  const [linksOpenedClinic, { toggle: toggleLinksClinic }] = useDisclosure(false)
+  const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
+  const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] = useDisclosure(false)
+
   const theme = useMantineTheme()
 
   const links = mockdata.map((item) => (
+    <UnstyledButton className={classes.subLink} key={item.title}>
+      <Group wrap='nowrap' align='flex-start'>
+        <ThemeIcon size={34} variant='default' radius='md'>
+          <item.icon
+            style={{ width: rem(22), height: rem(22) }}
+            color={theme.colors.blue[6]}
+          />
+        </ThemeIcon>
+        <div>
+          <Text size='sm' fw={500}>
+            {item.title}
+          </Text>
+          <Text size='xs' c='dimmed'>
+            {item.description}
+          </Text>
+        </div>
+      </Group>
+    </UnstyledButton>
+  ))
+
+  const company_links = company_mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap='nowrap' align='flex-start'>
         <ThemeIcon size={34} variant='default' radius='md'>
@@ -104,22 +147,23 @@ const Navbar = () => {
             <Image src={Logo} width={100} alt='logo' />
           </Link>
 
-          <Group h='100%' gap={0} visibleFrom='sm'>
-            <a href='#' className={classes.link}>
-              About
-            </a>
+          <Group h='100%' gap={0} visibleFrom='md'>
+            {/*<a href='#' className={classes.link}>
+              Company
+            </a>*/}
             <HoverCard
               width={600}
               position='bottom'
               radius='md'
               shadow='md'
               withinPortal
+              id="aboutus-container"
             >
               <HoverCard.Target>
                 <a href='#' className={classes.link}>
                   <Center inline>
                     <Box component='span' mr={5}>
-                      Features
+                      Company
                     </Box>
                     <IconChevronDown
                       style={{ width: rem(16), height: rem(16) }}
@@ -128,10 +172,136 @@ const Navbar = () => {
                   </Center>
                 </a>
               </HoverCard.Target>
-
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+                <SimpleGrid cols={2} spacing={0}>
+                  {company_links}
+                </SimpleGrid>
+              </HoverCard.Dropdown>
+            </HoverCard>
+            <HoverCard
+              width={600}
+              position='bottom'
+              radius='md'
+              shadow='md'
+              withinPortal
+              id="clinic-container"
+            >
+              <HoverCard.Target>
+                <a href='#' className={classes.link}>
+                  <Center inline>
+                    <Box component='span' mr={5}>
+                      For Clinics
+                    </Box>
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                      color={'white'}
+                    />
+                  </Center>
+                </a>
+              </HoverCard.Target>
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify='space-between' px='md'>
-                  <Text fw={500}>Features</Text>
+                  <Text fw={500}>Clinics</Text>
+                  <Anchor href='#' fz='xs'>
+                    View all
+                  </Anchor>
+                </Group>
+
+                <Divider my='sm' />
+
+                <SimpleGrid cols={2} spacing={0}>
+                  {links}
+                </SimpleGrid>
+
+                <div className={classes.dropdownFooter}>
+                  <Group justify='space-between'>
+                    <div>
+                      <Text fw={500} fz='sm'>
+                        Get started
+                      </Text>
+                      <Text size='xs' c='dimmed'>
+                        Their food sources have decreased, and their numbers
+                      </Text>
+                    </div>
+                    <Button variant='default'>Get started</Button>
+                  </Group>
+                </div>
+              </HoverCard.Dropdown>
+            </HoverCard>
+            <HoverCard
+              width={600}
+              position='bottom'
+              radius='md'
+              shadow='md'
+              withinPortal
+              id="payer-container"
+            >
+              <HoverCard.Target>
+                <a href='#' className={classes.link}>
+                  <Center inline>
+                    <Box component='span' mr={5}>
+                      For Payers
+                    </Box>
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                      color={'white'}
+                    />
+                  </Center>
+                </a>
+              </HoverCard.Target>
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+                <Group justify='space-between' px='md'>
+                  <Text fw={500}>Payers</Text>
+                  <Anchor href='#' fz='xs'>
+                    View all
+                  </Anchor>
+                </Group>
+
+                <Divider my='sm' />
+
+                <SimpleGrid cols={2} spacing={0}>
+                  {links}
+                </SimpleGrid>
+
+                <div className={classes.dropdownFooter}>
+                  <Group justify='space-between'>
+                    <div>
+                      <Text fw={500} fz='sm'>
+                        Get started
+                      </Text>
+                      <Text size='xs' c='dimmed'>
+                        Their food sources have decreased, and their numbers
+                      </Text>
+                    </div>
+                    <Button variant='default'>Get started</Button>
+                  </Group>
+                </div>
+              </HoverCard.Dropdown>
+            </HoverCard>
+            <HoverCard
+              width={600}
+              position='bottom'
+              radius='md'
+              shadow='md'
+              withinPortal
+              id="features-container"
+            >
+              <HoverCard.Target>
+                <a href='#' className={classes.link}>
+                  <Center inline>
+                    <Box component='span' mr={5}>
+                      Solutions
+                    </Box>
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                      color={'white'}
+                    />
+                  </Center>
+                </a>
+              </HoverCard.Target>
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+                <Group justify='space-between' px='md'>
+                  <Text fw={500}>Solutions</Text>
                   <Anchor href='#' fz='xs'>
                     View all
                   </Anchor>
@@ -159,14 +329,14 @@ const Navbar = () => {
               </HoverCard.Dropdown>
             </HoverCard>
             <a href='#' className={classes.link}>
-              Blog
+              Enterprise
             </a>
-            <a href='#' className={classes.link}>
+            {/*<a href='#' className={classes.link}>
               Careers
-            </a>
+            </a>*/}
           </Group>
 
-          <Group visibleFrom='sm'>
+          <Group visibleFrom='md'>
             <ExButton
               type='link'
               href='/'
@@ -181,7 +351,7 @@ const Navbar = () => {
             opened={drawerOpened}
             onClick={toggleDrawer}
             color='white'
-            hiddenFrom='sm'
+            hiddenFrom='md'
           />
         </Group>
       </header>
@@ -191,7 +361,7 @@ const Navbar = () => {
         onClose={closeDrawer}
         size='80%'
         position='right'
-        hiddenFrom='sm'
+        hiddenFrom='md'
         zIndex={1000000}
       >
         <Drawer.Overlay backgroundOpacity={0.5} blur={4} />
@@ -211,11 +381,11 @@ const Navbar = () => {
               </a>
               <UnstyledButton
                 className={classes.drawerLink}
-                onClick={toggleLinks}
+                onClick={toggleLinksCo}
               >
                 <Center inline>
                   <Box component='span' mr={5}>
-                    Features
+                    Company 
                   </Box>
                   <IconChevronDown
                     style={{ width: rem(16), height: rem(16) }}
@@ -223,15 +393,66 @@ const Navbar = () => {
                   />
                 </Center>
               </UnstyledButton>
-              <Collapse in={linksOpened} c={'white'}>
+              <Collapse in={linksOpenedCo} c={'white'}>
+                {company_links}
+              </Collapse>
+              <UnstyledButton
+                className={classes.drawerLink}
+                onClick={toggleLinksClinic}
+              >
+                <Center inline>
+                  <Box component='span' mr={5}>
+                    For Clinics
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
+              </UnstyledButton>
+              <Collapse in={linksOpenedClinic} c={'white'}>
+                {links}
+              </Collapse>
+              <UnstyledButton
+                className={classes.drawerLink}
+                onClick={toggleLinksPayer}
+              >
+                <Center inline>
+                  <Box component='span' mr={5}>
+                    For Payers
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
+              </UnstyledButton>
+              <Collapse in={linksOpenedPayer} c={'white'}>
+                {links}
+              </Collapse>
+              <UnstyledButton
+                className={classes.drawerLink}
+                onClick={toggleLinkSolutions}
+              >
+                <Center inline>
+                  <Box component='span' mr={5}>
+                    Solutions
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
+              </UnstyledButton>
+              <Collapse in={linksOpenedSolutions} c={'white'}>
                 {links}
               </Collapse>
               <a href='#' className={classes.drawerLink}>
-                Blog
+                Enterprise
               </a>
-              <a href='#' className={classes.drawerLink}>
+              {/*<a href='#' className={classes.drawerLink}>
                 Careers
-              </a>
+              </a>*/}
 
               <Group pb='xl' mt={40} px='md'>
                 <ExButton
