@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import "../shadcn.css";
 
-export default function LoginForm() {
+export default function SignUpForm() {
   return (
     <div className="h-screen flex justify-center content-center">
       <Card className="m-auto max-w-sm">
