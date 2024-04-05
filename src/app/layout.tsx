@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import MantineSetup from '@/layout/MantineSetup'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import 'swiper/css'
 
 const openSans = Open_Sans({
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={openSans.className}>
         <MantineSetup>{children}</MantineSetup>
+        <SpeedInsights/>
       </body>
     </html>
   )

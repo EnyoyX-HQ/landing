@@ -37,7 +37,7 @@ import { Logo } from '@/images'
 import { ExButton } from '@/components'
 
 const mockdata = [
-  {
+  /*{
     icon: IconCode,
     title: 'Open source',
     description: 'This Pokémon cry is very loud and distracting',
@@ -46,26 +46,31 @@ const mockdata = [
     icon: IconCoin,
     title: 'Free for everyone',
     description: 'The fluid of Smeargle tail secretions changes',
-  },
+  },*/
   {
-    icon: IconBook,
-    title: 'Documentation',
-    description: 'Yanma is capable of seeing 360 degrees without',
-  },
-  {
-    icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell rounded shape and the grooves on its.',
+    icon: IconCode,
+    title: 'Claims Processing',
+    description: 'Advanced AI-powered tools to process and claims and invoices',
   },
   {
     icon: IconChartPie3,
     title: 'Analytics',
-    description: 'This Pokémon uses its flying ability to quickly chase',
+    description: 'Real-time analytics and results to generate insights',
   },
   {
-    icon: IconNotification,
-    title: 'Notifications',
-    description: 'Combusken battles with the intensely hot flames it spews',
+    icon: IconBook,
+    title: 'Fraud  Detection',
+    description: 'Robust fraud detection system to identify fraudulent claims',
+  },
+  /*{
+    icon: IconFingerprint,
+    title: 'Security',
+    description: 'The shell rounded shape and the grooves on its.',
+  },*/
+  {
+    icon: IconCoin,
+    title: 'Payment',
+    description: 'Enhance revenue by getting paid quickly ',
   },
 ]
 
