@@ -444,9 +444,6 @@ const Navbar = () => {
               <a href='#' className={classes.drawerLink}>
                 Enterprise
               </a>
-              {/*<a href='#' className={classes.drawerLink}>
-                Careers
-              </a>*/}
 
               <Group pb='xl' mt={40} px='md'>
                 <ExButton
