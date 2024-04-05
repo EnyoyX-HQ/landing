@@ -35,7 +35,7 @@ const Testimonial = () => {
                 <div className='user-info'>
                   <h4 className='font-bold text-slate-700'>Dr. Halid</h4>
                   <p className='text-sm text-slate-500'>
-                    Finance @ Lourdes medical clinic
+                    From Lourdes medical clinic
                   </p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const Testimonial = () => {
                 <div className='user-info'>
                   <h4 className='font-bold text-slate-700'>Dr. Halid</h4>
                   <p className='text-sm text-slate-500'>
-                    Finance @ Lourdes medical clinic
+                    From Lourdes medical clinic
                   </p>
                 </div>
               </div>

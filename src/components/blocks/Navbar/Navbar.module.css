@@ -40,7 +40,7 @@
   padding-top: var(--mantine-spacing-md);
   padding-bottom: var(--mantine-spacing-md);
   text-decoration: none;
-  color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-white));
+  color: #9ca3af; /*light-dark(var(--mantine-color-gray-5), var(--mantine-color-white));*/
   font-weight: 500;
   font-size: var(--mantine-font-size-base);
 
