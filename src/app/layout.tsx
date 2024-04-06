@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+import './globals.css'
 import MantineSetup from "@/layout/MantineSetup";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "swiper/css";
