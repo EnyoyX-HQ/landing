@@ -26,6 +26,12 @@
     );
   }
 }
+a.link:hover {
+  background: linear-gradient(90deg, #98f275, #bde970);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 .drawer {
   background: #001a1b;

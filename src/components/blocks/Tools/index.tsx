@@ -65,8 +65,8 @@ and get paid in less than 48-hours*/}
                   Reliable Fraud Detection
                 </h2>
                 <p className='text-white mt-5'>
-                  Envoyx's fraud detection solution enables swift identification of suspicious patterns and anomalies in insurance claims to mitigate fraudulent activities,
-                 protect revenue streams and fortify financial security, ensuring the integrity of insurance operations.
+                  Envoyx's fraud detection capabilities enables swift identification of suspicious patterns and anomalies in insurance claims to mitigate fraudulent activities,
+                 protect revenue streams and fortify financial security.
                 </p>
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
