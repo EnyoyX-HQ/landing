@@ -145,7 +145,7 @@ const Navbar = () => {
   ))
 
   return (
-    <Box pb={40}>
+    <Box pb={43}>
       <header className={`ex--container ${classes.header}`}>
         <Group justify='space-between' h='100%'>
           <Link href={'/'}>
@@ -334,11 +334,15 @@ const Navbar = () => {
               Enterprise
             </a>
           </Group>
-
           <Group visibleFrom='md'>
+            <div>
+              <a href='/dashboard' className={`${classes.link}`}>
+                Login
+              </a>
+            </div>
             <ExButton
               type='link'
-              href='/'
+              href='/dashboard'
               rightIcon={<IconArrowRight />}
               isGradient
             >
@@ -450,7 +454,10 @@ const Navbar = () => {
                 Enterprise
               </a>
 
-              <Group pb='xl' mt={40} px='md'>
+              <Group pb='xl' mt={40} px='md' wrap='wrap'>
+                <a href='/dashboard' className={`${classes.link}`}>
+                  Login
+                </a>
                 <ExButton
                   type='link'
                   href='/'
