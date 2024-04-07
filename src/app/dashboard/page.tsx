@@ -33,7 +33,7 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import "../shadcn.css";
 import DashboardLayout from "./DashboardLayout";
-import HomePage from "./home"
+import HomePage from "./Home"
 import Clinic from "./settings/profile/page";
 import Invoice from "./invoices/page";
 import Documentation from "./docs/page";
