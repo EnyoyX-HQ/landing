@@ -38,7 +38,7 @@ import Clinics from "./Clinics";
 export default function Dashboard() {
   return (
     <DashboardLayout>
-      <Home />
+      <Clinics />
     </DashboardLayout>
   );
 }
