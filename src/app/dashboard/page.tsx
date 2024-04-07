@@ -1,6 +1,6 @@
 import "../shadcn.css";
 import DashboardLayout from "./DashboardLayout";
-import HomePage from "./home"
+import HomePage from "./Home"
 import Clinic from "./settings/profile/page";
 import Invoice from "./invoices/page";
 import Documentation from "./docs/page";
