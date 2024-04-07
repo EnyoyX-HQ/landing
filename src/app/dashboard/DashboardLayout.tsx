@@ -84,7 +84,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Paperclip className="h-4 w-4" />
-                                Resources
+                                Documentation
                             </Link>
                         </nav>
                     </div>
