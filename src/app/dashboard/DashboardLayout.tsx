@@ -56,14 +56,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     <div className="flex-1">
                         <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
                             <Link
-                                href="#"
+                                href="/dashboard"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Home className="h-4 w-4" />
                                 Home
                             </Link>
                             <Link
-                                href="#"
+                                href="/dashboard/invoices"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Store className="h-4 w-4" />
@@ -73,14 +73,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                                 </Badge>
                             </Link>
                             <Link
-                                href="#"
+                                href="/dashboard/settings/profile"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Users className="h-4 w-4" />
                                 My profile{" "}
                             </Link>
                             <Link
-                                href="#"
+                                href="/dashboard/docs"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Paperclip className="h-4 w-4" />
@@ -117,7 +117,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                                     className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                                 >
                                     <Home className="h-5 w-5" />
-                                    Dashboard
+                                    Home
                                 </Link>
                                 <Link
                                     href="#"
