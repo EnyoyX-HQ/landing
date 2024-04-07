@@ -1,6 +1,6 @@
 import React from "react";
 import CardComponent from "./components/Card";
-import ChartGraph from "./components/ChartGraph";
+import ChartGraphComponent from "./components/ChartGraph";
 
 const Home = () => {
     return (
@@ -23,7 +23,7 @@ const Home = () => {
                     </div>
                 </div>
                 <>
-                    <ChartGraph />
+                    <ChartGraphComponent />
                 </>
             </div>
         </div>
