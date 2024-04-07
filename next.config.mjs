@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
 export const images = {
-    domains: ['images.pexels.com'],
+  domains: ['images.pexels.com'],
 };
