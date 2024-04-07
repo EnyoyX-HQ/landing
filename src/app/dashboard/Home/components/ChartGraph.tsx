@@ -105,7 +105,7 @@ export default function ChartGraph() {
             }
         }
         const ctx = document.getElementById("line-chart")
-        window.myLine = new Chart(ctx, config);
+        //window.myLine = new Chart(ctx, config);
     }, [])
     return (
         <>
