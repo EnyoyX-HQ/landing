@@ -1,9 +1,7 @@
 import "../shadcn.css";
 import DashboardLayout from "./DashboardLayout";
 import HomePage from "./components/home"
-import Clinic from "./settings/profile/page";
-import Invoice from "./invoices/page";
-import Documentation from "./docs/page";
+
 
 
 export default function Dashboard() {
