@@ -1,8 +1,15 @@
+
+import DashboardLayout from "../DashboardLayout";
+import Link from "next/link";
+import React from "react";
 const Invoices = () => {
   return(
-      <div>
+      <DashboardLayout>
+        <div>
           <h1>Invoices</h1>
-      </div>
+        </div>
+      </DashboardLayout>
+      
   )
 }
 export default Invoices
