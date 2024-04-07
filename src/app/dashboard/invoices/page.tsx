@@ -1,13 +1,11 @@
 
 import DashboardLayout from "../DashboardLayout";
-import Link from "next/link";
+import InvoicePage from "../components/Invoice"
 import React from "react";
 const Invoices = () => {
   return(
       <DashboardLayout>
-        <div>
-          <h1>Invoices</h1>
-        </div>
+        <InvoicePage />
       </DashboardLayout>
       
   )

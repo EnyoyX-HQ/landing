@@ -31,7 +31,7 @@ const Clinics: React.FC = () => {
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
                             <Button>
-                                Add a clinic
+                                Edit Profile
                             </Button>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
@@ -87,27 +87,6 @@ const Clinics: React.FC = () => {
                     siteweb={siteweb}
                     insurances={insurances}
                 />
-                <ClinicsCard
-                    image={image}
-                    name={name}
-                    city={city}
-                    number={number}
-                    address={address}
-                    email={email}
-                    siteweb={siteweb}
-                    insurances={insurances}
-                />
-                <ClinicsCard
-                    image={image}
-                    name={name}
-                    city={city}
-                    number={number}
-                    address={address}
-                    email={email}
-                    siteweb={siteweb}
-                    insurances={insurances}
-                />
-
             </div>
         </div>
     )

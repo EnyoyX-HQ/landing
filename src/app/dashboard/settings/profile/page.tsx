@@ -1,12 +1,12 @@
 import DashboardLayout from "../../DashboardLayout";
-import ClinicProfile from "../../Clinics"
+import ProfilePage from "../../components/Clinics"
 import Link from "next/link";
 import React from "react";
 
 const Clinic = () => {
     return(
         <DashboardLayout>
-            <ClinicProfile />
+            <ProfilePage />
         </DashboardLayout>
     )
 }
