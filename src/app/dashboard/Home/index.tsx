@@ -1,6 +1,6 @@
 import React from "react";
 import CardComponent from "./components/Card";
-import ChartGraph from "./components/ChartGraph"; //
+import ChartGraph from "./components/ChartGraph"; // //
 
 const Home = () => {
     return (
