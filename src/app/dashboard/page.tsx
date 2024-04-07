@@ -34,9 +34,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import "../shadcn.css";
 import DashboardLayout from "./DashboardLayout";
 import HomePage from "./home"
-import Clinic from "./settings/profile";
-import Invoice from "./invoices";
-import Documentation from "./docs"
+import Clinic from "./settings/profile/page";
+import Invoice from "./invoices/page";
+import Documentation from "./docs/page";
 
 export default function Dashboard() {
   {/*Old Structure/}
