@@ -1,7 +1,6 @@
 'use client'
 
 import { ExButton } from '@/components'
-import { EksellDisplay } from '@/components/elements/FontContainer'
 import { LogoWhite } from '@/images'
 import {
   TextInput,
@@ -67,10 +66,7 @@ const SignIn = () => {
 
         <Paper withBorder shadow='md' p={30} mt={30} radius='lg'>
           <Box mb={10}>
-            <Title
-              ta='center'
-              className={`${EksellDisplay.variable} text-slate-700`}
-            >
+            <Title ta='center' className='text-slate-700'>
               Welcome back!
             </Title>
             <Text c='dimmed' size='sm' ta='center' mt={5}>

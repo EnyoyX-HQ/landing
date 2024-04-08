@@ -1,55 +1,25 @@
-import React from "react"
-import { Table, TableBody, TableCell, TableCaption, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import {
-    AlertDialog, AlertDialogAction, AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+'use client'
+
+import TableSort from '@/components/elements/Table'
+import { ExButton } from '@/components'
+import { useDisclosure } from '@mantine/hooks'
+import { FileInput, Group, Modal, Select, TextInput } from '@mantine/core'
+import { DateInput } from '@mantine/dates'
+import { useState } from 'react'
 
 const Invoice = () => {
-    return (
-        <div>
-            <div className="flex items-center justify-between w-full">
-                <h1 className="text-lg font-semibold md:text-2xl mb-4">Invoice list</h1>
-                <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                            <Button>
-                                Add an invoice
-                            </Button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                            <AlertDialogHeader>
-                                <AlertDialogTitle className="mb-6">Add a new invoice</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                    <div className="mb-4">
-                                        <Label htmlFor="clinic" className="mb-3">Clinic name</Label>
-                                        <Input type="text" placeholder="Enter clinic name" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <Label htmlFor="amount" className="mb-3">Invoice amount</Label>
-                                        <Input type="number" placeholder="Enter invoice amount" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <Label htmlFor="date" className="mb-3">Invoice file</Label>
-                                        <Input type="file" placeholder="Enter invoice file" />
-                                    </div>
-                                </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                <AlertDialogAction>Submit</AlertDialogAction>
-                            </AlertDialogFooter>
-                        </AlertDialogContent>
-                </AlertDialog>
-            </div>
-            <Table>
+  const [opened, { open, close }] = useDisclosure(false)
+  const [date, setDate] = useState<Date | null>(null)
+
+  return (
+    <div>
+      <div className='flex items-center justify-between w-full'>
+        <h1 className='text-lg font-semibold md:text-2xl mb-4'>Invoice list</h1>
+        <ExButton type='action' onClick={open} isGradient>
+          Add an invoice
+        </ExButton>
+      </div>
+      {/* <Table>
                 <TableCaption>A list of your recent invoices.</TableCaption>
                 <TableHeader>
                     <TableRow>
@@ -107,9 +77,84 @@ const Invoice = () => {
                         </TableCell>
                     </TableRow>
                 </TableBody>
-            </Table>
-        </div>
-    )
+            </Table> */}
+      <div className='mt-10'>
+        <TableSort />
+      </div>
+
+      {/* Add invoice modal */}
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        title='Create invoice'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        <form>
+          <FileInput label='Upload invoice file' required />
+          <Group>
+            <TextInput
+              label='Clinic'
+              placeholder='Enter clinic name'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+            <TextInput
+              label='Insurance'
+              mt={'md'}
+              placeholder='Enter insurance name'
+              className='w-full md:w-auto'
+            />
+          </Group>
+          <Group>
+            <TextInput
+              label='Patient'
+              placeholder='Enter patient full name'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+            <DateInput
+              value={date}
+              onChange={setDate}
+              className='w-full md:w-auto'
+              mt={'md'}
+              label='Register date'
+            />
+          </Group>
+          <Group>
+            <TextInput
+              label='Invoice amount'
+              className='w-full md:w-auto'
+              type='tel'
+              mt={'md'}
+              required
+            />
+            <Select
+              label='Status'
+              data={['In progress', 'Validated', 'Rejected']}
+              className='w-full md:w-auto'
+              mt={'md'}
+              comboboxProps={{
+                transitionProps: { transition: 'pop', duration: 200 },
+                shadow: 'md',
+              }}
+            />
+          </Group>
+
+          <ExButton type='action' className='w-full mt-10' isGradient>
+            Create
+          </ExButton>
+        </form>
+      </Modal>
+    </div>
+  )
 }
 
 export default Invoice

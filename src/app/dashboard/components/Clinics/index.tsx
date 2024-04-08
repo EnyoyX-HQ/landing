@@ -1,95 +1,99 @@
-import { Button } from "@/components/ui/button";
-import React from "react";
-import ClinicsCard from "./components/ClinicsCard";
-import {
-    AlertDialog, AlertDialogAction, AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import ComboboxPopover from "./components/ComboBoxResponsive";
+'use client'
 
-const Clinics: React.FC = () => {
-    const image = 'https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg?auto=compress&cs=tinysrgb&w=800';
-    const name = 'Ma carte';
-    const city = 'Abidjan';
-    const number = '+225 0709483463';
-    const address = 'gestoci, nouveau chu';
-    const email = 'cliniqueangre@gmail.com';
-    const siteweb = 'cliniqueangre.ci';
-    const insurances = ['Assurance 1', 'Assurance 2', 'Assurance 3']
-    return (
-        <div>
-            <div className="flex items-center">
-                <div className="flex items-center justify-between w-full">
-                    <h1 className="text-lg font-semibold md:text-2xl mb-6">Clinics</h1>
-                    <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                            <Button>
-                                Edit Profile
-                            </Button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                            <AlertDialogHeader>
-                                <AlertDialogTitle className="mb-6">Add a new clinic</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                    <div className="flex flex-row justify-between items-center mb-4">
-                                        <div className="flex flex-col">
-                                            <Label htmlFor="clinic" className="mb-3">Clinic</Label>
-                                            <Input type="email" placeholder="Enter clinic name" />
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <Label htmlFor="phonenumber" className="mb-3">Phone number</Label>
-                                            <Input type="number" placeholder="Enter phone number" />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-row justify-between items-center mb-4">
-                                        <div className="flex flex-col">
-                                            <Label htmlFor="clinic" className="mb-3">Location</Label>
-                                            <Input type="text" placeholder="Enter clinic location" />
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <Label htmlFor="website" className="mb-3">Clinique Website</Label>
-                                            <Input type="text" placeholder="ex: myclinic.com" />
-                                        </div>
-                                    </div>
-                                    <div className="mb-4">
-                                        <Label htmlFor="address" className="">Exact address</Label>
-                                        <Input type="text" className="mt-3" placeholder="Enter exact address" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <Label htmlFor="address" className="mb-3">Insurance (Optional)</Label>
-                                        <ComboboxPopover />
-                                    </div>
-                                </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                <AlertDialogAction>Continue</AlertDialogAction>
-                            </AlertDialogFooter>
-                        </AlertDialogContent>
-                    </AlertDialog>
-                </div>
-            </div>
-            <div className="w-full flex flex-row mt-5">
-                <ClinicsCard
-                    image={image}
-                    name={name}
-                    city={city}
-                    number={number}
-                    address={address}
-                    email={email}
-                    siteweb={siteweb}
-                    insurances={insurances}
-                />
-            </div>
+import { ClinicCard, ExButton } from '@/components'
+import clinicsData from '@/lib/clinics'
+import { FileInput, Group, Modal, TagsInput, TextInput } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+
+const Clinics = () => {
+  const [opened, { open, close }] = useDisclosure(false)
+  return (
+    <div>
+      <div className='flex items-center'>
+        <div className='flex items-center justify-between w-full'>
+          <h1 className='text-lg font-semibold md:text-2xl mb-6'>Clinics</h1>
+          <ExButton type='action' onClick={open} isGradient>
+            Add new clinic
+          </ExButton>
         </div>
-    )
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10'>
+        {clinicsData.map((clinic) => (
+          <ClinicCard key={clinic.name} {...clinic} />
+        ))}
+      </div>
+
+      {/* Add clinic modal */}
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        title='Add a new clinic'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        <form>
+          <FileInput
+            accept='image/png,image/jpeg'
+            label='Upload clinic cover photo'
+            required
+          />
+          <Group>
+            <TextInput
+              label='Clinic'
+              placeholder='Enter clinic name'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+            <TextInput
+              label='Phone number'
+              className='w-full md:w-auto'
+              mt={'md'}
+              placeholder='Enter phone number'
+            />
+          </Group>
+          <Group>
+            <TextInput
+              label='Location'
+              placeholder='Enter clinic location'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+            <TextInput
+              label='Clinic website'
+              placeholder='ex. myclinic.com'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+          </Group>
+          <TextInput
+            label='Address'
+            placeholder='Enter exact address'
+            mt={'md'}
+            required
+          />
+
+          <TagsInput
+            label='Insurance'
+            description='Hit enter to add. You can add up to 3 insurances'
+            maxTags={3}
+            mt='md'
+          />
+
+          <ExButton type='action' className='w-full mt-10' isGradient>
+            Create
+          </ExButton>
+        </form>
+      </Modal>
+    </div>
+  )
 }
 
 export default Clinics

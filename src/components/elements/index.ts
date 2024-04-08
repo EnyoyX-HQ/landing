@@ -1,3 +1,4 @@
 export { default as ExButton } from './ExButton'
 export { default as GlowingBalls } from './GlowingBalls'
 export { default as SwiperNavButton } from './SwiperNavButton'
+export { default as LineChart } from './Charts/LineChart'

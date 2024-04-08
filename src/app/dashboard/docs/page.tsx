@@ -1,13 +1,11 @@
-import DashboardLayout from "../DashboardLayout";
-import Link from "next/link";
-import React from "react";
+import AppLayout from '@/layout/AppLayout'
 const Documentation = () => {
-  return(
-    <DashboardLayout>
+  return (
+    <AppLayout>
       <div>
         <h1>Documentation</h1>
       </div>
-    </DashboardLayout>
+    </AppLayout>
   )
 }
 export default Documentation

@@ -3,22 +3,31 @@
 import { ScrollArea, AppShell, Box, ThemeIcon, rem, Text } from '@mantine/core'
 import {
   IconLogout,
-  IconUsers,
-  IconChartBar,
   IconLayoutDashboard,
-  IconUser,
-  IconSettings,
   IconInvoice,
+  IconFiles,
+  IconMedicalCross,
 } from '@tabler/icons-react'
 import classes from '@/styles/SideNav.module.css'
 import LinksGroup from './LinksGroup'
+import { useRouter } from 'next/navigation'
 
 const SideNav = () => {
+  const router = useRouter()
+
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
-    { label: 'Invoices', navLink: '/invoices', icon: IconInvoice },
-    { label: 'My profile', navLink: '/profile', icon: IconUser },
-    { label: 'Resources', navLink: '/resources', icon: IconSettings },
+    {
+      label: 'Invoices (Claims)',
+      navLink: '/dashboard/invoices',
+      icon: IconInvoice,
+    },
+    {
+      label: 'Clinics',
+      navLink: '/dashboard/settings/profile',
+      icon: IconMedicalCross,
+    },
+    { label: 'Documentation', navLink: '/dashboard/docs', icon: IconFiles },
   ]
 
   const links = mockdata.map((item) => (
@@ -34,6 +43,7 @@ const SideNav = () => {
       <AppShell.Section>
         <Box
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+          onClick={() => router.push('/signin')}
         >
           <ThemeIcon variant='light' color={'red'} size={30}>
             <IconLogout style={{ width: rem(18), height: rem(18) }} />
