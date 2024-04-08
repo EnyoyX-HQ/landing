@@ -1,4 +1,4 @@
-import Link from "next/link";
+{/*import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -75,4 +75,4 @@ export default function SignUpForm() {
       </Card>
     </div>
   );
-}
+}*/}
