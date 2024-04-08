@@ -1,13 +1,10 @@
-
-import DashboardLayout from "../DashboardLayout";
-import InvoicePage from "../components/Invoice"
-import React from "react";
+import AppLayout from '@/layout/AppLayout'
+import InvoicePage from '../components/Invoice'
 const Invoices = () => {
-  return(
-      <DashboardLayout>
-        <InvoicePage />
-      </DashboardLayout>
-      
+  return (
+    <AppLayout>
+      <InvoicePage />
+    </AppLayout>
   )
 }
 export default Invoices

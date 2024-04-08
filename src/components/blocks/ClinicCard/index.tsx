@@ -1,0 +1,147 @@
+import {
+  Card,
+  Image,
+  Text,
+  Badge,
+  Button,
+  Group,
+  Box,
+  Menu,
+  ActionIcon,
+  rem,
+} from '@mantine/core'
+import {
+  IconDots,
+  IconEye,
+  IconLink,
+  IconMail,
+  IconMapPin,
+  IconPencil,
+  IconPhone,
+  IconTrash,
+} from '@tabler/icons-react'
+
+interface ClinicCardProps {
+  name: string
+  imageUrl: string
+  city: string
+  phone: string
+  address: string
+  email: string
+  website: string
+  insurances: string[]
+}
+
+const ClinicCard = ({
+  name,
+  imageUrl,
+  city,
+  phone,
+  address,
+  email,
+  website,
+  insurances,
+}: ClinicCardProps) => {
+  return (
+    <Card padding='lg' radius='md'>
+      <div className='relative'>
+        <Image src={imageUrl} radius={'md'} alt='clinic' />
+
+        {/* <div className='absolute top-2 right-2'>
+          <Group justify='center'>
+            <Menu withinPortal position='bottom-end' shadow='sm'>
+              <Menu.Target>
+                <ActionIcon variant='subtle' color='gray'>
+                  <IconDots style={{ width: rem(16), height: rem(16) }} />
+                </ActionIcon>
+              </Menu.Target>
+
+              <Menu.Dropdown>
+                <Menu.Item
+                  leftSection={
+                    <IconEye style={{ width: rem(14), height: rem(14) }} />
+                  }
+                >
+                  View
+                </Menu.Item>
+                <Menu.Item
+                  leftSection={
+                    <IconPencil style={{ width: rem(14), height: rem(14) }} />
+                  }
+                >
+                  Update
+                </Menu.Item>
+                <Menu.Item
+                  leftSection={
+                    <IconTrash style={{ width: rem(14), height: rem(14) }} />
+                  }
+                  color='red'
+                >
+                  Delete
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          </Group>
+        </div> */}
+      </div>
+
+      <div className='flex justify-between my-5'>
+        <Box>
+          <Text fw={'bold'} fz={'sm'} className='text-slate-700'>
+            {name}
+          </Text>
+          <Text c={'dimmed'} fz={'xs'}>
+            {city}
+          </Text>
+        </Box>
+        <Box>
+          <div className='flex items-center gap-2'>
+            <IconPhone size={13} color='gray' />
+            <Text c={'dimmed'} fz={'xs'}>
+              {phone}
+            </Text>
+          </div>
+          <div className='flex items-center gap-2'>
+            <IconMapPin size={13} color='gray' />
+            <Text c={'dimmed'} fz={'xs'}>
+              {address}
+            </Text>
+          </div>
+        </Box>
+      </div>
+
+      <div className='flex flex-col gap-2'>
+        <div className='flex items-center gap-2'>
+          <IconMail size={15} />
+          <Text fz={'sm'}>{email}</Text>
+        </div>
+
+        <div className='flex items-center gap-2'>
+          <IconLink size={15} />
+          <Text
+            component='a'
+            target='_blank'
+            href={`https://${website}`}
+            c={'green'}
+            fz={'sm'}
+          >
+            {website}
+          </Text>
+        </div>
+      </div>
+
+      <div className='mt-4'>
+        <Text fz={'sm'}>Insurances</Text>
+        <div className='mt-3 flex gap-3'>
+          {insurances.map((insurance: any) => (
+            <Badge key={insurance} color='gray' size='xl' radius='sm'>
+              {insurance}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+export default ClinicCard

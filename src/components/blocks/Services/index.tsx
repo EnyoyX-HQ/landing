@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Star, ToolCardImg, ToolCardImg2, Wish } from '@/images'
 import { Avatar } from '@mantine/core'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EksellDisplay } from '@/components/elements/FontContainer' // 
+import { EksellDisplay } from '@/components/elements/FontContainer' //
 import { ExButton } from '@/components'
 
 const Services = () => {
@@ -52,9 +52,7 @@ const Services = () => {
               </div>
             </div>
             <div className='gray-card'>
-              <h1 className={`text-4xl mt-4 mb-2`}>
-                Need some help?
-              </h1>
+              <h1 className={`text-4xl mt-4 mb-2`}>Need some help?</h1>
               <p className='text-slate-700 w-full lg:w-96'>
                 Talk to one of our sales executives to get you cleared and
                 started.
@@ -62,7 +60,7 @@ const Services = () => {
 
               <ExButton
                 type='link'
-                href='/signin'
+                href='/login'
                 className='mt-40'
                 rightIcon={<IconArrowRight />}
                 isGradient
@@ -100,11 +98,7 @@ const Services = () => {
                   <div className='count'>
                     <h1 className={``}>3</h1>
                   </div>
-                  <h1
-                    className={`text-4xl mt-4 mb-2`}
-                  >
-                    Get credited
-                  </h1>
+                  <h1 className={`text-4xl mt-4 mb-2`}>Get credited</h1>
                   <p className='text-slate-700 w-full lg:w-96'>
                     Get funds to make your business a legacy that supersedes
                     you.
@@ -182,9 +176,7 @@ const Services = () => {
                     <div className='count'>
                       <h1 className={``}>2</h1>
                     </div>
-                    <h1
-                      className={`text-4xl mt-4 mb-2`}
-                    >
+                    <h1 className={`text-4xl mt-4 mb-2`}>
                       Submit idle insurance claims
                     </h1>
                     <p className='text-slate-700 w-full lg:w-96'>
@@ -205,11 +197,7 @@ const Services = () => {
                     <div className='count'>
                       <h1 className={``}>3</h1>
                     </div>
-                    <h1
-                      className={` text-4xl mt-4 mb-2`}
-                    >
-                      Get credited
-                    </h1>
+                    <h1 className={` text-4xl mt-4 mb-2`}>Get credited</h1>
                     <p className='text-slate-700 w-full lg:w-96'>
                       Get funds to make your business a legacy that supersedes
                       you.
@@ -228,9 +216,7 @@ const Services = () => {
           >
             <SwiperSlide>
               <div className='gray-card'>
-                <h1 className={` text-4xl mt-4 mb-2`}>
-                  Need some help?
-                </h1>
+                <h1 className={` text-4xl mt-4 mb-2`}>Need some help?</h1>
                 <p className='text-slate-700 w-full lg:w-96'>
                   Talk to one of our sales executives to get you cleared and
                   started.

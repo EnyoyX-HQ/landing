@@ -1,6 +1,6 @@
 export { default as Logo } from './logo.png'
 export { default as LogoWhite } from './logo_white.png'
-export { default as LogoDark } from './logo_dark.png'
+export { default as LogoDark } from './logo_dark.svg'
 export { default as HeroImg } from './herobg-ad-on.svg'
 export { default as Asteriks } from './asteriks.svg'
 export { default as IntroImg1 } from './image 1.png'
