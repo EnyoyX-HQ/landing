@@ -65,7 +65,7 @@ const Tools = () => {
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
                     type='link'
-                    href='/'
+                    href='/signin'
                     rightIcon={<IconArrowRight className='text-yellow-200' />}
                     className='gradient-text'
                   >

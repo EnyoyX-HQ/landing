@@ -169,7 +169,7 @@ const Navbar = () => {
           <Group visibleFrom='sm'>
             <ExButton
               type='link'
-              href='/'
+              href='/signin'
               rightIcon={<IconArrowRight />}
               isGradient
             >
@@ -236,7 +236,7 @@ const Navbar = () => {
               <Group pb='xl' mt={40} px='md'>
                 <ExButton
                   type='link'
-                  href='/'
+                  href='/signin'
                   rightIcon={<IconArrowRight />}
                   isGradient
                 >

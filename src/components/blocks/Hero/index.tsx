@@ -23,7 +23,7 @@ const Hero = () => {
           <Group justify='center'>
             <ExButton
               type='link'
-              href='/'
+              href='/signin'
               rightIcon={<IconArrowRight />}
               isGradient
             >

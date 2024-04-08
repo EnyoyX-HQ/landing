@@ -1,0 +1,10 @@
+.user_header {
+  padding-bottom: 16px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
+}
+
+.meta {
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-6));
+}

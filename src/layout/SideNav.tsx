@@ -1,0 +1,50 @@
+'use client'
+
+import { ScrollArea, AppShell, Box, ThemeIcon, rem, Text } from '@mantine/core'
+import {
+  IconLogout,
+  IconUsers,
+  IconChartBar,
+  IconLayoutDashboard,
+  IconUser,
+  IconSettings,
+  IconInvoice,
+} from '@tabler/icons-react'
+import classes from '@/styles/SideNav.module.css'
+import LinksGroup from './LinksGroup'
+
+const SideNav = () => {
+  const mockdata = [
+    { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
+    { label: 'Invoices', navLink: '/invoices', icon: IconInvoice },
+    { label: 'My profile', navLink: '/profile', icon: IconUser },
+    { label: 'Resources', navLink: '/resources', icon: IconSettings },
+  ]
+
+  const links = mockdata.map((item) => (
+    <LinksGroup {...item} key={item.label} />
+  ))
+
+  return (
+    <>
+      <ScrollArea className={classes.links}>
+        <div className={classes.linksInner}>{links}</div>
+      </ScrollArea>
+
+      <AppShell.Section>
+        <Box
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+        >
+          <ThemeIcon variant='light' color={'red'} size={30}>
+            <IconLogout style={{ width: rem(18), height: rem(18) }} />
+          </ThemeIcon>
+          <Box ml='md' c={'red'}>
+            Log out
+          </Box>
+        </Box>
+      </AppShell.Section>
+    </>
+  )
+}
+
+export default SideNav
