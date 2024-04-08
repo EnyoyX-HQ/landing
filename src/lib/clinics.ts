@@ -10,7 +10,7 @@ const clinicsData = [
     website: 'www.healthcarecenter.com',
     insurances: ['ASCOMA', 'CIGNA'],
   },
-  {/*
+  /*{
     name: 'Wellness Clinic',
     imageUrl:
       'https://realsproject.org/wp-content/uploads/2020/09/images2384-5f5225340d793.jpg',
@@ -20,7 +20,7 @@ const clinicsData = [
     email: 'contact@wellnessclinic.org',
     website: 'www.wellnessclinic.org',
     insurances: ['ASCOMA', 'CIGNA'],
-  */},
+  },*/
 ]
 
 export default clinicsData
