@@ -1,9 +1,8 @@
 'use client'
 
-import { Box } from '@chakra-ui/react'
-import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
+import { Box } from '@mantine/core'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
