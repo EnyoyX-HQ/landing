@@ -22,7 +22,7 @@ const SideNav = () => {
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
     { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
-    { label: 'My profile', navLink: '/dashboard/profile', icon: IconUser },
+    { label: 'My profile', navLink: '/dashboard/settings/profile', icon: IconUser },
     { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
   ]
 
