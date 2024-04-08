@@ -37,7 +37,9 @@ const Tools = () => {
               <div className='desc text-base lg:text-xl w-full md:w-[480px]'>
                 {/*Quickly send an invoice for each insurance claims
 and get paid in less than 48-hours*/}
-                Envoyx's sophisticated AI powered solutions ensure swift and efficient resolution of invoices and insurance claims to increase operational efficiency. 
+                Envoyx's sophisticated AI powered solutions ensure swift and
+                efficient resolution of invoices and insurance claims to
+                increase operational efficiency.
               </div>
             </div>
             <div className='-mt-3 md:pt-40'>
@@ -58,20 +60,20 @@ and get paid in less than 48-hours*/}
           >
             <SwiperSlide>
               <div className='focus-card rounded-3xl p-8 lg:p-20'>
-                <h2
-                  className={`text-3xl font-bold lg:text-5xl text-white`}
-                >
+                <h2 className={`text-3xl font-bold lg:text-5xl text-white`}>
                   {/*Focus on what matters. <br /> No more running out of cash.*/}
                   Reliable Fraud Detection
                 </h2>
                 <p className='text-white mt-5'>
-                  Envoyx's fraud detection capabilities enables swift identification of suspicious patterns and anomalies in insurance claims to mitigate fraudulent activities,
-                 protect revenue streams and fortify financial security.
+                  Envoyx's fraud detection capabilities enables swift
+                  identification of suspicious patterns and anomalies in
+                  insurance claims to mitigate fraudulent activities, protect
+                  revenue streams and fortify financial security.
                 </p>
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
                     type='link'
-                    href='/signin'
+                    href='/login'
                     rightIcon={<IconArrowRight className='text-yellow-200' />}
                     className='gradient-text'
                   >
@@ -85,16 +87,14 @@ and get paid in less than 48-hours*/}
             <SwiperSlide>
               <div className='billing-card relative overflow-hidden rounded-3xl'>
                 <div className='px-8 lg:px-20 pt-8 lg:pt-20'>
-                  <h2
-                    className={`text-3xl font-bold lg:text-5xl text-white`}
-                  >
+                  <h2 className={`text-3xl font-bold lg:text-5xl text-white`}>
                     Enhanced Revenue
-                    {/*Seemless Billing*/} 
+                    {/*Seemless Billing*/}
                   </h2>
                   <p className='text-white mt-5'>
-                    Quickly send an invoice for each insurance claim and get paid
-                in less than 48-hours.
-                {/*Handle your billing process, including claims submission,
+                    Quickly send an invoice for each insurance claim and get
+                    paid in less than 48-hours.
+                    {/*Handle your billing process, including claims submission,
                   ensuring maximum reimbursement for your
                   services.*/}
                   </p>

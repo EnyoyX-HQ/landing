@@ -43,7 +43,7 @@ const SideNav = () => {
       <AppShell.Section>
         <Box
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-          onClick={() => router.push('/signin')}
+          onClick={() => router.push('/login')}
         >
           <ThemeIcon variant='light' color={'red'} size={30}>
             <IconLogout style={{ width: rem(18), height: rem(18) }} />

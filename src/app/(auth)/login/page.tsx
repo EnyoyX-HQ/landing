@@ -49,7 +49,7 @@ function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-const SignIn = () => {
+const Login = () => {
   const router = useRouter()
 
   return (
@@ -121,7 +121,7 @@ const SignIn = () => {
             className='w-full mt-10'
             isGradient
           >
-            Sign in
+            Login
           </ExButton>
         </Paper>
       </Container>
@@ -129,4 +129,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default Login

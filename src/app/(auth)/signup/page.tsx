@@ -1,7 +1,6 @@
 'use client'
 
 import { ExButton } from '@/components'
-import { EksellDisplay } from '@/components/elements/FontContainer'
 import { LogoWhite } from '@/images'
 import {
   TextInput,
@@ -66,7 +65,7 @@ const SignUp = () => {
           <Text c='dimmed' size='sm' ta='center' mt={40}>
             Already have an account?{' '}
             <Anchor
-              onClick={() => router.push('/signin')}
+              onClick={() => router.push('/login')}
               size='sm'
               c={'green'}
               fw={'bold'}
