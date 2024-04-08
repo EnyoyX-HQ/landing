@@ -1,0 +1,13 @@
+.input:active,
+.input:focus {
+  border: 1px solid #543ee0;
+}
+
+.option {
+  color: light-dark(var(--mantine-color-dark-7), var(--mantine-color-gray-6));
+}
+
+.image {
+  border: 1px dashed
+    light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-3));
+}

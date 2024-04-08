@@ -1,0 +1,34 @@
+.wrapper {
+  @apply h-screen;
+  background-size: cover;
+  background-image: url(../../public/assets/jpg/gorgeous-positive-young-dark-skinned-female-blogger-keyboarding-generic-laptop-smiling-being-inspired-while-creating-new-content-her-travel-blog-sitting-desk-with-diary-mug.jpg);
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-gray-5));
+}
+
+.main {
+  background: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-7)
+  );
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-gray-5));
+}
+
+.form {
+  border-right: rem(1px) solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-7));
+  max-width: rem(450px);
+  padding-top: rem(80px);
+
+  @media (max-width: 48em) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-family: Greycliff CF, var(--mantine-font-family);
+}
+
+.errorNotification {
+  @apply bg-red-400 text-red-900;
+}

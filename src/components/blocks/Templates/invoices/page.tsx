@@ -1,10 +1,11 @@
 import AppLayout from '@/layout/AppLayout'
-import InvoicePage from '../components/Invoice'
+
 const Invoices = () => {
   return (
     <AppLayout>
-      <InvoicePage />
+      <div>Invoices</div>
     </AppLayout>
   )
 }
+
 export default Invoices

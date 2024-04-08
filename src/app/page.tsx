@@ -7,8 +7,7 @@ import {
   Services,
   Testimonial,
   Tools,
-} from "@/components";
-import "./globals.css";
+} from '@/components'
 
 export default function Home() {
   return (
@@ -22,5 +21,5 @@ export default function Home() {
       <Faq />
       <Footer />
     </>
-  );
+  )
 }

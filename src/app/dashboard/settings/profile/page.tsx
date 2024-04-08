@@ -1,15 +1,12 @@
-import DashboardLayout from "../../DashboardLayout";
-import Link from "next/link";
-import React from "react";
+import AppLayout from '@/layout/AppLayout'
+import ProfilePage from '../../components/Clinics'
 
 const Clinic = () => {
-    return(
-        <DashboardLayout>
-            <div>
-                <h1>Profile</h1>
-            </div>
-        </DashboardLayout>
-    )
+  return (
+    <AppLayout>
+      <ProfilePage />
+    </AppLayout>
+  )
 }
 
 export default Clinic
