@@ -17,17 +17,9 @@ const SideNav = () => {
 
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
-    {
-      label: 'Invoices (Claims)',
-      navLink: '/dashboard/invoices',
-      icon: IconInvoice,
-    },
-    {
-      label: 'Clinics',
-      navLink: '/dashboard/settings/profile',
-      icon: IconMedicalCross,
-    },
-    { label: 'Documentation', navLink: '/dashboard/docs', icon: IconFiles },
+    { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
+    { label: 'My profile', navLink: '/dashboard/profile', icon: IconUser },
+    { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
   ]
 
   const links = mockdata.map((item) => (
