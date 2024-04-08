@@ -45,9 +45,9 @@ const UserMenu = () => {
               />
 
               <div>
-                <Text fw={500}>Loubao Kraka</Text>
+                <Text fw={500}>HealthCare Center</Text>
                 <Text size='xs' c='dimmed'>
-                  loubao@tryenvoyx.com
+                  admin@healthcarecenter.com
                 </Text>
               </div>
             </Group>

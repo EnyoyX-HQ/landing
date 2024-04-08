@@ -86,7 +86,7 @@ const Home = () => {
   return (
     <div className=''>
       <div className='flex flex-col mb-8'>
-        <h1 className='text-lg font-semibold md:text-2xl'>Hi Loubao 👋🏽</h1>
+        <h1 className='text-lg font-semibold md:text-2xl'>Hi HealthCare Center 👋🏽</h1>
         <Text fz={'sm'} c={'dimmed'} mt={2}>
           Welcome to your dashboard
         </Text>
