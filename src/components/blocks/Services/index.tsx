@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Star, ToolCardImg, ToolCardImg2, Wish } from '@/images'
 import { Avatar } from '@mantine/core'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EksellDisplay } from '@/components/elements/FontContainer'
+import { EksellDisplay } from '@/components/elements/FontContainer' // 
 import { ExButton } from '@/components'
 
 const Services = () => {
@@ -13,7 +13,7 @@ const Services = () => {
     <section className='section--padding'>
       <div className='ex--container'>
         <div className='header'>
-          <h1 className={`${EksellDisplay.variable} text-3xl lg:text-5xl`}>
+          <h1 className={`text-3xl font-bold lg:text-5xl`}>
             Quickly turn idle{' '}
             <span className='text-green-400'>insurance claims</span> to <br />{' '}
             working capital within <span className='gradient-text'>48</span>{' '}
@@ -29,10 +29,10 @@ const Services = () => {
           <div className='grid grid-cols-2 gap-10'>
             <div className='gray-card'>
               <div className='count'>
-                <h1 className={`${EksellDisplay.variable}`}>1</h1>
+                <h1 className={``}>1</h1>
               </div>
 
-              <h1 className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}>
+              <h1 className={`text-4xl mt-4 mb-2`}>
                 Complete KYC & onboarding{' '}
               </h1>
               <p className='text-slate-700 w-full lg:w-96'>
@@ -52,7 +52,7 @@ const Services = () => {
               </div>
             </div>
             <div className='gray-card'>
-              <h1 className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}>
+              <h1 className={`text-4xl mt-4 mb-2`}>
                 Need some help?
               </h1>
               <p className='text-slate-700 w-full lg:w-96'>
@@ -67,7 +67,7 @@ const Services = () => {
                 rightIcon={<IconArrowRight />}
                 isGradient
               >
-                Get started
+                Contact Sales
               </ExButton>
             </div>
           </div>
@@ -77,9 +77,9 @@ const Services = () => {
             <div className='flex justify-between'>
               <div>
                 <div className='count'>
-                  <h1 className={`${EksellDisplay.variable}`}>2</h1>
+                  <h1 className={``}>2</h1>
                 </div>
-                <h1 className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}>
+                <h1 className={`text-4xl mt-4 mb-2`}>
                   Submit idle insurance claims
                 </h1>
                 <p className='text-slate-700 w-full lg:w-96'>
@@ -98,10 +98,10 @@ const Services = () => {
               <div className='flex justify-between'>
                 <div>
                   <div className='count'>
-                    <h1 className={`${EksellDisplay.variable}`}>3</h1>
+                    <h1 className={``}>3</h1>
                   </div>
                   <h1
-                    className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}
+                    className={`text-4xl mt-4 mb-2`}
                   >
                     Get credited
                   </h1>
@@ -136,9 +136,9 @@ const Services = () => {
                   alt='img'
                 />
                 <div className='user-info'>
-                  <h4 className='font-bold text-slate-800'>Loubao Kraka</h4>
+                  <h4 className='font-bold text-slate-800'>Dr. Halid</h4>
                   <p className='text-sm text-slate-700'>
-                    Finance @ Lourdes medical clinic
+                    From Lourdes medical clinic
                   </p>
                 </div>
               </div>
@@ -151,10 +151,10 @@ const Services = () => {
             <SwiperSlide>
               <div className='gray-card'>
                 <div className='count'>
-                  <h1 className={`${EksellDisplay.variable}`}>1</h1>
+                  <h1 className={``}>1</h1>
                 </div>
 
-                <h1 className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}>
+                <h1 className={`text-4xl mt-4 mb-2`}>
                   Complete KYC & onboarding{' '}
                 </h1>
                 <p className='text-slate-700 w-full lg:w-96'>
@@ -180,10 +180,10 @@ const Services = () => {
                 <div className='flex flex-col gap-8 items-center'>
                   <div>
                     <div className='count'>
-                      <h1 className={`${EksellDisplay.variable}`}>2</h1>
+                      <h1 className={``}>2</h1>
                     </div>
                     <h1
-                      className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}
+                      className={`text-4xl mt-4 mb-2`}
                     >
                       Submit idle insurance claims
                     </h1>
@@ -203,10 +203,10 @@ const Services = () => {
                 <div className='flex flex-col gap-8 items-center'>
                   <div>
                     <div className='count'>
-                      <h1 className={`${EksellDisplay.variable}`}>3</h1>
+                      <h1 className={``}>3</h1>
                     </div>
                     <h1
-                      className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}
+                      className={` text-4xl mt-4 mb-2`}
                     >
                       Get credited
                     </h1>
@@ -228,7 +228,7 @@ const Services = () => {
           >
             <SwiperSlide>
               <div className='gray-card'>
-                <h1 className={`${EksellDisplay.variable} text-4xl mt-4 mb-2`}>
+                <h1 className={` text-4xl mt-4 mb-2`}>
                   Need some help?
                 </h1>
                 <p className='text-slate-700 w-full lg:w-96'>
@@ -243,7 +243,7 @@ const Services = () => {
                   rightIcon={<IconArrowRight />}
                   isGradient
                 >
-                  Get started
+                  Contact Sales
                 </ExButton>
               </div>
             </SwiperSlide>
@@ -265,9 +265,9 @@ const Services = () => {
                     alt='img'
                   />
                   <div className='user-info'>
-                    <h4 className='font-bold text-slate-800'>Loubao Kraka</h4>
+                    <h4 className='font-bold text-slate-800'>Dr. Halid</h4>
                     <p className='text-sm text-slate-700'>
-                      Finance @ Lourdes medical clinic
+                      From Lourdes medical clinic
                     </p>
                   </div>
                 </div>

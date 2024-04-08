@@ -1,13 +1,13 @@
 import partnersData from '@/lib/partners'
 import Image from 'next/image'
-import { EksellDisplay } from '@/components/elements/FontContainer'
+import { EksellDisplay } from '@/components/elements/FontContainer' //${EksellDisplay.variable} 
 import { ExButton } from '@/components'
 
 const Partners = () => {
   return (
     <section className='partners bg-slate-50 section--padding'>
       <div className='ex--container'>
-        <h2 className={`${EksellDisplay.variable} text-3xl lg:text-5xl mb-3`}>
+        <h2 className={`text-3xl font-bold lg:text-5xl mb-3`}>
           You're in safe hands 👌
         </h2>
         <p className='w-full lg:w-[520px]'>

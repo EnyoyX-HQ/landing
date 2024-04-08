@@ -33,9 +33,9 @@ const Testimonial = () => {
                   alt='img'
                 />
                 <div className='user-info'>
-                  <h4 className='font-bold text-slate-700'>Loubao Kraka</h4>
+                  <h4 className='font-bold text-slate-700'>Dr. Halid</h4>
                   <p className='text-sm text-slate-500'>
-                    Finance @ Lourdes medical clinic
+                    From Lourdes medical clinic
                   </p>
                 </div>
               </div>
@@ -59,9 +59,9 @@ const Testimonial = () => {
                   alt='img'
                 />
                 <div className='user-info'>
-                  <h4 className='font-bold text-slate-700'>Loubao Kraka</h4>
+                  <h4 className='font-bold text-slate-700'>Dr. Halid</h4>
                   <p className='text-sm text-slate-500'>
-                    Finance @ Lourdes medical clinic
+                    From Lourdes medical clinic
                   </p>
                 </div>
               </div>

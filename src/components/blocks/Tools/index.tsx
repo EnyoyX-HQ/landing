@@ -9,10 +9,10 @@ import { ExButton } from '@/components'
 
 const Tools = () => {
   return (
-    <section className='section--padding bg-ex-deep-green'>
+    <section id='tools' className='section--padding bg-ex-deep-green'>
       <div className='ex--container'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-5 lg:mx-40'>
-          <h1 className={`${EksellDisplay.variable} text-5xl text-white`}>
+          <h1 className={`text-5xl font-bold text-white`}>
             The tools you really need
           </h1>
           <p className='text-slate-300 w-full md:w-96'>
@@ -28,14 +28,16 @@ const Tools = () => {
               <div>
                 <Image src={Asteriks} className='w-16 md:w-20' alt='img' />
                 <h2
-                  className={`${EksellDisplay.variable} text-3xl md:text-5xl mt-5 mb-5 lg:mb-0`}
+                  className={`text-3xl font-bold md:text-5xl mt-5 mb-5 lg:mb-0`}
                 >
-                  Invoice crediting
+                  Claims Processing
+                  {/*Invoice Crediting*/}
                 </h2>
               </div>
               <div className='desc text-base lg:text-xl w-full md:w-[480px]'>
-                Quickly send an invoice for each insurance claims and get paid
-                in less than 48-hours.
+                {/*Quickly send an invoice for each insurance claims
+and get paid in less than 48-hours*/}
+                Envoyx's sophisticated AI powered solutions ensure swift and efficient resolution of invoices and insurance claims to increase operational efficiency. 
               </div>
             </div>
             <div className='-mt-3 md:pt-40'>
@@ -57,11 +59,15 @@ const Tools = () => {
             <SwiperSlide>
               <div className='focus-card rounded-3xl p-8 lg:p-20'>
                 <h2
-                  className={`${EksellDisplay.variable} text-3xl lg:text-5xl text-white`}
+                  className={`text-3xl font-bold lg:text-5xl text-white`}
                 >
-                  Focus on what matters. <br /> No more running out of cash.
+                  {/*Focus on what matters. <br /> No more running out of cash.*/}
+                  Reliable Fraud Detection
                 </h2>
-
+                <p className='text-white mt-5'>
+                  Envoyx's fraud detection capabilities enables swift identification of suspicious patterns and anomalies in insurance claims to mitigate fraudulent activities,
+                 protect revenue streams and fortify financial security.
+                </p>
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
                     type='link'
@@ -80,13 +86,17 @@ const Tools = () => {
               <div className='billing-card relative overflow-hidden rounded-3xl'>
                 <div className='px-8 lg:px-20 pt-8 lg:pt-20'>
                   <h2
-                    className={`${EksellDisplay.variable} text-3xl lg:text-5xl text-white`}
+                    className={`text-3xl font-bold lg:text-5xl text-white`}
                   >
-                    Seamless billing
+                    Enhanced Revenue
+                    {/*Seemless Billing*/} 
                   </h2>
                   <p className='text-white mt-5'>
-                    Handle your billing process, including claims submission,
-                    ensuring maximum reimbursement for your services.
+                    Quickly send an invoice for each insurance claim and get paid
+                in less than 48-hours.
+                {/*Handle your billing process, including claims submission,
+                  ensuring maximum reimbursement for your
+                  services.*/}
                   </p>
                 </div>
                 <div className='mt-4 lg:mt-[70px] flex justify-between items-center'>

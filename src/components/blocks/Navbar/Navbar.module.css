@@ -26,6 +26,12 @@
     );
   }
 }
+a.link:hover {
+  background: linear-gradient(90deg, #98f275, #bde970);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 .drawer {
   background: #001a1b;
@@ -40,7 +46,7 @@
   padding-top: var(--mantine-spacing-md);
   padding-bottom: var(--mantine-spacing-md);
   text-decoration: none;
-  color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-white));
+  color: #9ca3af; /*light-dark(var(--mantine-color-gray-5), var(--mantine-color-white));*/
   font-weight: 500;
   font-size: var(--mantine-font-size-base);
 
