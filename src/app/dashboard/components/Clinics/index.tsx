@@ -13,7 +13,7 @@ const Clinics = () => {
         <div className='flex items-center justify-between w-full'>
           <h1 className='text-lg font-semibold md:text-2xl mb-6'>Clinics</h1>
           <ExButton type='action' onClick={open} isGradient>
-            Add new clinic
+            Edit Profile
           </ExButton>
         </div>
       </div>
