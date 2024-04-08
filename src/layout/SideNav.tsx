@@ -4,10 +4,8 @@ import { ScrollArea, AppShell, Box, ThemeIcon, rem, Text } from '@mantine/core'
 import {
   IconUsers,
   IconChartBar,
-  IconLayoutDashboard,
   IconUser,
   IconSettings,
-  IconInvoice,
   IconLogout,
   IconLayoutDashboard,
   IconInvoice,
