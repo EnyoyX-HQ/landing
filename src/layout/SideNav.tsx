@@ -16,9 +16,9 @@ import LinksGroup from './LinksGroup'
 const SideNav = () => {
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
-    { label: 'Invoices', navLink: '/invoices', icon: IconInvoice },
-    { label: 'My profile', navLink: '/profile', icon: IconUser },
-    { label: 'Resources', navLink: '/resources', icon: IconSettings },
+    { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
+    { label: 'My profile', navLink: '/dashboard/profile', icon: IconUser },
+    { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
   ]
 
   const links = mockdata.map((item) => (
