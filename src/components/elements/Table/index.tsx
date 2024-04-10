@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Table,
   ScrollArea,
@@ -13,25 +13,31 @@ import {
   keys,
   ThemeIcon,
   Badge,
+  Tooltip,
+  Modal,
 } from '@mantine/core'
 import {
   IconSelector,
   IconChevronDown,
   IconChevronUp,
   IconSearch,
-  IconEye,
   IconPencil,
   IconTrash,
+  IconDownload,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
-import invoiceData from '@/lib/invoices'
+import { ExButton, FormatDate } from '..'
+import { deleteInvoice, getInvoices } from '@/lib/actions'
+import { notifications } from '@mantine/notifications'
+import { DateInput } from '@mantine/dates'
+import { useDisclosure } from '@mantine/hooks'
 
 interface RowData {
   id: string
   clinic: string
   insurance: string
-  patient: string
-  date: string
+  //patient: string
+  createdAt: string
   amount: string
   status: string
 }
@@ -73,8 +79,18 @@ function Th({ children, reversed, sorted, onSort }: ThProps) {
 
 function filterData(data: RowData[], search: string) {
   const query = search.toLowerCase().trim()
+  // If data is empty or data[0] is undefined, return an empty array
+  if (data.length === 0 || !data[0]) {
+    return []
+  }
+
+  // Filter the data based on the search query
   return data.filter((item) =>
-    keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
+    // Check if any key in the item includes the search query
+    keys(item).some((key) =>
+      // If the value is not a string, convert it to a string before applying toLowerCase
+      String(item[key]).toLowerCase().includes(query)
+    )
   )
 }
 
@@ -102,9 +118,29 @@ function sortData(
 
 const TableSort = () => {
   const [search, setSearch] = useState('')
-  const [sortedData, setSortedData] = useState(invoiceData)
+  const [invoiceData, setInvoiceData] = useState<RowData[]>([])
+  const [sortedData, setSortedData] = useState<RowData[]>([])
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null)
   const [reverseSortDirection, setReverseSortDirection] = useState(false)
+
+  const [opened, { open, close }] = useDisclosure(false)
+  const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
+  const [clinic, setClinic] = useState('')
+  const [insurance, setInsurance] = useState('')
+  const [date, setDate] = useState<Date | null>(new Date())
+  const [amount, setAmount] = useState('')
+  const [status, setStatus] = useState('in progress')
+  const [fileBase64, setFileBase64] = useState<string | null>(null)
+
+  // Function to handle editing an invoice
+  const handleEdit = (rowData: RowData) => {
+    setEditedInvoice(rowData)
+    setClinic(rowData.clinic)
+    setInsurance(rowData.insurance)
+    setAmount(rowData.amount)
+    setStatus(rowData.status)
+    open() // Open the modal
+  }
 
   const setSorting = (field: keyof RowData) => {
     const reversed = field === sortBy ? !reverseSortDirection : false
@@ -123,6 +159,131 @@ const TableSort = () => {
         search: value,
       })
     )
+  }
+
+  function convertToCSV(data: any) {
+    const keys = Object.keys(data[0])
+    const csvContent =
+      keys.join(',') +
+      '\n' +
+      data.map((row: any) => keys.map((key) => row[key]).join(',')).join('\n')
+    return csvContent
+  }
+
+  const handleDownload = (rowData: any) => {
+    const csvContent = convertToCSV([rowData])
+    const blob = new Blob([csvContent], { type: 'text/csv' })
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', 'invoice.csv')
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const handleDelete = async (id: any) => {
+    const res = await deleteInvoice(id)
+    if (res) {
+      notifications.show({
+        color: 'green',
+        message: 'Invoice deleted',
+      })
+    } else {
+      notifications.show({
+        color: 'red',
+        title: 'Oops!',
+        message: 'Something went wrong.',
+      })
+    }
+  }
+
+  useEffect(() => {
+    const fetchInvoices = async () => {
+      const data = await getInvoices()
+      setInvoiceData(data.data)
+      setSortedData(
+        sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+      )
+      console.log(data.data)
+    }
+    fetchInvoices()
+  }, [])
+
+  // Edit Invoice logic
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => {
+        const base64String = reader.result as string
+        setFileBase64(base64String)
+      }
+      reader.onerror = (error) => {
+        console.error('File reading error:', error)
+      }
+    }
+  }
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+    if (!editedInvoice) return
+
+    const { id } = editedInvoice
+    const formData: {
+      clinic: string
+      insurance: string
+      amount: string
+      status: string
+      updatedAt: Date
+      file?: string
+    } = {
+      clinic,
+      insurance,
+      amount,
+      status,
+      updatedAt: new Date(),
+    }
+
+    // If fileBase64 is not null, add it to formData
+    if (fileBase64) {
+      formData.file = fileBase64
+    }
+
+    console.log(formData)
+
+    try {
+      const response = await fetch(`/api/invoice/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        const updatedInvoice = await response.json()
+        console.log('Invoice updated successfully:', updatedInvoice)
+        close()
+        notifications.show({
+          title: 'Invoice updated successfully',
+          color: 'green',
+          message: 'Please wait while it is being processed.',
+        })
+        setEditedInvoice(null)
+      } else {
+        console.error('Failed to update invoice:', response.statusText)
+        notifications.show({
+          title: 'Oops!',
+          color: 'red',
+          message: 'Something went wrong.',
+        })
+      }
+    } catch (error) {
+      console.error('Network error:', error)
+    }
   }
 
   const rows = sortedData.map((row) => {
@@ -144,38 +305,52 @@ const TableSort = () => {
       <Table.Tr key={row.id} className='text-slate-600'>
         <Table.Td>{row.clinic}</Table.Td>
         <Table.Td>{row.insurance}</Table.Td>
-        <Table.Td>{row.patient}</Table.Td>
         <Table.Td>
           <Badge color={statusVariant} variant='light'>
             {row.status}
           </Badge>
         </Table.Td>
         <Table.Td>{row.amount}</Table.Td>
-        <Table.Td>{row.date}</Table.Td>
+        <Table.Td>
+          <FormatDate data={row.createdAt} formatType='datePipeTime' />
+        </Table.Td>
         <Table.Td>
           <div className='flex gap-4'>
-            <ThemeIcon variant='light' color={'blue'} size={30}>
-              <IconEye
+            <Tooltip label='Download'>
+              <ThemeIcon
+                variant='light'
+                onClick={() => handleDownload(row)}
+                color={'blue'}
+                size={30}
+              >
+                <IconDownload
+                  className='cursor-pointer'
+                  style={{ width: rem(18), height: rem(18) }}
+                />
+              </ThemeIcon>
+            </Tooltip>
+            <Tooltip label='Edit'>
+              <ThemeIcon
                 className='cursor-pointer'
-                style={{ width: rem(18), height: rem(18) }}
-              />
-            </ThemeIcon>
-            <ThemeIcon
-              className='cursor-pointer'
-              variant='light'
-              color={'green'}
-              size={30}
-            >
-              <IconPencil style={{ width: rem(18), height: rem(18) }} />
-            </ThemeIcon>
-            <ThemeIcon
-              className='cursor-pointer'
-              variant='light'
-              color={'red'}
-              size={30}
-            >
-              <IconTrash style={{ width: rem(18), height: rem(18) }} />
-            </ThemeIcon>
+                onClick={() => handleEdit(row)}
+                variant='light'
+                color={'green'}
+                size={30}
+              >
+                <IconPencil style={{ width: rem(18), height: rem(18) }} />
+              </ThemeIcon>
+            </Tooltip>
+            <Tooltip label='Delete'>
+              <ThemeIcon
+                className='cursor-pointer'
+                variant='light'
+                color={'red'}
+                onClick={() => handleDelete(row.id)}
+                size={30}
+              >
+                <IconTrash style={{ width: rem(18), height: rem(18) }} />
+              </ThemeIcon>
+            </Tooltip>
           </div>
         </Table.Td>
       </Table.Tr>
@@ -220,13 +395,6 @@ const TableSort = () => {
               >
                 Insurance
               </Th>
-              <Th
-                sorted={sortBy === 'patient'}
-                reversed={reverseSortDirection}
-                onSort={() => setSorting('patient')}
-              >
-                Patient
-              </Th>
               <Th>Status</Th>
               <Th
                 sorted={sortBy === 'amount'}
@@ -236,9 +404,9 @@ const TableSort = () => {
                 Amount
               </Th>
               <Th
-                sorted={sortBy === 'date'}
+                sorted={sortBy === 'createdAt'}
                 reversed={reverseSortDirection}
-                onSort={() => setSorting('date')}
+                onSort={() => setSorting('createdAt')}
               >
                 Date
               </Th>
@@ -250,7 +418,13 @@ const TableSort = () => {
               rows
             ) : (
               <Table.Tr>
-                <Table.Td colSpan={Object.keys(invoiceData[0]).length}>
+                <Table.Td
+                  colSpan={
+                    invoiceData && invoiceData[0]
+                      ? Object.keys(invoiceData[0]).length
+                      : 0
+                  }
+                >
                   <Text fw={500} ta='center'>
                     Nothing found
                   </Text>
@@ -260,6 +434,82 @@ const TableSort = () => {
           </Table.Tbody>
         </Table>
       </ScrollArea>
+
+      {/* Update invoice modal */}
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        title='Update invoice'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor='fileInput' className='text-sm'>
+              Upload invoice file
+            </label>
+            <input
+              id='fileInput'
+              type='file'
+              onChange={handleFileChange}
+              hidden
+            />
+            <TextInput
+              value={fileBase64 ? 'File uploaded' : ''}
+              onClick={() => document.getElementById('fileInput')?.click()}
+              placeholder='Choose file...'
+              readOnly
+            />
+          </div>
+          <Group>
+            <TextInput
+              label='Clinic'
+              value={clinic}
+              onChange={(e: any) => setClinic(e.target.value)}
+              placeholder='Enter clinic name'
+              className='w-full md:w-auto'
+              mt={'md'}
+              required
+            />
+            <TextInput
+              label='Insurance'
+              value={insurance}
+              onChange={(e: any) => setInsurance(e.target.value)}
+              mt={'md'}
+              placeholder='Enter insurance name'
+              className='w-full md:w-auto'
+            />
+          </Group>
+          <Group>
+            <TextInput
+              label='Invoice amount'
+              value={amount}
+              onChange={(e: any) => setAmount(e.target.value)}
+              className='w-full md:w-auto'
+              type='tel'
+              mt={'md'}
+              required
+            />
+            <DateInput
+              clearable
+              defaultValue={new Date()}
+              onChange={setDate}
+              className='w-full md:w-auto'
+              mt={'md'}
+              label='Register date'
+            />
+          </Group>
+
+          <ExButton type='action' className='w-full mt-10' isGradient isSubmit>
+            Update
+          </ExButton>
+        </form>
+      </Modal>
     </>
   )
 }

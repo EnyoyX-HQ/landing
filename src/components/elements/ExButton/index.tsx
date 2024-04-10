@@ -8,6 +8,7 @@ interface ExButtonProps {
   leftIcon?: any
   rightIcon?: any
   isGradient?: boolean
+  isSubmit?: boolean
   onClick?: () => void
   className?: string
 }
@@ -26,6 +27,7 @@ const ExButton = ({
   onClick,
   rightIcon,
   isGradient,
+  isSubmit,
 }: ExButtonProps & ConditionalExButtonProps<ExButtonProps['type']>) => {
   return (
     <>
@@ -43,6 +45,7 @@ const ExButton = ({
         </Link>
       ) : (
         <button
+          type={isSubmit ? 'submit' : 'button'}
           onClick={onClick}
           className={`ex-button flex gap-2 ${className} ${
             isGradient ? 'gradient-button' : ''
