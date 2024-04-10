@@ -9,28 +9,49 @@ import {
   Text,
   ThemeIcon,
 } from '@mantine/core'
-import { LineChart, OverviewCard } from '@/components'
+import { OverviewCard } from '@/components'
 import invoiceData from '@/lib/invoices'
-import clinicsData from '@/lib/clinics'
-import {
-  IconBookmark,
-  IconBuildingHospital,
-  IconCash,
-  IconEye,
-  IconFileInvoice,
-  IconNews,
-  IconThumbUp,
-} from '@tabler/icons-react'
+import { IconCash, IconFileInvoice } from '@tabler/icons-react'
+import { AreaChart } from '@mantine/charts'
 
 const icons = {
   revenue: IconCash,
   invoice: IconFileInvoice,
-  clinic: IconBuildingHospital,
 }
 
 const Home = () => {
-  const data = [23, 100, 30, 50, 40, 68, 12]
-  const label = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']
+  /* const data = [23, 100, 30, 50, 40, 68, 12]
+  const label = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'] */
+  const data = [
+    {
+      day: 'Mon',
+      claims: 50,
+    },
+    {
+      day: 'Tue',
+      claims: 60,
+    },
+    {
+      day: 'Wed',
+      claims: 40,
+    },
+    {
+      day: 'Thur',
+      claims: 30,
+    },
+    {
+      day: 'Fri',
+      claims: 53,
+    },
+    {
+      day: 'Sat',
+      claims: 20,
+    },
+    {
+      day: 'Sun',
+      claims: 20,
+    },
+  ]
 
   const analyticData = [
     {
@@ -43,16 +64,9 @@ const Home = () => {
     {
       title: 'Invoices',
       icon: 'invoice',
-      value: 5000,
+      value: 2,
       color: 'orange',
       diff: -13,
-    },
-    {
-      title: 'Clinics',
-      icon: 'clinic',
-      value: 50,
-      color: 'blue',
-      diff: 18,
     },
   ] as const
 
@@ -86,7 +100,9 @@ const Home = () => {
   return (
     <div className=''>
       <div className='flex flex-col mb-8'>
-        <h1 className='text-lg font-semibold md:text-2xl'>Hi HealthCare Center 👋🏽</h1>
+        <h1 className='text-lg font-semibold md:text-2xl'>
+          Hi HealthCare Center 👋🏽
+        </h1>
         <Text fz={'sm'} c={'dimmed'} mt={2}>
           Welcome to your dashboard
         </Text>
@@ -96,7 +112,7 @@ const Home = () => {
           Overview
         </Text>
 
-        <SimpleGrid cols={{ base: 1, xs: 2, md: 3 }} mb={40}>
+        <SimpleGrid cols={{ base: 1, xs: 2, md: 2 }} mb={40}>
           <>{stats}</>
         </SimpleGrid>
 
@@ -105,7 +121,13 @@ const Home = () => {
             <Text fw={'bold'} mb={20}>
               Analytics
             </Text>
-            <LineChart data={data} labels={label} />
+            <AreaChart
+              h={300}
+              data={data}
+              dataKey='day'
+              series={[{ name: 'claims', color: 'indigo.6' }]}
+            />
+            {/* <LineChart data={data} labels={label} /> */}
           </Card>
           <div className='grid grid-cols-1 gap-5'>
             <OverviewCard title='Recent Invoices' link='/dashboard/invoices'>
@@ -143,7 +165,7 @@ const Home = () => {
                 )
               })}
             </OverviewCard>
-            <OverviewCard
+            {/* <OverviewCard
               title='Recent Clinics'
               link='/dashbord/settings/profile'
             >
@@ -170,7 +192,7 @@ const Home = () => {
                   </Text>
                 </div>
               ))}
-            </OverviewCard>
+            </OverviewCard> */}
           </div>
         </div>
       </div>
