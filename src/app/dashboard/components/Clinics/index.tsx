@@ -17,7 +17,8 @@ const Clinics = () => {
           </ExButton>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10'>
+
+      <div className='mt-10'>
         {clinicsData.map((clinic) => (
           <ClinicCard key={clinic.name} {...clinic} />
         ))}

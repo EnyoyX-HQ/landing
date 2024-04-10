@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import MantineSetup from '@/layout/MantineSetup'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Notifications } from '@mantine/notifications'
 import 'swiper/css'
 import './globals.css'
 import '@mantine/dates/styles.css'
+import '@mantine/charts/styles.css'
+import '@mantine/notifications/styles.css'
 
 const openSans = Open_Sans({
   weight: ['400', '500', '700'],
@@ -27,7 +30,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={openSans.className}>
-        <MantineSetup>{children}</MantineSetup>
+        <MantineSetup>
+          <Notifications position='top-center' />
+          {children}
+        </MantineSetup>
         <SpeedInsights />
       </body>
     </html>

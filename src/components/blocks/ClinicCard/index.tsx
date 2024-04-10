@@ -43,7 +43,7 @@ const ClinicCard = ({
   insurances,
 }: ClinicCardProps) => {
   return (
-    <Card padding='lg' radius='md'>
+    <Card padding='lg' radius='md' maw={400} className='mx-auto'>
       <div className='relative'>
         <Image src={imageUrl} radius={'md'} alt='clinic' />
 
