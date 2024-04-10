@@ -22,5 +22,5 @@ jobs:
         working-directory: .
 
       - name: Build all packages
-        run: npm build
+        run: npm run build
         working-directory: .
