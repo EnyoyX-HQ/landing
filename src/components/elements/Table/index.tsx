@@ -16,6 +16,7 @@ import {
   Tooltip,
   Modal,
   NumberInput,
+  Checkbox,
 } from '@mantine/core'
 import {
   IconSelector,
@@ -319,8 +320,8 @@ const TableSort = () => {
     return (
       <Table.Tr key={row.id} className='text-slate-600'>
         <Table.Td>{row.insurance}</Table.Td>
-        <Table.Td>{row.amount} CFA</Table.Td>
-        <Table.Td>{row.payout} CFA</Table.Td>
+        <Table.Td>{Number(row.amount).toLocaleString()} CFA</Table.Td>
+        <Table.Td>{Number(row.payout).toLocaleString()} CFA</Table.Td>
         <Table.Td>
           <FormatDate data={row.createdAt} formatType='datePipeTime' />
         </Table.Td>
@@ -415,7 +416,7 @@ const TableSort = () => {
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('payout')}
               >
-                Payout
+                Payout (90%)
               </Th>
               <Th
                 sorted={sortBy === 'createdAt'}
@@ -511,6 +512,7 @@ const TableSort = () => {
               disabled
             />
           </Group>
+          <Checkbox className='mt-5' label='Enable Cash Advance' checked />
 
           <ExButton type='action' className='w-full mt-10' isGradient isSubmit>
             Update

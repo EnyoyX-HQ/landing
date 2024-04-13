@@ -24,51 +24,51 @@ const Home = () => {
   const label = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'] */
   const data = [
     {
-      day: 'Jan',
+      month: 'Jan',
       claims: 50,
     },
     {
-      day: 'Feb',
+      month: 'Feb',
       claims: 60,
     },
     {
-      day: 'Mar',
+      month: 'Mar',
       claims: 40,
     },
     {
-      day: 'April',
+      month: 'April',
       claims: 30,
     },
     {
-      day: 'May',
+      month: 'May',
       claims: 53,
     },
     {
-      day: 'June',
+      month: 'June',
       claims: 20,
     },
     {
-      day: 'July',
+      month: 'July',
       claims: 34,
     },
     {
-      day: 'August',
+      month: 'August',
       claims: 27,
     },
     {
-      day: 'Sept',
+      month: 'Sept',
       claims: 40,
     },
     {
-      day: 'Oct',
+      month: 'Oct',
       claims: 12,
     },
     {
-      day: 'Nov',
+      month: 'Nov',
       claims: 20,
     },
     {
-      day: 'Dec',
+      month: 'Dec',
       claims: 35,
     },
   ]
@@ -144,7 +144,7 @@ const Home = () => {
             <AreaChart
               h={300}
               data={data}
-              dataKey='day'
+              dataKey='month'
               series={[{ name: 'claims', color: 'indigo.6' }]}
             />
             {/* <LineChart data={data} labels={label} /> */}
@@ -172,7 +172,7 @@ const Home = () => {
                     className='flex items-center justify-between mt-5'
                   >
                     <Text fz={'sm'} className='text-slate-700'>
-                      {invoice.clinic}
+                      {invoice.insurance}
                     </Text>
                     <Text fz={'sm'} className='text-slate-700'>
                       {invoice.amount}

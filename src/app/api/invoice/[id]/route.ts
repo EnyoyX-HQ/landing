@@ -6,14 +6,14 @@ export async function PUT(req: any, { params }: any) {
   try {
     const data = await req.json()
     console.log(data)
-    const { clinic, insurance, amount, status, file, updatedAt } = data
+    const { insurance, amount, payout, status, file, updatedAt } = data
     const id = parseInt(params.id)
     const updatedInvoice = await prisma.invoice.update({
       where: { id },
       data: {
-        clinic,
         insurance,
         amount,
+        payout,
         status,
         file,
         updatedAt,

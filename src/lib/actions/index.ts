@@ -1,9 +1,17 @@
 export async function getInvoices() {
   const res = await fetch('/api/invoice')
+
   if (!res.ok) {
-    console.log(res)
+    console.error('Failed to fetch invoices:', res.statusText)
+    throw new Error('Failed to fetch invoices')
   }
-  return res.json()
+
+  try {
+    return await res.json()
+  } catch (error) {
+    console.error('Error parsing JSON:', error)
+    throw new Error('Invalid JSON response')
+  }
 }
 
 export async function deleteInvoice(id: any) {

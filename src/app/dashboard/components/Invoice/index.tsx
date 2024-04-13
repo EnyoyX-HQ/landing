@@ -65,13 +65,15 @@ const Invoice = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     const formData = {
-      payout,
       insurance,
       amount,
+      payout,
       status,
       file: fileBase64,
       createdAt: date,
     }
+
+    console.log(formData)
 
     try {
       const response = await fetch('/api/invoice', {
