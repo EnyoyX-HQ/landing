@@ -209,7 +209,7 @@ const TableSort = () => {
       console.log(data.data)
     }
     fetchInvoices()
-  }, [])
+  }, [reverseSortDirection, search, sortBy])
 
   // Edit Invoice logic
 
