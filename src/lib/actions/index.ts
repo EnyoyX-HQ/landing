@@ -14,6 +14,22 @@ export async function getInvoices() {
   }
 }
 
+export async function getClinics() {
+  const res = await fetch('/api/clinic')
+
+  if (!res.ok) {
+    console.error('Failed to fetch clinics:', res.statusText)
+    throw new Error('Failed to fetch clinics')
+  }
+
+  try {
+    return await res.json()
+  } catch (error) {
+    console.error('Error parsing JSON:', error)
+    throw new Error('Invalid JSON response')
+  }
+}
+
 export async function deleteInvoice(id: any) {
   try {
     const response = await fetch(`/api/invoice/${id}`, {

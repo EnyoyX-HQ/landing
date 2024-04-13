@@ -26,7 +26,7 @@ const UserMenu = () => {
           <Avatar
             radius='xl'
             className='cursor-pointer'
-            src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png'
+            src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fHww'
           />
         </Menu.Target>
         <Menu.Dropdown>
@@ -41,7 +41,7 @@ const UserMenu = () => {
             <Group>
               <Avatar
                 radius='xl'
-                src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png'
+                src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fHww'
               />
 
               <div>

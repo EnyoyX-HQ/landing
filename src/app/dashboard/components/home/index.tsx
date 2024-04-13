@@ -1,9 +1,9 @@
+'use client'
+
 import {
   Badge,
   Card,
-  Divider,
   Group,
-  Image,
   Paper,
   SimpleGrid,
   Text,
@@ -13,15 +13,16 @@ import { OverviewCard } from '@/components'
 import invoiceData from '@/lib/invoices'
 import { IconCash, IconFileInvoice } from '@tabler/icons-react'
 import { AreaChart } from '@mantine/charts'
+import { useEffect, useState } from 'react'
+import { getInvoices } from '@/lib/actions'
 
 const icons = {
-  revenue: IconCash,
+  payouts: IconCash,
   invoice: IconFileInvoice,
 }
 
 const Home = () => {
-  /* const data = [23, 100, 30, 50, 40, 68, 12]
-  const label = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'] */
+  const [invoicesData, setInvoicesData] = useState<any[]>([])
   const data = [
     {
       month: 'Jan',
@@ -73,18 +74,35 @@ const Home = () => {
     },
   ]
 
+  useEffect(() => {
+    const fetchInvoices = async () => {
+      try {
+        const data = await getInvoices()
+        setInvoicesData(data.data)
+      } catch (error) {
+        console.error('Error fetching invoices:', error)
+      }
+    }
+    fetchInvoices()
+  }, [])
+
+  const totalPayouts = invoicesData.reduce(
+    (sum, entry) => sum + entry.payout,
+    0
+  )
+
   const analyticData = [
     {
-      title: 'Revenue',
-      icon: 'revenue',
-      value: '500,000 CFA',
+      title: 'Total payouts',
+      icon: 'payouts',
+      value: totalPayouts.toLocaleString() + ' CFA',
       color: 'green',
       diff: 34,
     },
     {
       title: 'Invoices',
       icon: 'invoice',
-      value: 2,
+      value: invoicesData.length,
       color: 'orange',
       diff: -13,
     },
@@ -142,6 +160,7 @@ const Home = () => {
               Analytics
             </Text>
             <AreaChart
+              withDots={false}
               h={300}
               data={data}
               dataKey='month'
@@ -151,7 +170,7 @@ const Home = () => {
           </Card>
           <div className='grid grid-cols-1 gap-5'>
             <OverviewCard title='Recent Invoices' link='/dashboard/invoices'>
-              {invoiceData.map((invoice) => {
+              {invoicesData.map((invoice) => {
                 let statusVariant
                 switch (invoice.status) {
                   case 'in progress':
@@ -175,7 +194,7 @@ const Home = () => {
                       {invoice.insurance}
                     </Text>
                     <Text fz={'sm'} className='text-slate-700'>
-                      {invoice.amount}
+                      {invoice.payout.toLocaleString()} CFA
                     </Text>
 
                     <Badge color={statusVariant} variant='light'>

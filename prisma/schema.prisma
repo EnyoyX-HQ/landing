@@ -36,11 +36,6 @@ model Clinic {
   website  String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  insurances Insurance[]
+  insurances String[]
 }
 
-model Insurance {
-  id       Int   @id @default(autoincrement())
-  name     String
-  clinics  Clinic[]
-}
