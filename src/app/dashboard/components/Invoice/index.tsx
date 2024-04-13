@@ -3,7 +3,15 @@
 import TableSort from '@/components/elements/Table'
 import { ExButton } from '@/components'
 import { useDisclosure } from '@mantine/hooks'
-import { Button, Group, Modal, Skeleton, TextInput } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Group,
+  Modal,
+  NumberInput,
+  Skeleton,
+  TextInput,
+} from '@mantine/core'
 import { DateInput } from '@mantine/dates'
 import { useEffect, useState } from 'react'
 import { notifications } from '@mantine/notifications'
@@ -11,11 +19,11 @@ import { notifications } from '@mantine/notifications'
 const Invoice = () => {
   const [isFetching, setIsFetching] = useState(true)
   const [opened, { open, close }] = useDisclosure(false)
-  const [clinic, setClinic] = useState('')
   const [insurance, setInsurance] = useState('')
   //const [patient, setPatient] = useState('')
   const [date, setDate] = useState<Date | null>(new Date())
-  const [amount, setAmount] = useState('')
+  const [amount, setAmount] = useState<string | number>('')
+  const [payout, setPayout] = useState<string | number>('')
   const [status, setStatus] = useState('in progress')
   const [fileBase64, setFileBase64] = useState<string | null>(null)
 
@@ -40,10 +48,24 @@ const Invoice = () => {
     }
   }
 
+  const handleAmountChange = (value: string | number) => {
+    // Convert the input value to a number
+    const parsedValue = typeof value === 'string' ? parseFloat(value) : value
+
+    // Update the amount state
+    setAmount(parsedValue)
+
+    // Calculate the payout
+    const payoutCalc = parsedValue * 0.9
+
+    // Update the payout state
+    setPayout(payoutCalc)
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     const formData = {
-      clinic,
+      payout,
       insurance,
       amount,
       status,
@@ -131,44 +153,37 @@ const Invoice = () => {
               readOnly
             />
           </div>
+          <TextInput
+            label='Insurance'
+            value={insurance}
+            onChange={(e: any) => setInsurance(e.target.value)}
+            mt={'md'}
+            placeholder='Enter insurance name'
+          />
           <Group>
-            <TextInput
-              label='Clinic'
-              value={clinic}
-              onChange={(e: any) => setClinic(e.target.value)}
-              placeholder='Enter clinic name'
-              className='w-full md:w-auto'
-              mt={'md'}
-              required
-            />
-            <TextInput
-              label='Insurance'
-              value={insurance}
-              onChange={(e: any) => setInsurance(e.target.value)}
-              mt={'md'}
-              placeholder='Enter insurance name'
-              className='w-full md:w-auto'
-            />
-          </Group>
-          <Group>
-            <TextInput
+            <NumberInput
               label='Invoice amount'
               value={amount}
-              onChange={(e: any) => setAmount(e.target.value)}
+              onChange={handleAmountChange}
               className='w-full md:w-auto'
-              type='tel'
+              thousandSeparator=','
+              allowNegative={false}
+              allowDecimal={false}
+              suffix=' CFA'
+              hideControls
               mt={'md'}
               required
             />
             <DateInput
-              clearable
               defaultValue={new Date()}
               onChange={setDate}
               className='w-full md:w-auto'
               mt={'md'}
               label='Register date'
+              disabled
             />
           </Group>
+          <Checkbox className='mt-5' label='Enable Cash Advance' checked />
           <Group>
             {/* <TextInput
               label='Patient'

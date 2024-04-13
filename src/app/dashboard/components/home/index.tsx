@@ -24,32 +24,52 @@ const Home = () => {
   const label = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'] */
   const data = [
     {
-      day: 'Mon',
+      day: 'Jan',
       claims: 50,
     },
     {
-      day: 'Tue',
+      day: 'Feb',
       claims: 60,
     },
     {
-      day: 'Wed',
+      day: 'Mar',
       claims: 40,
     },
     {
-      day: 'Thur',
+      day: 'April',
       claims: 30,
     },
     {
-      day: 'Fri',
+      day: 'May',
       claims: 53,
     },
     {
-      day: 'Sat',
+      day: 'June',
       claims: 20,
     },
     {
-      day: 'Sun',
+      day: 'July',
+      claims: 34,
+    },
+    {
+      day: 'August',
+      claims: 27,
+    },
+    {
+      day: 'Sept',
+      claims: 40,
+    },
+    {
+      day: 'Oct',
+      claims: 12,
+    },
+    {
+      day: 'Nov',
       claims: 20,
+    },
+    {
+      day: 'Dec',
+      claims: 35,
     },
   ]
 
@@ -57,7 +77,7 @@ const Home = () => {
     {
       title: 'Revenue',
       icon: 'revenue',
-      value: '500,000 FCFA',
+      value: '500,000 CFA',
       color: 'green',
       diff: 34,
     },

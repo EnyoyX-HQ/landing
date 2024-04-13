@@ -3,7 +3,7 @@ export async function getInvoices() {
   if (!res.ok) {
     console.log(res)
   }
-  return res?.json()
+  return res.json()
 }
 
 export async function deleteInvoice(id: any) {
