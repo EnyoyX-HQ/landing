@@ -11,6 +11,7 @@ import {
   IconInvoice,
   IconFiles,
   IconMedicalCross,
+  IconCoins,
 } from '@tabler/icons-react'
 import classes from '@/styles/SideNav.module.css'
 import LinksGroup from './LinksGroup'
@@ -22,7 +23,12 @@ const SideNav = () => {
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
     { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
-    { label: 'My profile', navLink: '/dashboard/settings/profile', icon: IconUser },
+    { label: 'Salaries', navLink: '/dashboard/salaries', icon: IconCoins },
+    {
+      label: 'My profile',
+      navLink: '/dashboard/settings/profile',
+      icon: IconUser,
+    },
     { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
   ]
 

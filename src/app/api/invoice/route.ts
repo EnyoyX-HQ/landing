@@ -19,12 +19,12 @@ export async function POST(req: any) {
   try {
     const data = await req.json()
     console.log(data)
-    const { clinic, insurance, amount, status, file, createdAt } = data
+    const { insurance, amount, payout, status, file, createdAt } = data
     const newInvoice = await prisma.invoice.create({
       data: {
-        clinic,
         insurance,
         amount,
+        payout,
         status,
         file,
         createdAt,

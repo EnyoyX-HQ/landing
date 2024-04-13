@@ -1,10 +1,10 @@
 -- CreateTable
 CREATE TABLE "Invoice" (
     "id" SERIAL NOT NULL,
-    "clinic" TEXT NOT NULL,
     "insurance" TEXT NOT NULL,
-    "amount" TEXT NOT NULL,
-    "status" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL,
+    "payout" INTEGER NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'in progress',
     "file" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,

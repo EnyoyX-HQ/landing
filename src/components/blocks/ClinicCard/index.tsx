@@ -21,7 +21,7 @@ import {
   IconTrash,
 } from '@tabler/icons-react'
 
-interface ClinicCardProps {
+export interface ClinicCardProps {
   name: string
   imageUrl: string
   city: string
@@ -29,7 +29,7 @@ interface ClinicCardProps {
   address: string
   email: string
   website: string
-  insurances: string[]
+  //insurances: string[]
 }
 
 const ClinicCard = ({
@@ -40,49 +40,12 @@ const ClinicCard = ({
   address,
   email,
   website,
-  insurances,
-}: ClinicCardProps) => {
+}: //insurances,
+ClinicCardProps) => {
   return (
     <Card padding='lg' radius='md' maw={400} className='mx-auto'>
       <div className='relative'>
         <Image src={imageUrl} radius={'md'} alt='clinic' />
-
-        {/* <div className='absolute top-2 right-2'>
-          <Group justify='center'>
-            <Menu withinPortal position='bottom-end' shadow='sm'>
-              <Menu.Target>
-                <ActionIcon variant='subtle' color='gray'>
-                  <IconDots style={{ width: rem(16), height: rem(16) }} />
-                </ActionIcon>
-              </Menu.Target>
-
-              <Menu.Dropdown>
-                <Menu.Item
-                  leftSection={
-                    <IconEye style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  View
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconPencil style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  Update
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconTrash style={{ width: rem(14), height: rem(14) }} />
-                  }
-                  color='red'
-                >
-                  Delete
-                </Menu.Item>
-              </Menu.Dropdown>
-            </Menu>
-          </Group>
-        </div> */}
       </div>
 
       <div className='flex justify-between my-5'>
@@ -132,13 +95,13 @@ const ClinicCard = ({
 
       <div className='mt-4'>
         <Text fz={'sm'}>Insurances</Text>
-        <div className='mt-3 flex gap-3'>
+        {/* <div className='mt-3 flex gap-3'>
           {insurances.map((insurance: any) => (
             <Badge key={insurance} color='gray' size='xl' radius='sm'>
               {insurance}
             </Badge>
           ))}
-        </div>
+        </div> */}
       </div>
     </Card>
   )
