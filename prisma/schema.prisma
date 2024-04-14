@@ -15,9 +15,9 @@ datasource db {
 
 model Invoice {
   id         Int     @id @default(autoincrement())
-  clinic    String
   insurance String
-  amount    String
+  amount    Int
+  payout    Int
   status    String @default("in progress")
   file      String
   createdAt  DateTime @default(now())
@@ -36,11 +36,6 @@ model Clinic {
   website  String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  insurances Insurance[]
+  insurances String[]
 }
 
-model Insurance {
-  id       Int   @id @default(autoincrement())
-  name     String
-  clinics  Clinic[]
-}

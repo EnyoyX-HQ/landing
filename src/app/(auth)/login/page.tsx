@@ -1,7 +1,7 @@
 'use client'
 
-import { ExButton } from '@/components'
-import { LogoWhite } from '@/images'
+import { ExButton, GlowingBalls } from '@/components'
+import { LogoDark, LogoWhite } from '@/images'
 import {
   TextInput,
   PasswordInput,
@@ -53,22 +53,31 @@ const Login = () => {
   const router = useRouter()
 
   return (
-    <div className='h-full md:h-screen gradient-bg'>
-      <Container size={420} py={40}>
-        <Link href={'/'} className='w-full'>
-          <Image
-            src={LogoWhite}
-            width={150}
-            className='mx-auto mb-12'
-            alt='logo'
-          />
-        </Link>
-
-        <Paper withBorder shadow='md' p={30} mt={30} radius='lg'>
-          <Box mb={10}>
-            <Title ta='center' className='text-slate-700'>
+    <div className='h-full md:h-screen grid grid-cols-1 md:grid-cols-2'>
+      <div className='auth-section hidden md:flex items-center justify-center'>
+        <GlowingBalls />
+        <Box>
+          <Box>
+            <h1 className='text-white text-5xl text-center font-bold'>
               Welcome back!
-            </Title>
+            </h1>
+            <Text c='gray' size='xl' ta='center' mt={5}>
+              Enter your details to proceed
+            </Text>
+          </Box>
+        </Box>
+      </div>
+      <Container size={420} py={40}>
+        <Paper p={10} mt={30}>
+          <Link href={'/'} className='w-full'>
+            <Image
+              src={LogoDark}
+              width={150}
+              className='mx-auto mb-12'
+              alt='logo'
+            />
+          </Link>
+          <Box mb={10}>
             <Text c='dimmed' size='sm' ta='center' mt={5}>
               Do not have an account yet?{' '}
               <Anchor

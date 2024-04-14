@@ -15,6 +15,8 @@ import {
   Badge,
   Tooltip,
   Modal,
+  NumberInput,
+  Checkbox,
 } from '@mantine/core'
 import {
   IconSelector,
@@ -34,7 +36,7 @@ import { useDisclosure } from '@mantine/hooks'
 
 interface RowData {
   id: string
-  clinic: string
+  payout: string
   insurance: string
   //patient: string
   createdAt: string
@@ -125,17 +127,17 @@ const TableSort = () => {
 
   const [opened, { open, close }] = useDisclosure(false)
   const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
-  const [clinic, setClinic] = useState('')
+  const [payout, setPayout] = useState<string | number>('')
   const [insurance, setInsurance] = useState('')
   const [date, setDate] = useState<Date | null>(new Date())
-  const [amount, setAmount] = useState('')
+  const [amount, setAmount] = useState<string | number>('')
   const [status, setStatus] = useState('in progress')
   const [fileBase64, setFileBase64] = useState<string | null>(null)
 
   // Function to handle editing an invoice
   const handleEdit = (rowData: RowData) => {
     setEditedInvoice(rowData)
-    setClinic(rowData.clinic)
+    setPayout(rowData.payout)
     setInsurance(rowData.insurance)
     setAmount(rowData.amount)
     setStatus(rowData.status)
@@ -227,20 +229,34 @@ const TableSort = () => {
     }
   }
 
+  const handleAmountChange = (value: string | number) => {
+    // Convert the input value to a number
+    const parsedValue = typeof value === 'string' ? parseFloat(value) : value
+
+    // Update the amount state
+    setAmount(parsedValue)
+
+    // Calculate the payout
+    const payoutCalc = parsedValue * 0.9
+
+    // Update the payout state
+    setPayout(payoutCalc)
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     if (!editedInvoice) return
 
     const { id } = editedInvoice
     const formData: {
-      clinic: string
+      payout: string | number
       insurance: string
-      amount: string
+      amount: string | number
       status: string
       updatedAt: Date
       file?: string
     } = {
-      clinic,
+      payout,
       insurance,
       amount,
       status,
@@ -303,16 +319,16 @@ const TableSort = () => {
     }
     return (
       <Table.Tr key={row.id} className='text-slate-600'>
-        <Table.Td>{row.clinic}</Table.Td>
         <Table.Td>{row.insurance}</Table.Td>
+        <Table.Td>{Number(row.amount).toLocaleString()} CFA</Table.Td>
+        <Table.Td>{Number(row.payout).toLocaleString()} CFA</Table.Td>
+        <Table.Td>
+          <FormatDate data={row.createdAt} formatType='datePipeTime' />
+        </Table.Td>
         <Table.Td>
           <Badge color={statusVariant} variant='light'>
             {row.status}
           </Badge>
-        </Table.Td>
-        <Table.Td>{row.amount}</Table.Td>
-        <Table.Td>
-          <FormatDate data={row.createdAt} formatType='datePipeTime' />
         </Table.Td>
         <Table.Td>
           <div className='flex gap-4'>
@@ -382,20 +398,12 @@ const TableSort = () => {
           <Table.Tbody>
             <Table.Tr>
               <Th
-                sorted={sortBy === 'clinic'}
-                reversed={reverseSortDirection}
-                onSort={() => setSorting('clinic')}
-              >
-                Clinic
-              </Th>
-              <Th
                 sorted={sortBy === 'insurance'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('insurance')}
               >
                 Insurance
               </Th>
-              <Th>Status</Th>
               <Th
                 sorted={sortBy === 'amount'}
                 reversed={reverseSortDirection}
@@ -404,12 +412,20 @@ const TableSort = () => {
                 Amount
               </Th>
               <Th
+                sorted={sortBy === 'payout'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('payout')}
+              >
+                Payout (90%)
+              </Th>
+              <Th
                 sorted={sortBy === 'createdAt'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('createdAt')}
               >
                 Date
               </Th>
+              <Th>Status</Th>
               <Th>Action</Th>
             </Table.Tr>
           </Table.Tbody>
@@ -466,44 +482,37 @@ const TableSort = () => {
               readOnly
             />
           </div>
+          <TextInput
+            label='Insurance'
+            value={insurance}
+            onChange={(e: any) => setInsurance(e.target.value)}
+            mt={'md'}
+            placeholder='Enter insurance name'
+          />
           <Group>
-            <TextInput
-              label='Clinic'
-              value={clinic}
-              onChange={(e: any) => setClinic(e.target.value)}
-              placeholder='Enter clinic name'
-              className='w-full md:w-auto'
-              mt={'md'}
-              required
-            />
-            <TextInput
-              label='Insurance'
-              value={insurance}
-              onChange={(e: any) => setInsurance(e.target.value)}
-              mt={'md'}
-              placeholder='Enter insurance name'
-              className='w-full md:w-auto'
-            />
-          </Group>
-          <Group>
-            <TextInput
+            <NumberInput
               label='Invoice amount'
               value={amount}
-              onChange={(e: any) => setAmount(e.target.value)}
+              onChange={handleAmountChange}
               className='w-full md:w-auto'
-              type='tel'
+              thousandSeparator=','
+              allowNegative={false}
+              allowDecimal={false}
+              suffix=' CFA'
+              hideControls
               mt={'md'}
               required
             />
             <DateInput
-              clearable
               defaultValue={new Date()}
               onChange={setDate}
               className='w-full md:w-auto'
               mt={'md'}
               label='Register date'
+              disabled
             />
           </Group>
+          <Checkbox className='mt-5' label='Enable Cash Advance' checked />
 
           <ExButton type='action' className='w-full mt-10' isGradient isSubmit>
             Update

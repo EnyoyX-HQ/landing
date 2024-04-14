@@ -1,7 +1,7 @@
 'use client'
 
-import { ExButton } from '@/components'
-import { LogoWhite } from '@/images'
+import { ExButton, GlowingBalls } from '@/components'
+import { LogoDark, LogoWhite } from '@/images'
 import {
   TextInput,
   PasswordInput,
@@ -24,21 +24,31 @@ const SignUp = () => {
   const router = useRouter()
 
   return (
-    <div className='h-full md:h-screen gradient-bg'>
+    <div className='h-full md:h-screen grid grid-cols-1 md:grid-cols-2'>
+      <div className='auth-section hidden md:flex items-center justify-center'>
+        <GlowingBalls />
+        <Box>
+          <Box>
+            <h1 className='text-white text-5xl text-center font-bold'>
+              Create an account
+            </h1>
+            <Text c='gray' size='xl' ta='center' mt={5}>
+              Enter your details to proceed
+            </Text>
+          </Box>
+        </Box>
+      </div>
       <Container size={520} py={40}>
         <Link href={'/'} className='w-full'>
           <Image
-            src={LogoWhite}
+            src={LogoDark}
             width={150}
             className='mx-auto mb-12'
             alt='logo'
           />
         </Link>
 
-        <Paper withBorder shadow='md' p={30} mt={30} radius='lg'>
-          <Title ta='center' mb={4} className='text-slate-700'>
-            Create an account
-          </Title>
+        <Paper p={10} mt={30}>
           <Group grow mb='md' mt='md'>
             <TextInput label='First name' required />
             <TextInput label='Last name' required />
