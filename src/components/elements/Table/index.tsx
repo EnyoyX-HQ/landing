@@ -35,6 +35,7 @@ import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 import invoiceDataa from '@/lib/invoices'
+import Link from 'next/link'
 
 interface RowData {
   id: string
@@ -128,6 +129,10 @@ const TableSort = () => {
   const [reverseSortDirection, setReverseSortDirection] = useState(false)
 
   const [opened, { open, close }] = useDisclosure(false)
+  const [
+    payoutModalOpened,
+    { open: openPayoutModal, close: closePayoutModal },
+  ] = useDisclosure(false)
   const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
   const [payout, setPayout] = useState<string | number>('')
   const [insurance, setInsurance] = useState('')
@@ -343,7 +348,7 @@ const TableSort = () => {
             <Tooltip label='Payout'>
               <ThemeIcon
                 variant='light'
-                onClick={open}
+                onClick={openPayoutModal}
                 color={'pink'}
                 size={30}
               >
@@ -475,8 +480,8 @@ const TableSort = () => {
       {/* Payout modal */}
 
       <Modal
-        opened={opened}
-        onClose={close}
+        opened={payoutModalOpened}
+        onClose={closePayoutModal}
         title='Confirm payout'
         radius={'lg'}
         centered
@@ -485,60 +490,41 @@ const TableSort = () => {
           blur: 3,
         }}
       >
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor='fileInput' className='text-sm'>
-              Upload invoice file
-            </label>
-            <input
-              id='fileInput'
-              type='file'
-              onChange={handleFileChange}
-              hidden
-            />
-            <TextInput
-              value={fileBase64 ? 'File uploaded' : ''}
-              onClick={() => document.getElementById('fileInput')?.click()}
-              placeholder='Choose file...'
-              readOnly
-            />
-          </div>
-          <TextInput
-            label='Insurance'
-            value={insurance}
-            onChange={(e: any) => setInsurance(e.target.value)}
-            mt={'md'}
-            placeholder='Enter insurance name'
-          />
-          <Group>
-            <NumberInput
-              label='Invoice amount'
-              value={amount}
-              onChange={handleAmountChange}
-              className='w-full md:w-auto'
-              thousandSeparator=','
-              allowNegative={false}
-              allowDecimal={false}
-              suffix=' CFA'
-              hideControls
-              mt={'md'}
-              required
-            />
-            <DateInput
-              defaultValue={new Date()}
-              onChange={setDate}
-              className='w-full md:w-auto'
-              mt={'md'}
-              label='Register date'
-              disabled
-            />
-          </Group>
-          <Checkbox className='mt-5' label='Enable Cash Advance' checked />
+        <div className='flex flex-col items-center gap-3 my-5'>
+          <p className='font-bold text-3xl text-center'>
+            {amount.toLocaleString()} CFA
+          </p>
 
-          <ExButton type='action' className='w-full mt-10' isGradient isSubmit>
-            Update
-          </ExButton>
-        </form>
+          <div className='flex'>
+            <Badge
+              color='blue'
+              variant='light'
+              size='lg'
+              radius='xl'
+              className='mx-auto'
+            >
+              Payout: {payout.toLocaleString()} CFA
+            </Badge>
+          </div>
+        </div>
+
+        <ExButton
+          type='action'
+          onClick={closePayoutModal}
+          className='w-full mt-10'
+          isGradient
+        >
+          Request payout
+        </ExButton>
+        <p className='text-sm text-center mt-4'>
+          Got any issues?{' '}
+          <span
+            onClick={closePayoutModal}
+            className='text-red-500 text-semibold cursor-pointer'
+          >
+            Contact support.
+          </span>
+        </p>
       </Modal>
 
       {/* Update invoice modal */}
