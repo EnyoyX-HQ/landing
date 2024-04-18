@@ -26,6 +26,7 @@ import {
   IconPencil,
   IconTrash,
   IconDownload,
+  IconCoins,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
@@ -33,6 +34,7 @@ import { deleteInvoice, getInvoices } from '@/lib/actions'
 import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
+import invoiceDataa from '@/lib/invoices'
 
 interface RowData {
   id: string
@@ -201,13 +203,19 @@ const TableSort = () => {
   }
 
   useEffect(() => {
+    setInvoiceData(invoiceDataa)
     const fetchInvoices = async () => {
-      const data = await getInvoices()
-      setInvoiceData(data.data)
+      //const data = await getInvoices()
+      //setInvoiceData(data.data)
       setSortedData(
-        sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+        //sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+        sortData(invoiceDataa, {
+          sortBy,
+          reversed: reverseSortDirection,
+          search,
+        })
       )
-      console.log(data.data)
+      //console.log(data.data)
     }
     fetchInvoices()
   }, [reverseSortDirection, search, sortBy])
@@ -332,6 +340,19 @@ const TableSort = () => {
         </Table.Td>
         <Table.Td>
           <div className='flex gap-4'>
+            <Tooltip label='Payout'>
+              <ThemeIcon
+                variant='light'
+                onClick={open}
+                color={'pink'}
+                size={30}
+              >
+                <IconCoins
+                  className='cursor-pointer'
+                  style={{ width: rem(18), height: rem(18) }}
+                />
+              </ThemeIcon>
+            </Tooltip>
             <Tooltip label='Download'>
               <ThemeIcon
                 variant='light'
@@ -450,6 +471,75 @@ const TableSort = () => {
           </Table.Tbody>
         </Table>
       </ScrollArea>
+
+      {/* Payout modal */}
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        title='Confirm payout'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor='fileInput' className='text-sm'>
+              Upload invoice file
+            </label>
+            <input
+              id='fileInput'
+              type='file'
+              onChange={handleFileChange}
+              hidden
+            />
+            <TextInput
+              value={fileBase64 ? 'File uploaded' : ''}
+              onClick={() => document.getElementById('fileInput')?.click()}
+              placeholder='Choose file...'
+              readOnly
+            />
+          </div>
+          <TextInput
+            label='Insurance'
+            value={insurance}
+            onChange={(e: any) => setInsurance(e.target.value)}
+            mt={'md'}
+            placeholder='Enter insurance name'
+          />
+          <Group>
+            <NumberInput
+              label='Invoice amount'
+              value={amount}
+              onChange={handleAmountChange}
+              className='w-full md:w-auto'
+              thousandSeparator=','
+              allowNegative={false}
+              allowDecimal={false}
+              suffix=' CFA'
+              hideControls
+              mt={'md'}
+              required
+            />
+            <DateInput
+              defaultValue={new Date()}
+              onChange={setDate}
+              className='w-full md:w-auto'
+              mt={'md'}
+              label='Register date'
+              disabled
+            />
+          </Group>
+          <Checkbox className='mt-5' label='Enable Cash Advance' checked />
+
+          <ExButton type='action' className='w-full mt-10' isGradient isSubmit>
+            Update
+          </ExButton>
+        </form>
+      </Modal>
 
       {/* Update invoice modal */}
 
