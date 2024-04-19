@@ -1,22 +1,13 @@
-const invoiceData = [
+const invoiceDataa: any = [
   {
-    id: '1',
-    clinic: 'Athena Clinic',
-    insurance: 'ABGSN',
-    //patient: 'Anne-Marie',
-    date: '20/03/2024',
-    amount: '5,000 Fcfa',
-    status: 'in progress',
-  },
-  {
-    id: '2',
-    clinic: 'Montreal Clinic',
+    id: 1,
     insurance: 'ASCOMA',
-    //patient: 'John Paul',
-    date: '14/03/2024',
-    amount: '8,250 Fcfa',
-    status: 'validated',
+    amount: 23000,
+    payout: 20700,
+    status: 'in progress',
+    createdAt: '2024-04-13T21:04:00.394Z',
+    updatedAt: '2024-04-13T21:04:40.590Z',
   },
 ]
 
-export default invoiceData
+export default invoiceDataa

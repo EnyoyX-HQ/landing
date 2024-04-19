@@ -29,7 +29,7 @@ export interface ClinicCardProps {
   address: string
   email: string
   website: string
-  //insurances: string[]
+  insurances: string
 }
 
 const ClinicCard = ({
@@ -40,8 +40,10 @@ const ClinicCard = ({
   address,
   email,
   website,
-}: //insurances,
-ClinicCardProps) => {
+  insurances,
+}: ClinicCardProps) => {
+  const insurancesArray = insurances.split(' ')
+
   return (
     <Card padding='lg' radius='md' maw={400} className='mx-auto'>
       <div className='relative'>
@@ -95,13 +97,19 @@ ClinicCardProps) => {
 
       <div className='mt-4'>
         <Text fz={'sm'}>Insurances</Text>
-        {/* <div className='mt-3 flex gap-3'>
-          {insurances.map((insurance: any) => (
-            <Badge key={insurance} color='gray' size='xl' radius='sm'>
+        <div className='mt-3 flex gap-3'>
+          {insurancesArray.map((insurance: any) => (
+            <Badge
+              key={insurance}
+              color='blue'
+              variant='light'
+              size='lg'
+              radius='xl'
+            >
               {insurance}
             </Badge>
           ))}
-        </div> */}
+        </div>
       </div>
     </Card>
   )

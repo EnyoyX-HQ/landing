@@ -26,6 +26,7 @@ import {
   IconPencil,
   IconTrash,
   IconDownload,
+  IconCoins,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
@@ -33,6 +34,8 @@ import { deleteInvoice, getInvoices } from '@/lib/actions'
 import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
+import invoiceDataa from '@/lib/invoices'
+import Link from 'next/link'
 
 interface RowData {
   id: string
@@ -126,6 +129,10 @@ const TableSort = () => {
   const [reverseSortDirection, setReverseSortDirection] = useState(false)
 
   const [opened, { open, close }] = useDisclosure(false)
+  const [
+    payoutModalOpened,
+    { open: openPayoutModal, close: closePayoutModal },
+  ] = useDisclosure(false)
   const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
   const [payout, setPayout] = useState<string | number>('')
   const [insurance, setInsurance] = useState('')
@@ -201,13 +208,19 @@ const TableSort = () => {
   }
 
   useEffect(() => {
+    setInvoiceData(invoiceDataa)
     const fetchInvoices = async () => {
-      const data = await getInvoices()
-      setInvoiceData(data.data)
+      //const data = await getInvoices()
+      //setInvoiceData(data.data)
       setSortedData(
-        sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+        //sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+        sortData(invoiceDataa, {
+          sortBy,
+          reversed: reverseSortDirection,
+          search,
+        })
       )
-      console.log(data.data)
+      //console.log(data.data)
     }
     fetchInvoices()
   }, [reverseSortDirection, search, sortBy])
@@ -332,6 +345,19 @@ const TableSort = () => {
         </Table.Td>
         <Table.Td>
           <div className='flex gap-4'>
+            <Tooltip label='Payout'>
+              <ThemeIcon
+                variant='light'
+                onClick={openPayoutModal}
+                color={'pink'}
+                size={30}
+              >
+                <IconCoins
+                  className='cursor-pointer'
+                  style={{ width: rem(18), height: rem(18) }}
+                />
+              </ThemeIcon>
+            </Tooltip>
             <Tooltip label='Download'>
               <ThemeIcon
                 variant='light'
@@ -450,6 +476,56 @@ const TableSort = () => {
           </Table.Tbody>
         </Table>
       </ScrollArea>
+
+      {/* Payout modal */}
+
+      <Modal
+        opened={payoutModalOpened}
+        onClose={closePayoutModal}
+        title='Confirm payout'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        <div className='flex flex-col items-center gap-3 my-5'>
+          <p className='font-bold text-3xl text-center'>
+            {amount.toLocaleString()} CFA
+          </p>
+
+          <div className='flex'>
+            <Badge
+              color='blue'
+              variant='light'
+              size='lg'
+              radius='xl'
+              className='mx-auto'
+            >
+              Payout: {payout.toLocaleString()} CFA
+            </Badge>
+          </div>
+        </div>
+
+        <ExButton
+          type='action'
+          onClick={closePayoutModal}
+          className='w-full mt-10'
+          isGradient
+        >
+          Request payout
+        </ExButton>
+        <p className='text-sm text-center mt-4'>
+          Got any issues?{' '}
+          <span
+            onClick={closePayoutModal}
+            className='text-red-500 text-semibold cursor-pointer'
+          >
+            Contact support.
+          </span>
+        </p>
+      </Modal>
 
       {/* Update invoice modal */}
 
