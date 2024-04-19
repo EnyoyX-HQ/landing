@@ -85,11 +85,11 @@ const SignUp = () => {
         <GlowingBalls />
         <Box>
           <Box>
-            <h1 className='text-white text-5xl text-center font-bold'>
+            <h1 className='text-white text-5xl text-left px-4 font-bold mb-6'>
               Contact Us
             </h1>
-            <Text c='gray' size='xl' ta='center' mt={5}>
-              Share your business needs with us, and we'll identify the optimal solution to meet your needs.
+            <Text c='gray' size='md' ta='left' pl={16} pr={16}>
+              We are here to identify the optimal solution to meet your needs.
             </Text>
           </Box>
         </Box>
