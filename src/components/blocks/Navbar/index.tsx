@@ -93,6 +93,11 @@ const companyData = [
     title: 'Careers',
     description: 'Join our team',
   },
+  {
+    icon: IconBook,
+    title: 'Blog',
+    description: 'Envoyx latest news & updates',
+  },
 ]
 
 const Navbar = () => {
