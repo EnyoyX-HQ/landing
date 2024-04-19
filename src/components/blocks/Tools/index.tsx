@@ -73,7 +73,7 @@ and get paid in less than 48-hours*/}
                 <div className='flex justify-between items-center mt-20'>
                   <ExButton
                     type='link'
-                    href='/login'
+                    href='/contact-us'
                     rightIcon={<IconArrowRight className='text-yellow-200' />}
                     className='gradient-text'
                   >
