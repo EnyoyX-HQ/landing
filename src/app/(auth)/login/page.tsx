@@ -58,10 +58,10 @@ const Login = () => {
         <GlowingBalls />
         <Box>
           <Box>
-            <h1 className='text-white text-5xl text-center font-bold'>
+            <h1 className='text-white text-5xl text-left px-4 font-bold mb-6'>
               Welcome back!
             </h1>
-            <Text c='gray' size='xl' ta='center' mt={5}>
+            <Text c='gray' size='md' ta='left' pl={16} pr={16}>
               Enter your details to proceed
             </Text>
           </Box>
@@ -81,7 +81,7 @@ const Login = () => {
             <Text c='dimmed' size='sm' ta='center' mt={5}>
               Do not have an account yet?{' '}
               <Anchor
-                onClick={() => router.push('/signup')}
+                onClick={() => router.push('/contact-us')}
                 size='sm'
                 c={'green'}
                 fw={'bold'}
