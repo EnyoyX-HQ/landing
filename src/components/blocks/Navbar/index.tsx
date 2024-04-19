@@ -25,7 +25,6 @@ import {
   IconCode,
   IconBook,
   IconChartPie3,
-  IconFingerprint,
   IconCoin,
   IconChevronDown,
   IconArrowRight,
@@ -35,18 +34,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Logo } from '@/images'
 import { ExButton } from '@/components'
+import Dashboard from '../../../app/dashboard/page';
 
-const mockdata = [
-  /*{
-    icon: IconCode,
-    title: 'Open source',
-    description: 'This Pokémon cry is very loud and distracting',
-  },
+const clinicNavbarData = [
   {
-    icon: IconCoin,
-    title: 'Free for everyone',
-    description: 'The fluid of Smeargle tail secretions changes',
-  },*/
+    icon: IconNotification,
+    title: 'Salaries',
+    description: 'Advanced data analytical tools for employees salary data',
+  },
   {
     icon: IconCode,
     title: 'Claims Processing',
@@ -59,14 +54,9 @@ const mockdata = [
   },
   {
     icon: IconBook,
-    title: 'Fraud  Detection',
+    title: 'Fraud Detection',
     description: 'Robust fraud detection system to identify fraudulent claims',
   },
-  /*{
-    icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell rounded shape and the grooves on its.',
-  },*/
   {
     icon: IconCoin,
     title: 'Payment',
@@ -74,7 +64,20 @@ const mockdata = [
   },
 ]
 
-const company_mockdata = [
+const payerNavbarData = [
+  {
+    icon: IconCode,
+    title: 'Claims Management',
+    description: 'View and analyze claims and invoice submissions from clinics',
+  },
+  {
+    icon: IconChartPie3,
+    title: 'Analytics',
+    description: 'Real-time analytics and results to generate insights',
+  },
+]
+
+const companyData = [
   {
     icon: IconCode,
     title: 'About Us',
@@ -98,13 +101,34 @@ const Navbar = () => {
   const [linksOpenedCo, { toggle: toggleLinksCo }] = useDisclosure(false)
   const [linksOpenedClinic, { toggle: toggleLinksClinic }] =
     useDisclosure(false)
-  //const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
+  const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
   const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] =
     useDisclosure(false)
 
   const theme = useMantineTheme()
 
-  const links = mockdata.map((item) => (
+  const clinicNavBarLinks = clinicNavbarData.map((item) => (
+    <UnstyledButton className={classes.subLink} key={item.title}>
+      <Group wrap='nowrap' align='flex-start'>
+        <ThemeIcon size={34} variant='default' radius='md'>
+          <item.icon
+            style={{ width: rem(22), height: rem(22) }}
+            color={theme.colors.blue[6]}
+          />
+        </ThemeIcon>
+        <div>
+          <Text size='sm' fw={500}>
+            {item.title}
+          </Text>
+          <Text size='xs' c='dimmed'>
+            {item.description}
+          </Text>
+        </div>
+      </Group>
+    </UnstyledButton>
+  ))
+  
+  const payerNavBarLinks = payerNavbarData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap='nowrap' align='flex-start'>
         <ThemeIcon size={34} variant='default' radius='md'>
@@ -125,7 +149,7 @@ const Navbar = () => {
     </UnstyledButton>
   ))
 
-  const company_links = company_mockdata.map((item) => (
+  const companyLinks = companyData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap='nowrap' align='flex-start'>
         <ThemeIcon size={34} variant='default' radius='md'>
@@ -178,7 +202,7 @@ const Navbar = () => {
               </HoverCard.Target>
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <SimpleGrid cols={2} spacing={0}>
-                  {company_links}
+                  {companyLinks}
                 </SimpleGrid>
               </HoverCard.Dropdown>
             </HoverCard>
@@ -214,7 +238,7 @@ const Navbar = () => {
                 <Divider my='sm' />
 
                 <SimpleGrid cols={2} spacing={0}>
-                  {links}
+                  {clinicNavBarLinks}
                 </SimpleGrid>
 
                 <div className={classes.dropdownFooter}>
@@ -224,7 +248,7 @@ const Navbar = () => {
                         Get started
                       </Text>
                       <Text size='xs' c='dimmed'>
-                        Their food sources have decreased, and their numbers
+                        Login to get started
                       </Text>
                     </div>
                     <Button variant='default'>Get started</Button>
@@ -233,6 +257,56 @@ const Navbar = () => {
               </HoverCard.Dropdown>
             </HoverCard>
             <HoverCard
+              width={600}
+              position='bottom'
+              radius='md'
+              shadow='md'
+              withinPortal
+              id='clinic-container'
+            >
+              <HoverCard.Target>
+                <a href='#' className={classes.link}>
+                  <Center inline>
+                    <Box component='span' mr={5}>
+                      For Payers
+                    </Box>
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                      color={'white'}
+                    />
+                  </Center>
+                </a>
+              </HoverCard.Target>
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+                <Group justify='space-between' px='md'>
+                  <Text fw={500}>Payers</Text>
+                  <Anchor href='#' fz='xs'>
+                    View all
+                  </Anchor>
+                </Group>
+
+                <Divider my='sm' />
+
+                <SimpleGrid cols={2} spacing={0}>
+                  {payerNavBarLinks}
+                </SimpleGrid>
+
+                <div className={classes.dropdownFooter}>
+                  <Group justify='space-between'>
+                    <div>
+                      <Text fw={500} fz='sm'>
+                        Get started
+                      </Text>
+                      <Text size='xs' c='dimmed'>
+                        Login to get started
+                      </Text>
+                    </div>
+                    <Button variant='default'>Get started</Button>
+                  </Group>
+                </div>
+              </HoverCard.Dropdown>
+            </HoverCard>
+            {/*<HoverCard
               width={600}
               position='bottom'
               radius='md'
@@ -264,7 +338,7 @@ const Navbar = () => {
                 <Divider my='sm' />
 
                 <SimpleGrid cols={2} spacing={0}>
-                  {links}
+                  {clinicNavBarLinks}
                 </SimpleGrid>
 
                 <div className={classes.dropdownFooter}>
@@ -274,16 +348,16 @@ const Navbar = () => {
                         Get started
                       </Text>
                       <Text size='xs' c='dimmed'>
-                        Their food sources have decreased, and their numbers
+                        Login to get started
                       </Text>
                     </div>
                     <Button variant='default'>Get started</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
-            </HoverCard>
+            </HoverCard>*/}
             <a href='#' className={classes.link}>
-              Enterprise
+              Developers
             </a>
           </Group>
           <Group visibleFrom='md'>
@@ -349,7 +423,7 @@ const Navbar = () => {
                 </Center>
               </UnstyledButton>
               <Collapse in={linksOpenedCo} c={'white'}>
-                {company_links}
+                {companyLinks}
               </Collapse>
               <UnstyledButton
                 className={classes.drawerLink}
@@ -366,9 +440,9 @@ const Navbar = () => {
                 </Center>
               </UnstyledButton>
               <Collapse in={linksOpenedClinic} c={'white'}>
-                {links}
+                {clinicNavBarLinks}
               </Collapse>
-              {/*<UnstyledButton
+              <UnstyledButton
                 className={classes.drawerLink}
                 onClick={toggleLinksPayer}
               >
@@ -383,8 +457,8 @@ const Navbar = () => {
                 </Center>
               </UnstyledButton>
               <Collapse in={linksOpenedPayer} c={'white'}>
-                {links}
-              </Collapse>*/}
+                {payerNavBarLinks}
+              </Collapse>
               <UnstyledButton
                 className={classes.drawerLink}
                 onClick={toggleLinkSolutions}
@@ -400,7 +474,7 @@ const Navbar = () => {
                 </Center>
               </UnstyledButton>
               <Collapse in={linksOpenedSolutions} c={'white'}>
-                {links}
+                {clinicNavBarLinks}
               </Collapse>
               <a href='#' className={classes.drawerLink}>
                 Enterprise
