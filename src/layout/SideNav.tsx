@@ -30,6 +30,8 @@ const SideNav = () => {
       icon: IconUser,
     },
     { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
+    { label: 'Support', navLink: '/dashboard/support', icon: IconSettings },
+
   ]
 
   const links = mockdata.map((item) => (
