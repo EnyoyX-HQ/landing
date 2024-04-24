@@ -2,7 +2,6 @@
 
 import { ScrollArea, AppShell, Box, ThemeIcon, rem, Text } from '@mantine/core'
 import {
-  IconUsers,
   IconChartBar,
   IconUser,
   IconSettings,
@@ -10,8 +9,8 @@ import {
   IconLayoutDashboard,
   IconInvoice,
   IconFiles,
-  IconMedicalCross,
   IconCoins,
+  IconQuestionMark,
 } from '@tabler/icons-react'
 import classes from '@/styles/SideNav.module.css'
 import LinksGroup from './LinksGroup'
@@ -30,6 +29,8 @@ const SideNav = () => {
       icon: IconUser,
     },
     { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
+    { label: 'Support', navLink: '/dashboard/support', icon: IconQuestionMark },
+
   ]
 
   const links = mockdata.map((item) => (

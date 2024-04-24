@@ -373,7 +373,7 @@ const Navbar = () => {
             </div>
             <ExButton
               type='link'
-              href='/dashboard'
+              href='/contact-us'
               rightIcon={<IconArrowRight />}
               isGradient
             >
@@ -486,12 +486,12 @@ const Navbar = () => {
               </a>
 
               <Group pb='xl' mt={40} px='md' wrap='wrap'>
-                <a href='/login' className={`${classes.link}`}>
+                <a href='/dashboard' className={`${classes.link}`}>
                   Login
                 </a>
                 <ExButton
                   type='link'
-                  href='/dashboard'
+                  href='/contact-us'
                   rightIcon={<IconArrowRight />}
                   isGradient
                 >
