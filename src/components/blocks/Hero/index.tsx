@@ -15,12 +15,13 @@ const Hero = () => {
           >
             {/*Unlock <span className='gradient-text'>Financial</span> Potential
             and propel your business operations*/}
-            Empowering <span className='gradient-text'>Healthcare</span> Operations with Our Leading-Edge Technology
+            Empowering <span className='gradient-text'>Healthcare</span> Operations with AI
           </h1>
           <p className='text-slate-300 text-base lg:text-xl'>
             {/*Bridge cash flow gaps and invest in your growth with flexible
             invoice finance.*/}
-            Transform your insurance and clinical operations with AI and bridge the digital and cashflow gap.
+            Transform your insurance and clinical operations with AI to 
+            bridge the digital and cashflow gap.
           </p>
           <Group justify='center'>
             <ExButton

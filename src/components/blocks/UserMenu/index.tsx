@@ -2,11 +2,10 @@ import { Menu, Group, Text, Avatar, rem } from '@mantine/core'
 import {
   IconLogout,
   IconHeart,
-  IconStar,
   IconMessage,
   IconSettings,
   IconPlayerPause,
-  IconTrash,
+  IconQuestionMark,
   IconSwitchHorizontal,
   IconChevronRight,
   IconDots,
@@ -64,9 +63,23 @@ const UserMenu = () => {
               />
             }
           >
-            Account settings
+            <a href="/dashboard/settings/profile">
+              Account settings
+            </a>
           </Menu.Item>
           <Menu.Item
+            leftSection={
+              <IconQuestionMark
+                style={{ width: rem(16), height: rem(16) }}
+                stroke={1.5}
+              />
+            }
+          >
+            <a href="/dashboard/support">
+              Support
+            </a>  
+          </Menu.Item>
+          {/*<Menu.Item
             leftSection={
               <IconSwitchHorizontal
                 style={{ width: rem(16), height: rem(16) }}
@@ -75,6 +88,19 @@ const UserMenu = () => {
             }
           >
             Change account
+          </Menu.Item>*/}
+
+          <Menu.Divider />
+
+          <Menu.Item
+            leftSection={
+              <IconLogout
+                style={{ width: rem(16), height: rem(16) }}
+                stroke={1.5}
+              />
+            }
+          >
+            Log out
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>

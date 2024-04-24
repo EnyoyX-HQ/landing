@@ -2,7 +2,7 @@ import AppLayout from '@/layout/AppLayout'
 const Support = () => {
   return (
     <AppLayout>
-      <h1>Salaries</h1>
+      <h1>Support</h1>
     </AppLayout>
   )
 }
