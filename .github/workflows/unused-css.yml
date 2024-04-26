@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run PurgeCSS
-        run: npx purgecss --css './src/styles/*.css' --content 'path/to/your/html/files/**/*.html' --output 'path/to/save/unused/css'
+        run: npx purgecss --css './src/styles/*.css' --content 'path/to/your/html/files/**/*.html' --output './src/styles/UnusedCSS.module.css'
 
       # Optionally, you can add steps to handle the results of PurgeCSS, like failing the workflow if unused classes are found,
       # or sending notifications.
