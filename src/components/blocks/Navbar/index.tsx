@@ -29,7 +29,7 @@ import {
   IconChevronDown,
   IconArrowRight,
 } from '@tabler/icons-react'
-import classes from './Navbar.module.css'
+import classes from '@/styles/Navbar.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Logo } from '@/images'
