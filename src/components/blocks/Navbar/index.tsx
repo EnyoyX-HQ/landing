@@ -362,7 +362,7 @@ const Navbar = () => {
               </HoverCard.Dropdown>
             </HoverCard>*/}
             <a href='#' className={classes.link}>
-              Developers
+              Pricing
             </a>
           </Group>
           <Group visibleFrom='md'>
@@ -482,7 +482,7 @@ const Navbar = () => {
                 {clinicNavBarLinks}
               </Collapse>
               <a href='#' className={classes.drawerLink}>
-                Enterprise
+                Pricing
               </a>
 
               <Group pb='xl' mt={40} px='md' wrap='wrap'>

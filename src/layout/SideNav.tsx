@@ -11,6 +11,7 @@ import {
   IconFiles,
   IconCoins,
   IconQuestionMark,
+  IconCurrencyDollar
 } from '@tabler/icons-react'
 import classes from '@/styles/SideNav.module.css'
 import LinksGroup from './LinksGroup'
@@ -18,11 +19,11 @@ import { useRouter } from 'next/navigation'
 
 const SideNav = () => {
   const router = useRouter()
-
   const mockdata = [
     { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
     { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
     { label: 'Salaries', navLink: '/dashboard/salaries', icon: IconCoins },
+    { label: 'Billing', navLink: '/dashboard/billing', icon: IconCurrencyDollar },
     {
       label: 'My profile',
       navLink: '/dashboard/settings/profile',
@@ -30,13 +31,10 @@ const SideNav = () => {
     },
     { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
     { label: 'Support', navLink: '/dashboard/support', icon: IconQuestionMark },
-
   ]
-
   const links = mockdata.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ))
-
   return (
     <>
       <ScrollArea className={classes.links}>
