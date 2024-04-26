@@ -10,7 +10,7 @@
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
   text-decoration: none;
-  color: light-dark(var(--mantine-color-white), var(--mantine-color-white));
+  color: #ffffff; /*light-dark(var(--mantine-color-white), var(--mantine-color-white)); - this is mantine color scheme isn't working for all browsers so commenting out for now*/ 
   font-weight: 500;
   font-size: var(--mantine-font-size-base);
 
@@ -46,7 +46,7 @@ a.link:hover {
   padding-top: var(--mantine-spacing-md);
   padding-bottom: var(--mantine-spacing-md);
   text-decoration: none;
-  color: #9ca3af; /*light-dark(var(--mantine-color-gray-5), var(--mantine-color-white));*/
+  color: #9ca3af; /*light-dark(var(--mantine-color-gray-5), var(--mantine-color-white)); this is mantine color scheme isn't working for all browsers so commenting out for now*/
   font-weight: 500;
   font-size: var(--mantine-font-size-base);
 

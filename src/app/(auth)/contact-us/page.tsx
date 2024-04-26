@@ -89,7 +89,7 @@ const SignUp = () => {
               Contact Us
             </h1>
             <Text c='gray' size='md' ta='left' pl={16} pr={16}>
-              We are here to identify the optimal solution to meet your needs.
+              We are here to provide the optimal solution to meet your needs.
             </Text>
           </Box>
         </Box>
