@@ -11,12 +11,29 @@ import {
   NumberInput,
   Skeleton,
   TextInput,
+  useCombobox,
+  Combobox,
+  InputBase,
+  Input,
 } from '@mantine/core'
 import { DateInput } from '@mantine/dates'
 import { useEffect, useState } from 'react'
 import { notifications } from '@mantine/notifications'
 
+
 const Invoice = () => {
+  //dropdown values
+  const insurances = [
+    'ASCOMA', 
+    'IMPG', 
+    'PPM', 
+    'Other',
+  ];
+  //components
+  const combobox = useCombobox({
+    onDropdownClose: () => combobox.resetSelectedOption(),
+  });
+  //states
   const [isFetching, setIsFetching] = useState(true)
   const [opened, { open, close }] = useDisclosure(false)
   const [insurance, setInsurance] = useState('')
@@ -26,7 +43,14 @@ const Invoice = () => {
   const [payout, setPayout] = useState<string | number>('')
   const [status, setStatus] = useState('in progress')
   const [fileBase64, setFileBase64] = useState<string | null>(null)
+  
 
+  const insuranceOptions = insurances.map((item) => (
+    <Combobox.Option value={item} key={item}>
+      {item}
+    </Combobox.Option>
+  ));
+  
   useEffect(() => {
     setTimeout(() => {
       setIsFetching(false)
@@ -155,13 +179,40 @@ const Invoice = () => {
               readOnly
             />
           </div>
-          <TextInput
+          {/*<TextInput
             label='Insurance'
             value={insurance}
             onChange={(e: any) => setInsurance(e.target.value)}
             mt={'md'}
             placeholder='Enter insurance name'
-          />
+          />*/}
+          <Group grow mt='md'>
+            <Combobox
+              store={combobox}
+              onOptionSubmit={(val) => {
+                setInsurance(val);
+                combobox.closeDropdown();
+              }}
+            >
+              <Combobox.Target>
+                <InputBase
+                  component="button"
+                  type="button"
+                  label="Insurance"
+                  pointer
+                  rightSection={<Combobox.Chevron />}
+                  rightSectionPointerEvents="none"
+                  onClick={() => combobox.toggleDropdown()}
+                >
+                  {insurance || <Input.Placeholder>Select Insurance</Input.Placeholder>}
+                </InputBase>
+              </Combobox.Target>
+
+              <Combobox.Dropdown>
+                <Combobox.Options>{insuranceOptions}</Combobox.Options>
+              </Combobox.Dropdown>
+            </Combobox>
+          </Group>
           <Group>
             <NumberInput
               label='Invoice amount'

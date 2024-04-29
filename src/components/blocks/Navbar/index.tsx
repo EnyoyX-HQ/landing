@@ -1,5 +1,6 @@
 'use client'
 
+import {useState, useEffect} from 'react';
 import {
   HoverCard,
   Group,
@@ -18,6 +19,10 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
+  Combobox,
+  Input, 
+  InputBase,
+  useCombobox,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import {
@@ -28,13 +33,18 @@ import {
   IconCoin,
   IconChevronDown,
   IconArrowRight,
+  IconInvoice,
+  IconUsers,
+  IconArticle,
+  IconSquares,
+  IconWorld,
 } from '@tabler/icons-react'
 import classes from '@/styles/Navbar.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Logo } from '@/images'
 import { ExButton } from '@/components'
-import Dashboard from '../../../app/dashboard/page';
+//import Dashboard from '../../../app/dashboard/page';
 
 const clinicNavbarData = [
   {
@@ -45,7 +55,7 @@ const clinicNavbarData = [
   {
     icon: IconCode,
     title: 'Claims Processing',
-    description: 'Advanced AI-powered tools to process and claims and invoices',
+    description: 'Advanced AI-powered tools to process and claims',
   },
   {
     icon: IconChartPie3,
@@ -60,7 +70,12 @@ const clinicNavbarData = [
   {
     icon: IconCoin,
     title: 'Payment',
-    description: 'Enhance revenue by getting paid quickly ',
+    description: 'Enhance revenue by getting paid quickly',
+  },
+  {
+    icon: IconInvoice,
+    title: 'Invoice Management',
+    description: 'Manage and verify your invoice submission',
   },
 ]
 
@@ -68,18 +83,23 @@ const payerNavbarData = [
   {
     icon: IconCode,
     title: 'Claims Management',
-    description: 'View and analyze claims and invoice submissions from clinics',
+    description: 'View and analyze claims submissions from clinics',
   },
   {
     icon: IconChartPie3,
     title: 'Analytics',
     description: 'Real-time analytics and results to generate insights',
   },
+  {
+    icon: IconInvoice,
+    title: 'Invoice Management',
+    description: 'Analyze and approve invoice submission from clinics',
+  },
 ]
 
 const companyData = [
   {
-    icon: IconCode,
+    icon: IconUsers,
     title: 'About Us',
     description: 'Learn more about our company',
   },
@@ -89,18 +109,26 @@ const companyData = [
     description: 'Get started by partnering with us',
   },
   {
-    icon: IconBook,
+    icon: IconSquares,
     title: 'Careers',
     description: 'Join our team',
   },
   {
-    icon: IconBook,
+    icon: IconArticle,
     title: 'Blog',
     description: 'Envoyx latest news & updates',
   },
 ]
 
+const languages = [
+  'French', 
+  'English',
+];
 const Navbar = () => {
+  //states
+  const combobox = useCombobox({
+    onDropdownClose: () => combobox.resetSelectedOption(),
+  });
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false)
   const [linksOpenedCo, { toggle: toggleLinksCo }] = useDisclosure(false)
@@ -110,6 +138,14 @@ const Navbar = () => {
   const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] =
     useDisclosure(false)
 
+  //states
+  const [language, setLanguage] = useState<string | null>(null);
+
+  const languageOptions = languages.map((item) => (
+    <Combobox.Option value={item} key={item}>
+      {item}
+    </Combobox.Option>
+  ));
   const theme = useMantineTheme()
 
   const clinicNavBarLinks = clinicNavbarData.map((item) => (
@@ -190,7 +226,7 @@ const Navbar = () => {
               radius='md'
               shadow='md'
               withinPortal
-              id='aboutus-container'
+              id='about-us-container'
             >
               <HoverCard.Target>
                 <a href='#' className={classes.link}>
@@ -256,7 +292,19 @@ const Navbar = () => {
                         Login to get started
                       </Text>
                     </div>
-                    <Button variant='default'>Get started</Button>
+                    {/*<Button  
+                      variant='default'
+                      onClick={(event) => event.preventDefault()}
+                    >
+                      Login
+                    </Button>*/}
+                    <ExButton
+                      type='link'
+                      href='/dashboard/provider'
+                      isGradient
+                    >
+                      Login
+                    </ExButton>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
@@ -306,7 +354,19 @@ const Navbar = () => {
                         Login to get started
                       </Text>
                     </div>
-                    <Button variant='default'>Get started</Button>
+                    {/*<Button 
+                      variant='default'
+                      onClick={(event) => event.preventDefault()}
+                    >
+                      Login
+                    </Button>*/}
+                    <ExButton
+                      type='link'
+                      href='#'
+                      isGradient
+                    >
+                      Login
+                    </ExButton>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
@@ -366,8 +426,30 @@ const Navbar = () => {
             </a>
           </Group>
           <Group visibleFrom='md'>
+            <Combobox
+              store={combobox}
+              onOptionSubmit={(val) => {
+                setLanguage(val);
+                combobox.closeDropdown();
+              }}
+            >
+              <Combobox.Target>
+                <Button
+                  rightSection={<IconChevronDown style={{width: rem(15), height: rem(15)}} />}
+                  onClick={() => combobox.toggleDropdown()}
+                  styles={{
+                    root: {backgroundColor: 'transparent'}
+                  }}
+                >
+                  {language || <IconWorld style={{ color: 'white', width: rem(23), height: rem(23) }} />}
+                </Button>
+              </Combobox.Target>
+              <Combobox.Dropdown>
+                <Combobox.Options>{languageOptions}</Combobox.Options>
+              </Combobox.Dropdown>
+            </Combobox>
             <div>
-              <a href='/dashboard' className={`${classes.link}`}>
+              <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login
               </a>
             </div>
@@ -486,7 +568,7 @@ const Navbar = () => {
               </a>
 
               <Group pb='xl' mt={40} px='md' wrap='wrap'>
-                <a href='/dashboard' className={`${classes.link}`}>
+                <a href='/dashboard/provider' className={`${classes.link}`}>
                   Login
                 </a>
                 <ExButton

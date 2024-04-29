@@ -35,7 +35,8 @@ import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 import invoiceDataa from '@/lib/invoices'
-import Link from 'next/link'
+import { setTimeout } from 'timers/promises'
+//import Link from 'next/link'
 
 interface RowData {
   id: string
@@ -120,6 +121,15 @@ function sortData(
     payload.search
   )
 }
+
+/*dropdown menu to combine both filteration 
+* and sorting keep search field as is
+* design concept would be similar to excel 
+* 
+* Joseph TO-DO
+*
+*
+*/
 
 const TableSort = () => {
   const [search, setSearch] = useState('')
@@ -207,18 +217,22 @@ const TableSort = () => {
     }
   }
 
+  //changing status data from in progress to validated
+  //setTimeout
+  
   useEffect(() => {
     setInvoiceData(invoiceDataa)
     const fetchInvoices = async () => {
-      //const data = await getInvoices()
-      //setInvoiceData(data.data)
+      const data = await getInvoices()
+      setInvoiceData(data.data)
       setSortedData(
-        //sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
-        sortData(invoiceDataa, {
+        sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+        //sample data
+        /*sortData(invoiceDataa, {
           sortBy,
           reversed: reverseSortDirection,
           search,
-        })
+        })*/
       )
       //console.log(data.data)
     }

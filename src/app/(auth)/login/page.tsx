@@ -126,7 +126,7 @@ const Login = () => {
           </Group>
           <ExButton
             type='link'
-            href='/dashboard'
+            href='/dashboard/provider'
             className='w-full mt-10'
             isGradient
           >

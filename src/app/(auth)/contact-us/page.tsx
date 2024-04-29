@@ -46,7 +46,6 @@ const business = [
   'Healthcare Payer',
 ];
 
-
 const SignUp = () => {
   const router = useRouter()
   const combobox = useCombobox({
@@ -209,7 +208,7 @@ const SignUp = () => {
           />*/}
           <ExButton
             type='link'
-            href='/dashboard'
+            href='/dashboard/provider'
             className='w-full mt-10'
             isGradient
           >
