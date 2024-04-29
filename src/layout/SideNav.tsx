@@ -2,7 +2,6 @@
 
 import { ScrollArea, AppShell, Box, ThemeIcon, rem, Text } from '@mantine/core'
 import {
-  IconChartBar,
   IconUser,
   IconSettings,
   IconLogout,
@@ -19,20 +18,20 @@ import { useRouter } from 'next/navigation'
 
 const SideNav = () => {
   const router = useRouter()
-  const mockdata = [
-    { label: 'Home', navLink: '/dashboard', icon: IconLayoutDashboard },
-    { label: 'Invoices', navLink: '/dashboard/invoices', icon: IconInvoice },
-    { label: 'Salaries', navLink: '/dashboard/salaries', icon: IconCoins },
-    { label: 'Billing', navLink: '/dashboard/billing', icon: IconCurrencyDollar },
+  const clinicsNavLinks = [
+    { label: 'Home', navLink: '/dashboard/provider', icon: IconLayoutDashboard },
+    { label: 'Invoices', navLink: '/dashboard/provider/invoices', icon: IconInvoice },
+    { label: 'Salaries', navLink: '/dashboard/provider/salaries', icon: IconCoins },
+    { label: 'Billing', navLink: '/dashboard/provider/billing', icon: IconCurrencyDollar },
     {
       label: 'My profile',
-      navLink: '/dashboard/settings/profile',
+      navLink: '/dashboard/provider/settings/profile',
       icon: IconUser,
     },
-    { label: 'Documentation', navLink: '/dashboard/docs', icon: IconSettings },
-    { label: 'Support', navLink: '/dashboard/support', icon: IconQuestionMark },
+    { label: 'Documentation', navLink: '/dashboard/provider/docs', icon: IconSettings },
+    { label: 'Support', navLink: '/dashboard/provider/support', icon: IconQuestionMark },
   ]
-  const links = mockdata.map((item) => (
+  const links = clinicsNavLinks.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ))
   return (

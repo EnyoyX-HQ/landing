@@ -6,19 +6,19 @@ import Link from 'next/link'
 const docs = [
   {
     title: 'API Quickstart',
-    link: '/dashboard',
+    link: '/dashboard/provider',
     icon: <IconBook color='#69d5e8' />,
     desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat dolorum nihil assumenda aperiam.',
   },
   {
     title: 'Processing claims',
-    link: '/dashboard',
+    link: '/dashboard/provider',
     icon: <IconProgressCheck color='#69d5e8' />,
     desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat dolorum nihil assumenda aperiam.',
   },
   {
     title: 'Payout Integration',
-    link: '/dashboard',
+    link: '/dashboard/provider',
     icon: <IconPlug color='#69d5e8' />,
     desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat dolorum nihil assumenda aperiam.',
   },

@@ -1,14 +1,15 @@
-import Link from "next/link";
+/*import Link from "next/link";
 import {
     Bell,
     CircleUser,
     Home,
-    LineChart,
+    //LineChart,
     Menu,
-    Package,
     Package2,
     Search,
-    ShoppingCart, Paperclip, Store,
+    //ShoppingCart, 
+    Paperclip, 
+    Store,
     Users,
 } from "lucide-react";
 
@@ -56,31 +57,31 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     <div className="flex-1">
                         <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
                             <Link
-                                href="/dashboard"
+                                href="/dashboard/provider"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Home className="h-4 w-4" />
                                 Home
                             </Link>
                             <Link
-                                href="/dashboard/invoices"
+                                href="/dashboard/provider/invoices"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Store className="h-4 w-4" />
-                                Invoices (Claims)
+                                Invoices
                                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                                     6
                                 </Badge>
                             </Link>
                             <Link
-                                href="/dashboard/settings/profile"
+                                href="/dashboard/provider/settings/profile"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Users className="h-4 w-4" />
                                 My profile{" "}
                             </Link>
                             <Link
-                                href="/dashboard/docs"
+                                href="/dashboard/provider/docs"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
                                 <Paperclip className="h-4 w-4" />
@@ -113,14 +114,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                                     <span className="sr-only">Acme Inc</span>
                                 </Link>
                                 <Link
-                                    href="/dashboard"
+                                    href="/dashboard/provider"
                                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                                 >
                                     <Home className="h-4 w-4" />
                                     Home
                                 </Link>
                                 <Link
-                                    href="/dashboard/invoices"
+                                    href="/dashboard/provider/invoices"
                                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                                 >
                                     <Store className="h-4 w-4" />
@@ -130,14 +131,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                                     </Badge>
                                 </Link>
                                 <Link
-                                    href="/dashboard/settings/profile"
+                                    href="/dashboard/provider/settings/profile"
                                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                                 >
                                     <Users className="h-4 w-4" />
                                     My profile{" "}
                                 </Link>
                                 <Link
-                                    href="/dashboard/docs"
+                                    href="/dashboard/provider/docs"
                                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                                 >
                                     <Paperclip className="h-4 w-4" />
@@ -195,7 +196,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     </DropdownMenu>
                 </header>
                 <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-                    {/* <div className="flex items-center">
+                    <div className="flex items-center">
                         <h1 className="text-lg font-semibold md:text-2xl">Upload Claim</h1>
                     </div>
                     <div
@@ -205,10 +206,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         <div className="flex flex-col items-center gap-1 text-center">
                             <Button className="mt-4">Upload Claim</Button>
                         </div>
-                    </div> */}
+                    </div>
                     {children}
                 </main>
             </div>
         </div>
     )
-}
+}*/

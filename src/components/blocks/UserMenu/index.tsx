@@ -63,7 +63,7 @@ const UserMenu = () => {
               />
             }
           >
-            <a href="/dashboard/settings/profile">
+            <a href="/dashboard/provider/settings/profile">
               Account settings
             </a>
           </Menu.Item>
@@ -75,7 +75,7 @@ const UserMenu = () => {
               />
             }
           >
-            <a href="/dashboard/support">
+            <a href="/dashboard/provider/support">
               Support
             </a>  
           </Menu.Item>
