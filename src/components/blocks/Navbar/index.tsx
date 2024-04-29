@@ -23,6 +23,8 @@ import {
   Input, 
   InputBase,
   useCombobox,
+  Menu, 
+  Avatar,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import {
@@ -44,6 +46,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Logo } from '@/images'
 import { ExButton } from '@/components'
+import AnnouncementSaleBar from '../Announcement'
 //import Dashboard from '../../../app/dashboard/page';
 
 const clinicNavbarData = [
@@ -212,6 +215,8 @@ const Navbar = () => {
   ))
 
   return (
+    <>
+    <AnnouncementSaleBar />
     <Box pb={43}>
       <header className={`ex--container ${classes.header}`}>
         <Group justify='space-between' h='100%'>
@@ -427,6 +432,7 @@ const Navbar = () => {
           </Group>
           <Group visibleFrom='md'>
             <Combobox
+              withArrow
               store={combobox}
               onOptionSubmit={(val) => {
                 setLanguage(val);
@@ -448,6 +454,35 @@ const Navbar = () => {
                 <Combobox.Options>{languageOptions}</Combobox.Options>
               </Combobox.Dropdown>
             </Combobox>
+            {/*<Menu
+              withArrow
+              width={80}
+              position='bottom'
+              transitionProps={{ transition: 'pop' }}
+              withinPortal
+            >
+              <Menu.Target>
+                <Avatar 
+                  className='cursor-pointer flex items-center px-3' 
+                  radius="sm"
+                >
+                  <IconWorld style={{ color: 'white', width: rem(30), height: rem(30) }} />
+                  <IconChevronDown style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                </Avatar>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item>
+                  <a href="#" className="flex justify-center m-auto items-center">
+                    French
+                  </a>
+                </Menu.Item>
+                <Menu.Item>
+                  <a href="#" className="flex justify-center m-auto items-center">
+                    English
+                  </a>
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>*/}
             <div>
               <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login
@@ -585,6 +620,7 @@ const Navbar = () => {
         </Drawer.Content>
       </Drawer.Root>
     </Box>
+    </>
   )
 }
 

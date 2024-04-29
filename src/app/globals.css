@@ -60,6 +60,9 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.bg-gradient{
+  background: linear-gradient(45deg, #6fd9db, #d8e665);
+}
 
 .gradient-bg {
   background-color: #f4d03f;
