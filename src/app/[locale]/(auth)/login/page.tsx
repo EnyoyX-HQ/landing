@@ -92,14 +92,14 @@ const Login = () => {
             </Text>
           </Box>
           <Group grow mb='md' mt='md'>
-            <Button variant='outline' color='gray' size='md' radius={'xl'}>
-              SSO
+            <Button variant='outline' color='gray' size='sm' radius={'xl'}>
+              Single Sign-On
             </Button>
             <Button
               variant='outline'
               leftSection={<GoogleIcon />}
               color='gray'
-              size='md'
+              size='sm'
               radius={'xl'}
             >
               Google
