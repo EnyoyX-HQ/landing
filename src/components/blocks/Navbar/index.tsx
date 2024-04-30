@@ -462,13 +462,23 @@ const Navbar = () => {
               withinPortal
             >
               <Menu.Target>
-                <Avatar 
+                {/*<Avatar 
                   className='cursor-pointer flex items-center px-3' 
                   radius="sm"
                 >
                   <IconWorld style={{ color: 'white', width: rem(30), height: rem(30) }} />
                   <IconChevronDown style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Avatar>
+                </Avatar>*/}
+                <Button  
+                  variant='default'
+                  onClick={(event) => event.preventDefault()}
+                  rightSection={<IconChevronDown size={14} style={{ color: 'white' }} />}
+                  styles={{
+                    root: { backgroundColor: 'transparent', border: '0px' },
+                  }}
+                >
+                  <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                </Button>
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
