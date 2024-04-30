@@ -7,10 +7,10 @@ import {
   IconLogout,
   IconLayoutDashboard,
   IconInvoice,
-  IconFiles,
+  //IconFiles,
   IconCoins,
   IconQuestionMark,
-  IconCurrencyDollar
+  IconCurrencyDollar,
 } from '@tabler/icons-react'
 import classes from '@/styles/SideNav.module.css'
 import LinksGroup from './LinksGroup'
