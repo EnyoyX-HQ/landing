@@ -462,13 +462,6 @@ const Navbar = () => {
               withinPortal
             >
               <Menu.Target>
-                {/*<Avatar 
-                  className='cursor-pointer flex items-center px-3' 
-                  radius="sm"
-                >
-                  <IconWorld style={{ color: 'white', width: rem(30), height: rem(30) }} />
-                  <IconChevronDown style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Avatar>*/}
                 {/*<Button  
                   variant='default'
                   onClick={(event) => event.preventDefault()}
@@ -480,7 +473,7 @@ const Navbar = () => {
                   <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
                 </Button>*/}
                 <Center inline className='cursor-pointer'>
-                  <Box component='span'>
+                  <Box component='span' mr={5}>
                     <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
                   </Box>
                   <IconChevronDown
