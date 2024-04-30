@@ -469,16 +469,25 @@ const Navbar = () => {
                   <IconWorld style={{ color: 'white', width: rem(30), height: rem(30) }} />
                   <IconChevronDown style={{ color: 'white', width: rem(25), height: rem(25) }} />
                 </Avatar>*/}
-                <Button  
+                {/*<Button  
                   variant='default'
                   onClick={(event) => event.preventDefault()}
-                  rightSection={<IconChevronDown size={14} style={{ color: 'white' }} />}
+                  rightSection={<IconChevronDown color={'white'} style={{ width: rem(16), height: rem(16) }} />}
                   styles={{
                     root: { backgroundColor: 'transparent', border: '0px' },
                   }}
                 >
                   <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Button>
+                </Button>*/}
+                <Center inline className='cursor-pointer'>
+                  <Box component='span'>
+                    <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
