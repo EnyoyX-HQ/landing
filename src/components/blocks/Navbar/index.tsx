@@ -430,8 +430,8 @@ const Navbar = () => {
               Pricing
             </a>
           </Group>
-          <Group visibleFrom='md'>
-            <Combobox
+          <Group visibleFrom='md' className='flex justify-center items-center'>
+            {/*<Combobox
               withArrow
               store={combobox}
               onOptionSubmit={(val) => {
@@ -453,8 +453,8 @@ const Navbar = () => {
               <Combobox.Dropdown>
                 <Combobox.Options>{languageOptions}</Combobox.Options>
               </Combobox.Dropdown>
-            </Combobox>
-            {/*<Menu
+              </Combobox>*/}
+            <Menu
               withArrow
               width={80}
               position='bottom'
@@ -462,27 +462,39 @@ const Navbar = () => {
               withinPortal
             >
               <Menu.Target>
-                <Avatar 
-                  className='cursor-pointer flex items-center px-3' 
-                  radius="sm"
+                {/*<Button  
+                  variant='default'
+                  onClick={(event) => event.preventDefault()}
+                  rightSection={<IconChevronDown color={'white'} style={{ width: rem(16), height: rem(16) }} />}
+                  styles={{
+                    root: { backgroundColor: 'transparent', border: '0px' },
+                  }}
                 >
-                  <IconWorld style={{ color: 'white', width: rem(30), height: rem(30) }} />
-                  <IconChevronDown style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Avatar>
+                  <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                </Button>*/}
+                <Center inline className='cursor-pointer'>
+                  <Box component='span' mr={5}>
+                    <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  <a href="#" className="flex justify-center m-auto items-center">
+                  <a href="/fr" className="flex justify-center m-auto items-center">
                     French
                   </a>
                 </Menu.Item>
                 <Menu.Item>
-                  <a href="#" className="flex justify-center m-auto items-center">
+                  <a href="/en" className="flex justify-center m-auto items-center">
                     English
                   </a>
                 </Menu.Item>
               </Menu.Dropdown>
-            </Menu>*/}
+            </Menu>
             <div>
               <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login
