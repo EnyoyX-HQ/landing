@@ -1,25 +1,5 @@
-import {
-  Faq,
-  Footer,
-  Hero,
-  Intro,
-  Partners,
-  Services,
-  Testimonial,
-  Tools,
-} from '@/components'
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Intro />
-      <Tools />
-      <Partners />
-      <Services />
-      <Testimonial />
-      <Faq />
-      <Footer />
-    </>
-  )
+export default function RootPage() {
+  redirect('/fr')
 }

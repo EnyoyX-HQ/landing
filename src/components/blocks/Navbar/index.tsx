@@ -430,8 +430,8 @@ const Navbar = () => {
               Pricing
             </a>
           </Group>
-          <Group visibleFrom='md'>
-            <Combobox
+          <Group visibleFrom='md' className='flex justify-center items-center'>
+            {/*<Combobox
               withArrow
               store={combobox}
               onOptionSubmit={(val) => {
@@ -453,8 +453,8 @@ const Navbar = () => {
               <Combobox.Dropdown>
                 <Combobox.Options>{languageOptions}</Combobox.Options>
               </Combobox.Dropdown>
-            </Combobox>
-            {/*<Menu
+              </Combobox>*/}
+            <Menu
               withArrow
               width={80}
               position='bottom'
@@ -472,17 +472,17 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  <a href="#" className="flex justify-center m-auto items-center">
+                  <a href="/fr" className="flex justify-center m-auto items-center">
                     French
                   </a>
                 </Menu.Item>
                 <Menu.Item>
-                  <a href="#" className="flex justify-center m-auto items-center">
+                  <a href="/en" className="flex justify-center m-auto items-center">
                     English
                   </a>
                 </Menu.Item>
               </Menu.Dropdown>
-            </Menu>*/}
+            </Menu>
             <div>
               <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login

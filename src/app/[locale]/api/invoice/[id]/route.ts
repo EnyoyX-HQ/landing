@@ -1,4 +1,4 @@
-import prisma from '../../../../../prisma/client'
+import prisma from '../../../../../../prisma/client'
 import { NextResponse } from 'next/server'
 
 // Function to edit an invoice

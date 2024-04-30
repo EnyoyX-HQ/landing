@@ -71,9 +71,9 @@ h6 {
 
 .hero-section {
   position: relative;
-  background: url(../../assets/images/herobg-ad-on.svg) bottom right no-repeat,
+  background: url(../../../assets/images/herobg-ad-on.svg) bottom right no-repeat,
     linear-gradient(rgba(2, 28, 29, 0.8), rgba(2, 28, 29, 0.8)),
-    url(../../assets/images/rough_bg.png);
+    url(../../../assets/images/rough_bg.png);
   background-size: 400px, cover;
   background-color: #021c1d;
 }
@@ -81,7 +81,7 @@ h6 {
 .auth-section {
   position: relative;
   background: linear-gradient(rgba(2, 28, 29, 0.8), rgba(2, 28, 29, 0.8)),
-    url(../../assets/images/rough_bg.png);
+    url(../../../assets/images/rough_bg.png);
   background-size: cover;
   background-color: #021c1d;
 }
@@ -95,7 +95,7 @@ h6 {
 .invoice-card {
   position: relative;
   background: linear-gradient(rgba(2, 28, 29, 0.65), rgba(2, 28, 29, 0.65)),
-    url(../../assets/images/rough_bg.png);
+    url(../../../assets/images/rough_bg.png);
   background-size: cover;
   background-color: #1a3f2a;
   box-shadow: inset 0px -4px 6px 2px #1633319b, 0px 1px 3px 0px #2f2b431a,
@@ -110,7 +110,7 @@ h6 {
 
 .billing-card {
   background: linear-gradient(#081f2496, #081f2496),
-    url(../../assets/images/billing-eclipse.svg) top center no-repeat;
+    url(../../../assets/images/billing-eclipse.svg) top center no-repeat;
   background-size: cover;
   background-color: #081f2496;
   box-shadow: inset 0px -4px 6px 2px #081f24, 0px 1px 3px 0px #2f2b431a,
@@ -118,7 +118,7 @@ h6 {
 }
 
 .partners {
-  background: url(../../assets/images/grid-pattern.svg) top right no-repeat;
+  background: url(../../../assets/images/grid-pattern.svg) top right no-repeat;
 }
 
 .testimonial-card {
@@ -129,7 +129,7 @@ h6 {
 
 .gray-card {
   @apply relative rounded-3xl p-8;
-  background: url(../../assets/images/grid-pattern.svg) top right no-repeat;
+  background: url(../../../assets/images/grid-pattern.svg) top right no-repeat;
   background-color: #f5f5f2;
   box-shadow: inset 0px -4px 6px 2px #ececec, 0px 1px 3px 0px #2f2b431a,
     inset 0px 4px 2px 0px #ececec;
@@ -152,7 +152,7 @@ h6 {
   @apply relative rounded-3xl p-8 md:p-16;
   background: linear-gradient(90deg, #98f275, #bde970),
     linear-gradient(rgba(2, 28, 29, 0.65), rgba(2, 28, 29, 0.65)),
-    url(../../assets/images/rough_bg.png);
+    url(../../../assets/images/rough_bg.png);
   box-shadow: inset 0px -4px 6px 2px #bde970, 0px 1px 3px 0px #2f2b431a,
     inset 0px 4px 2px 0px #98f275;
 }
