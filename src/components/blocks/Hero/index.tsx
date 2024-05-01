@@ -11,17 +11,17 @@ const Hero = () => {
       <Box className='hero-text h-screen ex--container relative z-50 -mt-16 lg:-mt-10'>
         <div className='flex flex-col items-center justify-center h-full text-center gap-8'>
           <h1
-            className={`text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-6xl w-full lg:w-[800px]`}
+            className={`text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-6xl w-full sm:w-[600px] lg:w-[800px]`}
           >
             {/*Unlock <span className='gradient-text'>Financial</span> Potential
             and propel your business operations*/}
             Empowering <span className='gradient-text'>Healthcare</span> Operations with AI
           </h1>
-          <p className='text-slate-300 text-base lg:text-xl'>
+          <p className='text-slate-300 text-base lg:text-xl mx-12 sm:mx-14 lg:w-[800px]'>
             {/*Bridge cash flow gaps and invest in your growth with flexible
             invoice finance.*/}
             Transform your insurance and clinical operations with AI to 
-            bridge the digital and cashflow gap.
+            bridge the digital and cashflow gap and ensure interoperability
           </p>
           <Group justify='center'>
             <ExButton
