@@ -8,11 +8,18 @@ export default createMiddleware({
   defaultLocale: 'fr'
 });
  
+
+//exclude api routes
+export const config = {
+  matcher: '/((?!api|static|.*\\..*|_next).*)'
+};
+
+// Match only internationalized pathnames
 /*export const config = {
-  // Match only internationalized pathnames
   matcher: ['/', '/(fr|en)/:path*']
 };*/
 
-export const config = {
+// Include api routes
+/*export const config = {
   matcher: '/((?!static|.*\\..*|_next).*)'
-}
+}*/
