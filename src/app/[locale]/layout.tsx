@@ -39,6 +39,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
+      {/*<head>
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+        <script>
+          Weglot.initialize({
+            api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
+          })
+        </script>
+      </head>*/}
       <body className={openSans.className}>
         <MantineSetup>
           <Notifications position='top-center' />
