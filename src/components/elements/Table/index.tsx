@@ -149,9 +149,9 @@ const TableSort = () => {
   ];
 
   const router = useRouter()
-  const currentPath = usePathname()
-  const searchParams = useSearchParams()
-  const url = `${currentPath}?${searchParams}`
+  //const currentPath = usePathname()
+  //const searchParams = useSearchParams()
+  //const url = `${currentPath}?${searchParams}`
   //components
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
@@ -268,12 +268,12 @@ const TableSort = () => {
     fetchInvoices() 
   }, [reverseSortDirection, search, sortBy])
 
-  useEffect(() => {
+  /*useEffect(() => {
     const url = `${currentPath}?${searchParams}`
     console.log(url)
     // You can now use the current URL
     // ...
-  }, [currentPath, searchParams])
+  }, [currentPath, searchParams])*/
   // Edit Invoice logic
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -447,6 +447,14 @@ const TableSort = () => {
       </Table.Tr>
     )
   })
+  const refreshTable = async () => {
+    const data = await getInvoices()
+    setInvoiceData(data.data)
+    setSortedData(
+      sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+    )
+    router.refresh()
+  }
   return (
     <>
       <TextInput
@@ -469,7 +477,7 @@ const TableSort = () => {
               variant='outline' 
               color='gray' 
               size='xs'
-              onClick={() => window.location.reload()}
+              onClick={refreshTable}
               radius={0}
             >
               <IconRefresh
