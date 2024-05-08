@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter, usePathname, useSearchParams} from 'next/navigation'
 import {
   Table,
   ScrollArea,
@@ -20,7 +21,9 @@ import {
   useCombobox,
   Combobox,
   InputBase,
-  Input
+  Input,
+  Button,
+  HoverCard
 } from '@mantine/core'
 import {
   IconSelector,
@@ -31,6 +34,7 @@ import {
   IconTrash,
   IconDownload,
   IconCoins,
+  IconRefresh,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
@@ -143,6 +147,11 @@ const TableSort = () => {
     'PPM', 
     'Other',
   ];
+
+  const router = useRouter()
+  const currentPath = usePathname()
+  const searchParams = useSearchParams()
+  const url = `${currentPath}?${searchParams}`
   //components
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
@@ -256,9 +265,15 @@ const TableSort = () => {
       )
       //console.log(data.data)
     }
-    fetchInvoices()
+    fetchInvoices() 
   }, [reverseSortDirection, search, sortBy])
 
+  useEffect(() => {
+    const url = `${currentPath}?${searchParams}`
+    console.log(url)
+    // You can now use the current URL
+    // ...
+  }, [currentPath, searchParams])
   // Edit Invoice logic
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -432,7 +447,6 @@ const TableSort = () => {
       </Table.Tr>
     )
   })
-
   return (
     <>
       <TextInput
@@ -448,6 +462,29 @@ const TableSort = () => {
         value={search}
         onChange={handleSearchChange}
       />
+      <Group justify="flex-end">
+        <HoverCard width={80} shadow="md">
+          <HoverCard.Target>
+            <Button 
+              variant='outline' 
+              color='gray' 
+              size='xs'
+              onClick={() => window.location.reload()}
+              radius={0}
+            >
+              <IconRefresh
+                style={{ width: rem(18), height: rem(18) }}
+                stroke={2}
+              /> 
+            </Button>
+          </HoverCard.Target>
+          <HoverCard.Dropdown>
+            <Text size="xs">
+              Refresh
+            </Text>
+          </HoverCard.Dropdown>
+        </HoverCard>
+      </Group>
       <ScrollArea>
         <Table
           horizontalSpacing='md'
