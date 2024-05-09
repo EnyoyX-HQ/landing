@@ -1,13 +1,13 @@
 export async function getInvoices() {
-  const res = await fetch('/api/invoice')
+  const response = await fetch('/api/invoice', { next: { revalidate: 300 } }) //revalidate every 5 mins
 
-  if (!res.ok) {
-    console.error('Failed to fetch invoices:', res.statusText)
+  if (!response.ok) {
+    console.error('Failed to fetch invoices:', response.statusText)
     throw new Error('Failed to fetch invoices')
   }
 
   try {
-    return await res.json()
+    return await response.json()
   } catch (error) {
     console.error('Error parsing JSON:', error)
     throw new Error('Invalid JSON response')
@@ -33,7 +33,7 @@ export async function getClinics() {
 export async function deleteInvoice(id: any) {
   try {
     const response = await fetch(`/api/invoice/${id}`, {
-      method: 'DELETE',
+      method: 'DELETE'
     })
 
     if (response.ok) {
