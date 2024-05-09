@@ -49,11 +49,11 @@ export default function RootLayout({
         <SpeedInsights />
       </body>
       <Script src="https://cdn.weglot.com/weglot.min.js" />
-      <Script id="show-banner">
+      {/*<Script id="show-banner">
         {`Weglot.initialize({
           api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
         })`}
-      </Script>
+      </Script>*/}
       <GoogleAnalytics gaId="G-KZ7THZC0BP" />
     </html>
   )
