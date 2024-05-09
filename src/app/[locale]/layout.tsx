@@ -41,6 +41,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
+      <head>
+        <Script src="https://cdn.weglot.com/weglot.min.js" />
+        {/*<Script id="show-banner">
+          {`Weglot.initialize({
+            api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
+          })`}
+        </Script>*/}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ7THZC0BP" />
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KZ7THZC0BP');`}
+        </Script>
+      </head>
       <body className={openSans.className}>
         <MantineSetup>
           <Notifications position='top-center' />
@@ -48,13 +63,7 @@ export default function RootLayout({
         </MantineSetup>
         <SpeedInsights />
       </body>
-      <Script src="https://cdn.weglot.com/weglot.min.js" />
-      {/*<Script id="show-banner">
-        {`Weglot.initialize({
-          api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
-        })`}
-      </Script>*/}
-      <GoogleAnalytics gaId="G-KZ7THZC0BP" />
+      {/*<GoogleAnalytics gaId="G-KZ7THZC0BP" />*/}
     </html>
   )
 }
