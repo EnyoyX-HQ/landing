@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { ExButton, GlowingBalls } from '@/components'
 import { LogoDark, LogoWhite } from '@/images'
+import { IMaskInput } from 'react-imask';
+import { useMediaQuery } from '@mantine/hooks';
 import {
   TextInput,
   PasswordInput,
@@ -28,9 +30,9 @@ import { useRouter } from 'next/navigation'
 const countries = [
   '🇨🇮 Côte d’Ivoire', 
   '🇬🇭 Ghana', 
-  '🇳🇬 Nigeria', 
+  /*'🇳🇬 Nigeria', 
   '🇫🇷 France', 
-  '🇺🇸 United States',
+  '🇺🇸 United States',*/
 ];
 const interests = [
   'Newsletter', 
@@ -63,6 +65,9 @@ const SignUp = () => {
   const [valueBusiness, setValueBusiness] = useState<string | null>(null);
   const [valueText, setValueText] = useState('');
 
+
+  //mantine media queries
+  const matches = useMediaQuery('(min-width: 769px)')
   const countryOptions = countries.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
@@ -88,7 +93,7 @@ const SignUp = () => {
               Contact Us
             </h1>
             <Text c='gray' size='md' ta='left' pl={16} pr={16}>
-              We are here to provide the optimal solution to meet your needs.
+              We are here to provide solutions to meet your needs.
             </Text>
           </Box>
         </Box>
@@ -128,16 +133,22 @@ const SignUp = () => {
                   rightSection={<Combobox.Chevron />}
                   rightSectionPointerEvents="none"
                   onClick={() => combobox.toggleDropdown()}
+                  required
                 >
                   {value || <Input.Placeholder>Select Country</Input.Placeholder>}
                 </InputBase>
               </Combobox.Target>
 
               <Combobox.Dropdown>
-                <Combobox.Options>{countryOptions}</Combobox.Options>
+                <Combobox.Options mah={200} style={{ overflowY: 'auto' }}>{countryOptions}</Combobox.Options>
               </Combobox.Dropdown>
             </Combobox>
-            <TextInput placeholder='Phone number' required />
+            {/*<TextInput placeholder='Phone number' required />*/}
+            <InputBase
+              component={IMaskInput}
+              mask="+255 (000) 000-0000"
+              placeholder="Phone number"
+            />
           </Group>
           <Group grow mb='md' mt='md'>
             <Combobox
@@ -155,13 +166,14 @@ const SignUp = () => {
                   rightSection={<Combobox.Chevron />}
                   rightSectionPointerEvents="none"
                   onClick={() => comboboxBusiness.toggleDropdown()}
+                  required
                 >
                   {valueBusiness || <Input.Placeholder>Type of Business</Input.Placeholder>}
                 </InputBase>
               </Combobox.Target>
 
               <Combobox.Dropdown>
-                <Combobox.Options>{businessOptions}</Combobox.Options>
+                <Combobox.Options mah={200} style={{ overflowY: 'auto' }}>{businessOptions}</Combobox.Options>
               </Combobox.Dropdown>
             </Combobox>
             <Combobox
@@ -180,12 +192,12 @@ const SignUp = () => {
                   rightSectionPointerEvents="none"
                   onClick={() => comboboxInterests.toggleDropdown()}
                 >
-                  {valueInterest || <Input.Placeholder>Source of awareness</Input.Placeholder>}
+                  {valueInterest || <Input.Placeholder><p className="text-[13px] leading-[18px] md:text-sm">Source of awareness</p></Input.Placeholder>}
                 </InputBase>
               </Combobox.Target>
 
               <Combobox.Dropdown>
-                <Combobox.Options>{interestOptions}</Combobox.Options>
+                <Combobox.Options mah={200} style={{ overflowY: 'auto' }}>{interestOptions}</Combobox.Options>
               </Combobox.Dropdown>
             </Combobox>
           </Group>

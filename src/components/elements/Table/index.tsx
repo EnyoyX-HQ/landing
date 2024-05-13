@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter, usePathname, useSearchParams} from 'next/navigation'
+import { useRouter} from 'next/navigation'
 import {
   Table,
   ScrollArea,
@@ -148,11 +148,8 @@ const TableSort = () => {
     'Other',
   ];
 
+  //states
   const router = useRouter()
-  //const currentPath = usePathname()
-  //const searchParams = useSearchParams()
-  //const url = `${currentPath}?${searchParams}`
-  //components
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
@@ -276,6 +273,14 @@ const TableSort = () => {
   }, [currentPath, searchParams])*/
   // Edit Invoice logic
 
+  const refreshTable = async () => {
+    const data = await getInvoices()
+    setInvoiceData(data.data)
+    setSortedData(
+      sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+    )
+    router.refresh()
+  }
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
@@ -447,14 +452,7 @@ const TableSort = () => {
       </Table.Tr>
     )
   })
-  const refreshTable = async () => {
-    const data = await getInvoices()
-    setInvoiceData(data.data)
-    setSortedData(
-      sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
-    )
-    router.refresh()
-  }
+  
   return (
     <>
       <TextInput
