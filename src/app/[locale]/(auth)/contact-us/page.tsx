@@ -126,10 +126,14 @@ const SignUp = () => {
           <Paper p={10} mt={30}>
             <Group grow mb='md' mt='md'>
               <TextInput required label="First name" placeholder='First name' key={form.key('fname')} {...form.getInputProps('fname')}/>
+            </Group>
+            <Group grow mb='md' mt='md'>
               <TextInput required label="Last name" placeholder='Last name' key={form.key('lname')} {...form.getInputProps('lname')}/>
             </Group>
             <Group grow mb='md' mt='md'>
               <TextInput required label= "Company name" placeholder='Company' key={form.key('company')} {...form.getInputProps('company')} />
+            </Group>
+            <Group grow mb='md' mt='md'>
               <TextInput required label="Email address" placeholder='Email address' key={form.key('email')} {...form.getInputProps('email')} />
             </Group>
             <Group grow mb='md' mt='md'>
