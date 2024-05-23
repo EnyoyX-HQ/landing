@@ -5,6 +5,7 @@ import { LogoDark, LogoWhite } from '@/images'
 import { IMaskInput } from 'react-imask';
 import { useMediaQuery } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
+import { IconAt } from '@tabler/icons-react';
 import {
   TextInput,
   PasswordInput,
@@ -22,7 +23,8 @@ import {
   Input, 
   InputBase,
   useCombobox,
-  Textarea
+  Textarea,
+  rem
 } from '@mantine/core'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -30,7 +32,8 @@ import { useRouter } from 'next/navigation'
 
 const countries = [
   '🇨🇮 Côte d’Ivoire', 
-  '🇬🇭 Ghana', 
+  '🇬🇭 Ghana',
+  'Other' 
   /*'🇳🇬 Nigeria', 
   '🇫🇷 France', 
   '🇺🇸 United States',*/
@@ -63,11 +66,12 @@ const SignUp = () => {
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
   //states
-  const [value, setValue] = useState<string | null>(null);
+  const [value, setValue] = useState('');
   const [valueInterest, setValueInterest] = useState<string | null>(null);
   const [valueBusiness, setValueBusiness] = useState<string | null>(null);
   const [valueText, setValueText] = useState('');
-
+  const [formValues, setFormValues] = useState({ fname: '', lname: '', company: '', email: '', number: ''});
+  const values = formValues
 
   //mantine media queries
   const matches = useMediaQuery('(min-width: 769px)')
@@ -86,11 +90,15 @@ const SignUp = () => {
       {item}
     </Combobox.Option>
   ));
+  const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
   const form = useForm({
     mode: 'uncontrolled',
     validateInputOnChange: true,
     initialValues: { fname: '', lname: '', company: '', email: '', number: '' },
-
+    onValuesChange: (values) => {
+      console.log(values);
+      setFormValues(values);
+    },
     // functions will be used to validate values at corresponding key
     validate: {
       fname: (value: string) => (value.length < 2 ? 'First name must have at least 2 letters' : null),
@@ -115,7 +123,7 @@ const SignUp = () => {
           </Box>
         </Box>
       </div>
-      <Container size={520} py={40}>
+      <Container size={640} py={40}>
         <Link href={'/'} className='w-full'>
           <Image
             src={LogoDark}
@@ -127,16 +135,41 @@ const SignUp = () => {
         <form onSubmit={form.onSubmit(console.log)}>
           <Paper p={10} mt={30}>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="First name" placeholder='Enter your first name' key={form.key('fname')} {...form.getInputProps('fname')}/>
+              <TextInput 
+                required 
+                label="First name" 
+                placeholder='Enter your first name' 
+                key={form.key('fname')} 
+                {...form.getInputProps('fname')}
+              />
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="Last name" placeholder='Enter your last name' key={form.key('lname')} {...form.getInputProps('lname')}/>
+              <TextInput 
+                required label="Last name" 
+                placeholder='Enter your last name' 
+                key={form.key('lname')} 
+                {...form.getInputProps('lname')}
+              />
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label= "Company name" placeholder='Enter your company name' key={form.key('company')} {...form.getInputProps('company')} />
+              <TextInput 
+                required 
+                label= "Company name" 
+                placeholder='Enter your company name' 
+                key={form.key('company')} 
+                {...form.getInputProps('company')} 
+              />
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="Email" placeholder='Enter your email address' key={form.key('email')} {...form.getInputProps('email')} />
+              <TextInput 
+                required
+                leftSectionPointerEvents="none"
+                leftSection={icon} 
+                label="Email" 
+                placeholder='Enter your email address' 
+                key={form.key('email')} 
+                {...form.getInputProps('email')}
+              />
             </Group>
             <Group grow mb='md' mt='md'>
               <Combobox
@@ -168,20 +201,19 @@ const SignUp = () => {
               {/*<TextInput placeholder='Phone number' required />*/}
               <InputBase
                 label="Telephone"
+                required
                 /*component={IMaskInput}
                 mask="+255 (000) 000-0000"*/
-                
                 placeholder="Phone"
                 key={form.key('number')} 
                 {...form.getInputProps('number')}
-                
               />
             </Group>
             <Group grow mb='md' mt='md'>
               <Combobox
                 store={comboboxBusiness}
                 onOptionSubmit={(val) => {
-                  setValueInterest(val);
+                  setValueBusiness(val);
                   comboboxBusiness.closeDropdown();
                 }}
               >
@@ -236,7 +268,7 @@ const SignUp = () => {
                 resize="vertical"
                 placeholder="Tell us about your business"
                 value={valueText}
-                onChange={(event) => setValue(event.currentTarget.value)}
+                onChange={(event) => setValueText(event.currentTarget.value)}
                 autosize
                 minRows={4}
               />
@@ -248,12 +280,12 @@ const SignUp = () => {
               mt='md'
             />*/}
             <ExButton
-              type='link'
-              href='/dashboard/provider'
+              type='action'
+              isSubmit
+              onClick={() => console.log('submit')}
               className='w-full mt-10'
-              isGradient
+              disabled={!values.fname || !values.lname || !values.company || !values.email || !values.number}
             >
-              {/*Sign up*/}
               Submit
             </ExButton>
 

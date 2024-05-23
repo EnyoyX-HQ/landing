@@ -42,6 +42,12 @@ h6 {
     inset 0px 4px 2px 0px #00000026;
   transition: all 0.5s ease-in-out;
 }
+.gradient-button-off{
+  color: #adacac;
+  background-color: #02833c;
+  box-shadow: inset 0px -4px 6px 2px #f2f25980, 0px 1px 3px 0px #2f2b431a,
+    inset 0px 4px 2px 0px #00000026;
+}
 
 .gradient-button:hover {
   background-color: #079246;
