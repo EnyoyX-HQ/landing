@@ -45,8 +45,10 @@ const interests = [
   'Podcast'
 ];
 const business = [
-  'Healthcare Clinic', 
-  'Healthcare Payer',
+  'Clinic', 
+  'Payer',
+  'Public Health',
+  'Other'
 ];
 
 const SignUp = () => {
@@ -125,16 +127,16 @@ const SignUp = () => {
         <form onSubmit={form.onSubmit(console.log)}>
           <Paper p={10} mt={30}>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="First name" placeholder='First name' key={form.key('fname')} {...form.getInputProps('fname')}/>
+              <TextInput required label="First name" placeholder='Enter your first name' key={form.key('fname')} {...form.getInputProps('fname')}/>
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="Last name" placeholder='Last name' key={form.key('lname')} {...form.getInputProps('lname')}/>
+              <TextInput required label="Last name" placeholder='Enter your last name' key={form.key('lname')} {...form.getInputProps('lname')}/>
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label= "Company name" placeholder='Company' key={form.key('company')} {...form.getInputProps('company')} />
+              <TextInput required label= "Company name" placeholder='Enter your company name' key={form.key('company')} {...form.getInputProps('company')} />
             </Group>
             <Group grow mb='md' mt='md'>
-              <TextInput required label="Email address" placeholder='Email address' key={form.key('email')} {...form.getInputProps('email')} />
+              <TextInput required label="Email" placeholder='Enter your email address' key={form.key('email')} {...form.getInputProps('email')} />
             </Group>
             <Group grow mb='md' mt='md'>
               <Combobox
@@ -155,7 +157,7 @@ const SignUp = () => {
                     onClick={() => combobox.toggleDropdown()}
                     required
                   >
-                    {value || <Input.Placeholder>Select Country</Input.Placeholder>}
+                    {value || <Input.Placeholder>Select</Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
@@ -166,12 +168,13 @@ const SignUp = () => {
               {/*<TextInput placeholder='Phone number' required />*/}
               <InputBase
                 label="Telephone"
-                component={IMaskInput}
-                mask="+255 (000) 000-0000"
-                placeholder="Phone number"
+                /*component={IMaskInput}
+                mask="+255 (000) 000-0000"*/
+                
+                placeholder="Phone"
                 key={form.key('number')} 
                 {...form.getInputProps('number')}
-                required
+                
               />
             </Group>
             <Group grow mb='md' mt='md'>
@@ -184,7 +187,7 @@ const SignUp = () => {
               >
                 <Combobox.Target>
                   <InputBase
-                    label="Type of Business"
+                    label="Organization Type"
                     component="button"
                     type="button"
                     pointer
@@ -193,7 +196,7 @@ const SignUp = () => {
                     onClick={() => comboboxBusiness.toggleDropdown()}
                     required
                   >
-                    {valueBusiness || <Input.Placeholder>Type of Business</Input.Placeholder>}
+                    {valueBusiness || <Input.Placeholder>Select</Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
@@ -218,7 +221,7 @@ const SignUp = () => {
                     rightSectionPointerEvents="none"
                     onClick={() => comboboxInterests.toggleDropdown()}
                   >
-                    {valueInterest || <Input.Placeholder><p className="text-[13px] leading-[18px] md:text-sm">Source of awareness</p></Input.Placeholder>}
+                    {valueInterest || <Input.Placeholder><p className="text-[13px] leading-[18px] md:text-sm">Select</p></Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
