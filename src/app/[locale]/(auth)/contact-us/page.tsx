@@ -96,7 +96,6 @@ const SignUp = () => {
     validateInputOnChange: true,
     initialValues: { fname: '', lname: '', company: '', email: '', number: '' },
     onValuesChange: (values) => {
-      console.log(values);
       setFormValues(values);
     },
     // functions will be used to validate values at corresponding key
