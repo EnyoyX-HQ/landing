@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import { Button, Group, Switch } from '@mantine/core';
 interface ExButtonProps {
   children: React.ReactNode
   type: 'action' | 'link'

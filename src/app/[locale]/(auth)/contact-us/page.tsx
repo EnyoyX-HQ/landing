@@ -1,11 +1,13 @@
 'use client'
 import { useState } from 'react';
-import { ExButton, GlowingBalls } from '@/components'
-import { LogoDark, LogoWhite } from '@/images'
-import { IMaskInput } from 'react-imask';
-import { useMediaQuery } from '@mantine/hooks';
+import { ExButton, GlowingBalls } from '@/components';
+import { LogoDark, LogoWhite } from '@/images';
+//import { IMaskInput } from 'react-imask';
+import { useMediaQuery, useDisclosure } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import { IconAt } from '@tabler/icons-react';
+//import { sendContactForm } from '@/lib/actions';
+import { notifications } from '@mantine/notifications';
 import {
   TextInput,
   PasswordInput,
@@ -24,13 +26,16 @@ import {
   InputBase,
   useCombobox,
   Textarea,
-  rem
+  rem,
+  LoadingOverlay,
+  Loader,
+  Code,
 } from '@mantine/core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-const countries = [
+const countryList = [
   '🇨🇮 Côte d’Ivoire', 
   '🇬🇭 Ghana',
   'Other' 
@@ -38,16 +43,18 @@ const countries = [
   '🇫🇷 France', 
   '🇺🇸 United States',*/
 ];
-const interests = [
+const interestList = [
   'Newsletter', 
   'Social Media', 
   'Internet search', 
   'Blog',
-  'YouTube', 
-  'Word-of-Mouth',
-  'Podcast'
+  'YouTube',
+  'LinkedIn', 
+  'Word Of Mouth',
+  'Podcast',
+  'Other'
 ];
-const business = [
+const businessTypeList = [
   'Clinic', 
   'Payer',
   'Public Health',
@@ -65,46 +72,134 @@ const SignUp = () => {
   const comboboxBusiness = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
+  
   //states
-  const [value, setValue] = useState('');
-  const [valueInterest, setValueInterest] = useState<string | null>(null);
-  const [valueBusiness, setValueBusiness] = useState<string | null>(null);
-  const [valueText, setValueText] = useState('');
-  const [formValues, setFormValues] = useState({ fname: '', lname: '', company: '', email: '', number: ''});
-  const values = formValues
+  const [country, setValueCountry] = useState('');
+  const [interest, setValueInterest] = useState<string | null>(null);
+  const [business, setValueBusiness] = useState<string | null>(null);
+  const [message, setMessage] = useState('');
+  //const [visible, { toggle }] = useDisclosure(false);
+  const initFormValues = { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' }
+  const initFormValuesState = { values: initFormValues, isLoading: false, error: '' }
+  const [formValues, setFormValues] = useState(initFormValuesState);
+  const [submittedValues, setSubmittedValues] = useState('');
+  const { values, isLoading, error } = formValues
 
   //mantine media queries
   const matches = useMediaQuery('(min-width: 769px)')
-  const countryOptions = countries.map((item) => (
+  const countryOptions = countryList.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
     </Combobox.Option>
   ));
-  const interestOptions = interests.map((item) => (
+  const interestOptions = interestList.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
     </Combobox.Option>
   ));
-  const businessOptions = business.map((item) => (
+  const businessOptions = businessTypeList.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
     </Combobox.Option>
   ));
   const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
+  const sendContactForm = async(data: any) => {
+    fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    }).then((response) => {
+      if (!response.ok){
+        console.error('Failed to send message:', response.statusText)
+        /*notifications.show({
+          title: 'Oops!',
+          color: 'red',
+          message: 'Failed to submit contact form.',
+        })*/
+        throw new Error("Failed to send message.")
+      }
+      return response.json()
+    })
+  }
+  const handleSubmit = async () => {
+    setFormValues((prev) => ({
+      ...prev,
+      isLoading: true
+    }))
+    try {
+      await sendContactForm(values)
+      notifications.show({
+        color: 'green',
+        message: 'Message sent',
+      })
+    } catch(error) {
+      console.error('Failed to submit contact form')
+      let errorMsg: string;
+      if (error instanceof Error) {
+        errorMsg = error.message;
+      }
+      else {
+        // Fallback for unexpected error shapes
+        errorMsg = String(error);
+      }
+      setFormValues((prev) => {
+        let errorMessage: string;
+        if (error instanceof Error) {
+          errorMessage = error.message;
+        } else {
+          // Fallback for unexpected error shapes
+          errorMessage = String(error);
+        }
+        return {
+          ...prev,
+          isLoading: false,
+          error: errorMessage,
+        };
+      });
+      notifications.show({
+        title: 'Oops!',
+        color: 'red',
+        message: errorMsg
+      })
+    }
+  };
   const form = useForm({
     mode: 'uncontrolled',
     validateInputOnChange: true,
-    initialValues: { fname: '', lname: '', company: '', email: '', number: '' },
+    initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: message },
     onValuesChange: (values) => {
-      setFormValues(values);
+      setFormValues({ values, isLoading, error })
+      /*setFormValues((prev) => ({
+        ...prev,
+        values: {
+          ...prev.values,
+        },
+      }));*/
+      //console.log(values);
     },
+    transformValues: (values) => ({
+      fullName: `${values.firstName} ${values.lastName}`,
+      company: values.company,
+      termOfService: true,
+      email: values.email,
+      country: country,
+      number: values.number,
+      businessType: business,
+      interest: interest,
+      message: values.message,
+    }),
     // functions will be used to validate values at corresponding key
     validate: {
-      fname: (value: string) => (value.length < 2 ? 'First name must have at least 2 letters' : null),
-      lname: (value: string) => (value.length < 2 ? 'Last name must have at least 2 letters' : null),
+      firstName: (value: string) => (value.length < 2 ? 'First name must have at least 2 letters' : null),
+      lastName: (value: string) => (value.length < 2 ? 'Last name must have at least 2 letters' : null),
       company: (value: string) => (value.length < 2 ? 'Company name must have at least 2 letters' : null),
       email: (value: string) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-      number: (value: string) => (/^[0-9\-\(\)\s\+]+$/.test(value) ? null : 'Invalid phone number')
+      //country: (value: string) => (/^[A-Za-z]+$/.test(value) ? null : 'Invalid characters'),
+      number: (value: string) => (/^[0-9\-\(\)\s\+]+$/.test(value) ? null : 'Invalid phone number'),
+      //businessType: (value: string) => (/^[A-Za-z]+$/.test(value) ? null : 'Invalid characters'),
     },
   });
   return (
@@ -131,23 +226,45 @@ const SignUp = () => {
             alt='logo'
           />
         </Link>
-        <form onSubmit={form.onSubmit(console.log)}>
-          <Paper p={10} mt={30}>
+        <form 
+          onSubmit={
+            form.onSubmit((values) =>{
+              handleSubmit()
+              setValueCountry('')
+              setValueInterest('')
+              setValueBusiness('')
+              setMessage('')
+              form.setValues({
+                firstName: '', 
+                lastName: '', 
+                company: '', 
+                email: '', 
+                termOfService: false, 
+                country: country, 
+                number: '', 
+                businessType: business, 
+                interest: interest, 
+                message: message
+              })
+              setSubmittedValues(JSON.stringify(values, null, 2))
+          })}
+        >
+          <Paper p={5} mt={30}>
             <Group grow mb='md' mt='md'>
               <TextInput 
                 required 
                 label="First name" 
                 placeholder='Enter your first name' 
-                key={form.key('fname')} 
-                {...form.getInputProps('fname')}
+                key={form.key('firstName')} 
+                {...form.getInputProps('firstName')}
               />
             </Group>
             <Group grow mb='md' mt='md'>
               <TextInput 
                 required label="Last name" 
                 placeholder='Enter your last name' 
-                key={form.key('lname')} 
-                {...form.getInputProps('lname')}
+                key={form.key('lastName')} 
+                {...form.getInputProps('lastName')}
               />
             </Group>
             <Group grow mb='md' mt='md'>
@@ -169,12 +286,18 @@ const SignUp = () => {
                 key={form.key('email')} 
                 {...form.getInputProps('email')}
               />
+              {/*<Checkbox
+                mt="md"
+                label="I agree to provide "
+                key={form.key('termsOfService')}
+                {...form.getInputProps('termsOfService', { type: 'checkbox' })}
+              />*/}
             </Group>
             <Group grow mb='md' mt='md'>
               <Combobox
                 store={combobox}
                 onOptionSubmit={(val) => {
-                  setValue(val);
+                  setValueCountry(val);
                   combobox.closeDropdown();
                 }}
               >
@@ -188,8 +311,10 @@ const SignUp = () => {
                     rightSectionPointerEvents="none"
                     onClick={() => combobox.toggleDropdown()}
                     required
+                    key={form.key('country')} 
+                    {...form.getInputProps('country')}
                   >
-                    {value || <Input.Placeholder>Select</Input.Placeholder>}
+                    {country || <Input.Placeholder>Select</Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
@@ -226,8 +351,10 @@ const SignUp = () => {
                     rightSectionPointerEvents="none"
                     onClick={() => comboboxBusiness.toggleDropdown()}
                     required
+                    key={form.key('businessType')} 
+                    {...form.getInputProps('businessType')}
                   >
-                    {valueBusiness || <Input.Placeholder>Select</Input.Placeholder>}
+                    {business || <Input.Placeholder>Select</Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
@@ -251,8 +378,10 @@ const SignUp = () => {
                     rightSection={<Combobox.Chevron />}
                     rightSectionPointerEvents="none"
                     onClick={() => comboboxInterests.toggleDropdown()}
+                    key={form.key('interest')} 
+                    {...form.getInputProps('interest')}
                   >
-                    {valueInterest || <Input.Placeholder><p className="text-[13px] leading-[18px] md:text-sm">Select</p></Input.Placeholder>}
+                    {interest || <Input.Placeholder><p className="text-[13px] leading-[18px] md:text-sm">Select</p></Input.Placeholder>}
                   </InputBase>
                 </Combobox.Target>
 
@@ -266,28 +395,27 @@ const SignUp = () => {
                 size="sm"
                 resize="vertical"
                 placeholder="Tell us about your business"
-                value={valueText}
-                onChange={(event) => setValueText(event.currentTarget.value)}
+                //value={message}
+                key={form.key('message')}
+                {...form.getInputProps('message')} 
+                //onChange={(event) => setMessage(event.currentTarget.value)}
                 autosize
                 minRows={4}
               />
             </Group>
-            {/*<PasswordInput
-              label='Password'
-              placeholder='Your password'
-              required
-              mt='md'
-            />*/}
             <ExButton
               type='action'
               isSubmit
-              onClick={() => console.log('submit')}
               className='w-full mt-10'
-              disabled={!values.fname || !values.lname || !values.company || !values.email || !values.number}
+              disabled={!values.firstName || !values.lastName || !values.company || !values.email || !country || !values.number || !business || isLoading}
             >
-              Submit
+              {!isLoading ? `Submit`: <Loader color={'white'} size={30} /> }
             </ExButton>
-
+            {/*submittedValues && (
+              <Code block mt="md">
+                {submittedValues}
+              </Code>
+            )*/}
             <Text c='dimmed' size='sm' ta='center' mt={40}>
               Already have an account?{' '}
               <Anchor
