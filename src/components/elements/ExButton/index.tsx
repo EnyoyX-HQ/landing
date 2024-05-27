@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import { Button, Group, Switch } from '@mantine/core';
 interface ExButtonProps {
   children: React.ReactNode
   type: 'action' | 'link'
@@ -11,6 +11,7 @@ interface ExButtonProps {
   isSubmit?: boolean
   onClick?: () => void
   className?: string
+  disabled?: boolean
 }
 
 // Define a conditional type to make href compulsory only when type is 'link'
@@ -28,15 +29,17 @@ const ExButton = ({
   rightIcon,
   isGradient,
   isSubmit,
+  disabled
 }: ExButtonProps & ConditionalExButtonProps<ExButtonProps['type']>) => {
   return (
     <>
       {type === 'link' ? (
         <Link href={href!}>
           <button
-            className={`ex-button flex gap-2 ${className} ${
-              isGradient ? 'gradient-button' : ''
-            }`}
+            className={`ex-button flex gap-2 ${className} 
+              ${isGradient ? 'gradient-button' : ''}
+              ${disabled ? 'gradient-button-off cursor-not-allowed': 'gradient-button'}
+            `}
           >
             {leftIcon}
             {children}
@@ -47,9 +50,10 @@ const ExButton = ({
         <button
           type={isSubmit ? 'submit' : 'button'}
           onClick={onClick}
-          className={`ex-button flex gap-2 ${className} ${
-            isGradient ? 'gradient-button' : ''
-          }`}
+          className={`ex-button flex gap-2 ${className} 
+            ${isGradient ? 'gradient-button' : ''}
+            ${disabled ? 'gradient-button-off cursor-not-allowed': 'gradient-button'}`
+          }
         >
           {leftIcon}
           {children}
