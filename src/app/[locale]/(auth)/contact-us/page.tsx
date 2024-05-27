@@ -114,11 +114,6 @@ const SignUp = () => {
     }).then((response) => {
       if (!response.ok){
         console.error('Failed to send message:', response.statusText)
-        /*notifications.show({
-          title: 'Oops!',
-          color: 'red',
-          message: 'Failed to submit contact form.',
-        })*/
         throw new Error("Failed to send message.")
       }
       return response.json()
