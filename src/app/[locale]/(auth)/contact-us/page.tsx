@@ -103,22 +103,6 @@ const SignUp = () => {
     </Combobox.Option>
   ));
   const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
-  /*const sendContactForm = async(data: any) => {
-    await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    }).then((response) => {
-      if (!response.ok){
-        console.error('Failed to send message:', response.statusText)
-        throw new Error("Failed to send message.")
-      }
-      return response.json()
-    })
-  }*/
   const handleSubmit = async (values: any) => {
     setFormValues((prev) => ({
       ...prev,
@@ -183,13 +167,6 @@ const SignUp = () => {
     initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' },
     onValuesChange: (values) => {
       setFormValues({ values, isLoading, error })
-      /*setFormValues((prev) => ({
-        ...prev,
-        values: {
-          ...prev.values,
-        },
-      }));*/
-      //console.log(values);
     },
     transformValues: (values) => ({
       firstName: values.firstName,
