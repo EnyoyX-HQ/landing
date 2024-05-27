@@ -5,6 +5,7 @@ const FORM_FIELDS = {
   firstName: "First Name",
   lastName: "Last Name",
   company: "Company",
+  termOfService: "Terms Of Service",
   email: "Email",
   country: "Country",
   number: "Phone Number",

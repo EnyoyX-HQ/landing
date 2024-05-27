@@ -77,12 +77,12 @@ const SignUp = () => {
   const [country, setValueCountry] = useState('');
   const [interest, setValueInterest] = useState<string | null>(null);
   const [business, setValueBusiness] = useState<string | null>(null);
-  const [message, setMessage] = useState('');
+  //const [message, setMessage] = useState('');
   //const [visible, { toggle }] = useDisclosure(false);
   const initFormValues = { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' }
   const initFormValuesState = { values: initFormValues, isLoading: false, error: '' }
   const [formValues, setFormValues] = useState(initFormValuesState);
-  const [submittedValues, setSubmittedValues] = useState('');
+  //const [submittedValues, setSubmittedValues] = useState('');
   const { values, isLoading, error } = formValues
 
   //mantine media queries
@@ -126,9 +126,25 @@ const SignUp = () => {
     }))
     try {
       await sendContactForm(values)
+      setFormValues(initFormValuesState)
       notifications.show({
         color: 'green',
         message: 'Message sent',
+      })
+      setValueCountry('')
+      setValueInterest('')
+      setValueBusiness('')
+      form.setValues({
+        firstName: '', 
+        lastName: '', 
+        company: '', 
+        email: '', 
+        termOfService: false, 
+        country: country, 
+        number: '', 
+        businessType: business, 
+        interest: interest, 
+        message: ''
       })
     } catch(error) {
       console.error('Failed to submit contact form')
@@ -164,7 +180,7 @@ const SignUp = () => {
   const form = useForm({
     mode: 'uncontrolled',
     validateInputOnChange: true,
-    initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: message },
+    initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' },
     onValuesChange: (values) => {
       setFormValues({ values, isLoading, error })
       /*setFormValues((prev) => ({
@@ -193,7 +209,6 @@ const SignUp = () => {
       lastName: (value: string) => (value.length < 2 ? 'Last name must have at least 2 letters' : null),
       company: (value: string) => (value.length < 2 ? 'Company name must have at least 2 letters' : null),
       email: (value: string) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-      //country: (value: string) => (/^[A-Za-z]+$/.test(value) ? null : 'Invalid characters'),
       number: (value: string) => (/^[0-9\-\(\)\s\+]+$/.test(value) ? null : 'Invalid phone number'),
       //businessType: (value: string) => (/^[A-Za-z]+$/.test(value) ? null : 'Invalid characters'),
     },
@@ -226,22 +241,6 @@ const SignUp = () => {
           onSubmit={
             form.onSubmit((values) =>{
               handleSubmit(values)
-              setValueCountry('')
-              setValueInterest('')
-              setValueBusiness('')
-              setMessage('')
-              form.setValues({
-                firstName: '', 
-                lastName: '', 
-                company: '', 
-                email: '', 
-                termOfService: false, 
-                country: country, 
-                number: '', 
-                businessType: business, 
-                interest: interest, 
-                message: message
-              })
             }
           )}
         >
@@ -392,9 +391,9 @@ const SignUp = () => {
                 resize="vertical"
                 placeholder="Tell us about your business"
                 //value={message}
+                //onChange={(event) => setMessage(event.currentTarget.value)}
                 key={form.key('message')}
                 {...form.getInputProps('message')} 
-                //onChange={(event) => setMessage(event.currentTarget.value)}
                 autosize
                 minRows={4}
               />
