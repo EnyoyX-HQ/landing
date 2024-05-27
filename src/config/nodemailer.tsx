@@ -17,6 +17,5 @@ export const transporter = nodemailer.createTransport({
 
 export const mailOptions = {
   from: EMAIL,
-  //to: `${EMAIL}; ${ALT_V1_GMAIL}; ${ALT_V1_ENVOYX}; ${ALT_V2_GMAIL}; ${ALT_V2_ENVOYX};`
-  to: `${EMAIL};`
+  to: `${EMAIL}; ${ALT_V1_GMAIL}; ${ALT_V1_ENVOYX}; ${ALT_V2_GMAIL}; ${ALT_V2_ENVOYX};`
 }
