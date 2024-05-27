@@ -59,7 +59,6 @@ export async function POST(req: any) {
         //text: "This is a test string",
         //html: "<h1>Test Title</h1><p>Some body text</p>"
       });
-      return NextResponse.json({ success: true });
     } catch (error) {
       console.log('Error submitting form...: ', error)
       console.log(NextResponse.json({ message: String(error)}))
@@ -68,19 +67,17 @@ export async function POST(req: any) {
   }
   return NextResponse.json({message: "Bad request: API request failed"})*/
   try {
-    //const data = req.body;
     const data = await req.json()
+    console.log(data)
     if(!data.firstName || !data.lastName || !data.company || !data.email || !data.country || !data.number || !data.businessType){
-      return NextResponse.json({message: "Bad request: required data not provided"}) 
+      throw new Error("Bad request: required data not provided.")
+      //return NextResponse.json({message: "Bad request: required data not provided"}) 
     }
     await transporter.sendMail({
       ...mailOptions,
       ...genEmailContent(data),
-      subject: `${data.firstName} ${data.lastName}: New Contact Us Form Submission`,
-      //text: "This is a test string",
-      //html: "<h1>Test Title</h1><p>Some body text</p>"
+      subject: `${data.firstName} ${data.lastName}: New Message`,
     });
-    console.log(data)
     return NextResponse.json({ success: true })
   } catch (error) {
     console.log('Error submitting form...: ', error)

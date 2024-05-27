@@ -1,3 +1,20 @@
+export async function sendContactForm(data: any) {
+  await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }
+  }).then((response) => {
+    if (!response.ok){
+      console.error('Failed to send message:', response.statusText)
+      throw new Error("Failed to send message.")
+    }
+    return response.json()
+  })
+}
+
 export async function getInvoices() {
   const response = await fetch('/api/invoice', { next: { revalidate: 300 } }) //revalidate every 5 mins
 

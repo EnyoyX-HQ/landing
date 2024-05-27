@@ -6,7 +6,7 @@ import { LogoDark, LogoWhite } from '@/images';
 import { useMediaQuery, useDisclosure } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import { IconAt } from '@tabler/icons-react';
-//import { sendContactForm } from '@/lib/actions';
+import { sendContactForm } from '@/lib/actions';
 import { notifications } from '@mantine/notifications';
 import {
   TextInput,
@@ -103,7 +103,7 @@ const SignUp = () => {
     </Combobox.Option>
   ));
   const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
-  const sendContactForm = async(data: any) => {
+  /*const sendContactForm = async(data: any) => {
     await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(data),
@@ -118,7 +118,7 @@ const SignUp = () => {
       }
       return response.json()
     })
-  }
+  }*/
   const handleSubmit = async () => {
     setFormValues((prev) => ({
       ...prev,
@@ -241,8 +241,8 @@ const SignUp = () => {
                 interest: interest, 
                 message: message
               })
-              setSubmittedValues(JSON.stringify(values, null, 2))
-          })}
+            }
+          )}
         >
           <Paper p={5} mt={30}>
             <Group grow mb='md' mt='md'>
