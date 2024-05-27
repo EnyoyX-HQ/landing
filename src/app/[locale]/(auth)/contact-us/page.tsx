@@ -119,7 +119,7 @@ const SignUp = () => {
       return response.json()
     })
   }*/
-  const handleSubmit = async () => {
+  const handleSubmit = async (values: any) => {
     setFormValues((prev) => ({
       ...prev,
       isLoading: true
@@ -176,7 +176,8 @@ const SignUp = () => {
       //console.log(values);
     },
     transformValues: (values) => ({
-      fullName: `${values.firstName} ${values.lastName}`,
+      firstName: values.firstName,
+      lastName: values.lastName,
       company: values.company,
       termOfService: true,
       email: values.email,
@@ -224,7 +225,7 @@ const SignUp = () => {
         <form 
           onSubmit={
             form.onSubmit((values) =>{
-              handleSubmit()
+              handleSubmit(values)
               setValueCountry('')
               setValueInterest('')
               setValueBusiness('')
