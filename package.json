@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "email": "email dev --dir src/components/emails"
   },
   "dependencies": {
     "@mantine/charts": "^7.7.1",
@@ -25,6 +26,7 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-email/components": "0.0.19",
     "@tabler/icons-react": "^3.1.0",
     "@vercel/postgres": "^0.8.0",
     "@vercel/speed-insights": "^1.0.10",
@@ -45,9 +47,11 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
+    "react-email": "2.1.4",
     "react-i18next": "^14.1.1",
     "react-imask": "^7.6.0",
     "recharts": "^2.12.4",
+    "resend": "^3.2.0",
     "swiper": "^11.1.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"

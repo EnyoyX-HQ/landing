@@ -15,7 +15,6 @@ interface CustomNodeJsGlobal extends NodeJS.Global {
 declare const global: CustomNodeJsGlobal
 
 /*let prisma;
-
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {
@@ -24,6 +23,10 @@ if (process.env.NODE_ENV === 'production') {
   }
   prisma = global.prisma
 }*/
+
+//const prisma = global.prisma ?? new PrismaClient()
+
+//if (process.env.NODE_ENV !== 'production') global.prisma = prisma
 
 //running prisma in dev environment
 const prisma = global.prisma || new PrismaClient()
