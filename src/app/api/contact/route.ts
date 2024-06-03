@@ -47,18 +47,7 @@ export async function POST(req: Request) {
   try {
     const data = await req.json()
     console.log(data)
-    /*const {
-      firstName,
-      lastName,
-      company,
-      termOfService,
-      email,
-      country,
-      number,
-      businessType,
-      interest,
-      message
-    } = data*/
+    
     
     if(!data.firstName || !data.lastName || !data.company || !data.email || !data.country || !data.number || !data.businessType){
       console.log(NextResponse.json({message: "Bad request: required data not provided"})) 
@@ -71,20 +60,18 @@ export async function POST(req: Request) {
       ...genEmailContent(data),
       subject: `${data.firstName} ${data.lastName}: New Message`,
     });*/
-
-    /*
-    model Contact {
-      id        Int   @id @default(autoincrement())
-      firstName String
-      lastName  String
-      company   String
-      termOfService Boolean
-      email     String
-      country   String
-      number    String
-      interest  String
-      message   String
-    }
+    const {
+      firstName,
+      lastName,
+      company,
+      termOfService,
+      email,
+      country,
+      number,
+      businessType,
+      interest,
+      message
+    } = data
     const newSignup = await prisma.contact.create({
       data: {
         firstName,
@@ -97,8 +84,18 @@ export async function POST(req: Request) {
         businessType,
         interest,
         message,
-      },
-    })*/
+      }
+      /*data.firstName,
+      data.lastName,
+      data.company,
+      data.termOfService,
+      data.email,
+      data.country,
+      data.number,
+      data.businessType,
+      data.interest,
+      data.message,*/
+    })
     //send to envoyx main account
     await transporter.sendMail({
       ...mailOptions,
@@ -129,8 +126,8 @@ export async function POST(req: Request) {
         firstName: data.firstName
       }),
     })
-    //return NextResponse.json({ success: true, dbEntry: newSignup })
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, dbEntry: newSignup })
+    //return NextResponse.json({ success: true })
   } catch (error) {
     console.log('Error submitting form...: ', error)
     return NextResponse.error()

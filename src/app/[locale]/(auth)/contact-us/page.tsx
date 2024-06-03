@@ -389,7 +389,10 @@ const SignUp = () => {
             <Text c='dimmed' size='sm' ta='center' mt={40}>
               Already have an account?{' '}
               <Anchor
-                onClick={() => router.push('/login')}
+                onClick={(e) => {
+                  router.push('/login')
+                  e.preventDefault()
+                }}
                 size='sm'
                 c={'green'}
                 fw={'bold'}
