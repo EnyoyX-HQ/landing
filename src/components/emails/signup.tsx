@@ -54,15 +54,15 @@ const SignUpEmail = ({
         <Tailwind>
           <Body style={main}>
             <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto" style={container}>
-              <Section style={imageSection}>
+              {/*<Section style={imageSection}>
                 <Img
                   src={`${baseUrl}/_next/static/media/logo.637b27dd.png`}
                   className="flex justify-center items-center text-center mx-auto"
                   width="75"
-                  height="45"
-                  //alt="Envoyx Logo"
+                  height="20"
+                  alt="Envoyx"
                 />
-              </Section>
+              </Section>*/}
               <Section style={section}>
                 <Heading style={h1}>{`Welcome ${firstName} `}</Heading>
                 <Text style={{ ...text, marginBottom: "14px" }}>
@@ -128,7 +128,7 @@ const SignUpEmail = ({
                 className="flex justify-center items-center text-center mx-auto"
                 width="75"
                 height="20"
-                //alt="Envoyx Logo"
+                alt="Envoyx"
               />
             </Section>
             <Section style={section}>
@@ -197,7 +197,7 @@ const SignUpEmail = ({
                 src={`${baseUrl}/_next/static/media/logo_dark.14e17e01.svg`}
                 width="75"
                 height="45"
-                //alt="Envoyx's Logo"
+                alt="Envoyx"
               />
               <Text style={footer}>
                 <Link
@@ -284,7 +284,6 @@ const text = {
 const imageSection = {
   backgroundColor: "#021C1D",
   display: "flex",
-  color: "#fff",
   padding: "20px 0",
   alignItems: "center",
   justifyContent: "center",
