@@ -87,13 +87,13 @@ const Login = () => {
                 fw={'bold'}
                 component='button'
               >
-                Create account
+                Contact us
               </Anchor>
             </Text>
           </Box>
           <Group grow mb='md' mt='md'>
             <Button variant='outline' color='gray' size='sm' radius={'xl'}>
-              Single Sign-On
+              SSO Login
             </Button>
             <Button
               variant='outline'
@@ -111,10 +111,10 @@ const Login = () => {
             labelPosition='center'
             my='lg'
           />
-          <TextInput label='Email' placeholder='you@mantine.dev' required />
+          <TextInput /*label='Email'*/ placeholder='Email Address' required />
           <PasswordInput
-            label='Password'
-            placeholder='Your password'
+            /*label='Password'*/
+            placeholder='Password'
             required
             mt='md'
           />

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   Table,
   ScrollArea,
@@ -17,6 +18,12 @@ import {
   Modal,
   NumberInput,
   Checkbox,
+  useCombobox,
+  Combobox,
+  InputBase,
+  Input,
+  Button,
+  HoverCard,
 } from '@mantine/core'
 import {
   IconSelector,
@@ -27,6 +34,7 @@ import {
   IconTrash,
   IconDownload,
   IconCoins,
+  IconRefresh,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
@@ -132,6 +140,15 @@ function sortData(
  */
 
 const TableSort = () => {
+  //dropdown values
+  const insurances = ['ASCOMA', 'IMPG', 'PPM', 'Other']
+
+  //states
+  const router = useRouter()
+  const combobox = useCombobox({
+    onDropdownClose: () => combobox.resetSelectedOption(),
+  })
+  //states
   const [search, setSearch] = useState('')
   const [invoiceData, setInvoiceData] = useState<RowData[]>([])
   const [sortedData, setSortedData] = useState<RowData[]>([])
@@ -150,7 +167,11 @@ const TableSort = () => {
   const [amount, setAmount] = useState<string | number>('')
   const [status, setStatus] = useState('in progress')
   const [fileBase64, setFileBase64] = useState<string | null>(null)
-
+  const insuranceOptions = insurances.map((item) => (
+    <Combobox.Option value={item} key={item}>
+      {item}
+    </Combobox.Option>
+  ))
   // Function to handle editing an invoice
   const handleEdit = (rowData: RowData) => {
     setEditedInvoice(rowData)
@@ -256,8 +277,22 @@ const TableSort = () => {
     fetchInvoices()
   }, [reverseSortDirection, search, sortBy])
 
+  /*useEffect(() => {
+    const url = `${currentPath}?${searchParams}`
+    console.log(url)
+    // You can now use the current URL
+    // ...
+  }, [currentPath, searchParams])*/
   // Edit Invoice logic
 
+  const refreshTable = async () => {
+    const data = await getInvoices()
+    setInvoiceData(data.data)
+    setSortedData(
+      sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
+    )
+    router.refresh()
+  }
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
@@ -445,6 +480,27 @@ const TableSort = () => {
         value={search}
         onChange={handleSearchChange}
       />
+      <Group justify='flex-end'>
+        <HoverCard width={80} shadow='md'>
+          <HoverCard.Target>
+            <Button
+              variant='outline'
+              color='gray'
+              size='xs'
+              onClick={refreshTable}
+              radius={0}
+            >
+              <IconRefresh
+                style={{ width: rem(18), height: rem(18) }}
+                stroke={2}
+              />
+            </Button>
+          </HoverCard.Target>
+          <HoverCard.Dropdown>
+            <Text size='xs'>Refresh</Text>
+          </HoverCard.Dropdown>
+        </HoverCard>
+      </Group>
       <ScrollArea>
         <Table
           horizontalSpacing='md'
@@ -589,13 +645,42 @@ const TableSort = () => {
               readOnly
             />
           </div>
-          <TextInput
+          {/*<TextInput
             label='Insurance'
             value={insurance}
             onChange={(e: any) => setInsurance(e.target.value)}
             mt={'md'}
             placeholder='Enter insurance name'
-          />
+          />*/}
+          <Group grow mt='md'>
+            <Combobox
+              store={combobox}
+              onOptionSubmit={(val) => {
+                setInsurance(val)
+                combobox.closeDropdown()
+              }}
+            >
+              <Combobox.Target>
+                <InputBase
+                  component='button'
+                  type='button'
+                  label='Insurance'
+                  pointer
+                  rightSection={<Combobox.Chevron />}
+                  rightSectionPointerEvents='none'
+                  onClick={() => combobox.toggleDropdown()}
+                >
+                  {insurance || (
+                    <Input.Placeholder>Select Insurance</Input.Placeholder>
+                  )}
+                </InputBase>
+              </Combobox.Target>
+
+              <Combobox.Dropdown>
+                <Combobox.Options>{insuranceOptions}</Combobox.Options>
+              </Combobox.Dropdown>
+            </Combobox>
+          </Group>
           <Group>
             <NumberInput
               label='Invoice amount'

@@ -3,9 +3,13 @@ name: Lint Typescript
 on:
   workflow_dispatch:
   push:
-    branches: [master]
+    branches: 
+      - master
+      - envoyx-qa
   pull_request:
-    branches: [master]
+    branches:
+      - master
+      - envoyx-qa
 
 jobs:
   eslint:

@@ -1,8 +1,9 @@
-import prisma from '../../../../../prisma/client'
+import prisma from '../../../../prisma/client'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
+    //res.setHeader('Cache-Control', 's-maxage=10');
     const data = await prisma.invoice.findMany()
     return NextResponse.json({
       data,

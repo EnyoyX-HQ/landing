@@ -39,3 +39,19 @@ model Clinic {
   insurances String
 }
 
+model Contact {
+  id            Int   @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  company       String
+  termOfService Boolean
+  email         String
+  country       String
+  number        String
+  businessType  String
+  interest      String
+  message       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+

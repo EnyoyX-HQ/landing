@@ -1,13 +1,30 @@
-export async function getInvoices() {
-  const res = await fetch('/api/invoice')
+export async function sendContactForm(data: any) {
+  await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }
+  }).then((response) => {
+    if (!response.ok){
+      console.error('Failed to send message:', response.statusText)
+      throw new Error("Failed to send message.")
+    }
+    return response.json()
+  })
+}
 
-  if (!res.ok) {
-    console.error('Failed to fetch invoices:', res.statusText)
+export async function getInvoices() {
+  const response = await fetch('/api/invoice', { next: { revalidate: 300 } }) //revalidate every 5 mins
+
+  if (!response.ok) {
+    console.error('Failed to fetch invoices:', response.statusText)
     throw new Error('Failed to fetch invoices')
   }
 
   try {
-    return await res.json()
+    return await response.json()
   } catch (error) {
     console.error('Error parsing JSON:', error)
     throw new Error('Invalid JSON response')
@@ -52,7 +69,7 @@ export async function getClinics() {
 export async function deleteInvoice(id: any) {
   try {
     const response = await fetch(`/api/invoice/${id}`, {
-      method: 'DELETE',
+      method: 'DELETE'
     })
 
     if (response.ok) {
@@ -69,3 +86,4 @@ export async function deleteInvoice(id: any) {
     // Handle network error
   }
 }
+
