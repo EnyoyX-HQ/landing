@@ -15,7 +15,9 @@ import {
   Button,
   Divider,
   Box,
+  Stack,
 } from '@mantine/core'
+import { IconKeyFilled } from '@tabler/icons-react';
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -91,8 +93,8 @@ const Login = () => {
               </Anchor>
             </Text>
           </Box>
-          <Group grow mb='md' mt='md'>
-            <Button variant='outline' color='gray' size='sm' radius={'xl'}>
+          <Stack h={100} align="stretch" justify="center" gap="md">
+            <Button variant='outline' leftSection={<IconKeyFilled />} color='gray' size='sm' radius={'xl'}>
               SSO Login
             </Button>
             <Button
@@ -102,10 +104,9 @@ const Login = () => {
               size='sm'
               radius={'xl'}
             >
-              Google
+              Sign in with Google
             </Button>
-          </Group>
-
+          </Stack>
           <Divider
             label='Or continue with email'
             labelPosition='center'
