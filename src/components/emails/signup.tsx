@@ -54,7 +54,7 @@ const SignUpEmail = ({
         <Tailwind>
           <Body style={main}>
             <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto" style={container}>
-              <Section style={imageSection}>
+              {/*<Section style={imageSection}>
                 <Img
                   src={`${baseUrl}/_next/static/media/logo.637b27dd.png`}
                   className="flex justify-center items-center text-center mx-auto"
@@ -62,7 +62,7 @@ const SignUpEmail = ({
                   height="20"
                   alt="Envoyx"
                 />
-              </Section>
+              </Section>*/}
               <Section style={section}>
                 <Heading style={h1}>{`Welcome ${firstName} `}</Heading>
                 <Text style={{ ...text, marginBottom: "14px" }}>
@@ -128,7 +128,7 @@ const SignUpEmail = ({
                 className="flex justify-center items-center text-center mx-auto"
                 width="75"
                 height="20"
-                //alt="Envoyx Logo"
+                alt="Envoyx"
               />
             </Section>
             <Section style={section}>
