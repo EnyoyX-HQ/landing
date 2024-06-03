@@ -1,8 +1,9 @@
 import AppLayout from '@/layout/AppLayout'
+import BillingPage from '../../components/Billing'
 const Support = () => {
   return (
     <AppLayout>
-      <h1>Billing</h1>
+      <BillingPage />
     </AppLayout>
   )
 }

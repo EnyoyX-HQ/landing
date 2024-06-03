@@ -1,8 +1,10 @@
 import AppLayout from '@/layout/AppLayout'
+import SupportPage from '../../components/Support'
+
 const Support = () => {
   return (
     <AppLayout>
-      <h1>Support</h1>
+      <SupportPage />
     </AppLayout>
   )
 }

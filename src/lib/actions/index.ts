@@ -14,6 +14,25 @@ export async function getInvoices() {
   }
 }
 
+export async function updateInvoiceStatus(invoiceId: any, newStatus: string) {
+  try {
+    const response = await fetch(`/api/invoice/${invoiceId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status: newStatus }),
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to update invoice status')
+    }
+  } catch (error) {
+    console.error('Error updating invoice status:', error)
+    throw error
+  }
+}
+
 export async function getClinics() {
   const res = await fetch('/api/clinic')
 

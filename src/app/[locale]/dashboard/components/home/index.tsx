@@ -22,12 +22,26 @@ const icons = {
 }
 
 export interface HomeProps {
-  businessType: string;
+  businessType: string
 }
 
 const Home = (props: HomeProps) => {
   const [invoicesData, setInvoicesData] = useState<any[]>([])
-  const data = [
+  const [data, setData] = useState<{ month: string; claims: number }[]>([
+    { month: 'Jan', claims: 0 },
+    { month: 'Feb', claims: 0 },
+    { month: 'Mar', claims: 0 },
+    { month: 'April', claims: 0 },
+    { month: 'May', claims: 0 },
+    { month: 'June', claims: 0 },
+    { month: 'July', claims: 0 },
+    { month: 'August', claims: 0 },
+    { month: 'Sept', claims: 0 },
+    { month: 'Oct', claims: 0 },
+    { month: 'Nov', claims: 0 },
+    { month: 'Dec', claims: 0 },
+  ])
+  /* const data = [
     {
       month: 'Jan',
       claims: 50,
@@ -76,13 +90,30 @@ const Home = (props: HomeProps) => {
       month: 'Dec',
       claims: 35,
     },
-  ]
+  ] */
 
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
-        const data = await getInvoices()
-        setInvoicesData(data.data)
+        const invoiceList = await getInvoices()
+        const monthsMap: { [month: string]: number } = {} // Map to store counts for each month
+
+        // Iterate through the invoices and count the invoices for each month
+        invoiceList.data.forEach((invoice: any) => {
+          const createdAt = new Date(invoice.createdAt)
+          const month = createdAt.toLocaleString('default', { month: 'short' })
+          monthsMap[month] = (monthsMap[month] || 0) + 1 // Increment count for the month
+        })
+
+        // Update the data array with the counts
+        const updatedData = data.map((monthData) => ({
+          ...monthData,
+          claims: monthsMap[monthData.month] || 0, // Set the count for the month, default to 0 if no invoices
+        }))
+
+        // Update state with the updated data
+        setData(updatedData)
+        setInvoicesData(invoiceList.data)
       } catch (error) {
         console.error('Error fetching invoices:', error)
       }
@@ -141,76 +172,84 @@ const Home = (props: HomeProps) => {
 
   return (
     <>
-    {props.businessType == 'clinic' && (
-      <div className=''>
-        <div className='flex flex-col mb-8'>
-          <h1 className='text-lg font-semibold md:text-2xl'>
-            Hi HealthCare Center 👋🏽
-          </h1>
-          <Text fz={'sm'} c={'dimmed'} mt={2}>
-            Welcome to your dashboard
-          </Text>
-        </div>
-        <div className='container p-0'>
-          <Text fw={'bold'} mb={20} className='text-slate-700' tt={'capitalize'}>
-            Overview
-          </Text>
+      {props.businessType == 'clinic' && (
+        <div className=''>
+          <div className='flex flex-col mb-8'>
+            <h1 className='text-lg font-semibold md:text-2xl'>
+              Hi HealthCare Center 👋🏽
+            </h1>
+            <Text fz={'sm'} c={'dimmed'} mt={2}>
+              Welcome to your dashboard
+            </Text>
+          </div>
+          <div className='container p-0'>
+            <Text
+              fw={'bold'}
+              mb={20}
+              className='text-slate-700'
+              tt={'capitalize'}
+            >
+              Overview
+            </Text>
 
-          <SimpleGrid cols={{ base: 1, xs: 2, md: 2 }} mb={40}>
-            <>{stats}</>
-          </SimpleGrid>
+            <SimpleGrid cols={{ base: 1, xs: 2, md: 2 }} mb={40}>
+              <>{stats}</>
+            </SimpleGrid>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-            <Card padding={20} radius={'lg'}>
-              <Text fw={'bold'} mb={20}>
-                Analytics
-              </Text>
-              <AreaChart
-                withDots={false}
-                h={300}
-                data={data}
-                dataKey='month'
-                series={[{ name: 'claims', color: 'indigo.6' }]}
-              />
-              {/* <LineChart data={data} labels={label} /> */}
-            </Card>
-            <div className='grid grid-cols-1 gap-5'>
-              <OverviewCard title='Recent Invoices' link='/dashboard/provider/invoices'>
-                {invoicesData.map((invoice) => {
-                  let statusVariant
-                  switch (invoice.status) {
-                    case 'in progress':
-                      statusVariant = 'yellow'
-                      break
-                    case 'validated':
-                      statusVariant = 'green'
-                      break
-                    case 'rejected':
-                      statusVariant = 'red'
-                      break
-                    default:
-                      statusVariant = 'gray'
-                  }
-                  return (
-                    <div
-                      key={invoice.id}
-                      className='flex items-center justify-between mt-5'
-                    >
-                      <Text fz={'sm'} className='text-slate-700'>
-                        {invoice.insurance}
-                      </Text>
-                      <Text fz={'sm'} className='text-slate-700'>
-                        {invoice.payout.toLocaleString()} CFA
-                      </Text>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+              <Card padding={20} radius={'lg'}>
+                <Text fw={'bold'} mb={20}>
+                  Analytics
+                </Text>
+                <AreaChart
+                  withDots={false}
+                  h={300}
+                  data={data}
+                  dataKey='month'
+                  series={[{ name: 'claims', color: 'indigo.6' }]}
+                />
+                {/* <LineChart data={data} labels={label} /> */}
+              </Card>
+              <div className='grid grid-cols-1 gap-5'>
+                <OverviewCard
+                  title='Recent Invoices'
+                  link='/dashboard/provider/invoices'
+                >
+                  {invoicesData.map((invoice) => {
+                    let statusVariant
+                    switch (invoice.status) {
+                      case 'in progress':
+                        statusVariant = 'yellow'
+                        break
+                      case 'validated':
+                        statusVariant = 'green'
+                        break
+                      case 'rejected':
+                        statusVariant = 'red'
+                        break
+                      default:
+                        statusVariant = 'gray'
+                    }
+                    return (
+                      <div
+                        key={invoice.id}
+                        className='flex items-center justify-between mt-5'
+                      >
+                        <Text fz={'sm'} className='text-slate-700'>
+                          {invoice.insurance}
+                        </Text>
+                        <Text fz={'sm'} className='text-slate-700'>
+                          {invoice.payout.toLocaleString()} CFA
+                        </Text>
 
-                      <Badge color={statusVariant} variant='light'>
-                        {invoice.status}
-                      </Badge>
-                    </div>
-                  )
-                })}
-              </OverviewCard>
-              {/* <OverviewCard
+                        <Badge color={statusVariant} variant='light'>
+                          {invoice.status}
+                        </Badge>
+                      </div>
+                    )
+                  })}
+                </OverviewCard>
+                {/* <OverviewCard
                 title='Recent Clinics'
                 link='/dashbord/settings/profile'
               >
@@ -238,81 +277,87 @@ const Home = (props: HomeProps) => {
                   </div>
                 ))}
               </OverviewCard> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
-    {props.businessType == 'payer' && (
-      <div className=''>
-        <div className='flex flex-col mb-8'>
-          <h1 className='text-lg font-semibold md:text-2xl'>
-            Hi ASCOMA 👋🏽
-          </h1>
-          <Text fz={'sm'} c={'dimmed'} mt={2}>
-            Welcome to your dashboard
-          </Text>
-        </div>
-        <div className='container p-0'>
-          <Text fw={'bold'} mb={20} className='text-slate-700' tt={'capitalize'}>
-            Overview
-          </Text>
+      )}
+      {props.businessType == 'payer' && (
+        <div className=''>
+          <div className='flex flex-col mb-8'>
+            <h1 className='text-lg font-semibold md:text-2xl'>Hi ASCOMA 👋🏽</h1>
+            <Text fz={'sm'} c={'dimmed'} mt={2}>
+              Welcome to your dashboard
+            </Text>
+          </div>
+          <div className='container p-0'>
+            <Text
+              fw={'bold'}
+              mb={20}
+              className='text-slate-700'
+              tt={'capitalize'}
+            >
+              Overview
+            </Text>
 
-          <SimpleGrid cols={{ base: 1, xs: 2, md: 2 }} mb={40}>
-            <>{stats}</>
-          </SimpleGrid>
+            <SimpleGrid cols={{ base: 1, xs: 2, md: 2 }} mb={40}>
+              <>{stats}</>
+            </SimpleGrid>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-            <Card padding={20} radius={'lg'}>
-              <Text fw={'bold'} mb={20}>
-                Analytics
-              </Text>
-              <AreaChart
-                withDots={false}
-                h={300}
-                data={data}
-                dataKey='month'
-                series={[{ name: 'claims', color: 'indigo.6' }]}
-              />
-              {/* <LineChart data={data} labels={label} /> */}
-            </Card>
-            <div className='grid grid-cols-1 gap-5'>
-              <OverviewCard title='Recent Invoices' link='/dashboard/provider/invoices'>
-                {invoicesData.map((invoice) => {
-                  let statusVariant
-                  switch (invoice.status) {
-                    case 'in progress':
-                      statusVariant = 'yellow'
-                      break
-                    case 'validated':
-                      statusVariant = 'green'
-                      break
-                    case 'rejected':
-                      statusVariant = 'red'
-                      break
-                    default:
-                      statusVariant = 'gray'
-                  }
-                  return (
-                    <div
-                      key={invoice.id}
-                      className='flex items-center justify-between mt-5'
-                    >
-                      <Text fz={'sm'} className='text-slate-700'>
-                        {invoice.insurance}
-                      </Text>
-                      <Text fz={'sm'} className='text-slate-700'>
-                        {invoice.payout.toLocaleString()} CFA
-                      </Text>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+              <Card padding={20} radius={'lg'}>
+                <Text fw={'bold'} mb={20}>
+                  Analytics
+                </Text>
+                <AreaChart
+                  withDots={false}
+                  h={300}
+                  data={data}
+                  dataKey='month'
+                  series={[{ name: 'claims', color: 'indigo.6' }]}
+                />
+                {/* <LineChart data={data} labels={label} /> */}
+              </Card>
+              <div className='grid grid-cols-1 gap-5'>
+                <OverviewCard
+                  title='Recent Invoices'
+                  link='/dashboard/provider/invoices'
+                >
+                  {invoicesData.map((invoice) => {
+                    let statusVariant
+                    switch (invoice.status) {
+                      case 'in progress':
+                        statusVariant = 'yellow'
+                        break
+                      case 'validated':
+                        statusVariant = 'green'
+                        break
+                      case 'rejected':
+                        statusVariant = 'red'
+                        break
+                      default:
+                        statusVariant = 'gray'
+                    }
+                    return (
+                      <div
+                        key={invoice.id}
+                        className='flex items-center justify-between mt-5'
+                      >
+                        <Text fz={'sm'} className='text-slate-700'>
+                          {invoice.insurance}
+                        </Text>
+                        <Text fz={'sm'} className='text-slate-700'>
+                          {invoice.payout.toLocaleString()} CFA
+                        </Text>
 
-                      <Badge color={statusVariant} variant='light'>
-                        {invoice.status}
-                      </Badge>
-                    </div>
-                  )
-                })}
-              </OverviewCard>
-              {/* <OverviewCard
+                        <Badge color={statusVariant} variant='light'>
+                          {invoice.status}
+                        </Badge>
+                      </div>
+                    )
+                  })}
+                </OverviewCard>
+                {/* <OverviewCard
                 title='Recent Clinics'
                 link='/dashbord/settings/profile'
               >
@@ -340,11 +385,11 @@ const Home = (props: HomeProps) => {
                   </div>
                 ))}
               </OverviewCard> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   )
 }

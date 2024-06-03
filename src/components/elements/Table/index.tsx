@@ -30,12 +30,12 @@ import {
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
-import { deleteInvoice, getInvoices } from '@/lib/actions'
+import { deleteInvoice, getInvoices, updateInvoiceStatus } from '@/lib/actions'
 import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 import invoiceDataa from '@/lib/invoices'
-import { setTimeout } from 'timers/promises'
+//import { setTimeout } from 'timers/promises'
 //import Link from 'next/link'
 
 interface RowData {
@@ -122,14 +122,14 @@ function sortData(
   )
 }
 
-/*dropdown menu to combine both filteration 
-* and sorting keep search field as is
-* design concept would be similar to excel 
-* 
-* Joseph TO-DO
-*
-*
-*/
+/*dropdown menu to combine both filteration
+ * and sorting keep search field as is
+ * design concept would be similar to excel
+ *
+ * Joseph TO-DO
+ *
+ *
+ */
 
 const TableSort = () => {
   const [search, setSearch] = useState('')
@@ -219,23 +219,40 @@ const TableSort = () => {
 
   //changing status data from in progress to validated
   //setTimeout
-  
+
   useEffect(() => {
-    setInvoiceData(invoiceDataa)
     const fetchInvoices = async () => {
       const data = await getInvoices()
       setInvoiceData(data.data)
       setSortedData(
         sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
-        //sample data
-        /*sortData(invoiceDataa, {
-          sortBy,
-          reversed: reverseSortDirection,
-          search,
-        })*/
       )
-      //console.log(data.data)
+
+      // Update status to "validated" after 5 minutes for invoices with status "in progress"
+      const inProgressInvoices = data.data.filter(
+        (invoice: any) => invoice.status === 'in progress'
+      )
+      if (inProgressInvoices.length > 0) {
+        setTimeout(() => {
+          // Iterate over each in-progress invoice and update its status
+          inProgressInvoices.forEach(async (invoice: any) => {
+            console.log('Invoice ID: ', invoice.id)
+            // Update the status to "validated" in the database
+            await updateInvoiceStatus(invoice.id, 'validated')
+
+            // Update the state with the updated status
+            setInvoiceData((prevData) =>
+              prevData.map((prevInvoice) =>
+                prevInvoice.id === invoice.id
+                  ? { ...prevInvoice, status: 'validated' }
+                  : prevInvoice
+              )
+            )
+          })
+        }, 1 * 60 * 1000) // 5 minutes in milliseconds
+      }
     }
+
     fetchInvoices()
   }, [reverseSortDirection, search, sortBy])
 
@@ -352,12 +369,12 @@ const TableSort = () => {
         <Table.Td>
           <FormatDate data={row.createdAt} formatType='datePipeTime' />
         </Table.Td>
-        <Table.Td>
+        <Table.Td p={0}>
           <Badge color={statusVariant} variant='light'>
             {row.status}
           </Badge>
         </Table.Td>
-        <Table.Td>
+        <Table.Td p={0}>
           <div className='flex gap-4'>
             <Tooltip label='Payout'>
               <ThemeIcon
