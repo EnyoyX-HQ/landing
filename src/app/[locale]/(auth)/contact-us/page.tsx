@@ -35,12 +35,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 const countryList = [
-  '🇨🇮 Côte d’Ivoire', 
-  '🇬🇭 Ghana',
+  'Côte d’Ivoire', 
+  'Ghana',
+  'United States',
+  'France',
   'Other' 
-  /*'🇳🇬 Nigeria', 
-  '🇫🇷 France', 
-  '🇺🇸 United States',*/
 ];
 const interestList = [
   'Newsletter', 
