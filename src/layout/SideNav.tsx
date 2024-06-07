@@ -20,7 +20,7 @@ const SideNav = () => {
   const router = useRouter()
   const clinicsNavLinks = [
     { label: 'Home', navLink: '/dashboard/provider', icon: IconLayoutDashboard },
-    { label: 'Invoices', navLink: '/dashboard/provider/invoices', icon: IconInvoice },
+    { label: 'Claims', navLink: '/dashboard/provider/invoices', icon: IconInvoice },
     { label: 'Salaries', navLink: '/dashboard/provider/salaries', icon: IconCoins },
     { label: 'Billing', navLink: '/dashboard/provider/billing', icon: IconCurrencyDollar },
     {
