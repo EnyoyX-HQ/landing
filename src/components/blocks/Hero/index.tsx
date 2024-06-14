@@ -21,8 +21,8 @@ const Hero = () => {
           <p className='text-slate-300 text-base lg:text-xl lg:w-[800px]'>
             {/*Bridge cash flow gaps and invest in your growth with flexible
             invoice finance.*/}
-            Transform your insurance and clinical operations with AI to bridge
-            the digital and cashflow gap and ensure interoperability
+            Transform your insurance and clinical operations with AI and ensure
+            interoperability
           </p>
           <Group justify='center'>
             <ExButton

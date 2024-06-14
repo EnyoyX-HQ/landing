@@ -4,7 +4,7 @@ import { Open_Sans } from 'next/font/google'
 import MantineSetup from '@/layout/MantineSetup'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Notifications } from '@mantine/notifications'
-import CookieBanner from "../../components/blocks/Cookies";
+import { CookieBanner } from "@/components";
 //import { GoogleAnalytics } from '@next/third-parties/google'
 import 'swiper/css'
 import './globals.css'
