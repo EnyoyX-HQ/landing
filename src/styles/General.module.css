@@ -8,3 +8,7 @@
 .meta {
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-6));
 }
+
+.profile_action_icon {
+  color: light-dark(var(--mantine-color-black-6), var(--mantine-color-gray-1));
+}

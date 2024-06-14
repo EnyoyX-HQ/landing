@@ -20,19 +20,13 @@ import { DateInput } from '@mantine/dates'
 import { useEffect, useState } from 'react'
 import { notifications } from '@mantine/notifications'
 
-
 const Invoice = () => {
   //dropdown values
-  const insurances = [
-    'ASCOMA', 
-    'IMPG', 
-    'PPM', 
-    'Other',
-  ];
+  const insurances = ['ASCOMA', 'IMPG', 'PPM', 'Other']
   //components
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
-  });
+  })
   //states
   const [isFetching, setIsFetching] = useState(true)
   const [opened, { open, close }] = useDisclosure(false)
@@ -43,14 +37,13 @@ const Invoice = () => {
   const [payout, setPayout] = useState<string | number>('')
   const [status, setStatus] = useState('in progress')
   const [fileBase64, setFileBase64] = useState<string | null>(null)
-  
 
   const insuranceOptions = insurances.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
     </Combobox.Option>
-  ));
-  
+  ))
+
   useEffect(() => {
     setTimeout(() => {
       setIsFetching(false)
@@ -111,6 +104,31 @@ const Invoice = () => {
       if (response.ok) {
         // Handle success
         console.log('Invoice added successfully')
+        // Create notification
+        const notificationData = {
+          title: 'New Invoice Added',
+          message: `Invoice of ${formData.amount} for ${formData.insurance} created successfully and is in progress.`,
+          type: 'success',
+          userId: 1,
+        }
+
+        const notificationResponse = await fetch('/api/notifications', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(notificationData),
+        })
+
+        if (notificationResponse.ok) {
+          console.log('Notification created successfully')
+        } else {
+          console.error(
+            'Failed to create notification:',
+            notificationResponse.statusText
+          )
+        }
+
         close() // Close the modal after successful submission
         notifications.show({
           title: 'Invoice added successfully',
@@ -190,21 +208,23 @@ const Invoice = () => {
             <Combobox
               store={combobox}
               onOptionSubmit={(val) => {
-                setInsurance(val);
-                combobox.closeDropdown();
+                setInsurance(val)
+                combobox.closeDropdown()
               }}
             >
               <Combobox.Target>
                 <InputBase
-                  component="button"
-                  type="button"
-                  label="Insurance"
+                  component='button'
+                  type='button'
+                  label='Insurance'
                   pointer
                   rightSection={<Combobox.Chevron />}
-                  rightSectionPointerEvents="none"
+                  rightSectionPointerEvents='none'
                   onClick={() => combobox.toggleDropdown()}
                 >
-                  {insurance || <Input.Placeholder>Select Insurance</Input.Placeholder>}
+                  {insurance || (
+                    <Input.Placeholder>Select Insurance</Input.Placeholder>
+                  )}
                 </InputBase>
               </Combobox.Target>
 

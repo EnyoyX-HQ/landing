@@ -45,7 +45,7 @@ export async function POST(req: any) {
     })
     return NextResponse.json(newClinic)
   } catch (error) {
-    console.error('Error creating invoice: ', error)
+    console.error('Error creating clinic: ', error)
     return NextResponse.error()
   }
 }

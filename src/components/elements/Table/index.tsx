@@ -24,6 +24,7 @@ import {
   Input,
   Button,
   HoverCard,
+  ActionIcon,
 } from '@mantine/core'
 import {
   IconSelector,
@@ -35,6 +36,10 @@ import {
   IconDownload,
   IconCoins,
   IconRefresh,
+  IconCheck,
+  IconX,
+  IconEye,
+  IconInvoice,
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
@@ -130,6 +135,19 @@ function sortData(
   )
 }
 
+function getStatusVariant(status: string): string {
+  switch (status) {
+    case 'in progress':
+      return 'yellow'
+    case 'validated':
+      return 'green'
+    case 'rejected':
+      return 'red'
+    default:
+      return 'gray'
+  }
+}
+
 /*dropdown menu to combine both filteration
  * and sorting keep search field as is
  * design concept would be similar to excel
@@ -157,9 +175,15 @@ const TableSort = () => {
 
   const [opened, { open, close }] = useDisclosure(false)
   const [
+    previewModalOpened,
+    { open: openPreviewModal, close: closePreviewModal },
+  ] = useDisclosure(false)
+  const [
     payoutModalOpened,
     { open: openPayoutModal, close: closePayoutModal },
   ] = useDisclosure(false)
+  const [payoutData, setPayoutData] = useState<RowData | null>(null)
+  const [previewInvoice, setPreviewInvoice] = useState<RowData | null>(null)
   const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
   const [payout, setPayout] = useState<string | number>('')
   const [insurance, setInsurance] = useState('')
@@ -180,6 +204,16 @@ const TableSort = () => {
     setAmount(rowData.amount)
     setStatus(rowData.status)
     open() // Open the modal
+  }
+
+  const handlePreview = (rowData: RowData) => {
+    setPreviewInvoice(rowData)
+    openPreviewModal()
+  }
+
+  const handlePayout = (rowData: RowData) => {
+    setPayoutData(rowData)
+    openPayoutModal()
   }
 
   const setSorting = (field: keyof RowData) => {
@@ -253,23 +287,59 @@ const TableSort = () => {
       const inProgressInvoices = data.data.filter(
         (invoice: any) => invoice.status === 'in progress'
       )
-      if (inProgressInvoices.length > 0) {
-        setTimeout(() => {
-          // Iterate over each in-progress invoice and update its status
-          inProgressInvoices.forEach(async (invoice: any) => {
-            console.log('Invoice ID: ', invoice.id)
-            // Update the status to "validated" in the database
-            await updateInvoiceStatus(invoice.id, 'validated')
 
-            // Update the state with the updated status
-            setInvoiceData((prevData) =>
-              prevData.map((prevInvoice) =>
-                prevInvoice.id === invoice.id
-                  ? { ...prevInvoice, status: 'validated' }
-                  : prevInvoice
+      if (inProgressInvoices.length > 0) {
+        setTimeout(async () => {
+          // Iterate over each in-progress invoice and update its status
+          for (const invoice of inProgressInvoices) {
+            console.log('Invoice ID: ', invoice.id)
+
+            if (invoice.insurance === 'PPM') {
+              // Update the status to "rejected" in the database
+              await updateInvoiceStatus(invoice.id, 'rejected')
+
+              notifications.show({
+                color: 'red',
+                title: 'Your invoice has been rejected',
+                message:
+                  'Notification will close in 2 seconds, you can close this notification now',
+                icon: <IconX style={{ width: rem(18), height: rem(18) }} />,
+                loading: false,
+                autoClose: 2000,
+              })
+
+              // Update the state with the updated status
+              setInvoiceData((prevData) =>
+                prevData.map((prevInvoice) =>
+                  prevInvoice.id === invoice.id
+                    ? { ...prevInvoice, status: 'rejected' }
+                    : prevInvoice
+                )
               )
-            )
-          })
+            } else {
+              // Update the status to "validated" in the database
+              await updateInvoiceStatus(invoice.id, 'validated')
+
+              notifications.show({
+                color: 'teal',
+                title: 'Your invoice has been validated',
+                message:
+                  'Notification will close in 2 seconds, you can close this notification now',
+                icon: <IconCheck style={{ width: rem(18), height: rem(18) }} />,
+                loading: false,
+                autoClose: 2000,
+              })
+
+              // Update the state with the updated status
+              setInvoiceData((prevData) =>
+                prevData.map((prevInvoice) =>
+                  prevInvoice.id === invoice.id
+                    ? { ...prevInvoice, status: 'validated' }
+                    : prevInvoice
+                )
+              )
+            }
+          }
         }, 1 * 60 * 1000) // 5 minutes in milliseconds
       }
     }
@@ -382,20 +452,7 @@ const TableSort = () => {
   }
 
   const rows = sortedData.map((row) => {
-    let statusVariant
-    switch (row.status) {
-      case 'in progress':
-        statusVariant = 'yellow'
-        break
-      case 'validated':
-        statusVariant = 'green'
-        break
-      case 'rejected':
-        statusVariant = 'red'
-        break
-      default:
-        statusVariant = 'gray'
-    }
+    const statusVariant = getStatusVariant(row.status)
     return (
       <Table.Tr key={row.id} className='text-slate-600'>
         <Table.Td>{row.insurance}</Table.Td>
@@ -411,10 +468,23 @@ const TableSort = () => {
         </Table.Td>
         <Table.Td p={0}>
           <div className='flex gap-4'>
+            <Tooltip label='Preview'>
+              <ThemeIcon
+                variant='light'
+                onClick={() => handlePreview(row)}
+                color={'violet'}
+                size={30}
+              >
+                <IconEye
+                  className='cursor-pointer'
+                  style={{ width: rem(18), height: rem(18) }}
+                />
+              </ThemeIcon>
+            </Tooltip>
             <Tooltip label='Payout'>
               <ThemeIcon
                 variant='light'
-                onClick={openPayoutModal}
+                onClick={() => handlePayout(row)}
                 color={'pink'}
                 size={30}
               >
@@ -564,6 +634,76 @@ const TableSort = () => {
         </Table>
       </ScrollArea>
 
+      {/* Preview Invoice Modal */}
+      <Modal
+        opened={previewModalOpened}
+        onClose={closePreviewModal}
+        title='Invoice Preview'
+        radius={'lg'}
+        centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+      >
+        {previewInvoice && (
+          <div>
+            <div className='flex'>
+              <ActionIcon
+                variant='light'
+                color='violet'
+                size={80}
+                className='mx-auto'
+                aria-label='Invoice'
+              >
+                <IconInvoice
+                  style={{ width: '70%', height: '70%' }}
+                  stroke={1.5}
+                />
+              </ActionIcon>
+            </div>
+            <div className='mt-3 mb-6 flex'>
+              <Badge
+                color={getStatusVariant(previewInvoice.status)}
+                variant='light'
+                className='mx-auto'
+              >
+                {previewInvoice.status}
+              </Badge>
+            </div>
+            <div className='p-4 bg-slate-50 rounded-xl'>
+              <Text>
+                <span className='font-bold'>Payout:</span>{' '}
+                {previewInvoice.payout.toLocaleString()} CFA
+              </Text>
+              <Text>
+                <span className='font-bold'>Insurance:</span>{' '}
+                {previewInvoice.insurance}
+              </Text>
+              <Text>
+                <span className='font-bold'>Date:</span>{' '}
+                <FormatDate
+                  data={previewInvoice.createdAt}
+                  formatType='datePipeTime'
+                />
+              </Text>
+              <Text>
+                <span className='font-bold'>Amount:</span>{' '}
+                {previewInvoice.amount.toLocaleString()} CFA
+              </Text>
+            </div>
+            <ExButton
+              type='action'
+              onClick={() => handleDownload(previewInvoice)}
+              className='w-full mt-4'
+              isGradient
+            >
+              Download
+            </ExButton>
+          </div>
+        )}
+      </Modal>
+
       {/* Payout modal */}
 
       <Modal
@@ -577,23 +717,25 @@ const TableSort = () => {
           blur: 3,
         }}
       >
-        <div className='flex flex-col items-center gap-3 my-5'>
-          <p className='font-bold text-3xl text-center'>
-            {amount.toLocaleString()} CFA
-          </p>
+        {payoutData && (
+          <div className='flex flex-col items-center gap-3 my-5'>
+            <p className='font-bold text-3xl text-center'>
+              {payoutData.amount.toLocaleString()} CFA
+            </p>
 
-          <div className='flex'>
-            <Badge
-              color='blue'
-              variant='light'
-              size='lg'
-              radius='xl'
-              className='mx-auto'
-            >
-              Payout: {payout.toLocaleString()} CFA
-            </Badge>
+            <div className='flex'>
+              <Badge
+                color='blue'
+                variant='light'
+                size='lg'
+                radius='xl'
+                className='mx-auto'
+              >
+                Payout: {payoutData.payout.toLocaleString()} CFA
+              </Badge>
+            </div>
           </div>
-        </div>
+        )}
 
         <ExButton
           type='action'

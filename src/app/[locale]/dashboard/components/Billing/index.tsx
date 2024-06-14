@@ -1,8 +1,25 @@
 'use client'
 import { ExButton } from '@/components'
-import { Box, Card, Divider, List, Tabs, rem } from '@mantine/core'
-import { IconCircleCheck } from '@tabler/icons-react'
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Divider,
+  Group,
+  List,
+  ScrollArea,
+  Table,
+  Tabs,
+  Text,
+  TextInput,
+  rem,
+} from '@mantine/core'
+import { IconCircleCheck, IconPencil } from '@tabler/icons-react'
 import Link from 'next/link'
+import { useState } from 'react'
+import classes from '@/styles/InputStyle.module.css'
+import { M_PLUS_1 } from 'next/font/google'
 
 const billingPlans = [
   {
@@ -32,6 +49,37 @@ const billingPlans = [
 ]
 
 const Billing = () => {
+  const [name, setName] = useState('Visean Shawn')
+  const [cardNo, setCardNo] = useState('5526 2176 2123 3232')
+  const [billingAddress, setBillingAddress] = useState('583 St. Luke Avenue')
+  const [editMode, setEditMode] = useState(false)
+
+  status
+  const invoices = [
+    {
+      id: 1,
+      insurance: 'ASCOMA',
+      amount: '28,650 CFA',
+      payout: '25,785 CFA',
+      date: '3th Jun 2024 | 07:55 PM',
+      status: 'Validated',
+    },
+  ]
+
+  const rows = invoices.map((invoice) => (
+    <Table.Tr key={invoice.id}>
+      <Table.Td>{invoice.insurance}</Table.Td>
+      <Table.Td>{invoice.amount}</Table.Td>
+      <Table.Td>{invoice.payout}</Table.Td>
+      <Table.Td>{invoice.date}</Table.Td>
+      <Table.Td>
+        <Badge color={'green'} variant='light'>
+          {invoice.status}
+        </Badge>
+      </Table.Td>
+    </Table.Tr>
+  ))
+
   return (
     <div>
       <h1 className='text-lg font-semibold md:text-2xl mb-4'>Billing</h1>
@@ -133,11 +181,93 @@ const Billing = () => {
         </Tabs.Panel>
 
         <Tabs.Panel value='past_invoices'>
-          <Box mt={20}>Past invoices</Box>
+          <Box mt={24}>
+            <ScrollArea>
+              <Table
+                horizontalSpacing='md'
+                verticalSpacing='xs'
+                miw={700}
+                layout='fixed'
+              >
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Insurance</Table.Th>
+                    <Table.Th>Amount</Table.Th>
+                    <Table.Th>Payout</Table.Th>
+                    <Table.Th>Date</Table.Th>
+                    <Table.Th>Status</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>{rows}</Table.Tbody>
+              </Table>
+            </ScrollArea>
+          </Box>
         </Tabs.Panel>
 
         <Tabs.Panel value='payment_details'>
-          <Box mt={20}>Payment details</Box>
+          <Box mt={20}>
+            <Box className='flex justify-end'>
+              {!editMode && (
+                <ExButton
+                  type='action'
+                  onClick={() => setEditMode(true)}
+                  rightIcon={<IconPencil />}
+                >
+                  Edit
+                </ExButton>
+              )}
+            </Box>
+            <Box className='w-fit'>
+              <TextInput
+                size='md'
+                label='Name'
+                className='text-slate-600'
+                classNames={{ label: classes.label, input: classes.input }}
+                variant={editMode ? 'default' : 'unstyled'}
+                placeholder='John Doe'
+                //onChange={setName}
+                defaultValue={name}
+                readOnly={!editMode}
+              />
+              <TextInput
+                size='md'
+                label='Card Number'
+                className='my-4 text-slate-600'
+                classNames={{ label: classes.label, input: classes.input }}
+                variant={editMode ? 'default' : 'unstyled'}
+                placeholder='**** **** **** 5560'
+                //onChange={setName}
+                defaultValue={cardNo}
+                readOnly={!editMode}
+              />
+              <TextInput
+                size='md'
+                label='Billing Address'
+                className='text-slate-600'
+                classNames={{ label: classes.label, input: classes.input }}
+                variant={editMode ? 'default' : 'unstyled'}
+                placeholder=''
+                //onChange={setName}
+                defaultValue={billingAddress}
+                readOnly={!editMode}
+              />
+
+              {editMode && (
+                <Group mt={30}>
+                  <ExButton type='action' onClick={() => setEditMode(false)}>
+                    Save
+                  </ExButton>
+                  <Button
+                    variant='transparent'
+                    onClick={() => setEditMode(false)}
+                    color='red'
+                  >
+                    Cancel
+                  </Button>
+                </Group>
+              )}
+            </Box>
+          </Box>
         </Tabs.Panel>
       </Tabs>
     </div>
