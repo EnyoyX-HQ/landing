@@ -58,25 +58,25 @@ const Billing = () => {
   const invoices = [
     {
       id: 1,
-      insurance: 'ASCOMA',
-      amount: '28,650 CFA',
-      payout: '25,785 CFA',
       date: '3th Jun 2024 | 07:55 PM',
-      status: 'Validated',
+      description: 'Payment for invoice',
+      status: 'completed',
+      method: 'Card',
+      invoice: '3245553',
     },
   ]
 
   const rows = invoices.map((invoice) => (
     <Table.Tr key={invoice.id}>
-      <Table.Td>{invoice.insurance}</Table.Td>
-      <Table.Td>{invoice.amount}</Table.Td>
-      <Table.Td>{invoice.payout}</Table.Td>
       <Table.Td>{invoice.date}</Table.Td>
+      <Table.Td>{invoice.description}</Table.Td>
       <Table.Td>
         <Badge color={'green'} variant='light'>
           {invoice.status}
         </Badge>
       </Table.Td>
+      <Table.Td>{invoice.method}</Table.Td>
+      <Table.Td>{invoice.invoice}</Table.Td>
     </Table.Tr>
   ))
 
@@ -182,42 +182,48 @@ const Billing = () => {
 
         <Tabs.Panel value='past_invoices'>
           <Box mt={24}>
-            <ScrollArea>
-              <Table
-                horizontalSpacing='md'
-                verticalSpacing='xs'
-                miw={700}
-                layout='fixed'
-              >
-                <Table.Thead>
-                  <Table.Tr>
-                    <Table.Th>Insurance</Table.Th>
-                    <Table.Th>Amount</Table.Th>
-                    <Table.Th>Payout</Table.Th>
-                    <Table.Th>Date</Table.Th>
-                    <Table.Th>Status</Table.Th>
-                  </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>{rows}</Table.Tbody>
-              </Table>
-            </ScrollArea>
+            <Card withBorder radius={'lg'}>
+              <ScrollArea>
+                <Table
+                  horizontalSpacing='md'
+                  verticalSpacing='xs'
+                  withRowBorders={false}
+                  miw={700}
+                  layout='fixed'
+                >
+                  <Table.Thead bg={'#f1f5f9'} tt={'uppercase'}>
+                    <Table.Tr>
+                      <Table.Th>Date</Table.Th>
+                      <Table.Th>Description</Table.Th>
+                      <Table.Th>Status</Table.Th>
+                      <Table.Th>Method</Table.Th>
+                      <Table.Th>Invoice</Table.Th>
+                    </Table.Tr>
+                  </Table.Thead>
+                  <Table.Tbody>{rows}</Table.Tbody>
+                </Table>
+              </ScrollArea>
+            </Card>
           </Box>
         </Tabs.Panel>
 
         <Tabs.Panel value='payment_details'>
           <Box mt={20}>
-            <Box className='flex justify-end'>
-              {!editMode && (
-                <ExButton
-                  type='action'
-                  onClick={() => setEditMode(true)}
-                  rightIcon={<IconPencil />}
-                >
-                  Edit
-                </ExButton>
-              )}
-            </Box>
-            <Box className='w-fit'>
+            <Card className='w-96 mx-auto' shadow='lg' radius={'lg'}>
+              <Box className='flex items-center justify-between mb-8'>
+                <Text fw={'bold'} fz={16}>
+                  Details
+                </Text>
+                {!editMode && (
+                  <ExButton
+                    type='action'
+                    onClick={() => setEditMode(true)}
+                    rightIcon={<IconPencil />}
+                  >
+                    Edit
+                  </ExButton>
+                )}
+              </Box>
               <TextInput
                 size='md'
                 label='Name'
@@ -266,7 +272,7 @@ const Billing = () => {
                   </Button>
                 </Group>
               )}
-            </Box>
+            </Card>
           </Box>
         </Tabs.Panel>
       </Tabs>
