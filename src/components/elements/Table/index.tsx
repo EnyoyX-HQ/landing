@@ -294,7 +294,9 @@ const TableSort = () => {
           for (const invoice of inProgressInvoices) {
             console.log('Invoice ID: ', invoice.id)
 
-            if (invoice.insurance === 'PPM') {
+            // SIMULATE INVOICE REJECTION
+
+            /* if (invoice.insurance === 'PPM') {
               // Update the status to "rejected" in the database
               await updateInvoiceStatus(invoice.id, 'rejected')
 
@@ -316,31 +318,31 @@ const TableSort = () => {
                     : prevInvoice
                 )
               )
-            } else {
-              // Update the status to "validated" in the database
-              await updateInvoiceStatus(invoice.id, 'validated')
+            } */
 
-              notifications.show({
-                color: 'teal',
-                title: 'Your invoice has been validated',
-                message:
-                  'Notification will close in 2 seconds, you can close this notification now',
-                icon: <IconCheck style={{ width: rem(18), height: rem(18) }} />,
-                loading: false,
-                autoClose: 2000,
-              })
+            // Update the status to "validated" in the database
+            await updateInvoiceStatus(invoice.id, 'validated')
 
-              // Update the state with the updated status
-              setInvoiceData((prevData) =>
-                prevData.map((prevInvoice) =>
-                  prevInvoice.id === invoice.id
-                    ? { ...prevInvoice, status: 'validated' }
-                    : prevInvoice
-                )
+            notifications.show({
+              color: 'teal',
+              title: 'Your invoice has been validated',
+              message:
+                'Notification will close in 2 seconds, you can close this notification now',
+              icon: <IconCheck style={{ width: rem(18), height: rem(18) }} />,
+              loading: false,
+              autoClose: 2000,
+            })
+
+            // Update the state with the updated status
+            setInvoiceData((prevData) =>
+              prevData.map((prevInvoice) =>
+                prevInvoice.id === invoice.id
+                  ? { ...prevInvoice, status: 'validated' }
+                  : prevInvoice
               )
-            }
+            )
           }
-        }, 1 * 60 * 1000) // 5 minutes in milliseconds
+        }, 1 * 60 * 1000) // 1 minute in milliseconds
       }
     }
 
