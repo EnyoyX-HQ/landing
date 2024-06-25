@@ -42,7 +42,7 @@ h6 {
     inset 0px 4px 2px 0px #00000026;
   transition: all 0.5s ease-in-out;
 }
-.gradient-button-off{
+.gradient-button-off {
   color: #c2c2c2;
   background-color: #029846;
   box-shadow: inset 0px -4px 6px 2px #f2f25980, 0px 1px 3px 0px #2f2b431a,
@@ -66,7 +66,7 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.bg-gradient{
+.bg-gradient {
   background: linear-gradient(45deg, #6fd9db, #d8e665);
 }
 
@@ -77,7 +77,8 @@ h6 {
 
 .hero-section {
   position: relative;
-  background: url(../../../assets/images/herobg-ad-on.svg) bottom right no-repeat,
+  background: url(../../../assets/images/herobg-ad-on.svg) bottom right
+      no-repeat,
     linear-gradient(rgba(2, 28, 29, 0.8), rgba(2, 28, 29, 0.8)),
     url(../../../assets/images/rough_bg.png);
   background-size: 400px, cover;
@@ -99,7 +100,8 @@ h6 {
 }
 element {
   display: flex;
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg);
   transform-style: preserve-3d;
 }
 .cc-banner-container {
@@ -113,21 +115,23 @@ element {
   left: auto;
   right: 0%;
 }
-.cc-animate-visible{
+.cc-animate-visible {
   display: flex;
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg);
   transform-style: preserve-3d;
 }
-.cc-animate-hidden{
+.cc-animate-hidden {
   display: none;
-  transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+  transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg);
   transform-style: preserve-3d;
 }
-.cc-banner-wrapper{
+.cc-banner-wrapper {
   position: relative;
   max-width: 28rem;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .cc-banner-container {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -136,7 +140,7 @@ element {
     left: 0%;
     right: 0%;
   }
-  .cc-banner-wrapper{
+  .cc-banner-wrapper {
     max-width: none;
   }
 }
@@ -290,5 +294,10 @@ element {
   .auto-slider::after {
     right: 0;
     transform: rotateZ(180deg);
+  }
+
+  .profile-update-btn {
+    background-color: #ffffff56;
+    backdrop-filter: blur(4px);
   }
 }

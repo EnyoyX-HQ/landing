@@ -55,11 +55,11 @@ const clinicNavbarData = [
     title: 'Salaries',
     description: 'Advanced data analytical tools for employees salary data',
   },
-  {
+  /*{
     icon: IconCode,
     title: 'Claims Processing',
     description: 'Advanced AI-powered tools to process and claims',
-  },
+  },*/
   {
     icon: IconChartPie3,
     title: 'Analytics',
@@ -78,16 +78,11 @@ const clinicNavbarData = [
   {
     icon: IconInvoice,
     title: 'Invoice Management',
-    description: 'Manage and verify your invoice submission',
+    description: 'AI-powered tools to process & verify clinic invoice submission',
   },
 ]
 
 const payerNavbarData = [
-  {
-    icon: IconCode,
-    title: 'Claims Management',
-    description: 'View and analyze claims submissions from clinics',
-  },
   {
     icon: IconChartPie3,
     title: 'Analytics',

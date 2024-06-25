@@ -20,7 +20,12 @@ const AppLayout = ({ children, title }: AppLayoutProps) => {
       padding='md'
     >
       <AppShell.Header>
-        <Group h='100%' className={`flex items-center justify-between`} px='md'>
+        <Group
+          h='100%'
+          justify='space-between'
+          className={`flex items-center justify-between`}
+          px='md'
+        >
           <Header openNav={opened} onClick={toggle} />
         </Group>
       </AppShell.Header>
