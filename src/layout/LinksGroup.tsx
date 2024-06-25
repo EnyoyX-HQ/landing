@@ -13,13 +13,14 @@ interface LinksGroupProps {
 
 const LinksGroup = ({ icon: Icon, label, navLink }: LinksGroupProps) => {
   const currentPath = usePathname()
+  const cleanedPath = currentPath.replace(/^\/(en|fr)/, '') // Removes "/en" or "/fr" from the beginning of the path
 
   return (
     <>
       <Link href={navLink}>
         <UnstyledButton
           className={`${classes.control} ${
-            navLink === currentPath && classes.active
+            navLink === cleanedPath && classes.active
           }`}
         >
           <Group justify='space-between' gap={0}>

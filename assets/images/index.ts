@@ -10,5 +10,6 @@ export { default as ToolCardImg } from './card.png'
 export { default as ToolCardImg2 } from './card2.png'
 export { default as Wish } from './Wish.png'
 export { default as Star } from './star-white.svg'
+export { default as ComingSoonBanner } from './coming-soon-banner.png'
 
 export * from './partners'

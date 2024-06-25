@@ -1,8 +1,14 @@
-import { Menu, Group, Text, Avatar, rem } from '@mantine/core'
 import {
-  IconBell
-} from '@tabler/icons-react'
-
+  Menu,
+  Group,
+  Text,
+  Avatar,
+  rem,
+  ActionIcon,
+  ScrollArea,
+  Indicator,
+} from '@mantine/core'
+import { IconBell, IconNotification, IconProgress } from '@tabler/icons-react'
 
 const NotificationMenu = () => {
   const icon = <IconBell style={{ width: rem(25), height: rem(25) }} />
@@ -16,57 +22,48 @@ const NotificationMenu = () => {
         withinPortal
       >
         <Menu.Target>
-          
-          <Avatar 
-            color="green"
-            className='cursor-pointer' 
-            radius="sm"
-          >
-            {icon}
-          </Avatar>
+          <Indicator inline label='1' color='red' size={16}>
+            <Avatar color='green' className='cursor-pointer' radius='sm'>
+              {icon}
+            </Avatar>
+          </Indicator>
         </Menu.Target>
         <Menu.Dropdown>
-          {/*<Menu.Item
-            rightSection={
-              <IconChevronRight
-                style={{ width: rem(16), height: rem(16) }}
-                stroke={1.5}
-              />
-            }
-          >
-            <Group>
-              <Avatar
-                radius='xl'
-                src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fHww'
-              />
-
+          <Menu.Label>Notifications</Menu.Label>
+          <ScrollArea.Autosize mah={250}>
+            <Menu.Item
+              leftSection={
+                <ActionIcon
+                  variant='light'
+                  color='yellow'
+                  aria-label='Settings'
+                >
+                  <IconProgress
+                    style={{ width: '70%', height: '70%' }}
+                    stroke={1.5}
+                  />
+                </ActionIcon>
+              }
+            >
               <div>
-                <Text fw={500}>HealthCare Center</Text>
+                <Text fw={500} fz={'sm'}>
+                  New Invoice
+                </Text>
                 <Text size='xs' c='dimmed'>
-                  admin@healthcarecenter.com
+                  Your invoice of 53,400 CFA for ASCOMA is in progress.
                 </Text>
               </div>
-            </Group>
-          </Menu.Item>*/}
-          <Menu.Label>Notifications</Menu.Label>
-          <Menu.Item
-            /*leftSection={
-              <IconSettings
-                style={{ width: rem(16), height: rem(16) }}
-                stroke={1.5}
-              />
-            }*/
-          >
-            <p className="flex justify-center m-auto items-center">
+            </Menu.Item>
+          </ScrollArea.Autosize>
+          {/* <Menu.Item>
+            <p className='flex justify-center m-auto items-center'>
               No new notifcations
             </p>
-          </Menu.Item>
+          </Menu.Item> */}
 
           <Menu.Divider />
 
-          <Menu.Item>
-            Live updates
-          </Menu.Item>
+          <Menu.Item>Live updates</Menu.Item>
         </Menu.Dropdown>
       </Menu>
     </Group>
