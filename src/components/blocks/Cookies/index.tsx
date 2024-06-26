@@ -10,10 +10,10 @@ const CookiesBanner = () => {
     setLocalStorage('cookiesAccepted', 'true');
     setAccepted(true);
   };
-  const declineCookies = () => {
-    setLocalStorage('cookiesAccepted', 'false');
-    setAccepted(false);
-  };
+  // const declineCookies = () => {
+  //   setLocalStorage('cookiesAccepted', 'false');
+  //   setAccepted(false);
+  // };
   //consent status for google analytics
   useEffect(() => {
     //pick the status from the decision made by accept or decline
@@ -69,7 +69,9 @@ const CookiesBanner = () => {
           <Text fz="md" fw={500}>
             Allow cookies
           </Text>
-          <CloseButton mr={-9} mt={-9} />
+          <button onClick={acceptCookies}>
+            <CloseButton aria-label="Close cookies modal" mr={-9} mt={-9} />
+          </button>
         </Group>
         <Text c="dimmed" fz="xs">
           By clicking “Accept All”, you agree to the storing of cookies on your device 
