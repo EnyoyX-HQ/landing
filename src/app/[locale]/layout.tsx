@@ -5,6 +5,7 @@ import MantineSetup from '@/layout/MantineSetup'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Notifications } from '@mantine/notifications'
 import { CookieBanner } from "@/components";
+// import { useEffect } from 'react';
 //import { GoogleAnalytics } from '@next/third-parties/google'
 import 'swiper/css'
 import './globals.css'
@@ -24,13 +25,6 @@ export const metadata: Metadata = {
   description:
     'Bridge cash flow gaps and invest in your growth with flexible invoice finance.',
 }
-
-/*interface RootLayoutProps{
-  children: React.ReactNode
-  params: {
-    locale: string;
-  }
-}*/
 export default function RootLayout({
   children,
   params: { locale }
@@ -42,13 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
+      <Script src="https://cdn.weglot.com/weglot.min.js" />
+      {/* <Script id="webglot">
+        {`Weglot.initialize({
+          api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
+        })`}
+      </Script> */}
       <head>
-        {/*<Script src="https://cdn.weglot.com/weglot.min.js" />*/}
-        {/*<Script id="show-banner">
-          {`Weglot.initialize({
-            api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
-          })`}
-        </Script>*/}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ7THZC0BP" />
         <Script id="google-analytics">
           {`window.dataLayer = window.dataLayer || [];
