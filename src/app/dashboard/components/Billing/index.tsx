@@ -54,7 +54,6 @@ const Billing = () => {
   const [billingAddress, setBillingAddress] = useState('583 St. Luke Avenue')
   const [editMode, setEditMode] = useState(false)
 
-  status
   const invoices = [
     {
       id: 1,
