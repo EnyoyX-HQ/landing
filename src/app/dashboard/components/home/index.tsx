@@ -119,7 +119,7 @@ const Home = (props: HomeProps) => {
       }
     }
     fetchInvoices()
-  }, [])
+  }, [data])
 
   const totalPayouts = invoicesData.reduce(
     (sum, entry) => sum + entry.payout,
