@@ -5,7 +5,7 @@ export default createMiddleware({
   locales,
   //localePrefix,
   defaultLocale: 'fr',// Used when no locale matches
-  localeDetection: false,
+  //localeDetection: false,
 });
  
 
