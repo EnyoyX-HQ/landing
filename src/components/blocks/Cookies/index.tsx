@@ -69,9 +69,7 @@ const CookiesBanner = () => {
           <Text fz="md" fw={500}>
             Allow cookies
           </Text>
-          <button onClick={acceptCookies}>
-            <CloseButton aria-label="Close cookies modal" mr={-9} mt={-9} />
-          </button>
+          <CloseButton aria-label="Close cookies modal" onClick={acceptCookies} mr={-9} mt={-9} />
         </Group>
         <Text c="dimmed" fz="xs">
           By clicking “Accept All”, you agree to the storing of cookies on your device 
