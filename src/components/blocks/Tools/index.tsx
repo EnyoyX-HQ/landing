@@ -38,7 +38,7 @@ const Tools = () => {
                 {/*Quickly send an invoice for each insurance claims
 and get paid in less than 48-hours*/}
                 Envoyx's sophisticated AI powered solutions ensure swift and
-                efficient resolution of invoices and insurance claims to
+                efficient resolution of invoices to
                 increase operational efficiency.
               </div>
             </div>

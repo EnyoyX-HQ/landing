@@ -479,12 +479,12 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  <a href="/fr" className="flex justify-center m-auto items-center">
+                  <a href="/" className="flex justify-center m-auto items-center">
                     French
                   </a>
                 </Menu.Item>
                 <Menu.Item>
-                  <a href="/en" className="flex justify-center m-auto items-center">
+                  <a href="/" className="flex justify-center m-auto items-center">
                     English
                   </a>
                 </Menu.Item>
