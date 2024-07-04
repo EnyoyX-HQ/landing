@@ -212,7 +212,7 @@ const Navbar = () => {
   return (
     <>
     <AnnouncementSaleBar />
-    <Box pb={43}>
+    <Box pb={43} className="top-0 sticky z-[100]">
       <header className={`ex--container ${classes.header}`}>
         <Group justify='space-between' h='100%'>
           <Link href={'/'}>

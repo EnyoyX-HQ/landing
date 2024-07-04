@@ -8,7 +8,7 @@ const Hero = () => {
     <header className='h-screen relative hero-section'>
       <Navbar />
       <GlowingBalls />
-      <Box className='hero-text h-screen ex--container relative z-50 -mt-24 lg:-mt-20'>
+      <Box className='hero-text h-screen ex--container relative z-50 -mt-20 lg:-mt-20'>
         <div className='flex flex-col items-center justify-center h-full text-center gap-8'>
           <h1
             className={`text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-6xl w-full sm:w-[600px] lg:w-[800px]`}
