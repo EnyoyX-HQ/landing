@@ -7,7 +7,7 @@ const AnnouncementSaleBar = () => {
       <div className='flex items-center justify-center mx-auto flex-wrap'>
         <div className='inline-flex justify-center flex-row gap-4 items-center text-center flex-wrap'>
           <span className='gradient-text text-[12px] sm:text-sm text-center font-bold leading-7'>
-            Our platform is currently in Beta. Help Us Perfect Your Experience!
+            We're excited to announce our Beta release.
             <span className='inline-block ml-3'>
               <a
                 href={'#tools'}
