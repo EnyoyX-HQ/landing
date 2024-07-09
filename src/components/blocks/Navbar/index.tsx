@@ -449,7 +449,7 @@ const Navbar = () => {
                 <Combobox.Options>{languageOptions}</Combobox.Options>
               </Combobox.Dropdown>
               </Combobox>*/}
-            <Menu
+            {/* <Menu
               withArrow
               width={80}
               position='bottom'
@@ -457,7 +457,7 @@ const Navbar = () => {
               withinPortal
             >
               <Menu.Target>
-                {/*<Button  
+                <Button  
                   variant='default'
                   onClick={(event) => event.preventDefault()}
                   rightSection={<IconChevronDown color={'white'} style={{ width: rem(16), height: rem(16) }} />}
@@ -466,7 +466,7 @@ const Navbar = () => {
                   }}
                 >
                   <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Button>*/}
+                </Button>
                 <Center inline className='cursor-pointer'>
                   <Box component='span' mr={5}>
                     <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
@@ -489,7 +489,7 @@ const Navbar = () => {
                   </a>
                 </Menu.Item>
               </Menu.Dropdown>
-            </Menu>
+            </Menu> */}
             <div>
               <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login
