@@ -2,9 +2,13 @@ name: NPM build
 
 on:
   push:
-    branches: [master]
+    branches: 
+      - master
+      - envoyx-qa
   pull_request:
-    branches: [master]
+    branches: 
+      - master 
+      - envoyx-qa
 
 jobs:
   build:
