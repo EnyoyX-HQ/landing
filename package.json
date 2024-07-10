@@ -1,6 +1,8 @@
 {
   "name": "envoyx-platform",
   "version": "0.1.0",
+  "author": "Dennis Osafo - dennis.osafo4@gmail.com",
+  "contributors": ["Joseph Nwobodo - josephnwobodo1@gmail.com", ""],
   "private": true,
   "scripts": {
     "dev": "next dev",
