@@ -1,17 +1,32 @@
 import { Menu, Group, Text, Avatar, rem } from '@mantine/core'
+import {useEffect, useState} from 'react';
 import {
   IconLogout,
-  IconHeart,
-  IconMessage,
+  // IconHeart,
+  // IconMessage,
   IconSettings,
-  IconPlayerPause,
+  // IconPlayerPause,
   IconQuestionMark,
-  IconSwitchHorizontal,
+  // IconSwitchHorizontal,
   IconChevronRight,
-  IconDots,
+  // IconDots,
 } from '@tabler/icons-react'
-
+import { getClinics } from '@/lib/actions';
 const UserMenu = () => {
+  const[email, setEnail] = useState<any>(null);
+  const[name, setName] = useState<any>(null);
+  useEffect(() => {
+    const fetchClinics = async () => {
+      try {
+        const data = await getClinics()
+        setEnail(data.data[0].email)
+        setName(data.data[0].name)
+      } catch (error) {
+        console.error('Error fetching clinics:', error)
+      }
+    }
+    fetchClinics()
+  }, [])
   return (
     <Group justify='center'>
       <Menu
@@ -44,9 +59,11 @@ const UserMenu = () => {
               />
 
               <div>
-                <Text fw={500}>HealthCare Center</Text>
+                <Text fw={500}>
+                  {name ?? `HealthCare Center`} 
+                </Text>
                 <Text size='xs' c='dimmed'>
-                  admin@healthcarecenter.com
+                  {email ?? `envoyx.org@gmail.com`}
                 </Text>
               </div>
             </Group>
