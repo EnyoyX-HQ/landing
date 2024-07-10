@@ -7,7 +7,9 @@ export async function PUT(req: any, { params }: any) {
     const data = await req.json()
     console.log(data)
 
-    const id = parseInt(params.id)
+    // const id = parseInt(params.id)
+    const id = String(params.id)
+
 
     // Create an object to hold the fields to be updated
     const updatedData: any = {}
