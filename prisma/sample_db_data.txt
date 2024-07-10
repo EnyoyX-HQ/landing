@@ -1,0 +1,15 @@
+model Clinic {
+  id       Int   @id @default(autoincrement())
+  name     'HealthCare Center'
+  imageUrl 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fHww'
+  city     'Nashville'
+  phone    '+233283728329'
+  address  'St. Martins Street'
+  email    'envoyx.org@gmail.com'
+  website  'healthcenter.com'
+  insurances 'ASCOMA, IMPG'
+}
+
+model Invoice {
+
+}
