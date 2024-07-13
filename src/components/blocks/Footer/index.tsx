@@ -50,16 +50,28 @@ const Footer = () => {
         </div>
 
         <div className="copywrite flex flex-col md:flex-row items-center justify-between gap-5 py-10 text-slate-200 border-t border-yellow-200 opacity-25 mt-20">
-          <p>
+          <p className="text-white">
             &copy;
             <Link href="/" target="_blank">
               Envoyx health
             </Link>
           </p>
-          <div className="flex gap-5">
-            <Link href={"/"}>Terms</Link>
-            <Link href={"/"}>Privacy</Link>
-            <Link href={"/"}>Cookies</Link>
+          <div className="flex gap-10 text-white items-center">
+            <ul className="flex items-center gap-2 list-none">
+              <li className="list-none">
+                <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/fr">FR</a>
+                <span className="pl-2">•</span>
+              </li>
+              <li className="list-none">
+                <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/">EN</a>
+              </li>
+            </ul>
+            <div className="flex gap-5">
+              <Link href={"/"}>Terms</Link>
+              <Link href={"/"}>Privacy</Link>
+              <Link href={"/"}>Cookies</Link>
+            </div>
+            
           </div>
         </div>
       </div>
