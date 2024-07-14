@@ -1,6 +1,6 @@
 'use client'
 
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {
   HoverCard,
   Group,
@@ -128,19 +128,17 @@ const companyData = [
 const Navbar = () => {
   const currentPath = usePathname()
   const vercelPath = /vercel\.app/.test(currentPath);
-
+  console.log(vercelPath)
   const languages = [
     {
       icon: '🇫🇷',
       title: 'French',
-      href: `${(process.env.NODE_ENV === 'development') || (process.env.NODE_ENV !== 'development' && vercelPath) ? '/': '/fr'}`,
-      // description: 'Learn more about our company',
+      href: `${(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && vercelPath) ? '/': '/fr'}`,
     },
     {
       icon: '🇬🇧',
       title: 'English',
       href: '/'
-      // description: 'Get started by partnering with us',
     },
   ];
   //states
@@ -516,7 +514,7 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  {(process.env.NODE_ENV === 'development') || (process.env.NODE_ENV !== 'development' && vercelPath) ? 
+                  {(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && vercelPath) ? 
                     <a href="/" className="flex justify-center m-auto items-center">
                       French
                     </a>
