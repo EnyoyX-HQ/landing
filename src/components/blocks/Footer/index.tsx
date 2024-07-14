@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="flex gap-10 text-white items-center">
             <ul className="flex items-center gap-2 list-none">
               <li className="list-none">
-              {process.env.NODE_ENV === 'development' || vercelPath ? <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/">FR</a> : <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/fr">FR</a>}
+              {(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && vercelPath) ? <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/">FR</a> : <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/fr">FR</a>}
                 <span className="pl-2">•</span>
               </li>
               <li className="list-none">
