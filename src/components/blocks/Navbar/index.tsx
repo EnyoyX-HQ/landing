@@ -133,7 +133,7 @@ const Navbar = () => {
     {
       icon: '🇫🇷',
       title: 'French',
-      href: `${process.env.NODE_ENV === 'development' || vercelPath ? '/':'/fr'}`,
+      href: `${(process.env.NODE_ENV === 'development') || (process.env.NODE_ENV !== 'development' && vercelPath) ? '/': '/fr'}`,
       // description: 'Learn more about our company',
     },
     {
@@ -516,7 +516,7 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  {process.env.NODE_ENV === 'development' || vercelPath ? 
+                  {(process.env.NODE_ENV === 'development') || (process.env.NODE_ENV !== 'development' && vercelPath) ? 
                     <a href="/" className="flex justify-center m-auto items-center">
                       French
                     </a>
