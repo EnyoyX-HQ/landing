@@ -47,6 +47,7 @@ import Image from 'next/image'
 import { Logo } from '@/images'
 import { ExButton } from '@/components'
 import AnnouncementSaleBar from '../Announcement'
+import { usePathname } from 'next/navigation'
 //import Dashboard from '../../../app/dashboard/page';
 
 const clinicNavbarData = [
@@ -118,32 +119,49 @@ const companyData = [
   },
 ]
 
-const languages = [
-  'French', 
-  'English',
-];
+// const languages = [
+//   'French', 
+//   'English',
+// ];
+
+
 const Navbar = () => {
+  const currentPath = usePathname()
+  const vercelPath = /vercel\.app/.test(currentPath);
+
+  const languages = [
+    {
+      icon: '🇫🇷',
+      title: 'French',
+      href: `${process.env.NODE_ENV === 'development' || vercelPath ? '/':'/fr'}`,
+      // description: 'Learn more about our company',
+    },
+    {
+      icon: '🇬🇧',
+      title: 'English',
+      href: '/'
+      // description: 'Get started by partnering with us',
+    },
+  ];
   //states
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false)
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false)
   const [linksOpenedCo, { toggle: toggleLinksCo }] = useDisclosure(false)
-  const [linksOpenedClinic, { toggle: toggleLinksClinic }] =
-    useDisclosure(false)
+  const [linksOpenedClinic, { toggle: toggleLinksClinic }] = useDisclosure(false)
   const [linksOpenedPayer, { toggle: toggleLinksPayer }] = useDisclosure(false)
-  const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] =
-    useDisclosure(false)
+  const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] = useDisclosure(false)
+  const [linksCountry, { toggle: toggleLinkCountry }] = useDisclosure(false)
 
   //states
   const [language, setLanguage] = useState<string | null>(null);
 
-  const languageOptions = languages.map((item) => (
-    <Combobox.Option value={item} key={item}>
-      {item}
-    </Combobox.Option>
-  ));
+  // const languageOptions = languages.map((item) => (
+  //   <Combobox.Option value={item} key={item}>
+  //     {item}
+  //   </Combobox.Option>
+  // ));
   const theme = useMantineTheme()
 
   const clinicNavBarLinks = clinicNavbarData.map((item) => (
@@ -209,6 +227,24 @@ const Navbar = () => {
     </UnstyledButton>
   ))
 
+  const languageLinks = languages.map((item) => (
+    <UnstyledButton className={classes.subLink} key={item.title}>
+      <Group wrap='nowrap' align='flex-start'>
+        {/* <ThemeIcon size={34} variant='default' radius='md'>
+          <item.icon
+            style={{ width: rem(22), height: rem(22) }}
+            color={theme.colors.blue[6]}
+          />
+        </ThemeIcon> */}
+        <a href={item.href} className='flex items-center gap-2 text-center hover:underline decoration-white hover:underline-offset-4'>
+          {item.icon}
+          <Text size='sm' fw={500}>
+            {item.title}
+          </Text>
+        </a>
+      </Group>
+    </UnstyledButton>
+  ))
   return (
     <>
     <AnnouncementSaleBar />
@@ -452,6 +488,7 @@ const Navbar = () => {
             <Menu
               withArrow
               width={80}
+              shadow="md"
               position='bottom'
               transitionProps={{ transition: 'pop' }}
               withinPortal
@@ -479,9 +516,15 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  <a href="/fr" className="flex justify-center m-auto items-center">
-                    French
-                  </a>
+                  {process.env.NODE_ENV === 'development' || vercelPath ? 
+                    <a href="/" className="flex justify-center m-auto items-center">
+                      French
+                    </a>
+                    :
+                    <a href="/fr" className="flex justify-center m-auto items-center">
+                      French
+                    </a>
+                  }
                 </Menu.Item>
                 <Menu.Item>
                   <a href="/" className="flex justify-center m-auto items-center">
@@ -608,7 +651,65 @@ const Navbar = () => {
               <a href='#' className={classes.drawerLink}>
                 Pricing
               </a>
-
+              <UnstyledButton
+                className={classes.drawerLink}
+                onClick={toggleLinkCountry}
+              >
+                <Center inline>
+                  <Box component='span' mr={5}>
+                    <IconWorld style={{ width: rem(25), height: rem(25) }} />
+                  </Box>
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                    color={'white'}
+                  />
+                </Center>
+              </UnstyledButton>
+              <Collapse in={linksCountry} c={'white'}>
+                {languageLinks}
+              </Collapse>
+              {/*<div className={`${classes.drawerLink} z-[1000]`}>
+                <Menu
+                  width={80}
+                  shadow="md"
+                  position='right'
+                  transitionProps={{ transition: 'pop' }}
+                  withinPortal
+                  trigger="click-hover" 
+                  openDelay={100} 
+                  closeDelay={400}
+                >
+                  <Menu.Target>
+                    <Center inline className='cursor-pointer'>
+                      <Box component='span' mr={5}>
+                        <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
+                      </Box>
+                      <IconChevronDown
+                        style={{ width: rem(16), height: rem(16) }}
+                        color={'white'}
+                      />
+                    </Center>
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Menu.Item>
+                      {process.env.NODE_ENV === 'development' ? 
+                        <a href="/" className="flex justify-center m-auto items-center">
+                          French
+                        </a>
+                        :
+                        <a href="/fr" className="flex justify-center m-auto items-center">
+                          French
+                        </a>
+                      }
+                    </Menu.Item>
+                    <Menu.Item>
+                      <a href="/" className="flex justify-center m-auto items-center">
+                        English
+                      </a>
+                    </Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
+              </div>*/}
               <Group pb='xl' mt={40} px='md' wrap='wrap'>
                 <a href='/dashboard/provider' className={`${classes.link}`}>
                   Login
