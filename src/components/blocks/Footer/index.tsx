@@ -1,10 +1,12 @@
+"use client"
+
 import { Logo } from "@/images";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import footerLinks from "@/lib/footerLinks";
 import { EksellDisplay } from "@/components/elements/FontContainer"; /*${EksellDisplay.variable}*/
-
+import { usePathname } from 'next/navigation'
 interface FooterLinksProps {
   title: string;
   links: Links[];
@@ -16,6 +18,7 @@ interface Links {
 }
 
 const FooterLinks = ({ title, links }: FooterLinksProps) => {
+  
   return (
     <div className="footer-link">
       <h3 className={``}>{title}</h3>
@@ -31,6 +34,8 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
 };
 
 const Footer = () => {
+  const currentPath = usePathname()
+  const vercelPath = /vercel\.app/.test(currentPath);
   return (
     <footer className="pt-24 bg-ex-deep-green">
       <div className="ex--container">
@@ -59,7 +64,7 @@ const Footer = () => {
           <div className="flex gap-10 text-white items-center">
             <ul className="flex items-center gap-2 list-none">
               <li className="list-none">
-                <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/fr">FR</a>
+              {process.env.NODE_ENV === 'development' || vercelPath ? <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/">FR</a> : <a className="hover:underline underline-offset-4 decoration-white text-[14px] leading-[1.5] font-[400]" href="/fr">FR</a>}
                 <span className="pl-2">•</span>
               </li>
               <li className="list-none">
