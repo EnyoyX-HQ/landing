@@ -127,13 +127,19 @@ const companyData = [
 
 const Navbar = () => {
   const currentPath = usePathname()
-  const vercelPath = /vercel\.app/.test(currentPath);
-  console.log(vercelPath)
+  const [isVercelDomain, setIsVercelDomain] = useState(false);
+  //remove vercel.app domains from internationalization
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      setIsVercelDomain(hostname.includes('vercel.app'));
+    }
+  }, []);
   const languages = [
     {
       icon: '🇫🇷',
       title: 'French',
-      href: `${(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && vercelPath) ? '/': '/fr'}`,
+      href: `${(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && isVercelDomain) ? '/': '/fr'}`,
     },
     {
       icon: '🇬🇧',
@@ -142,6 +148,7 @@ const Navbar = () => {
     },
   ];
   //states
+  
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
@@ -152,7 +159,6 @@ const Navbar = () => {
   const [linksOpenedSolutions, { toggle: toggleLinkSolutions }] = useDisclosure(false)
   const [linksCountry, { toggle: toggleLinkCountry }] = useDisclosure(false)
 
-  //states
   const [language, setLanguage] = useState<string | null>(null);
 
   // const languageOptions = languages.map((item) => (
@@ -160,6 +166,8 @@ const Navbar = () => {
   //     {item}
   //   </Combobox.Option>
   // ));
+  
+  
   const theme = useMantineTheme()
 
   const clinicNavBarLinks = clinicNavbarData.map((item) => (
@@ -514,7 +522,7 @@ const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Item>
-                  {(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && vercelPath) ? 
+                  {(process.env.NEXT_PUBLIC_VERCEL_ENV === 'development') || (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development' && isVercelDomain) ? 
                     <a href="/" className="flex justify-center m-auto items-center">
                       French
                     </a>
