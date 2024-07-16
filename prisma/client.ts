@@ -24,12 +24,12 @@ if (process.env.NODE_ENV === 'production') {
   prisma = global.prisma
 }*/
 
-//const prisma = global.prisma ?? new PrismaClient()
+const prisma = global.prisma ?? new PrismaClient()
 
-//if (process.env.NODE_ENV !== 'production') global.prisma = prisma
+if (process.env.NODE_ENV !== 'production') global.prisma = prisma
 
 //running prisma in dev environment
-const prisma = global.prisma || new PrismaClient()
+/*const prisma = global.prisma || new PrismaClient()
 
 if (process.env.NODE_ENV === 'development') {
     global.prisma = prisma
@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'development') {
     //prisma
   //}
   prisma && new PrismaClient()
-}
+}*/
 
 
 export default prisma
