@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
-import { Open_Sans } from 'next/font/google'
-import MantineSetup from '@/layout/MantineSetup'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Notifications } from '@mantine/notifications'
+import Script from 'next/script';
+import { Open_Sans } from 'next/font/google';
+import MantineSetup from '@/layout/MantineSetup';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Notifications } from '@mantine/notifications';
 import { CookieBanner } from "@/components";
 // import { useEffect } from 'react';
 //import { GoogleAnalytics } from '@next/third-parties/google'
@@ -35,16 +35,17 @@ export default function RootLayout({
   //   locale: string;
   // }
 }>) {
+  // const textToEmbed = "Designed & developed by Dennis Osafo 👉 https://linktr.ee/gribblez_nation"
   return (
     <html lang='en'>
-      {/*<Script src="https://cdn.weglot.com/weglot.min.js" />*/}
-      {/* <Script id="webglot">
-        {`Weglot.initialize({
-          api_key: 'wg_4f83eed4d5e65923b37d3a12860bd0438'
-        })`}
-      </Script> */}
       <head>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ7THZC0BP" />
+        {/* <Script
+          id="embedded-text"
+          dangerouslySetInnerHTML={{
+            __html: "<p>Your embedded text here</p>"
+          }}
+        /> */}
         <Script id="google-analytics">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

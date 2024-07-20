@@ -31,6 +31,22 @@ export async function getInvoices() {
   }
 }
 
+export async function getContacts() {
+  const response = await fetch('/api/contact', { next: { revalidate: 300 } }) //revalidate every 5 mins
+
+  if (!response.ok) {
+    console.error('Failed to fetch invoices:', response.statusText)
+    throw new Error('Failed to fetch invoices')
+  }
+
+  try {
+    return await response.json()
+  } catch (error) {
+    console.error('Error parsing JSON:', error)
+    throw new Error('Invalid JSON response')
+  }
+}
+
 export async function updateInvoiceStatus(invoiceId: any, newStatus: string) {
   try {
     const response = await fetch(`/api/invoice/${invoiceId}`, {

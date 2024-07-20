@@ -12,7 +12,7 @@ import {
 
 export default function Home() {
   // const t = useTranslations('Index');
-  // console.log(t('title')) 
+  // console.log(t('title'))
   return (
     <>
       <Hero />
