@@ -14,6 +14,7 @@ const FORM_FIELDS = {
   email: "Email",
   country: "Country",
   number: "Phone Number",
+  productInterest: "Poduct Interest",
   businessType: "Business Type",
   interest: "How did you hear about us",
   message: "Tell us about your business"
@@ -42,6 +43,18 @@ type FormData = {
   }
 }*/
 
+// export async function GET() {
+//   try {
+//     //res.setHeader('Cache-Control', 's-maxage=10');
+//     const data = await prisma.contact.findMany()
+//     return NextResponse.json({
+//       data,
+//     })
+//   } catch (error) {
+//     console.error('Error fetching contact us (signup) submissions:', error)
+//     return NextResponse.error()
+//   }
+// }
 
 export async function POST(req: Request) {
   try {
@@ -68,6 +81,7 @@ export async function POST(req: Request) {
       email,
       country,
       number,
+      productInterest,
       businessType,
       interest,
       message
@@ -81,6 +95,7 @@ export async function POST(req: Request) {
         email,
         country,
         number,
+        productInterest,
         businessType,
         interest,
         message,
@@ -110,6 +125,7 @@ export async function POST(req: Request) {
           email: data.email,
           country: data.country,
           number: data.number,
+          productInterest: data.productInterest,
           businessType: data.businessType,
           interest: data.interest,
           message: data.message

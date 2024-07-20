@@ -57,9 +57,10 @@ enum UserRole {
 }
 model Clinic {
   id       String   @id @default(cuid())
-  name     String?
+  name     String
   imageUrl String?
   city     String
+  country  String
   phone    String
   address  String
   email    String? @unique
@@ -93,6 +94,7 @@ model Contact {
   email         String
   country       String
   number        String
+  productInterest String
   businessType  String
   interest      String
   message       String

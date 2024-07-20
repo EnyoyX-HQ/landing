@@ -24,6 +24,7 @@ interface SignUpEmailProps {
   email?: string;
   country?: string;
   number?: string;
+  productInterest?: string;
   businessType?: string;
   interest?: string;
   message?: string;
@@ -42,6 +43,7 @@ const SignUpEmail = ({
   email,
   country,
   number,
+  productInterest,
   businessType,
   interest,
   message
@@ -133,72 +135,78 @@ const SignUpEmail = ({
             </Section>
             <Section style={section}>
               <Heading style={h1}>{`New Message`}</Heading>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`First Name`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${firstName}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Last Name`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${lastName}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Company Name`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${company}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Terms of Service`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${termOfService}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Email`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${email}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Country`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${country}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Phone Number`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${number}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
-                <h3><strong>{`BusinessType`}</strong></h3>
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
+                <h3><strong>{`Product Interest`}</strong></h3>
+              </Text>
+              <Text style={{ ...text, marginBottom: "10px" }}>
+                {`${productInterest}`} 
+              </Text>
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
+                <h3><strong>{`Business Type`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${businessType}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`How did you hear about us`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "10px" }}>
                 {`${interest}`} 
               </Text>
-              <Text style={h3} className="text-black text-[16px] mb-[4px]">
+              <Text style={h3} className="text-black text-[16px] mb-[3px]">
                 <h3><strong>{`Message`}</strong></h3>
               </Text>
               <Text style={{ ...text, marginBottom: "20px" }}>
                 {`${message}`} 
               </Text>
-              <Img
+              {/*<Img
                 src={`${baseUrl}/_next/static/media/logo_dark.14e17e01.svg`}
                 width="75"
                 height="45"
                 alt="Envoyx"
-              />
+              />*/}
               <Text style={footer}>
                 <Link
                   href="https://tryenvoyx.com"

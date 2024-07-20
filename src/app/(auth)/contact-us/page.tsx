@@ -58,6 +58,14 @@ const businessTypeList = [
   'Public Health',
   'Other'
 ];
+const productInterestList = [
+  'Insurance',
+  'Claims Processing',
+  'Payments',
+  'Partnership',
+  'Contact Support',
+  'Other'
+]
 
 const SignUp = () => {
   const router = useRouter()
@@ -70,14 +78,18 @@ const SignUp = () => {
   const comboboxBusiness = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
+  const comboboxProduct = useCombobox({
+    onDropdownClose: () => combobox.resetSelectedOption(),
+  });
   
   //states
   const [country, setValueCountry] = useState('');
+  const [product, setValueProductInterest] = useState('');
   const [interest, setValueInterest] = useState<string | null>(null);
   const [business, setValueBusiness] = useState<string | null>(null);
   //const [message, setMessage] = useState('');
   //const [visible, { toggle }] = useDisclosure(false);
-  const initFormValues = { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' }
+  const initFormValues = { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', productInterest: product, businessType: business, interest: interest, message: '' }
   const initFormValuesState = { values: initFormValues, isLoading: false, error: '' }
   const [formValues, setFormValues] = useState(initFormValuesState);
   //const [submittedValues, setSubmittedValues] = useState('');
@@ -100,6 +112,11 @@ const SignUp = () => {
       {item}
     </Combobox.Option>
   ));
+  const productOptions = productInterestList.map((item) => (
+    <Combobox.Option value={item} key={item}>
+      {item}
+    </Combobox.Option>
+  ));
   const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
   const handleSubmit = async (values: any) => {
     setFormValues((prev) => ({
@@ -113,6 +130,7 @@ const SignUp = () => {
         color: 'green',
         message: 'Message sent',
       })
+      setValueProductInterest('')
       setValueCountry('')
       setValueInterest('')
       setValueBusiness('')
@@ -124,7 +142,8 @@ const SignUp = () => {
         termOfService: false, 
         country: country, 
         number: '', 
-        businessType: business, 
+        businessType: business,
+        productInterest: product, 
         interest: interest, 
         message: ''
       })
@@ -162,7 +181,7 @@ const SignUp = () => {
   const form = useForm({
     mode: 'uncontrolled',
     validateInputOnChange: true,
-    initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', businessType: business, interest: interest, message: '' },
+    initialValues: { firstName: '', lastName: '', company: '', email: '', termOfService: false, country: country, number: '', productInterest: product, businessType: business, interest: interest, message: '' },
     onValuesChange: (values) => {
       setFormValues({ values, isLoading, error })
     },
@@ -175,6 +194,7 @@ const SignUp = () => {
       country: country,
       number: values.number,
       businessType: business,
+      productInterest: product,
       interest: interest,
       message: values.message,
     }),
@@ -256,12 +276,36 @@ const SignUp = () => {
                 key={form.key('email')} 
                 {...form.getInputProps('email')}
               />
-              {/*<Checkbox
-                mt="md"
-                label="I agree to provide "
-                key={form.key('termsOfService')}
-                {...form.getInputProps('termsOfService', { type: 'checkbox' })}
-              />*/}
+            </Group>
+            <Group grow mb='md' mt='md'>
+              <Combobox
+                store={comboboxProduct}
+                onOptionSubmit={(val) => {
+                  setValueProductInterest(val);
+                  comboboxProduct.closeDropdown();
+                }}
+              >
+                <Combobox.Target>
+                  <InputBase
+                    label="Product Interest"
+                    component="button"
+                    type="button"
+                    pointer
+                    rightSection={<Combobox.Chevron />}
+                    rightSectionPointerEvents="none"
+                    onClick={() => comboboxProduct.toggleDropdown()}
+                    required
+                    key={form.key('product')} 
+                    {...form.getInputProps('product')}
+                  >
+                    {product || <Input.Placeholder>Select</Input.Placeholder>}
+                  </InputBase>
+                </Combobox.Target>
+
+                <Combobox.Dropdown>
+                  <Combobox.Options mah={200} style={{ overflowY: 'auto' }}>{productOptions}</Combobox.Options>
+                </Combobox.Dropdown>
+              </Combobox>
             </Group>
             <Group grow mb='md' mt='md'>
               <Combobox
@@ -298,7 +342,7 @@ const SignUp = () => {
                 required
                 /*component={IMaskInput}
                 mask="+255 (000) 000-0000"*/
-                placeholder="Phone"
+                placeholder="Phone number"
                 key={form.key('number')} 
                 {...form.getInputProps('number')}
               />
@@ -373,6 +417,14 @@ const SignUp = () => {
                 minRows={4}
               />
             </Group>
+            {/*<Group grow mb='md' mt='md'>
+              <Checkbox
+                mt="md"
+                label="I agree to the terms and conditions"
+                key={form.key('termsOfService')}
+                {...form.getInputProps('termsOfService', { type: 'checkbox' })}
+              />
+            </Group>*/}
             <ExButton
               type='action'
               isSubmit

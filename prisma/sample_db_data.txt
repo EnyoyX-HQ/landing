@@ -13,3 +13,8 @@ model Clinic {
 model Invoice {
 
 }
+//prisma commands to remember
+
+//push changes to the schema without removing existing data
+npx prisma db push 
+npx prisma generate
