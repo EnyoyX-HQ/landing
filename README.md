@@ -15,8 +15,6 @@
 
 
 - [Getting Started](#getting-started)
-  - [Reusable UI Components](#reusable-ui-components)
-  - [Website URL Patterns](#website-url-patterns)
   - [Website Templates](#website-templates)
   - [Next JS App Router](#next-js-app-router)
   - [Push Actions](#push-actions)
@@ -46,40 +44,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Reusable UI Components
-Template library for Front End UI components are provided in [ui-component-library](#https://github.com/EnvoyX-Org/ui-component-library) repo to be used as a boilerplate and speed up development.
-
-### Website URL Patterns
-1. <b>Landing Page</b>: `https://tryenvoyx.com`
-2. <b>Sign Up Auth URL</b>: 
-   ```js
-   authUrl1 = 'https://auth.tryenvoyx.com/signup?redirectUrl=https://tryenvoyx.com/dashboard/signup/'
-  
-   authUrl2 = 'https://tryenvoyx.com/api/auth/signup?redirectUrl=https://tryenvoyx.com/dashboard/signup/'
-
-   redirectUrl1='https://tryenvoyx.com/dashboard/signup'
-   ```
-   
-3. <b>Sign In Auth URL</b>: 
-   ```js
-   authUrl1 = `https://auth.tryenvoyx.com/?redirectUrl=https://tryenvoyx.com/dashboard/signup/`
-
-   authUrl2 = `https://tryenvoyx.com/api/auth?redirectUrl=https://tryenvoyx.com/dashboard/signup/`
-
-   redirectUrl1='https://tryenvoyx.com/dashboard/signup'
-   ```
-4. <b>Dashboard URL</b>: `https://tryenvoyx.com/dashboard`
-
-
-Follow the templates down below to build the envoyx-platform:
-
-### Website Templates
-1. Rebuild Main Website - [EnvoyX](https://tryenvoyx.com/)
-2. Rebuild Dashboard Auth - [EnvoyX Login / SignUp](https://envoyx.vercel.app/)
-3. Rebuild Dashboard View - [EnvoyX Dashboard](https://envoyx.vercel.app/dashboard)
-4. CSS Template 
-[NavBar, Footer, Hover Effects, Animations, Scroll Effects] - [Alaffiahealth](https://www.alaffiahealth.com/)
-5. NextJS Dashboard Template [NextJS](https://github.com/Joshardals/Nextjs14-dashboard/tree/master/app/dashboard)
 
 ### Next JS App Router
 This repo uses the Next.js App Router, which introduces a new model for building applications using React's latest features such as Server Components, Streaming with Suspense, and Server Actions.
