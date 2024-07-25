@@ -44,24 +44,26 @@ import {
 } from '@tabler/icons-react'
 import classes from './TableSort.module.css'
 import { ExButton, FormatDate } from '..'
-// import { deleteInvoice, getInvoices, updateInvoiceStatus } from '@/lib/actions'
 import { notifications } from '@mantine/notifications'
 import { DateInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 //import { setTimeout } from 'timers/promises'
 //import Link from 'next/link'
+import ProductInterest from '../../../app/dashboard/components/Contacts/index';
 
 interface RowData {
   id: string
-  name: string
-  phone: string
-  insurances: string
-  city: string
+  firstName: string
+  lastName: string
+  company: string
+  productInterest: string
+  businessType: string
+  email: string
   country: string
-  address: string,
-  email: string,
-  website: string,
-  //createdAt: string
+  number: string
+  interest: string
+  message: string
+  createdAt: string
 }
 
 interface ThProps {
@@ -138,18 +140,7 @@ function sortData(
   )
 }
 
-// function getStatusVariant(status: string): string {
-//   switch (status) {
-//     case 'in progress':
-//       return 'yellow'
-//     case 'validated':
-//       return 'green'
-//     case 'rejected':
-//       return 'red'
-//     default:
-//       return 'gray'
-//   }
-// }
+
 
 
 
@@ -180,7 +171,6 @@ const TableSort = () => {
   // const [previewInvoice, setPreviewInvoice] = useState<RowData | null>(null)
   // const [editedInvoice, setEditedInvoice] = useState<RowData | null>(null)
   // const [payout, setPayout] = useState<string | number>('')
-  // const [insurance, setInsurance] = useState('')
   // const [date, setDate] = useState<Date | null>(new Date())
   // const [amount, setAmount] = useState<string | number>('')
   // const [status, setStatus] = useState('in progress')
@@ -251,7 +241,7 @@ const TableSort = () => {
           sortData(data.data, { sortBy, reversed: reverseSortDirection, search })
         )
       } catch (error) {
-        console.error('Error fetching clinics:', error)
+        console.error('Error fetching contact us submissions:', error)
       }
     }
 
@@ -270,70 +260,22 @@ const TableSort = () => {
   }
 
   const rows = sortedData.map((row) => {
-    // const statusVariant = getStatusVariant(row.status)
+    
     return (
       <Table.Tr key={row.id} className='text-slate-600'>
-        <Table.Td>{row.name}</Table.Td>
-        <Table.Td>{row.phone}</Table.Td>
+        <Table.Td>{row.firstName}</Table.Td>
+        <Table.Td>{row.lastName}</Table.Td>
+        <Table.Td>{row.company}</Table.Td>
         <Table.Td>{row.email}</Table.Td>
-        <Table.Td>{row.insurances}</Table.Td>
-        <Table.Td>{row.city}</Table.Td>
-        <Table.Td>{row.address}</Table.Td>
         <Table.Td>{row.country}</Table.Td>
-        <Table.Td>{row.website}</Table.Td>
-        {/*Claim/Invoice Submission count per clinic*/}
-        {/* <Table.Td>{Number(row.amount).toLocaleString()}</Table.Td> */}
-        {/* <Table.Td>
+        <Table.Td>{row.number}</Table.Td>
+        <Table.Td>{row.productInterest}</Table.Td>
+        <Table.Td>{row.businessType}</Table.Td>
+        <Table.Td>{row.interest}</Table.Td>
+        <Table.Td>{row.message}</Table.Td>
+        <Table.Td>
           <FormatDate data={row.createdAt} formatType='datePipeTime' />
-        </Table.Td> */}
-        {/* <Table.Td p={0}>
-          <Badge color={statusVariant} variant='light'>
-            {row.status}
-          </Badge>
         </Table.Td>
-        <Table.Td p={0}>
-          <div className='flex gap-4'>
-            <Tooltip label='Preview'>
-              <ThemeIcon
-                variant='light'
-                onClick={() => handlePreview(row)}
-                color={'violet'}
-                size={30}
-              >
-                <IconEye
-                  className='cursor-pointer'
-                  style={{ width: rem(18), height: rem(18) }}
-                />
-              </ThemeIcon>
-            </Tooltip>
-            <Tooltip label='Payout'>
-              <ThemeIcon
-                variant='light'
-                onClick={() => handlePayout(row)}
-                color={'pink'}
-                size={30}
-              >
-                <IconCoins
-                  className='cursor-pointer'
-                  style={{ width: rem(18), height: rem(18) }}
-                />
-              </ThemeIcon>
-            </Tooltip>
-            <Tooltip label='Download'>
-              <ThemeIcon
-                variant='light'
-                onClick={() => handleDownload(row)}
-                color={'blue'}
-                size={30}
-              >
-                <IconDownload
-                  className='cursor-pointer'
-                  style={{ width: rem(18), height: rem(18) }}
-                />
-              </ThemeIcon>
-            </Tooltip>
-          </div>
-        </Table.Td> */}
       </Table.Tr>
     )
   })
@@ -380,21 +322,29 @@ const TableSort = () => {
           verticalSpacing='md'
           miw={700}
         >
+          
           <Table.Tbody>
             <Table.Tr>
               <Th
-                sorted={sortBy === 'name'}
+                sorted={sortBy === 'firstName'}
                 reversed={reverseSortDirection}
-                onSort={() => setSorting('name')}
+                onSort={() => setSorting('firstName')}
               >
-                Name
+                FirstName
               </Th>
               <Th
-                sorted={sortBy === 'phone'}
+                sorted={sortBy === 'lastName'}
                 reversed={reverseSortDirection}
-                onSort={() => setSorting('phone')}
+                onSort={() => setSorting('lastName')}
               >
-                Phone
+                LastName
+              </Th>
+              <Th
+                sorted={sortBy === 'company'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('company')}
+              >
+                Company
               </Th>
               <Th
                 sorted={sortBy === 'email'}
@@ -402,21 +352,6 @@ const TableSort = () => {
                 onSort={() => setSorting('email')}
               >
                 Email
-              </Th>
-              <Th>Insurance(s)</Th>
-              <Th
-                sorted={sortBy === 'city'}
-                reversed={reverseSortDirection}
-                onSort={() => setSorting('city')}
-              >
-                City
-              </Th>
-              <Th
-                sorted={sortBy === 'address'}
-                reversed={reverseSortDirection}
-                onSort={() => setSorting('address')}
-              >
-                Address
               </Th>
               <Th
                 sorted={sortBy === 'country'}
@@ -426,24 +361,41 @@ const TableSort = () => {
                 Country
               </Th>
               <Th
-                sorted={sortBy === 'website'}
+                sorted={sortBy === 'number'}
                 reversed={reverseSortDirection}
-                onSort={() => setSorting('website')}
+                onSort={() => setSorting('number')}
               >
-                Website
+                Number
               </Th>
-              {/* <Th
+              <Th
+                sorted={sortBy === 'country'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('country')}
+              >
+                Country
+              </Th>
+              <Th
+                sorted={sortBy === 'productInterest'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('productInterest')}
+              >
+                Product Interest
+              </Th>
+              <Th
+                sorted={sortBy === 'interest'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('interest')}
+              >
+                Awareness
+              </Th>
+              <Th
                 sorted={sortBy === 'createdAt'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('createdAt')}
               >
                 Date
-              </Th> */}
-              {/* 
-                <Th>Invoices</Th>
-                <Th>Status</Th>
-                <Th>Action</Th> 
-              */}
+              </Th>
+              <Th>Message</Th>
             </Table.Tr>
           </Table.Tbody>
           <Table.Tbody>
@@ -467,77 +419,6 @@ const TableSort = () => {
           </Table.Tbody>
         </Table>
       </ScrollArea>
-
-      {/* Preview Invoice Modal */}
-      {/* <Modal
-        opened={previewModalOpened}
-        onClose={closePreviewModal}
-        title='Invoice Preview'
-        radius={'lg'}
-        centered
-        overlayProps={{
-          backgroundOpacity: 0.55,
-          blur: 3,
-        }}
-      >
-        {previewInvoice && (
-          <div>
-            <div className='flex'>
-              <ActionIcon
-                variant='light'
-                color='violet'
-                size={80}
-                className='mx-auto'
-                aria-label='Invoice'
-              >
-                <IconInvoice
-                  style={{ width: '70%', height: '70%' }}
-                  stroke={1.5}
-                />
-              </ActionIcon>
-            </div>
-            <div className='mt-3 mb-6 flex'>
-              <Badge
-                color={getStatusVariant(previewInvoice.status)}
-                variant='light'
-                className='mx-auto'
-              >
-                {previewInvoice.status}
-              </Badge>
-            </div>
-            <div className='p-4 bg-slate-50 rounded-xl'>
-              <Text>
-                <span className='font-bold'>Payout:</span>{' '}
-                {previewInvoice.payout.toLocaleString()} CFA
-              </Text>
-              <Text>
-                <span className='font-bold'>Insurance:</span>{' '}
-                {previewInvoice.insurance}
-              </Text>
-              <Text>
-                <span className='font-bold'>Date:</span>{' '}
-                <FormatDate
-                  data={previewInvoice.createdAt}
-                  formatType='datePipeTime'
-                />
-              </Text>
-              <Text>
-                <span className='font-bold'>Amount:</span>{' '}
-                {previewInvoice.amount.toLocaleString()} CFA
-              </Text>
-            </div>
-            <ExButton
-              type='action'
-              onClick={() => handleDownload(previewInvoice)}
-              className='w-full mt-4'
-              isGradient
-            >
-              Download
-            </ExButton>
-          </div>
-        )}
-      </Modal> */}
-
       
     </>
   )

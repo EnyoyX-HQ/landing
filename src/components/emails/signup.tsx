@@ -34,6 +34,8 @@ const baseUrl = process.env.BASE_URL
   ? `${process.env.BASE_URL}`
   : `http://www.tryenvoyx.com`;
 
+  
+
 const SignUpEmail = ({
   type, 
   firstName, 
@@ -76,12 +78,12 @@ const SignUpEmail = ({
                   If your matter is urgent, please feel free to email us at info@tryenvoyx.com
                   for immediate assistance. 
                 </Text>
-                <Img
+                {/* <Img
                   src={`${baseUrl}/_next/static/media/logo_dark.14e17e01.svg`}
                   width="75"
                   height="45"
                   //alt="Envoyx's Logo"
-                />
+                /> */}
                 <Text style={footer}>
                   <Link
                     href="https://tryenvoyx.com"
@@ -242,7 +244,6 @@ const SignUpEmail = ({
       </Tailwind>
     </Html>}
   </>
-  
 );
 
 export default SignUpEmail

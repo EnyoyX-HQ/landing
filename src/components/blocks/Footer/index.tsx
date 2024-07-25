@@ -6,7 +6,6 @@ import Link from "next/link";
 import React, {useState, useEffect} from "react";
 import footerLinks from "@/lib/footerLinks";
 import { EksellDisplay } from "@/components/elements/FontContainer"; /*${EksellDisplay.variable}*/
-import { usePathname } from 'next/navigation'
 interface FooterLinksProps {
   title: string;
   links: Links[];
@@ -34,7 +33,6 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
 };
 
 const Footer = () => {
-  const currentPath = usePathname()
   const [isVercelDomain, setIsVercelDomain] = useState(false);
   //remove vercel.app domains from internationalization
   useEffect(() => {

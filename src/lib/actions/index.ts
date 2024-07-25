@@ -35,8 +35,8 @@ export async function getContacts() {
   const response = await fetch('/api/contact', { next: { revalidate: 300 } }) //revalidate every 5 mins
 
   if (!response.ok) {
-    console.error('Failed to fetch invoices:', response.statusText)
-    throw new Error('Failed to fetch invoices')
+    console.error('Failed to fetch signup submissions:', response.statusText)
+    throw new Error('Failed to fetch signup submissions')
   }
 
   try {

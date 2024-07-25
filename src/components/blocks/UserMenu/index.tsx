@@ -60,10 +60,10 @@ const UserMenu = () => {
 
               <div>
                 <Text fw={500}>
-                  {name ?? `HealthCare Center`} 
+                  {name} 
                 </Text>
                 <Text size='xs' c='dimmed'>
-                  {email ?? `envoyx.org@gmail.com`}
+                  {email}
                 </Text>
               </div>
             </Group>
