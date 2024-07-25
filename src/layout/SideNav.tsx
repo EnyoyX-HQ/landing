@@ -36,10 +36,6 @@ const SideNav = () => {
   const clinicsNavLinks = [
     { label: 'Overview', navLink: '/dashboard/provider', icon: IconLayoutDashboard },
     { label: 'Invoices', navLink: '/dashboard/provider/invoices', icon: IconInvoice },
-    { label: 'Accounts', navLink: '/dashboard/admin/accounts', icon: IconUsers },
-    { label: 'Invoice List', navLink: '/dashboard/admin/invoices', icon: IconFileInvoice },
-    { label: 'Signup', navLink: '/dashboard/admin/signup', icon: IconContract },
-    { label: 'Contacts', navLink: '/dashboard/admin/contact-us', icon: IconTablePlus },
     { label: 'Salaries', navLink: '/dashboard/provider/salaries', icon: IconCoins },
     { label: 'Billing', navLink: '/dashboard/provider/billing', icon: IconCurrencyDollar },
     { label: 'My profile', navLink: '/dashboard/provider/settings/profile', icon: IconUser },
