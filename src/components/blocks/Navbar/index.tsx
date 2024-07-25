@@ -47,8 +47,6 @@ import Image from 'next/image'
 import { Logo } from '@/images'
 import { ExButton } from '@/components'
 import AnnouncementSaleBar from '../Announcement'
-import { usePathname } from 'next/navigation'
-//import Dashboard from '../../../app/dashboard/page';
 
 const clinicNavbarData = [
   {
@@ -119,14 +117,8 @@ const companyData = [
   },
 ]
 
-// const languages = [
-//   'French', 
-//   'English',
-// ];
-
 
 const Navbar = () => {
-  const currentPath = usePathname()
   const [isVercelDomain, setIsVercelDomain] = useState(false);
   //remove vercel.app domains from internationalization
   useEffect(() => {

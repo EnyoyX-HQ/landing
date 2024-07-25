@@ -43,24 +43,22 @@ type FormData = {
   }
 }*/
 
-// export async function GET() {
-//   try {
-//     //res.setHeader('Cache-Control', 's-maxage=10');
-//     const data = await prisma.contact.findMany()
-//     return NextResponse.json({
-//       data,
-//     })
-//   } catch (error) {
-//     console.error('Error fetching contact us (signup) submissions:', error)
-//     return NextResponse.error()
-//   }
-// }
+export async function GET() {
+  try {
+    //res.setHeader('Cache-Control', 's-maxage=10');
+    const data = await prisma.contact.findMany()
+    return NextResponse.json({
+      data,
+    })
+  } catch (error) {
+    console.error('Error fetching contact us (signup) submissions:', error)
+    return NextResponse.error()
+  }
+}
 
 export async function POST(req: Request) {
   try {
     const data = await req.json()
-    console.log(data)
-    
     
     if(!data.firstName || !data.lastName || !data.company || !data.email || !data.country || !data.number || !data.businessType){
       console.log(NextResponse.json({message: "Bad request: required data not provided"})) 
