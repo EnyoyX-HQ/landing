@@ -4,7 +4,6 @@ import { Open_Sans } from 'next/font/google';
 import MantineSetup from '@/layout/MantineSetup';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Notifications } from '@mantine/notifications';
-import { CookieBanner } from "@/components";
 // import { useEffect } from 'react';
 //import { GoogleAnalytics } from '@next/third-parties/google'
 import 'swiper/css'
@@ -57,7 +56,6 @@ export default function RootLayout({
         <MantineSetup>
           <Notifications position='top-center' />
           {children}
-          <CookieBanner />
         </MantineSetup>
         <SpeedInsights />
       </body>
