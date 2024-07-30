@@ -38,19 +38,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ7THZC0BP" />
-        {/* <Script
-          id="embedded-text"
-          dangerouslySetInnerHTML={{
-            __html: "<p>Your embedded text here</p>"
-          }}
-        /> */}
-        <Script id="google-analytics">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KZ7THZC0BP');`}
-        </Script>
       </head>
       <body className={openSans.className}>
         <MantineSetup>
