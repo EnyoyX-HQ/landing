@@ -60,7 +60,7 @@ const Services = () => {
 
               <ExButton
                 type='link'
-                href='/contact-us'
+                href='https://app.tryenvoyx.com/en/register'
                 className='mt-40'
                 rightIcon={<IconArrowRight />}
                 isGradient

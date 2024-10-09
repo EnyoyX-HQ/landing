@@ -27,7 +27,7 @@ const Hero = () => {
           <Group justify='center'>
             <ExButton
               type='link'
-              href='/contact-us'
+              href='https://app.tryenvoyx.com/en/register'
               rightIcon={<IconArrowRight />}
               isGradient
             >
