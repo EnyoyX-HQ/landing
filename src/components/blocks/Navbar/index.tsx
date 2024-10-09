@@ -326,15 +326,9 @@ const Navbar = () => {
                         Login to get started
                       </Text>
                     </div>
-                    {/*<Button  
-                      variant='default'
-                      onClick={(event) => event.preventDefault()}
-                    >
-                      Login
-                    </Button>*/}
                     <ExButton
                       type='link'
-                      href='/dashboard/provider'
+                      href='https://app.tryenvoyx.com/en/signin'
                       isGradient
                     >
                       Login
@@ -388,12 +382,6 @@ const Navbar = () => {
                         Login to get started
                       </Text>
                     </div>
-                    {/*<Button 
-                      variant='default'
-                      onClick={(event) => event.preventDefault()}
-                    >
-                      Login
-                    </Button>*/}
                     <ExButton
                       type='link'
                       href='#'
@@ -405,56 +393,6 @@ const Navbar = () => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            {/*<HoverCard
-              width={600}
-              position='bottom'
-              radius='md'
-              shadow='md'
-              withinPortal
-              id='features-container'
-            >
-              <HoverCard.Target>
-                <a href='#' className={classes.link}>
-                  <Center inline>
-                    <Box component='span' mr={5}>
-                      Solutions
-                    </Box>
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                      color={'white'}
-                    />
-                  </Center>
-                </a>
-              </HoverCard.Target>
-              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
-                <Group justify='space-between' px='md'>
-                  <Text fw={500}>Solutions</Text>
-                  <Anchor href='#' fz='xs'>
-                    View all
-                  </Anchor>
-                </Group>
-
-                <Divider my='sm' />
-
-                <SimpleGrid cols={2} spacing={0}>
-                  {clinicNavBarLinks}
-                </SimpleGrid>
-
-                <div className={classes.dropdownFooter}>
-                  <Group justify='space-between'>
-                    <div>
-                      <Text fw={500} fz='sm'>
-                        Get started
-                      </Text>
-                      <Text size='xs' c='dimmed'>
-                        Login to get started
-                      </Text>
-                    </div>
-                    <Button variant='default'>Get started</Button>
-                  </Group>
-                </div>
-              </HoverCard.Dropdown>
-            </HoverCard>*/}
             <a href='#' className={classes.link}>
               Pricing
             </a>
@@ -501,13 +439,13 @@ const Navbar = () => {
             </Menu> */}
 
             <div>
-              <a href='/dashboard/provider' className={`${classes.link}`}>
+              <a href='https://app.tryenvoyx.com/en/signin' className={`${classes.link}`}>
                 Login
               </a>
             </div>
             <ExButton
               type='link'
-              href='/contact-us'
+              href='https://app.tryenvoyx.com/en/register'
               rightIcon={<IconArrowRight />}
               isGradient
             >
@@ -636,12 +574,12 @@ const Navbar = () => {
                 {languageLinks}
               </Collapse>
               <Group pb='xl' mt={40} px='md' wrap='wrap'>
-                <a href='/dashboard/provider' className={`${classes.link}`}>
+                <a href='https://app.tryenvoyx.com/en/signin' className={`${classes.link}`}>
                   Login
                 </a>
                 <ExButton
                   type='link'
-                  href='/contact-us'
+                  href='https://app.tryenvoyx.com/en/register'
                   rightIcon={<IconArrowRight />}
                   isGradient
                 >
