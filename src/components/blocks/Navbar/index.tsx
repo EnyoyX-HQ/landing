@@ -460,30 +460,8 @@ const Navbar = () => {
             </a>
           </Group>
           <Group visibleFrom='md' className='flex justify-center items-center'>
-            {/*<Combobox
-              withArrow
-              store={combobox}
-              onOptionSubmit={(val) => {
-                setLanguage(val);
-                combobox.closeDropdown();
-              }}
-            >
-              <Combobox.Target>
-                <Button
-                  rightSection={<IconChevronDown style={{width: rem(15), height: rem(15)}} />}
-                  onClick={() => combobox.toggleDropdown()}
-                  styles={{
-                    root: {backgroundColor: 'transparent'}
-                  }}
-                >
-                  {language || <IconWorld style={{ color: 'white', width: rem(23), height: rem(23) }} />}
-                </Button>
-              </Combobox.Target>
-              <Combobox.Dropdown>
-                <Combobox.Options>{languageOptions}</Combobox.Options>
-              </Combobox.Dropdown>
-              </Combobox>*/}
-            <Menu
+
+            {/* <Menu
               withArrow
               width={80}
               shadow="md"
@@ -492,16 +470,6 @@ const Navbar = () => {
               withinPortal
             >
               <Menu.Target>
-                {/*<Button  
-                  variant='default'
-                  onClick={(event) => event.preventDefault()}
-                  rightSection={<IconChevronDown color={'white'} style={{ width: rem(16), height: rem(16) }} />}
-                  styles={{
-                    root: { backgroundColor: 'transparent', border: '0px' },
-                  }}
-                >
-                  <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                </Button>*/}
                 <Center inline className='cursor-pointer'>
                   <Box component='span' mr={5}>
                     <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
@@ -530,7 +498,8 @@ const Navbar = () => {
                   </a>
                 </Menu.Item>
               </Menu.Dropdown>
-            </Menu>
+            </Menu> */}
+
             <div>
               <a href='/dashboard/provider' className={`${classes.link}`}>
                 Login
@@ -666,48 +635,6 @@ const Navbar = () => {
               <Collapse in={linksCountry} c={'white'}>
                 {languageLinks}
               </Collapse>
-              {/*<div className={`${classes.drawerLink} z-[1000]`}>
-                <Menu
-                  width={80}
-                  shadow="md"
-                  position='right'
-                  transitionProps={{ transition: 'pop' }}
-                  withinPortal
-                  trigger="click-hover" 
-                  openDelay={100} 
-                  closeDelay={400}
-                >
-                  <Menu.Target>
-                    <Center inline className='cursor-pointer'>
-                      <Box component='span' mr={5}>
-                        <IconWorld style={{ color: 'white', width: rem(25), height: rem(25) }} />
-                      </Box>
-                      <IconChevronDown
-                        style={{ width: rem(16), height: rem(16) }}
-                        color={'white'}
-                      />
-                    </Center>
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Menu.Item>
-                      {process.env.NODE_ENV === 'development' ? 
-                        <a href="/" className="flex justify-center m-auto items-center">
-                          French
-                        </a>
-                        :
-                        <a href="/fr" className="flex justify-center m-auto items-center">
-                          French
-                        </a>
-                      }
-                    </Menu.Item>
-                    <Menu.Item>
-                      <a href="/" className="flex justify-center m-auto items-center">
-                        English
-                      </a>
-                    </Menu.Item>
-                  </Menu.Dropdown>
-                </Menu>
-              </div>*/}
               <Group pb='xl' mt={40} px='md' wrap='wrap'>
                 <a href='/dashboard/provider' className={`${classes.link}`}>
                   Login
