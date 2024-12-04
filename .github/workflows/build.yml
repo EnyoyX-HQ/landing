@@ -2,29 +2,27 @@ name: NPM build
 
 on:
   push:
-    branches: 
-      - master
-      - envoyx-qa
+    branches:
+      - main
+      - prod
   pull_request:
-    branches: 
-      - master 
-      - envoyx-qa
+    branches:
+      - main
+      - prod
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - uses: actions/cache@v2
         with:
-          path: 'node_modules'
+          path: "node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install modules
-        run: npm install
-        working-directory: .
+        run: yarn install
 
       - name: Build all packages
-        run: npm run build
-        working-directory: .
+        run: yarn build

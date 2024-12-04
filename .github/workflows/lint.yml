@@ -1,21 +1,21 @@
 name: Lint Typescript
 
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
   push:
-    branches: 
-      - master
-      - envoyx-qa
+    branches:
+      - main
+      - prod
   pull_request:
     branches:
-      - master
-      - envoyx-qa
+      - main
+      - prod
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - uses: actions/cache@v2
         with:
@@ -23,9 +23,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install modules
-        run: npm install
-        working-directory: .
+        run: yarn install
 
       - name: Run formatting/lint
-        run: npm run lint
-        working-directory: .
+        run: yarn lint
