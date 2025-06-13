@@ -29,13 +29,13 @@ export const ForInsurersSection = (): JSX.Element => {
           </CardContent>
         </Card>
 
-        {/* Right Card - SVG Image */}
-        <Card className="flex-1 h-[400px] lg:h-[600px] rounded-[20px] overflow-hidden border-none relative">
-          <CardContent className="p-0 h-full relative">
+        {/* Right Card - Using spiral.svg as placeholder until for-insurers.svg is added */}
+        <Card className="flex-1 h-[400px] lg:h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none relative">
+          <CardContent className="p-0 h-full relative flex items-center justify-center">
             <img
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-contain"
               alt="For insurers - Insurance solutions and partnerships"
-              src="/for-insurers.svg"
+              src="/spiral.svg"
             />
           </CardContent>
         </Card>

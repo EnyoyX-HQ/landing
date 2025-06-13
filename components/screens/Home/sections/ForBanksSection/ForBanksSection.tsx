@@ -18,14 +18,14 @@ export const ForBanksSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-col lg:flex-row w-full relative">
-      {/* Left side with SVG background and feature buttons */}
+      {/* Left side with PNG background and feature buttons */}
       <div className="flex-1 relative overflow-hidden">
-        {/* SVG Background Image */}
+        {/* PNG Background Image */}
         <div className="absolute inset-0">
           <img
             className="w-full h-full object-cover object-center"
             alt="For banks - Financial institutions background"
-            src="/for-banks.svg"
+            src="/for-banks.png"
           />
         </div>
 
