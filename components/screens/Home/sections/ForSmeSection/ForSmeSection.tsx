@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "../../../../ui/button";
-import { Card, CardContent } from "../../../../ui/card";
 
 export const ForSmeSection = (): JSX.Element => {
   return (
@@ -32,32 +31,12 @@ export const ForSmeSection = (): JSX.Element => {
       </div>
 
       {/* Right image section */}
-      <div className="flex-1 bg-[#66db4a] relative">
+      <div className="flex-1 relative">
         <img
           className="w-full h-[800px] object-cover"
-          alt="Business professionals"
-          src="/inframe-studio-s-bbblnqvl8xa-unsplash.png"
+          alt="For SME - Medium & small-scale enterprises invoice financing solutions"
+          src="/for-sme.svg"
         />
-
-        <Card className="absolute w-[284px] h-[284px] top-[456px] left-[236px] rounded-[19.88px] overflow-hidden">
-          <CardContent className="p-0 h-full relative">
-            <div className="absolute top-[39px] left-[23px] font-['Neue_Montreal-Regular',Helvetica] font-normal text-[#081f24] text-[56px]">
-              3K+
-            </div>
-
-            <div className="absolute w-[199px] top-[218px] left-[23px] font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base leading-6">
-              invoices paid since 2023
-            </div>
-
-            <div className="absolute w-[148px] h-[148px] -top-7 left-[182px]">
-              <img
-                className="absolute w-[91px] h-[108px] top-7 left-[11px]"
-                alt="Invoice graphic"
-                src="/group.png"
-              />
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
