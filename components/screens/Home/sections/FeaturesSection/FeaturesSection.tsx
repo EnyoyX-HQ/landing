@@ -65,7 +65,7 @@ export const FeaturesSection = (): JSX.Element => {
               <img
                 className="w-full h-[600px] object-cover"
                 alt="Emmanuel ikwuegbu"
-                src="/emmanuel-ikwuegbu-co9cz1y9cug-unsplash-1.png"
+                src="/man-on-phone.png"
               />
 
               <div className="flex flex-col items-start gap-[16.25px] absolute top-[76px] left-10">
@@ -77,7 +77,7 @@ export const FeaturesSection = (): JSX.Element => {
                     <img
                       className="w-[13px] h-[13px]"
                       alt="Feature icon"
-                      src="/man-on-phone.png"
+                      src="/frame-5.svg"
                     />
                     <span className="[font-family:'Bricolage_Grotesque',Helvetica] font-medium text-[#081f24] text-lg leading-7 whitespace-nowrap">
                       {feature}
