@@ -1,20 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Force Next.js to use Babel instead of SWC
-  swcMinify: false,
-  compiler: {
-    // Disable SWC compiler
-    removeConsole: false,
-  },
-  experimental: {
-    // Disable SWC in experimental features
-    forceSwcTransforms: false,
-  },
+  // Enable SWC for better performance
+  swcMinify: true,
+  
+  // Image configuration
   images: {
     domains: ['images.pexels.com'],
     unoptimized: true
   },
-  // Remove static export settings for development
+  
+  // Development configuration
+  reactStrictMode: true,
+  
+  // Ensure proper file watching in development
+  webpack: (config, { dev, isServer }) => {
+    if (dev && !isServer) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      }
+    }
+    return config
+  },
+  
+  // For production builds (commented out for development)
   // trailingSlash: true,
   // output: 'export',
   // distDir: 'out',
