@@ -4,21 +4,21 @@ import { Button } from "../../../../ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section className="relative z-[12] w-full bg-[#192517] min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Background hero image - positioned to not obstruct text */}
-      <div className="absolute w-full h-[60vh] bottom-0 left-0 opacity-80">
+    <section className="relative z-[12] w-full bg-[#192517] min-h-screen flex flex-col overflow-hidden">
+      {/* Background hero image - positioned lower to create space above */}
+      <div className="absolute w-full h-[50vh] bottom-0 left-0">
         <img
           className="w-full h-full object-cover object-center"
           alt="Platform visualization"
-          src="/hero-image.svg"
+          src="/group-1410103959.png"
         />
         {/* Gradient overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#192517] via-transparent to-[#192517]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#192517]/60 via-transparent to-transparent"></div>
       </div>
 
-      {/* Content container - moved up significantly */}
-      <div className="container mx-auto px-6 lg:px-[340px] relative z-10 flex-1 flex items-center">
-        <div className="flex flex-col items-center gap-14 w-full max-w-4xl mx-auto text-center pt-10">
+      {/* Content container - positioned in upper portion with significant spacing from illustration */}
+      <div className="container mx-auto px-6 lg:px-[140px] relative z-10 pt-20 pb-32">
+        <div className="flex flex-col items-center gap-14 w-full max-w-4xl mx-auto text-center">
           <div className="flex flex-col items-center gap-1 w-full">
             <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-[#95f270] text-base text-center leading-6">
               Digital Invoice financing platform for B2B businesses
