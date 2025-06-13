@@ -36,15 +36,6 @@ export const Home = (): JSX.Element => {
       <MainContentSection />
       <CallToActionSection />
 
-      {/* Green Section with SVG */}
-      <div className="relative w-full h-[300px] z-[1] bg-[#163300]">
-        <img
-          className="absolute w-full h-[607px] top-[-190px] left-0"
-          alt="Frame"
-          src="/frame-1410105068.svg"
-        />
-      </div>
-
       {/* Footer Section */}
       <FooterSection />
     </div>
