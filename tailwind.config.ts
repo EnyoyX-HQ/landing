@@ -49,7 +49,12 @@ const config: Config = {
         "text-sm-semibold": "var(--text-sm-semibold-font-family)",
         "workshop-1-desktop-body-caption-regular":
           "var(--workshop-1-desktop-body-caption-regular-font-family)",
+        'bricolage': ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'neue-montreal': ['Inter', 'system-ui', 'sans-serif'], // Fallback to Inter
         sans: [
+          'Inter',
+          'Bricolage Grotesque',
           "ui-sans-serif",
           "system-ui",
           "sans-serif",

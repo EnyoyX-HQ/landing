@@ -10,9 +10,9 @@ interface NavigationProps {
 }
 
 const logoSources = {
-  default: "/vector-3.svg",
-  insurance: "/vector-1.svg", 
-  banks: "/vector-2.svg"
+  default: "/logo-dark.svg",
+  insurance: "/logo-dark.svg", 
+  banks: "/logo-dark.svg"
 };
 
 export const Navigation = ({ logoVariant = "default", theme = "light" }: NavigationProps): JSX.Element => {
@@ -23,11 +23,11 @@ export const Navigation = ({ logoVariant = "default", theme = "light" }: Navigat
     <header className={`flex w-full items-center justify-between px-8 py-4 relative z-[13] ${bgColor} shadow-[0px_1px_5px_#0000000a] lg:px-[140px]`}>
       <div className="flex items-center gap-8 lg:gap-20">
         {/* Logo */}
-        <div className="flex items-start gap-[2.17px]">
+        <div className="flex items-center">
           <img
-            className="relative w-[19.3px] h-[20.58px] mt-[-0.54px] mb-[-0.54px] mr-[-0.54px]"
-            alt="Vector"
-            src="/logo-dark.svg"
+            className="relative w-auto h-8"
+            alt="EnvoyX Logo"
+            src={logoSrc}
           />
         </div>
 
