@@ -29,16 +29,14 @@ export const ForInsurersSection = (): JSX.Element => {
           </CardContent>
         </Card>
 
-        {/* Right Card - Green abstract design */}
-        <Card className="flex-1 h-[400px] lg:h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none relative">
+        {/* Right Card - SVG Image */}
+        <Card className="flex-1 h-[400px] lg:h-[600px] rounded-[20px] overflow-hidden border-none relative">
           <CardContent className="p-0 h-full relative">
-            {/* Green curved abstract shapes */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 right-0 w-[120%] h-[40%] bg-[#95f270] rounded-full transform translate-x-[20%] -translate-y-[50%]"></div>
-              <div className="absolute top-[25%] right-0 w-[110%] h-[35%] bg-[#66db4a] rounded-full transform translate-x-[25%]"></div>
-              <div className="absolute top-[50%] right-0 w-[100%] h-[30%] bg-[#95f270] rounded-full transform translate-x-[30%]"></div>
-              <div className="absolute bottom-0 right-0 w-[90%] h-[25%] bg-[#66db4a] rounded-full transform translate-x-[35%] translate-y-[50%]"></div>
-            </div>
+            <img
+              className="w-full h-full object-cover object-center"
+              alt="For insurers - Insurance solutions and partnerships"
+              src="/for-insurers.svg"
+            />
           </CardContent>
         </Card>
       </div>

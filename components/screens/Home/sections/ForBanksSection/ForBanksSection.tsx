@@ -18,26 +18,15 @@ export const ForBanksSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-col lg:flex-row w-full relative">
-      {/* Left side with abstract image and feature buttons */}
+      {/* Left side with SVG background and feature buttons */}
       <div className="flex-1 relative overflow-hidden">
-        {/* Abstract colorful background */}
+        {/* SVG Background Image */}
         <div className="absolute inset-0">
-          {/* Base gradient background */}
-          <div className="w-full h-full bg-gradient-to-br from-[#fff5e6] via-[#fff0d6] to-[#ffe8c6]"></div>
-          
-          {/* Colorful abstract shapes */}
-          <div className="absolute top-[10%] left-[5%] w-[80px] h-[80px] bg-[#66db4a] rounded-full opacity-80 blur-sm"></div>
-          <div className="absolute top-[20%] right-[10%] w-[120px] h-[120px] bg-[#ff6b35] rounded-full opacity-70 blur-md"></div>
-          <div className="absolute top-[40%] left-[15%] w-[200px] h-[200px] bg-[#95f270] rounded-full opacity-60 blur-lg"></div>
-          <div className="absolute bottom-[20%] right-[5%] w-[150px] h-[150px] bg-[#ffeb3b] rounded-full opacity-75 blur-md"></div>
-          <div className="absolute bottom-[10%] left-[20%] w-[100px] h-[100px] bg-[#4caf50] rounded-full opacity-80 blur-sm"></div>
-          <div className="absolute top-[60%] right-[25%] w-[80px] h-[80px] bg-[#ff9800] rounded-full opacity-70 blur-sm"></div>
-          
-          {/* Additional scattered dots */}
-          <div className="absolute top-[15%] left-[40%] w-[20px] h-[20px] bg-[#2e7d32] rounded-full opacity-90"></div>
-          <div className="absolute top-[70%] left-[10%] w-[15px] h-[15px] bg-[#1b5e20] rounded-full opacity-80"></div>
-          <div className="absolute bottom-[40%] right-[15%] w-[25px] h-[25px] bg-[#388e3c] rounded-full opacity-85"></div>
-          <div className="absolute top-[30%] right-[40%] w-[18px] h-[18px] bg-[#4caf50] rounded-full opacity-75"></div>
+          <img
+            className="w-full h-full object-cover object-center"
+            alt="For banks - Financial institutions background"
+            src="/for-banks.svg"
+          />
         </div>
 
         {/* Feature buttons overlay */}
