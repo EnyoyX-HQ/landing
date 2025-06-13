@@ -4,19 +4,19 @@ import { Card, CardContent } from "../../../../ui/card";
 // Feature data for mapping
 const features = [
   {
-    icon: "/group-1410103954.svg",
+    icon: "/icon-security.svg",
     title: "Built with security in mind",
     description:
       "Bank-level encryption and multi-layer security for every transaction through our partner bank partners.",
   },
   {
-    icon: "/group-1410103955.svg",
+    icon: "/icon-frictionless.svg",
     title: "Frictionless experience",
     description:
       "Becoming an EnvoyX financial partner takes minutes and once approved, access all the cash management essentials in one platform.",
   },
   {
-    icon: "/group-1410103956.svg",
+    icon: "/icon-support.svg",
     title: "247 dedicated support",
     description:
       "Get a dedicated relationship manager to answer your questions and help propel your business forward.",
