@@ -4,7 +4,7 @@ import { Card, CardContent } from "../../../../ui/card";
 
 export const ForInsurersSection = (): JSX.Element => {
   return (
-    <section className="w-full py-12 md:py-[100px] px-6 md:px-[70%] bg-white">
+    <section className="w-full py-12 md:py-[100px] px-6 md:px-[10%] bg-white">
       <div className="flex flex-col lg:flex-row gap-6 md:gap-10 w-full">
         {/* Left Card - For insurers content */}
         <Card className="flex-1 h-auto lg:h-[600px] bg-[#f8f6f2] rounded-[20px] p-0 border-none">
