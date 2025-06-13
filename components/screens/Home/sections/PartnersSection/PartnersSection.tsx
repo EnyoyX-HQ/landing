@@ -3,35 +3,35 @@ import React from "react";
 export const PartnersSection = (): JSX.Element => {
   // Partner logos data
   const partnerLogos = [
-    { src: "/image-7.png", alt: "Image", width: "99.53px", height: "19.91px" },
+    { src: "/advanns.png", alt: "Image", width: "99.53px", height: "19.91px" },
     {
-      src: "/image-5.png",
+      src: "/vitalis.png",
       alt: "Image",
       width: "71.48px",
       height: "71.48px",
       marginY: "-3.74px",
     },
     {
-      src: "/lapaire-glasses-logo-png-1.png",
+      src: "/lapaire.png",
       alt: "Lapaire glasses logo",
       width: "51.74px",
       height: "51.74px",
     },
     {
-      src: "/partner-5.png",
+      src: "/ascoma.png",
       alt: "Partner",
       width: "100.35px",
       height: "35.79px",
     },
-    { src: "/image-2.png", alt: "Image", width: "137.35px", height: "21.9px" },
+    { src: "/ankara.png", alt: "Image", width: "137.35px", height: "21.9px" },
     {
-      src: "/image-6.png",
+      src: "/mci.png",
       alt: "Image",
       width: "72.99px",
       height: "72.99px",
       marginY: "-4.49px",
     },
-    { src: "/image-1.png", alt: "Image", width: "99.3px", height: "45.56px" },
+    { src: "/inclusive.png", alt: "Image", width: "99.3px", height: "45.56px" },
   ];
 
   return (
