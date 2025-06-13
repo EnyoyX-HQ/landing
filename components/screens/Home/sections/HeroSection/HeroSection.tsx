@@ -17,7 +17,7 @@ export const HeroSection = (): JSX.Element => {
       </div>
 
       {/* Content container - moved up significantly */}
-      <div className="container mx-auto px-6 lg:px-[140px] relative z-10 flex-1 flex items-center">
+      <div className="container mx-auto px-6 lg:px-[340px] relative z-10 flex-1 flex items-center">
         <div className="flex flex-col items-center gap-14 w-full max-w-4xl mx-auto text-center pt-10">
           <div className="flex flex-col items-center gap-1 w-full">
             <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-[#95f270] text-base text-center leading-6">
