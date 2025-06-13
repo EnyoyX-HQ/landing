@@ -25,11 +25,6 @@ export const Navigation = ({ logoVariant = "default", theme = "light" }: Navigat
         {/* Logo */}
         <div className="flex items-start gap-[2.17px]">
           <img
-            className="relative w-[94.7px] h-[20.58px] mt-[-0.54px] mb-[-0.54px] ml-[-0.54px]"
-            alt="Vector"
-            src={logoSrc}
-          />
-          <img
             className="relative w-[19.3px] h-[20.58px] mt-[-0.54px] mb-[-0.54px] mr-[-0.54px]"
             alt="Vector"
             src="/vector.png"
