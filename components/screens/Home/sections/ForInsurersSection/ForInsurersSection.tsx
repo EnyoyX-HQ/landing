@@ -29,14 +29,17 @@ export const ForInsurersSection = (): JSX.Element => {
           </CardContent>
         </Card>
 
-        {/* Right Card - Using spiral.svg as placeholder until for-insurers.svg is added */}
+        {/* Right Card - Spiral image extending beyond container */}
         <Card className="flex-1 h-[400px] lg:h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none relative">
-          <CardContent className="p-0 h-full relative flex items-center justify-center">
-            <img
-              className="w-full h-full object-contain"
-              alt="For insurers - Insurance solutions and partnerships"
-              src="/spiral.svg"
-            />
+          <CardContent className="p-0 h-full relative">
+            {/* Container for the oversized spiral image */}
+            <div className="relative w-[150%] h-[150%] -top-[25%] -left-[25%]">
+              <img
+                className="w-full h-full object-cover"
+                alt="For insurers - Insurance solutions and partnerships"
+                src="/spiral.svg"
+              />
+            </div>
           </CardContent>
         </Card>
       </div>
