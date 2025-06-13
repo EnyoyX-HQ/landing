@@ -35,7 +35,7 @@ export const ForInsurersSection = (): JSX.Element => {
                 <img
                   className="absolute w-[596px] h-[600px] top-[152px] left-[325px]"
                   alt="Vector"
-                  src="/vector-1.png"
+                  src="/spiral.svg"
                 />
               </div>
             </CardContent>
