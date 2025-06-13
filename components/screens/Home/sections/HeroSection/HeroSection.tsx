@@ -4,24 +4,28 @@ import { Button } from "../../../../ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section className="relative z-[12] w-full bg-[#192517] pt-[140px] overflow-hidden">
-      <div className="absolute w-full h-[556px] bottom-0 left-0">
+    <section className="relative z-[12] w-full bg-[#192517] min-h-screen flex flex-col overflow-hidden">
+      {/* Background hero image - positioned lower to create space above */}
+      <div className="absolute w-full h-[50vh] bottom-0 left-0">
         <img
-          className="w-full h-full object-cover"
-          alt="Platform visualization"
-          src="/group-1410103959.png"
+          className="w-full h-full object-cover object-center"
+          alt="Africa's leading invoice financing platform for SME's"
+          src="/hero-image.svg"
         />
+        {/* Gradient overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#192517]/60 via-transparent to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-[140px] mb-20">
-        <div className="flex flex-col items-center gap-14 w-full">
+      {/* Content container - positioned in upper portion with significant spacing from illustration */}
+      <div className="container mx-auto px-6 lg:px-[140px] relative z-10 pt-20 pb-32">
+        <div className="flex flex-col items-center gap-14 w-full max-w-4xl mx-auto text-center">
           <div className="flex flex-col items-center gap-1 w-full">
             <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-[#95f270] text-base text-center leading-6">
               Digital Invoice financing platform for B2B businesses
             </p>
 
             <div className="flex flex-col items-center gap-10">
-              <h1 className="w-full max-w-[901px] [font-family:'Bricolage_Grotesque',Helvetica] font-bold text-white text-[64px] text-center leading-[normal]">
+              <h1 className="w-full max-w-[901px] [font-family:'Bricolage_Grotesque',Helvetica] font-bold text-white text-4xl md:text-5xl lg:text-[64px] text-center leading-tight lg:leading-[normal]">
                 One platform. Endless opportunities.
               </h1>
 
@@ -32,7 +36,7 @@ export const HeroSection = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
             <Button className="h-14 px-6 py-3 bg-[#95f270] rounded-[100px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base tracking-[-0.35px] leading-6 hover:bg-[#86e361]">
               Schedule a Call
             </Button>
