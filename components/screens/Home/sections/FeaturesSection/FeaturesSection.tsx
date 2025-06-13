@@ -77,7 +77,7 @@ export const FeaturesSection = (): JSX.Element => {
                     <img
                       className="w-[13px] h-[13px]"
                       alt="Feature icon"
-                      src="/frame-5.svg"
+                      src="/man-on-phone.png"
                     />
                     <span className="[font-family:'Bricolage_Grotesque',Helvetica] font-medium text-[#081f24] text-lg leading-7 whitespace-nowrap">
                       {feature}
