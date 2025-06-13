@@ -9,8 +9,8 @@ export const HeroSection = (): JSX.Element => {
       <div className="absolute w-full h-[50vh] bottom-0 left-0">
         <img
           className="w-full h-full object-cover object-center"
-          alt="Platform visualization"
-          src="/group-1410103959.png"
+          alt="Africa's leading invoice financing platform for SME's"
+          src="/hero-image.svg"
         />
         {/* Gradient overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#192517]/60 via-transparent to-transparent"></div>
