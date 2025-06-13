@@ -73,11 +73,28 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 flex-1">
-            <img
-              className="mt-[-0.54px] ml-[-0.54px]"
-              alt="EnvoyX Logo"
-              src="/logo-white.svg"
-            />
+            {/* Logo with fallback */}
+            <div className="flex items-center">
+              <img
+                className="w-auto h-8"
+                alt="EnvoyX Logo"
+                src="/logo-white.svg"
+                onError={(e) => {
+                  // Fallback to text logo if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'block';
+                }}
+              />
+              {/* Fallback text logo */}
+              <div 
+                className={`hidden font-['Bricolage_Grotesque',Helvetica] font-bold ${textColor} text-2xl`}
+                style={{ display: 'none' }}
+              >
+                ENVOYX
+              </div>
+            </div>
 
             <div className={`w-full max-w-[600px] font-['Bricolage_Grotesque',Helvetica] font-medium ${textColor} text-2xl md:text-[40px] leading-tight md:leading-[56px]`}>
               Digital Invoice financing platform for B2B businesses
