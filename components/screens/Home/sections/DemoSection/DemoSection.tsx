@@ -14,13 +14,11 @@ export const DemoSection = (): JSX.Element => {
       </div>
 
       <div className="w-full flex justify-center">
-        <div className="relative w-full max-w-[1200px] rounded-[20px] overflow-hidden shadow-[0px_16px_32px_-8px_#081f2426]">
-          <img
-            className="w-full h-auto object-cover"
-            alt="EnvoyX Platform Demo - Invoice financing dashboard showing eligibility check, invoice review, and payment processing"
-            src="/product-demo.svg"
-          />
-        </div>
+        <img
+          className="w-full max-w-[1200px] h-auto object-cover"
+          alt="EnvoyX Platform Demo - Invoice financing dashboard showing eligibility check, invoice review, and payment processing"
+          src="/product-demo.svg"
+        />
       </div>
     </section>
   );

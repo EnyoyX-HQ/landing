@@ -3,35 +3,13 @@ import React from "react";
 export const PartnersSection = (): JSX.Element => {
   // Partner logos data
   const partnerLogos = [
-    { src: "/advanns.png", alt: "Image", width: "99.53px", height: "19.91px" },
-    {
-      src: "/vitalis.png",
-      alt: "Image",
-      width: "71.48px",
-      height: "71.48px",
-      marginY: "-3.74px",
-    },
-    {
-      src: "/lapaire.png",
-      alt: "Lapaire glasses logo",
-      width: "51.74px",
-      height: "51.74px",
-    },
-    {
-      src: "/ascoma.png",
-      alt: "Partner",
-      width: "100.35px",
-      height: "35.79px",
-    },
-    { src: "/ankara.png", alt: "Image", width: "137.35px", height: "21.9px" },
-    {
-      src: "/mci.png",
-      alt: "Image",
-      width: "72.99px",
-      height: "72.99px",
-      marginY: "-4.49px",
-    },
-    { src: "/inclusive.png", alt: "Image", width: "99.3px", height: "45.56px" },
+    { src: "/advanns.png", alt: "Advanns", name: "Advanns" },
+    { src: "/vitalis.png", alt: "Vitalis", name: "Vitalis" },
+    { src: "/lapaire.png", alt: "Lapaire glasses logo", name: "Lapaire" },
+    { src: "/ascoma.png", alt: "Ascoma", name: "Ascoma" },
+    { src: "/ankara.png", alt: "Ankara", name: "Ankara" },
+    { src: "/mci.png", alt: "MCI", name: "MCI" },
+    { src: "/inclusive.png", alt: "Inclusive", name: "Inclusive" },
   ];
 
   return (
@@ -42,14 +20,14 @@ export const PartnersSection = (): JSX.Element => {
           businesses
         </h2>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 w-full">
+        <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-8 w-full">
           {partnerLogos.map((logo, index) => (
             <div
               key={index}
-              className="flex flex-col h-20 items-center justify-center px-8 py-2 bg-white rounded-[100px] border border-solid border-[#081f241a]"
+              className="flex items-center justify-center h-16 px-6 py-3 bg-white rounded-[100px] border border-solid border-[#081f241a] min-w-[120px]"
             >
               <img
-                className={`relative ${logo.width ? `w-[${logo.width}]` : ""} ${logo.height ? `h-[${logo.height}]` : ""} ${logo.marginY || ""} object-cover`}
+                className="max-h-10 max-w-[100px] w-auto h-auto object-contain"
                 alt={logo.alt}
                 src={logo.src}
               />
