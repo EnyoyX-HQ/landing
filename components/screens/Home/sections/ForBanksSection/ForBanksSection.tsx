@@ -24,7 +24,7 @@ export const ForBanksSection = (): JSX.Element => {
           <img
             className="relative w-full h-auto object-cover"
             alt="Abstract colored mixture"
-            src="/mixture-coloured-stains-abstract-oil-1.png"
+            src="/for-banks.png"
           />
 
           <div className="flex flex-col items-start gap-4 absolute top-[200px] left-[121px]">
