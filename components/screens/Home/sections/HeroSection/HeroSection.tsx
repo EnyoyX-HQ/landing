@@ -9,7 +9,7 @@ export const HeroSection = (): JSX.Element => {
         <img
           className="w-full h-full object-cover"
           alt="Platform visualization"
-          src="/group-1410103959.png"
+          src="/hero-image.svg"
         />
       </div>
 
