@@ -4,43 +4,43 @@ import { Card, CardContent } from "../../../../ui/card";
 
 export const ForInsurersSection = (): JSX.Element => {
   return (
-    <section className="w-full py-[100px] px-[140px] bg-white">
-      <div className="flex flex-col gap-10 w-full">
-        <div className="flex gap-10 w-full">
-          <Card className="flex-1 h-[600px] bg-[#f8f6f2] rounded-[20px] p-0 border-none">
-            <CardContent className="flex flex-col justify-between h-full p-10">
-              <div className="flex flex-col gap-5">
-                <h2 className="font-semibold text-[40px] leading-[56px] text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
-                  For insurers
-                </h2>
-                <p className="text-lg leading-7 text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]">
-                  EnvoyX isn&apos;t just a platform—it&apos;s a partnership.
-                  Deploy working capital to businesses, strengthen your
-                  financial offerings while supporting businesses in managing
-                  their cash flow through invoice financing.
-                </p>
-              </div>
-              <Button
-                variant="outline"
-                className="h-14 px-[18px] py-3 bg-white rounded-[1000px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-base text-[#081f24]"
-              >
-                Learn more
-              </Button>
-            </CardContent>
-          </Card>
+    <section className="w-full py-12 md:py-[100px] px-6 md:px-[140px] bg-white">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-10 w-full">
+        {/* Left Card - For insurers content */}
+        <Card className="flex-1 h-auto lg:h-[600px] bg-[#f8f6f2] rounded-[20px] p-0 border-none">
+          <CardContent className="flex flex-col justify-between h-full p-8 md:p-10">
+            <div className="flex flex-col gap-5">
+              <h2 className="font-semibold text-3xl md:text-[40px] leading-tight md:leading-[56px] text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
+                For insurers
+              </h2>
+              <p className="text-lg leading-7 text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]">
+                EnvoyX isn&apos;t just a platform—it&apos;s a partnership.
+                Deploy working capital to businesses, strengthen your
+                financial offerings while supporting businesses in managing
+                their cash flow through invoice financing.
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              className="h-14 px-[18px] py-3 bg-white rounded-[1000px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-base text-[#081f24] border border-[#081f241a] hover:bg-gray-50 w-fit mt-8 lg:mt-0"
+            >
+              Learn more
+            </Button>
+          </CardContent>
+        </Card>
 
-          <Card className="flex-1 h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none">
-            <CardContent className="p-0 h-full relative">
-              <div className="relative w-[1043px] h-[1116px] top-[-152px] left-[-325px]">
-                <img
-                  className="absolute w-[596px] h-[600px] top-[152px] left-[325px]"
-                  alt="Vector"
-                  src="/spiral.svg"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Right Card - Green abstract design */}
+        <Card className="flex-1 h-[400px] lg:h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none relative">
+          <CardContent className="p-0 h-full relative">
+            {/* Green curved abstract shapes */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 right-0 w-[120%] h-[40%] bg-[#95f270] rounded-full transform translate-x-[20%] -translate-y-[50%]"></div>
+              <div className="absolute top-[25%] right-0 w-[110%] h-[35%] bg-[#66db4a] rounded-full transform translate-x-[25%]"></div>
+              <div className="absolute top-[50%] right-0 w-[100%] h-[30%] bg-[#95f270] rounded-full transform translate-x-[30%]"></div>
+              <div className="absolute bottom-0 right-0 w-[90%] h-[25%] bg-[#66db4a] rounded-full transform translate-x-[35%] translate-y-[50%]"></div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
