@@ -1,0 +1,57 @@
+"use client";
+
+import React from "react";
+import { Button } from "../../ui/button";
+import { MegaMenu } from "./MegaMenu";
+
+interface NavigationProps {
+  logoVariant?: "default" | "insurance" | "banks";
+  theme?: "light" | "dark";
+}
+
+const logoSources = {
+  default: "/vector-3.svg",
+  insurance: "/vector-1.svg", 
+  banks: "/vector-2.svg"
+};
+
+export const Navigation = ({ logoVariant = "default", theme = "light" }: NavigationProps): JSX.Element => {
+  const logoSrc = logoSources[logoVariant];
+  const bgColor = theme === "dark" ? "bg-[#192517]" : "bg-white";
+
+  return (
+    <header className={`flex w-full items-center justify-between px-8 py-4 relative z-[13] ${bgColor} shadow-[0px_1px_5px_#0000000a] lg:px-[140px]`}>
+      <div className="flex items-center gap-8 lg:gap-20">
+        {/* Logo */}
+        <div className="flex items-start gap-[2.17px]">
+          <img
+            className="relative w-[94.7px] h-[20.58px] mt-[-0.54px] mb-[-0.54px] ml-[-0.54px]"
+            alt="Vector"
+            src={logoSrc}
+          />
+          <img
+            className="relative w-[19.3px] h-[20.58px] mt-[-0.54px] mb-[-0.54px] mr-[-0.54px]"
+            alt="Vector"
+            src="/vector.png"
+          />
+        </div>
+
+        {/* Mega Menu Navigation */}
+        <MegaMenu theme={theme} />
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex items-center gap-3">
+        <Button
+          variant="outline"
+          className="h-14 px-[18px] py-3 bg-[#f8f6f2] rounded-[1000px] font-medium text-[#081f24] text-base"
+        >
+          Sign In
+        </Button>
+        <Button className="h-14 px-6 py-3 bg-[#081f24] rounded-[100px] font-medium text-white text-base tracking-[-0.35px] leading-6">
+          Schedule a Call
+        </Button>
+      </div>
+    </header>
+  );
+};

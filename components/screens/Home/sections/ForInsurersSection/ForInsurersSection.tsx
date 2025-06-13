@@ -1,0 +1,47 @@
+import React from "react";
+import { Button } from "../../../../ui/button";
+import { Card, CardContent } from "../../../../ui/card";
+
+export const ForInsurersSection = (): JSX.Element => {
+  return (
+    <section className="w-full py-[100px] px-[140px] bg-white">
+      <div className="flex flex-col gap-10 w-full">
+        <div className="flex gap-10 w-full">
+          <Card className="flex-1 h-[600px] bg-[#f8f6f2] rounded-[20px] p-0 border-none">
+            <CardContent className="flex flex-col justify-between h-full p-10">
+              <div className="flex flex-col gap-5">
+                <h2 className="font-semibold text-[40px] leading-[56px] text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
+                  For insurers
+                </h2>
+                <p className="text-lg leading-7 text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]">
+                  EnvoyX isn&apos;t just a platform—it&apos;s a partnership.
+                  Deploy working capital to businesses, strengthen your
+                  financial offerings while supporting businesses in managing
+                  their cash flow through invoice financing.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                className="h-14 px-[18px] py-3 bg-white rounded-[1000px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-base text-[#081f24]"
+              >
+                Learn more
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="flex-1 h-[600px] bg-[#163300] rounded-[20px] overflow-hidden border-none">
+            <CardContent className="p-0 h-full relative">
+              <div className="relative w-[1043px] h-[1116px] top-[-152px] left-[-325px]">
+                <img
+                  className="absolute w-[596px] h-[600px] top-[152px] left-[325px]"
+                  alt="Vector"
+                  src="/vector-1.png"
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
