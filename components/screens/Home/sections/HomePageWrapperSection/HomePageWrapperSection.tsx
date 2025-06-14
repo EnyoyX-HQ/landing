@@ -89,11 +89,11 @@ export const HomePageWrapperSection = (): JSX.Element => {
         </CardContent>
       </Card>
 
-      {/* Desktop arrows - positioned with even spacing from text content */}
+      {/* Desktop arrows - positioned 50% closer to the text container */}
       <Button
         variant="default"
         size="icon"
-        className="hidden md:block w-12 h-12 p-2.5 absolute top-1/2 left-8 lg:left-16 transform -translate-y-1/2 bg-[#081f24] rounded-[40px] border border-solid border-[#081f241a] hover:bg-[#081f24]/90"
+        className="hidden md:block w-12 h-12 p-2.5 absolute top-1/2 left-[25%] lg:left-[30%] transform -translate-y-1/2 bg-[#081f24] rounded-[40px] border border-solid border-[#081f241a] hover:bg-[#081f24]/90"
         aria-label="Previous testimonial"
       >
         <ArrowLeftIcon className="w-5 h-5" />
@@ -102,7 +102,7 @@ export const HomePageWrapperSection = (): JSX.Element => {
       <Button
         variant="default"
         size="icon"
-        className="hidden md:block w-12 h-12 p-2.5 absolute top-1/2 right-8 lg:right-16 transform -translate-y-1/2 bg-[#081f24] rounded-[40px] border border-solid border-[#081f241a] hover:bg-[#081f24]/90"
+        className="hidden md:block w-12 h-12 p-2.5 absolute top-1/2 right-[25%] lg:right-[30%] transform -translate-y-1/2 bg-[#081f24] rounded-[40px] border border-solid border-[#081f241a] hover:bg-[#081f24]/90"
         aria-label="Next testimonial"
       >
         <ArrowRightIcon className="w-5 h-5" />
