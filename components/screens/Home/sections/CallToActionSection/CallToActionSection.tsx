@@ -4,7 +4,7 @@ import { Card, CardContent } from "../../../../ui/card";
 
 export const CallToActionSection = (): JSX.Element => {
   return (
-    <section className="w-full bg-[#163300] py-[100px] px-6 md:px-[140px] z-[2] relative">
+    <section className="w-full bg-[#163300] pt-[100px] px-6 md:px-[140px] z-[2] relative">
       <Card className="w-full bg-[#c8f169] rounded-[20px] overflow-hidden relative">
         <CardContent className="p-10 md:p-20 flex flex-col items-start gap-20 relative">
           {/* Background decoration - positioned to match the image exactly */}
