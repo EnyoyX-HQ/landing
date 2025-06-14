@@ -149,7 +149,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         </div>
 
         {/* Bottom section with disclaimers and copyright */}
-        <div className="flex flex-col items-center gap-20 px-6 md:px-[140px] py-10 self-stretch w-full">
+        <div className="flex flex-col items-center gap-20 py-10 self-stretch w-full">
           <div className="flex flex-col items-center justify-center gap-5 rounded-lg">
             <p className={`w-full max-w-[866px] mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm text-center leading-5`}>
               EnvoyX is a fintech company, not a bank. Banking services provided
