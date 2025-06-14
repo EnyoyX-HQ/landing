@@ -22,10 +22,10 @@ export const Navigation = ({ logoVariant = "default", theme = "light" }: Navigat
   return (
     <header className={`flex w-full items-center justify-between px-8 py-4 relative z-[13] ${bgColor} shadow-[0px_1px_5px_#0000000a] lg:px-[140px]`}>
       <div className="flex items-center gap-8 lg:gap-20">
-        {/* Logo */}
+        {/* Logo - reduced by 60% (from h-8 to h-3.2, approximately h-3) */}
         <div className="flex items-center">
           <img
-            className="relative w-auto h-8"
+            className="relative w-auto h-3"
             alt="EnvoyX Logo"
             src={logoSrc}
           />

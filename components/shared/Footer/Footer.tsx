@@ -99,11 +99,11 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
-            {/* Logo with fallback */}
+            {/* Logo with fallback - reduced by 60% (from h-8 to h-3.2, approximately h-3) */}
             <div className="flex items-center">
               {!logoError ? (
                 <img
-                  className="w-auto h-8"
+                  className="w-auto h-3"
                   alt="EnvoyX Logo"
                   src="/logo-white.svg"
                   onError={() => setLogoError(true)}
