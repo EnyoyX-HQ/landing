@@ -19,7 +19,7 @@ export const ForBanksSection = (): JSX.Element => {
   return (
     <section className="flex flex-col lg:flex-row w-full relative">
       {/* Left side with PNG background and feature buttons */}
-      <div className="flex-1 relative overflow-hidden">
+      <div className="w-full lg:w-1/2 relative overflow-hidden">
         {/* PNG Background Image */}
         <div className="absolute inset-0">
           <img
@@ -49,8 +49,8 @@ export const ForBanksSection = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Right side with heading, description and CTA button */}
-      <div className="flex-1 flex flex-col justify-between px-8 md:px-12 lg:px-[140px] py-12 md:py-[100px] bg-[#f8f6f2] min-h-[600px]">
+      {/* Right side with heading, description and CTA button - Changed from flex-1 to w-1/2 for 50% width */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-between px-8 md:px-12 lg:px-[140px] py-12 md:py-[100px] bg-[#f8f6f2] min-h-[600px]">
         <div className="flex flex-col gap-8 md:gap-12">
           <h2 className="font-semibold text-[#081f24] text-3xl md:text-[40px] leading-tight md:leading-[56px] font-['Bricolage_Grotesque',Helvetica]">
             For banks/financial institutions
