@@ -73,10 +73,10 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
       </div>
 
       <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
-        {/* Footer columns with links */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-[56px] self-stretch w-full">
+        {/* Footer columns with links - Equal spacing with justify-between */}
+        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
           {footerColumns.map((column, index) => (
-            <div key={index} className="flex flex-col items-start gap-4">
+            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
               <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
                 {column.title}
               </div>
