@@ -98,7 +98,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
 
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
-          <div className="flex flex-col items-start gap-4 flex-1">
+          <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
             {/* Logo with fallback */}
             <div className="flex items-center">
               {!logoError ? (
@@ -115,11 +115,11 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
               )}
             </div>
 
-            <div className={`w-full max-w-[600px] font-['Bricolage_Grotesque',Helvetica] font-medium ${textColor} text-2xl md:text-[40px] leading-tight md:leading-[56px]`}>
+            <div className={`w-full font-['Bricolage_Grotesque',Helvetica] font-medium ${textColor} text-2xl md:text-3xl lg:text-[40px] leading-tight md:leading-[1.2] lg:leading-[56px] break-words`}>
               Digital Invoice financing platform for B2B businesses
             </div>
 
-            <div className="flex items-start gap-4 self-stretch w-full max-w-[600px]">
+            <div className="flex items-start gap-4 w-full">
               <MapPinIcon className={`w-5 h-5 ${textColor} flex-shrink-0 mt-1`} />
 
               <div className={`flex-1 mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7`}>
@@ -131,7 +131,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-4 lg:flex-shrink-0">
             <a
               href="#"
               className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 underline whitespace-nowrap hover:opacity-80 transition-opacity`}
