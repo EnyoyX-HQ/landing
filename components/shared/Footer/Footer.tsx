@@ -72,7 +72,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         />
       </div>
 
-      
+     
 
         {/* Footer columns with links */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-[56px] self-stretch w-full">
@@ -98,7 +98,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         </div>
       </div>
 
-    <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
+     <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 flex-1">
