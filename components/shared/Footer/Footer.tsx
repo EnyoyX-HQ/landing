@@ -72,49 +72,33 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         />
       </div>
 
-      {/* Bottom section with disclaimers and copyright */}
-      <div className="flex flex-col items-center gap-20 px-6 md:px-[140px] py-10 self-stretch w-full">
-        <div className="flex flex-col items-center justify-center gap-5 rounded-lg">
-          <p className={`w-full max-w-[866px] mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
-            EnvoyX is a fintech company, not a bank. Banking services provided
-            through licensed banking partners. Invoice financing services are
-            regulated under Ivorian financial regulations. Data protection
-            compliance certified by CNIL. Insurance reimbursement processing
-            subject to partner terms and conditions.
-          </p>
+      
 
-          <p className={`w-full max-w-[860px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
-            All investment services are provided by the respective EnvoyX
-            investment and banking partners
-          </p>
-        </div>
+        {/* Footer columns with links */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-[56px] self-stretch w-full">
+          {footerColumns.map((column, index) => (
+            <div key={index} className="flex flex-col items-start gap-4">
+              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-lg leading-7 w-fit mt-[-1.00px] whitespace-nowrap`}>
+                {column.title}
+              </div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 md:gap-0 self-stretch w-full">
-          <div className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${textColor} text-lg leading-7 whitespace-nowrap`}>
-            © EnvoyX Inc. 2025
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="#"
-              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
-            >
-              Terms of service
-            </a>
-
-            <Separator orientation="vertical" className={`h-6 ${theme === "dark" ? "bg-[#ffffff80]" : "bg-[#081f2480]"}`} />
-
-            <a
-              href="#"
-              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
-            >
-              Privacy policy
-            </a>
-          </div>
+              <div className="flex flex-col items-start gap-4">
+                {column.links.map((link, linkIndex) => (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-            <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
+    <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 flex-1">
@@ -167,30 +151,47 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
           </div>
         </div>
 
-        {/* Footer columns with links */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-[56px] self-stretch w-full">
-          {footerColumns.map((column, index) => (
-            <div key={index} className="flex flex-col items-start gap-4">
-              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-lg leading-7 w-fit mt-[-1.00px] whitespace-nowrap`}>
-                {column.title}
-              </div>
+      {/* Bottom section with disclaimers and copyright */}
+      <div className="flex flex-col items-center gap-20 px-6 md:px-[140px] py-10 self-stretch w-full">
+        <div className="flex flex-col items-center justify-center gap-5 rounded-lg">
+          <p className={`w-full max-w-[866px] mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
+            EnvoyX is a fintech company, not a bank. Banking services provided
+            through licensed banking partners. Invoice financing services are
+            regulated under Ivorian financial regulations. Data protection
+            compliance certified by CNIL. Insurance reimbursement processing
+            subject to partner terms and conditions.
+          </p>
 
-              <div className="flex flex-col items-start gap-4">
-                {column.links.map((link, linkIndex) => (
-                  <Link
-                    key={linkIndex}
-                    href={link.href}
-                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
+          <p className={`w-full max-w-[860px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
+            All investment services are provided by the respective EnvoyX
+            investment and banking partners
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 md:gap-0 self-stretch w-full">
+          <div className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${textColor} text-lg leading-7 whitespace-nowrap`}>
+            © EnvoyX Inc. 2025
+          </div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="#"
+              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+            >
+              Terms of service
+            </a>
+
+            <Separator orientation="vertical" className={`h-6 ${theme === "dark" ? "bg-[#ffffff80]" : "bg-[#081f2480]"}`} />
+
+            <a
+              href="#"
+              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+            >
+              Privacy policy
+            </a>
+          </div>
         </div>
       </div>
-      
     </footer>
   );
 };
