@@ -4,8 +4,8 @@ import { Button } from "../../../../ui/button";
 export const ForSmeSection = (): JSX.Element => {
   return (
     <section className="flex flex-col md:flex-row w-full relative">
-      {/* Left content section */}
-      <div className="flex-1 bg-[#f8f6f2] px-6 py-12 md:px-[140px] md:py-[100px] flex flex-col justify-between gap-20">
+      {/* Left content section - Changed from flex-1 to w-1/2 for 50% width */}
+      <div className="w-full md:w-1/2 bg-[#f8f6f2] px-6 py-12 md:px-[140px] md:py-[100px] flex flex-col justify-between gap-20">
         <div className="flex flex-col gap-20 w-full">
           <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-3xl md:text-[40px] leading-[56px]">
             For medium & small-scale enterprises
@@ -30,8 +30,8 @@ export const ForSmeSection = (): JSX.Element => {
         </Button>
       </div>
 
-      {/* Right image section */}
-      <div className="flex-1 relative">
+      {/* Right image section - Changed from flex-1 to w-1/2 for 50% width */}
+      <div className="w-full md:w-1/2 relative">
         <img
           className="w-full h-[800px] object-cover"
           alt="For SME - Medium & small-scale enterprises invoice financing solutions"
