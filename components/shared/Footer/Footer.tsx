@@ -77,7 +77,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-[56px] self-stretch w-full">
           {footerColumns.map((column, index) => (
             <div key={index} className="flex flex-col items-start gap-4">
-              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-lg leading-7 w-fit mt-[-1.00px] whitespace-nowrap`}>
+              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
                 {column.title}
               </div>
 
@@ -86,7 +86,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
                   <Link
                     key={linkIndex}
                     href={link.href}
-                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
                   >
                     {link.name}
                   </Link>
@@ -122,7 +122,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
             <div className="flex items-start gap-4 w-full">
               <MapPinIcon className={`w-5 h-5 ${textColor} flex-shrink-0 mt-1`} />
 
-              <div className={`flex-1 mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7`}>
+              <div className={`flex-1 mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5`}>
                 1675 Clay st Apt 4 San Francisco CA 941099-3721
                 <br />
                 Immeuble Ivoire Trade center, angle rue Brooker Washington et du
@@ -134,14 +134,14 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
           <div className="flex items-start gap-4 lg:flex-shrink-0">
             <a
               href="#"
-              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 underline whitespace-nowrap hover:opacity-80 transition-opacity`}
+              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 underline whitespace-nowrap hover:opacity-80 transition-opacity`}
             >
               LinkedIn
             </a>
 
             <a
               href="#"
-              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 underline whitespace-nowrap hover:opacity-80 transition-opacity`}
+              className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 underline whitespace-nowrap hover:opacity-80 transition-opacity`}
             >
               X(Twitter)
             </a>
@@ -151,7 +151,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
         {/* Bottom section with disclaimers and copyright */}
         <div className="flex flex-col items-center gap-20 px-6 md:px-[140px] py-10 self-stretch w-full">
           <div className="flex flex-col items-center justify-center gap-5 rounded-lg">
-            <p className={`w-full max-w-[866px] mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
+            <p className={`w-full max-w-[866px] mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm text-center leading-5`}>
               EnvoyX is a fintech company, not a bank. Banking services provided
               through licensed banking partners. Invoice financing services are
               regulated under Ivorian financial regulations. Data protection
@@ -159,21 +159,21 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
               subject to partner terms and conditions.
             </p>
 
-            <p className={`w-full max-w-[860px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg text-center leading-7`}>
+            <p className={`w-full max-w-[860px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm text-center leading-5`}>
               All investment services are provided by the respective EnvoyX
               investment and banking partners
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 md:gap-0 self-stretch w-full">
-            <div className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${textColor} text-lg leading-7 whitespace-nowrap`}>
+            <div className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${textColor} text-sm leading-5 whitespace-nowrap`}>
               © EnvoyX Inc. 2025
             </div>
 
             <div className="flex items-center gap-4">
               <a
                 href="#"
-                className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
               >
                 Terms of service
               </a>
@@ -182,7 +182,7 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
 
               <a
                 href="#"
-                className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-lg leading-7 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                className={`w-fit mt-[-1.00px] font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
               >
                 Privacy policy
               </a>
