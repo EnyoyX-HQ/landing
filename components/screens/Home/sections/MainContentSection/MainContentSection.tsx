@@ -42,7 +42,7 @@ export const MainContentSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-center gap-20 px-5 py-[60px] bg-[#f7f5f1] w-full">
+    <section className="flex flex-col items-center gap-10 px-5 py-[60px] bg-[#f7f5f1] w-full">
       {/* Header section */}
       <div className="flex flex-col items-center gap-5 w-full">
         <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-[40px] text-center leading-[56px] max-w-[737px]">
@@ -53,7 +53,7 @@ export const MainContentSection = (): JSX.Element => {
         </p>
       </div>
 
-      {/* FAQ accordion section */}
+      {/* FAQ accordion section - Reduced gap from 20 to 10 */}
       <div className="w-full max-w-[1232px]">
         <Accordion type="single" collapsible className="w-full">
           {faqItems.map((item, index) => (
@@ -61,7 +61,7 @@ export const MainContentSection = (): JSX.Element => {
               key={index}
               value={`item-${index}`}
               defaultValue={item.defaultOpen ? `item-${index}` : undefined}
-              className="border-b border-[#081f241a] py-5"
+              className="border-b border-[#081f241a] py-2"
             >
               <AccordionTrigger className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base md:text-2xl leading-6 md:leading-8 text-left">
                 {item.question}
@@ -85,7 +85,7 @@ export const MainContentSection = (): JSX.Element => {
         <div className="flex flex-col md:flex-row items-start gap-5 w-full">
           {moreCategories.map((category, index) => (
             <Card key={index} className="flex-1 bg-white rounded-[20px] w-full">
-              <CardContent className="flex items-center justify-center gap-4 p-10">
+              <CardContent className="flex items-center justify-center gap-4 p-5">
                 <span className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base md:text-2xl leading-6 md:leading-8 whitespace-nowrap">
                   {category}
                 </span>
