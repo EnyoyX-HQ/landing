@@ -20,7 +20,7 @@ const individualFeatures = [
 
 export const ServicesSection = (): JSX.Element => {
   return (
-    <section className="bg-[#f3efe8] py-12 md:py-24 px-6 md:px-12 lg:px-[140px] flex flex-col gap-10 w-full">
+    <section className="bg-[#F8F6F2] py-12 md:py-24 px-6 md:px-12 lg:px-[140px] flex flex-col gap-10 w-full">
       <h2 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
         Built for People & Businesses
       </h2>
