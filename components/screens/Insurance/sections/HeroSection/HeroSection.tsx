@@ -20,11 +20,11 @@ export const HeroSection = (): JSX.Element => {
             </p>
 
             <div className="flex flex-col items-center gap-10">
-              <h1 className="w-full max-w-[901px] [font-family:'Bricolage_Grotesque',Helvetica] font-bold text-white text-4xl md:text-[64px] text-center leading-[normal]">
+              <h1 className="w-full max-w-[901px] [font-family:'Bricolage_Grotesque',Helvetica] font-bold text-white text-3xl md:text-4xl lg:text-[64px] text-center leading-[36px] md:leading-tight lg:leading-[normal]">
                 Healthcare that fits your life.
               </h1>
 
-              <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-white text-lg text-center leading-7">
+              <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-white text-base md:text-lg text-center leading-6 md:leading-7">
                 Affordable health plans designed for individuals, families, and businesses across Africa.
               </p>
             </div>

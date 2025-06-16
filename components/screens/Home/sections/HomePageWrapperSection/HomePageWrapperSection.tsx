@@ -34,10 +34,10 @@ export const HomePageWrapperSection = (): JSX.Element => {
         <CardContent className="p-0">
           <div className="flex flex-col items-start gap-12">
             <div className="flex flex-col items-start gap-5 w-full">
-              <h2 className="font-bold text-2xl md:text-[40px] leading-tight md:leading-[56px] text-[#081f24] font-['Bricolage_Grotesque',Helvetica] mt-[-1px]">
+              <h2 className="font-bold text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] text-[#081f24] font-['Bricolage_Grotesque',Helvetica] mt-[-1px]">
                 {currentTestimonial.title}
               </h2>
-              <p className="text-lg leading-7 text-[#081f24] font-['Neue_Montreal-Regular',Helvetica]">
+              <p className="text-base md:text-lg leading-6 md:leading-7 text-[#081f24] font-['Neue_Montreal-Regular',Helvetica]">
                 {currentTestimonial.content}
               </p>
             </div>
@@ -56,10 +56,10 @@ export const HomePageWrapperSection = (): JSX.Element => {
               </Avatar>
 
               <div className="flex flex-col items-start gap-1">
-                <h3 className="text-xl md:text-2xl font-medium text-[#081f24] font-['Bricolage_Grotesque',Helvetica] mt-[-1px]">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#081f24] font-['Bricolage_Grotesque',Helvetica] mt-[-1px]">
                   {currentTestimonial.author.name}
                 </h3>
-                <p className="text-base md:text-lg leading-7 text-[#081f24b2] font-['Neue_Montreal-Regular',Helvetica]">
+                <p className="text-sm md:text-base lg:text-lg leading-6 md:leading-7 text-[#081f24b2] font-['Neue_Montreal-Regular',Helvetica]">
                   {currentTestimonial.author.position}
                 </p>
               </div>

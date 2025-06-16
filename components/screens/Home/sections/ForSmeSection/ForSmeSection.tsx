@@ -7,11 +7,11 @@ export const ForSmeSection = (): JSX.Element => {
       {/* Left content section - Changed from flex-1 to w-1/2 for 50% width */}
       <div className="w-full md:w-1/2 bg-[#f8f6f2] px-6 py-12 md:px-[140px] md:py-[100px] flex flex-col justify-between gap-20">
         <div className="flex flex-col gap-20 w-full">
-          <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-3xl md:text-[40px] leading-[56px]">
+          <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-2xl md:text-3xl lg:text-[40px] leading-[28.8px] md:leading-tight lg:leading-[56px]">
             For medium & small-scale enterprises
           </h2>
 
-          <p className="font-['Neue_Montreal-Regular',Helvetica] text-[#081f24] text-lg leading-7">
+          <p className="font-['Neue_Montreal-Regular',Helvetica] text-[#081f24] text-base md:text-lg leading-6 md:leading-7">
             EnvoyX isn&apos;t just a platform—it&apos;s a partnership. Deploy
             working capital to businesses, strengthen your financial offerings
             while supporting businesses in managing their cash flow through

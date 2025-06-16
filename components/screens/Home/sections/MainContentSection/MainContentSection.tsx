@@ -45,10 +45,10 @@ export const MainContentSection = (): JSX.Element => {
     <section className="flex flex-col items-center gap-10 px-5 py-[60px] bg-[#f7f5f1] w-full">
       {/* Header section */}
       <div className="flex flex-col items-center gap-5 w-full">
-        <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-[40px] text-center leading-[56px] max-w-[737px]">
+        <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-2xl md:text-[40px] text-center leading-[33.6px] md:leading-[56px] max-w-[737px]">
           Want to know more?
         </h2>
-        <p className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-[#081f24] text-lg text-center leading-7 max-w-[637px]">
+        <p className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-[#081f24] text-base md:text-lg text-center leading-6 md:leading-7 max-w-[637px]">
           Learn everything about EnvoyX and the most frequently asked questions.
         </p>
       </div>
@@ -78,7 +78,7 @@ export const MainContentSection = (): JSX.Element => {
 
       {/* More answers section */}
       <div className="flex flex-col items-center gap-10 w-full">
-        <h3 className="font-['Bricolage_Grotesque',Helvetica] font-medium text-black text-[28px] leading-9">
+        <h3 className="font-['Bricolage_Grotesque',Helvetica] font-medium text-black text-lg md:text-[28px] leading-[21.6px] md:leading-9">
           Get more answers
         </h3>
 

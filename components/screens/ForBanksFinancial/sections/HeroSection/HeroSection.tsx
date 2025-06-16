@@ -16,11 +16,11 @@ export const HeroSection = (): JSX.Element => {
         <div className="flex flex-col w-full max-w-[900px] items-start gap-20 md:pl-[140px] md:pr-20 relative z-10">
           <div className="flex flex-col items-start gap-14 w-full">
             <div className="flex flex-col items-start gap-10 w-full">
-              <h1 className="mt-[-1.00px] font-['Bricolage_Grotesque',Helvetica] font-bold text-white text-4xl md:text-6xl leading-tight">
+              <h1 className="mt-[-1.00px] font-['Bricolage_Grotesque',Helvetica] font-bold text-white text-2xl md:text-4xl lg:text-6xl leading-[28.8px] md:leading-tight">
                 Unlock New Opportunities in Healthcare Financing
               </h1>
 
-              <p className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-white text-lg leading-7">
+              <p className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-white text-base md:text-lg leading-6 md:leading-7">
                 Manage finances, unlock competitive yield, and access AI-powered
                 capital markets solutions—all in one platform.
               </p>

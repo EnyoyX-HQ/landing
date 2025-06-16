@@ -15,7 +15,7 @@ export const PartnersSection = (): JSX.Element => {
   return (
     <section className="flex flex-col w-full items-start gap-20 px-4 py-16 lg:px-[140px] lg:py-[100px] relative z-[11]">
       <div className="flex flex-col items-center gap-10 w-full">
-        <h2 className="max-w-[886px] mt-[-1.00px] font-bold text-[#081f24] text-xl text-center leading-normal">
+        <h2 className="max-w-[886px] mt-[-1.00px] font-bold text-[#081f24] text-lg md:text-xl text-center leading-[21.6px] md:leading-normal">
           Trusted by Africa&apos;s fastest growing medium & small scale
           businesses
         </h2>

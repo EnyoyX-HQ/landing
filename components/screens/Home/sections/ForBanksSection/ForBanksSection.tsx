@@ -52,11 +52,11 @@ export const ForBanksSection = (): JSX.Element => {
       {/* Right side with heading, description and CTA button - Changed from flex-1 to w-1/2 for 50% width */}
       <div className="w-full lg:w-1/2 flex flex-col justify-between px-8 md:px-12 lg:px-[140px] py-12 md:py-[100px] bg-[#f8f6f2] min-h-[600px]">
         <div className="flex flex-col gap-8 md:gap-12">
-          <h2 className="font-semibold text-[#081f24] text-3xl md:text-[40px] leading-tight md:leading-[56px] font-['Bricolage_Grotesque',Helvetica]">
+          <h2 className="font-semibold text-[#081f24] text-2xl md:text-3xl lg:text-[40px] leading-[28.8px] md:leading-tight lg:leading-[56px] font-['Bricolage_Grotesque',Helvetica]">
             For banks/financial institutions
           </h2>
 
-          <p className="font-normal text-[#081f24] text-lg leading-7 font-['Neue_Montreal-Regular',Helvetica]">
+          <p className="font-normal text-[#081f24] text-base md:text-lg leading-6 md:leading-7 font-['Neue_Montreal-Regular',Helvetica]">
             Extend credit to verified insurance claims reimbursements invoices
             from healthcare providers, increase revenue, and help business
             achieve growth.

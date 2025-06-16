@@ -30,11 +30,11 @@ export const FeaturesSection = (): JSX.Element => {
   return (
     <section className="flex flex-col items-start gap-20 px-8 py-24 md:px-[140px] md:py-[100px] relative w-full bg-[#f8f6f2] z-[3]">
       <div className="flex flex-col items-start gap-5 w-full">
-        <h2 className="font-bold text-[#081f24] text-3xl md:text-[40px] leading-tight md:leading-[56px] [font-family:'Bricolage_Grotesque',Helvetica] max-w-[815px]">
+        <h2 className="font-bold text-[#081f24] text-2xl md:text-3xl lg:text-[40px] leading-[28.8px] md:leading-tight lg:leading-[56px] [font-family:'Bricolage_Grotesque',Helvetica] max-w-[815px]">
           Grow your fund at less risk
         </h2>
 
-        <p className="text-[#081f24] text-lg leading-7 [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[845px]">
+        <p className="text-[#081f24] text-base md:text-lg leading-6 md:leading-7 [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[845px]">
           EnvoyX isn&apos;t just a platform—it&apos;s a partnership. Deploy
           working capital to businesses, strengthen your financial offerings
           while supporting businesses in managing their cash flow through
@@ -51,14 +51,14 @@ export const FeaturesSection = (): JSX.Element => {
             >
               <CardContent className="flex flex-col items-start gap-4 p-0">
                 <h3
-                  className={`self-stretch mt-[-1.00px] [font-family:'Bricolage_Grotesque',Helvetica] font-medium text-[32px] leading-normal ${
+                  className={`self-stretch mt-[-1.00px] [font-family:'Bricolage_Grotesque',Helvetica] font-medium text-2xl md:text-[32px] leading-[28.8px] md:leading-normal ${
                     feature.highlighted ? "text-[#95f270]" : "text-[#081f24]"
                   }`}
                 >
                   {feature.title}
                 </h3>
                 <p
-                  className={`self-stretch [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-lg leading-7 ${
+                  className={`self-stretch [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-base md:text-lg leading-6 md:leading-7 ${
                     feature.highlighted ? "text-[#081f24]" : "text-[#081f24b2]"
                   }`}
                 >
