@@ -63,11 +63,11 @@ export const MainContentSection = (): JSX.Element => {
               defaultValue={item.defaultOpen ? `item-${index}` : undefined}
               className="border-b border-[#081f241a] py-5"
             >
-              <AccordionTrigger className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-2xl leading-8">
+              <AccordionTrigger className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base md:text-2xl leading-6 md:leading-8 text-left">
                 {item.question}
               </AccordionTrigger>
               {item.answer && (
-                <AccordionContent className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-[#081f24] text-lg leading-7">
+                <AccordionContent className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-[#081f24] text-base md:text-lg leading-6 md:leading-7 text-left">
                   {item.answer}
                 </AccordionContent>
               )}
@@ -86,7 +86,7 @@ export const MainContentSection = (): JSX.Element => {
           {moreCategories.map((category, index) => (
             <Card key={index} className="flex-1 bg-white rounded-[20px] w-full">
               <CardContent className="flex items-center justify-center gap-4 p-10">
-                <span className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-2xl leading-8 whitespace-nowrap">
+                <span className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base md:text-2xl leading-6 md:leading-8 whitespace-nowrap">
                   {category}
                 </span>
                 <ChevronRightIcon className="w-5 h-5" />
