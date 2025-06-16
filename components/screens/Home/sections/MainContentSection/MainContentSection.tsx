@@ -42,7 +42,7 @@ export const MainContentSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-center gap-10 px-5 py-[60px] bg-[#f7f5f1] w-full">
+    <section className="flex flex-col items-center gap-10 px-[30%] py-[60px] bg-[#f7f5f1] w-full">
       {/* Header section */}
       <div className="flex flex-col items-center gap-5 w-full">
         <h2 className="font-['Bricolage_Grotesque',Helvetica] font-bold text-[#081f24] text-2xl md:text-[40px] text-center leading-[33.6px] md:leading-[56px] max-w-[737px]">
