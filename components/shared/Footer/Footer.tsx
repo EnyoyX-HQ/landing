@@ -14,7 +14,7 @@ const footerColumns = [
   {
     title: "Products",
     links: [
-      { name: "Invoice Financing", href: "#" },
+      { name: "Invoice Financing", href: "/invoice-financing" },
       { name: "Insurance", href: "/insurance" },
     ],
   },
@@ -22,22 +22,22 @@ const footerColumns = [
     title: "Solutions",
     links: [
       { name: "For banks & liquidity providers", href: "/for-banks" },
-      { name: "For insurers", href: "#" },
+      { name: "For insurers", href: "/for-insurers" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Partners", href: "#" },
+      { name: "About", href: "/about" },
+      { name: "Careers", href: "/careers" },
+      { name: "Partners", href: "/partners" },
     ],
   },
   {
     title: "Resources",
     links: [
       { name: "Blog", href: "#" },
-      { name: "FAQ", href: "#" },
+      { name: "FAQ", href: "/faq" },
     ],
   },
   {
