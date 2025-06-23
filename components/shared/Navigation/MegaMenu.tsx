@@ -41,10 +41,6 @@ const megaMenuData: MegaMenuData = {
             description: "Fast access to working capital through invoice financing",
             icon: "💰",
           },
-        ],
-      },
-      {
-        items: [
           {
             name: "Insurance",
             href: "/insurance",
