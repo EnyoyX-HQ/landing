@@ -10,7 +10,7 @@ export const HeroSection = (): JSX.Element => {
         <img
           className="absolute w-full max-w-[1324px] h-auto top-[-210px] left-[-310px]"
           alt="Background vector"
-          src="/vector-1.svg"
+          src="/banks-hero-left.svg"
         />
 
         <div className="flex flex-col w-full max-w-[900px] items-start gap-20 md:pl-[140px] md:pr-20 relative z-10">
