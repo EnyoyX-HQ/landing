@@ -41,29 +41,6 @@ const megaMenuData: MegaMenuData = {
             description: "Fast access to working capital through invoice financing",
             icon: "💰",
           },
-          {
-            name: "Accounts Receivable",
-            href: "#",
-            description: "Streamline your receivables management process",
-            icon: "📊",
-          },
-        ],
-      },
-      {
-        title: "Additional Services",
-        items: [
-          {
-            name: "Expense Card",
-            href: "#",
-            description: "Corporate expense management made simple",
-            icon: "💳",
-          },
-          {
-            name: "Embedded Invoice Financing",
-            href: "#",
-            description: "White-label financing solutions for platforms",
-            icon: "🔗",
-          },
         ],
       },
       {
