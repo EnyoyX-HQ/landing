@@ -4,6 +4,7 @@ import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { HeroSection } from "./sections/HeroSection/HeroSection";
 import { StatisticsSection } from "./sections/StatisticsSection/StatisticsSection";
+import { UniqueValueSection } from "./sections/UniqueValueSection/UniqueValueSection";
 
 export const ForBanksFinancial = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ export const ForBanksFinancial = (): JSX.Element => {
       <HeroSection />
       <FeaturesSection />
       <StatisticsSection />
+      <UniqueValueSection />
       <FooterSection />
     </main>
   );
