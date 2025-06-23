@@ -44,7 +44,6 @@ const megaMenuData: MegaMenuData = {
         ],
       },
       {
-        title: "Insurance",
         items: [
           {
             name: "Insurance",
