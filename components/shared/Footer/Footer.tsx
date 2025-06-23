@@ -2,12 +2,11 @@
 
 import { MapPinIcon } from "lucide-react";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Separator } from "../../ui/separator";
 
 interface FooterProps {
   theme?: "light" | "dark";
-  precedingSectionBg?: "light" | "dark";
 }
 
 // Data for footer columns
@@ -55,72 +54,48 @@ const footerColumns = [
   },
 ];
 
-export const Footer = ({ theme = "dark", precedingSectionBg }: FooterProps): JSX.Element => {
+export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
   const [logoError, setLogoError] = useState(false);
-  const [waveImage, setWaveImage] = useState("/Footer-wave.svg");
-  
   const bgColor = theme === "dark" ? "bg-[#060f00]" : "bg-white";
   const textColor = theme === "dark" ? "text-white" : "text-[#081f24]";
   const mutedTextColor = theme === "dark" ? "text-[#ffffff80]" : "text-[#081f2480]";
   const accentColor = theme === "dark" ? "text-[#66db4a]" : "text-[#081f24]";
 
-  // Auto-detect preceding section background if not explicitly provided
-  useEffect(() => {
-    if (precedingSectionBg) {
-      // Use explicitly provided value
-      setWaveImage(precedingSectionBg === "light" ? "/Footer-wave-white.svg" : "/Footer-wave.svg");
-    } else {
-      // Auto-detect by checking the element before footer
-      const detectPrecedingBackground = () => {
-        const footer = document.querySelector('footer');
-        if (footer) {
-          const precedingElement = footer.previousElementSibling as HTMLElement;
-          if (precedingElement) {
-            const computedStyle = window.getComputedStyle(precedingElement);
-            const backgroundColor = computedStyle.backgroundColor;
-            
-            // Check if background is light (white, light gray, etc.)
-            const isLightBackground = 
-              backgroundColor === 'rgb(255, 255, 255)' || // white
-              backgroundColor === 'rgba(255, 255, 255, 1)' || // white with alpha
-              backgroundColor === 'rgb(248, 246, 242)' || // #f8f6f2
-              backgroundColor === 'rgba(248, 246, 242, 1)' || // #f8f6f2 with alpha
-              backgroundColor === 'transparent' || // transparent (likely inheriting white)
-              precedingElement.classList.contains('bg-white') ||
-              precedingElement.classList.contains('bg-[#f8f6f2]') ||
-              precedingElement.classList.contains('bg-gray-50') ||
-              precedingElement.classList.contains('bg-stone-50');
-            
-            setWaveImage(isLightBackground ? "/Footer-wave-white.svg" : "/Footer-wave.svg");
-          }
-        }
-      };
-
-      // Run detection after component mounts and DOM is ready
-      const timer = setTimeout(detectPrecedingBackground, 100);
-      
-      // Also run on window resize in case layout changes
-      window.addEventListener('resize', detectPrecedingBackground);
-      
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener('resize', detectPrecedingBackground);
-      };
-    }
-  }, [precedingSectionBg]);
-
   return (
     <footer className={`flex flex-col items-start self-stretch w-full ${bgColor} relative`}>
-      {/* Footer Wave SVG - dynamically selected */}
+      {/* Footer Wave SVG */}
       <div className="w-full relative">
         <img
           className="w-full h-auto"
           alt="Footer wave decoration"
-          src={waveImage}
+          src="/Footer-wave.svg"
         />
       </div>
 
       <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
+        {/* Footer columns with links - Equal spacing with justify-between */}
+        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
+          {footerColumns.map((column, index) => (
+            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
+              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
+                {column.title}
+              </div>
+
+              <div className="flex flex-col items-start gap-4">
+                {column.links.map((link, linkIndex) => (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
@@ -171,29 +146,6 @@ export const Footer = ({ theme = "dark", precedingSectionBg }: FooterProps): JSX
               X(Twitter)
             </a>
           </div>
-        </div>
-        
-        {/* Footer columns with links - Equal spacing with justify-between */}
-        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
-          {footerColumns.map((column, index) => (
-            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
-              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
-                {column.title}
-              </div>
-
-              <div className="flex flex-col items-start gap-4">
-                {column.links.map((link, linkIndex) => (
-                  <Link
-                    key={linkIndex}
-                    href={link.href}
-                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* Bottom section with disclaimers and copyright */}
