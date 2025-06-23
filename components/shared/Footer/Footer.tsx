@@ -15,9 +15,6 @@ const footerColumns = [
     title: "Products",
     links: [
       { name: "Invoice Financing", href: "#" },
-      { name: "Accounts Receivable", href: "#" }, 
-      { name: "Expense Card", href: "#" },
-      { name: "Embedded Invoice Financing", href: "#" },
       { name: "Insurance", href: "/insurance" },
     ],
   },
