@@ -16,8 +16,8 @@ export const UniqueValueSection = (): JSX.Element => {
   return (
     <section className="flex flex-col items-start pt-24 w-full">
       <div className="w-full h-[700px] bg-white flex overflow-hidden">
-        {/* Left content section */}
-        <div className="flex-1 px-8 md:px-[140px] py-24 flex flex-col justify-between items-start">
+        {/* Left content section - Equal width (50%) */}
+        <div className="w-1/2 px-8 md:px-[140px] py-24 flex flex-col justify-between items-start">
           <div className="w-full">
             <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold [font-family:'Bricolage_Grotesque',Helvetica] leading-[28.8px] md:leading-tight lg:leading-[56px]">
               <span className="text-[#66db4a]">99%</span>
@@ -40,11 +40,11 @@ export const UniqueValueSection = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Right image section with feature badges */}
-        <div className="flex-1 relative overflow-hidden">
+        {/* Right image section - Equal width (50%) with image filling container */}
+        <div className="w-1/2 relative overflow-hidden">
           {/* Background image - positioned to fill entire container */}
           <img
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
             alt="Matrix AI Analytics Dashboard"
             src="/matrix-ai.svg"
           />
