@@ -22,7 +22,6 @@ const footerColumns = [
     title: "Solutions",
     links: [
       { name: "For banks & liquidity providers", href: "/for-banks" },
-      { name: "For healthcare providers", href: "#" },
       { name: "For insurers", href: "#" },
     ],
   },
@@ -39,7 +38,6 @@ const footerColumns = [
     links: [
       { name: "Blog", href: "#" },
       { name: "FAQ", href: "#" },
-      { name: "Developers", href: "#" },
     ],
   },
   {
