@@ -50,27 +50,7 @@ export const UniqueValueSection = (): JSX.Element => {
           />
           
           {/* Feature badges overlay - positioned to match the reference image */}
-          <div className="absolute right-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-10">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className={`px-6 py-4 rounded-full shadow-[0px_16px_32px_-8px_rgba(8,31,36,0.15)] flex items-center gap-3 max-w-[400px] ${
-                  index === highlightedIndex
-                    ? "bg-[#66db4a] shadow-[0px_16px_32px_-8px_rgba(8,31,36,0.10)]"
-                    : "bg-white"
-                }`}
-              >
-                <div className="w-3 h-3 relative overflow-hidden flex-shrink-0">
-                  <div 
-                    className={`w-2.5 h-2.5 absolute left-[1.22px] top-[1.22px] rounded-full ${
-                      index === highlightedIndex ? "bg-white" : "bg-[#66db4a]"
-                    }`}
-                  />
-                </div>
-                <span className="text-[#081f24] text-base font-medium [font-family:'Bricolage_Grotesque',Helvetica] leading-6 whitespace-nowrap">
-                  {feature}
-                </span>
-              </div>
+        
             ))}
           </div>
         </div>
