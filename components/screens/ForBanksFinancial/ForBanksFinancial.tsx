@@ -11,9 +11,9 @@ export const ForBanksFinancial = (): JSX.Element => {
     <main className="flex flex-col w-full bg-white">
       <HeaderSection />
       <HeroSection />
-      <FeaturesSection />
-      <StatisticsSection />
       <UniqueValueSection />
+      <StatisticsSection />
+      <FeaturesSection />
       <FooterSection />
     </main>
   );
