@@ -48,10 +48,7 @@ export const UniqueValueSection = (): JSX.Element => {
             alt="Matrix AI Analytics Dashboard"
             src="/matrix-ai.svg"
           />
-          
-          {/* Feature badges overlay - positioned to match the reference image */}
-        
-            ))}
+         
           </div>
         </div>
       </div>
