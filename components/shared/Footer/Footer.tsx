@@ -74,29 +74,8 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
 
       <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
         {/* Footer columns with links - Equal spacing with justify-between */}
-        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
-          {footerColumns.map((column, index) => (
-            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
-              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
-                {column.title}
-              </div>
 
-              <div className="flex flex-col items-start gap-4">
-                {column.links.map((link, linkIndex) => (
-                  <Link
-                    key={linkIndex}
-                    href={link.href}
-                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Top section with logo, tagline, address and social links */}
+         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
             {/* Logo with fallback - reduced by 60% (from h-8 to h-3.2, approximately h-3) */}
@@ -147,6 +126,30 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
             </a>
           </div>
         </div>
+        
+        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
+          {footerColumns.map((column, index) => (
+            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
+              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
+                {column.title}
+              </div>
+
+              <div className="flex flex-col items-start gap-4">
+                {column.links.map((link, linkIndex) => (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+       
 
         {/* Bottom section with disclaimers and copyright */}
         <div className="flex flex-col items-center gap-20 py-10 self-stretch w-full">
