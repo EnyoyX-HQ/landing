@@ -37,7 +37,7 @@ const megaMenuData: MegaMenuData = {
         items: [
           {
             name: "Invoice Financing",
-            href: "#",
+            href: "/invoice-financing",
             description: "Fast access to working capital through invoice financing",
             icon: "💰",
           },
@@ -68,12 +68,6 @@ const megaMenuData: MegaMenuData = {
             icon: "🏦",
           },
           {
-            name: "For healthcare providers",
-            href: "#",
-            description: "Accelerate cash flow from insurance reimbursements",
-            icon: "🏥",
-          },
-          {
             name: "For insurers",
             href: "/insurance",
             description: "Streamline claims processing and payments",
@@ -97,15 +91,9 @@ const megaMenuData: MegaMenuData = {
           },
           {
             name: "FAQ",
-            href: "#",
+            href: "/faq",
             description: "Frequently asked questions and answers",
             icon: "❓",
-          },
-          {
-            name: "Developers",
-            href: "#",
-            description: "API documentation and integration guides",
-            icon: "👨‍💻",
           },
         ],
       },
@@ -119,19 +107,19 @@ const megaMenuData: MegaMenuData = {
         items: [
           {
             name: "About",
-            href: "#",
+            href: "/about",
             description: "Learn about our mission and vision",
             icon: "🏢",
           },
           {
             name: "Careers",
-            href: "#",
+            href: "/careers",
             description: "Join our growing team",
             icon: "💼",
           },
           {
             name: "Partners",
-            href: "#",
+            href: "/partners",
             description: "Our trusted partners and integrations",
             icon: "🤝",
           },
