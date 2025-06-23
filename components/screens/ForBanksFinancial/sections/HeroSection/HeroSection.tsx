@@ -46,7 +46,7 @@ export const HeroSection = (): JSX.Element => {
         <img
           className="w-full h-full object-cover"
           alt="Healthcare professional"
-          src="/andriyko-podilnyk-21qmaxlw0mc-unsplash-1.png"
+          src="/for-banks-hero.png"
         />
       </div>
     </section>
