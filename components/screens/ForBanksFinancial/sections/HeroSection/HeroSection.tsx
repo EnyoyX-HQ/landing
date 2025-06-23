@@ -6,9 +6,9 @@ export const HeroSection = (): JSX.Element => {
     <section className="flex flex-col md:flex-row w-full relative z-[4]">
       {/* Left content section */}
       <div className="flex flex-col items-start gap-10 py-20 md:py-32 px-6 md:px-0 relative flex-1 bg-[#192517] overflow-hidden">
-        {/* Background vector */}
+        {/* Background vector - positioned to fill entire container */}
         <img
-          className="absolute w-full max-w-[1324px] h-auto top-[-210px] left-[-310px]"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Background vector"
           src="/banks-hero-left.svg"
         />
