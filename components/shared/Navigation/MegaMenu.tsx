@@ -198,16 +198,6 @@ export const MegaMenu = ({ theme = "light" }: MegaMenuProps): JSX.Element => {
             </div>
           </div>
         ))}
-        
-        {/* Developers - Simple link without dropdown */}
-        <div className="flex items-center gap-1">
-          <Link 
-            href="#"
-            className={`font-normal ${textColor} text-base tracking-[-0.35px] leading-6 whitespace-nowrap hover:opacity-80 transition-opacity`}
-          >
-            Developers
-          </Link>
-        </div>
       </nav>
 
       {/* Mega Menu Dropdown */}
