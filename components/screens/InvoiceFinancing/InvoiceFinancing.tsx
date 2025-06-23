@@ -7,6 +7,7 @@ import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { HomePageWrapperSection } from "./sections/HomePageWrapperSection/HomePageWrapperSection";
 import { MainContentSection } from "./sections/MainContentSection/MainContentSection";
 import { PartnersSection } from "./sections/PartnersSection/PartnersSection";
+import { SocialProofSection } from "./sections/SocialProofSection/SocialProofSection";
 
 export const InvoiceFinancing = (): JSX.Element => {
   return (
@@ -38,6 +39,7 @@ export const InvoiceFinancing = (): JSX.Element => {
 
       {/* Added sections from homepage */}
       <DemoSection />
+      <SocialProofSection />
       <PartnersSection />
       <ForSmeSection />
       <HomePageWrapperSection />
