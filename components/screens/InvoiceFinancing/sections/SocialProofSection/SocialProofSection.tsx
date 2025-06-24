@@ -31,7 +31,7 @@ export const SocialProofSection = (): JSX.Element => {
         </div>
       </div>
       
-      <div className="w-[1232px] inline-flex justify-start items-center gap-5">
+      <div className="w-[full] inline-flex justify-start items-center gap-5">
         {statistics.map((stat, index) => (
           <Card key={index} className="flex-1 h-96 p-10 bg-[#f8f6f2] rounded-[20px] border-none shadow-none">
             <CardContent className="inline-flex flex-col justify-between items-center p-0 h-full">
