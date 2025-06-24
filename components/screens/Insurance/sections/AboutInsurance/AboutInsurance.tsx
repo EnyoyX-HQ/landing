@@ -2,7 +2,7 @@ import React from "react";
 
 export const AboutInsurance = (): JSX.Element => {
   return (
-    <div className="w-[1512px] px-36 py-24 bg-stone-100 inline-flex justify-start items-start gap-20 overflow-hidden">
+    <div className="w-[full] px-36 py-24 bg-stone-100 inline-flex justify-start items-start gap-20 overflow-hidden">
       <div className="flex-1 self-stretch inline-flex flex-col justify-between items-start">
         <div className="self-stretch flex flex-col justify-start items-start gap-5">
           <div className="self-stretch justify-start text-gray-900 text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
