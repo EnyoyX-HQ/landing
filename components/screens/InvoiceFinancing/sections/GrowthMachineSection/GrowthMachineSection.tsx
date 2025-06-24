@@ -31,7 +31,7 @@ export const GrowthMachineSection = (): JSX.Element => {
         </div>
       </div>
       
-      <div className="w-full flex flex-col md:flex-row justify-start items-start gap-5">
+      <div className="w-full flex flex-col md:flex-row justify-start items-start gap-0">
         {features.map((feature, index) => (
           <Card 
             key={index} 
