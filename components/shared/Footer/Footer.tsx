@@ -2,8 +2,9 @@
 
 import { MapPinIcon } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { Separator } from "../../ui/separator";
+import { ImageWithFallback } from "../ImageWithFallback";
 
 interface FooterProps {
   theme?: "light" | "dark";
@@ -14,7 +15,10 @@ const footerColumns = [
   {
     title: "Products",
     links: [
-      { name: "Invoice Financing", href: "/invoice-financing" },
+      { name: "Invoice Financing", href: "#" },
+      { name: "Accounts Receivable", href: "#" }, 
+      { name: "Expense Card", href: "#" },
+      { name: "Embedded Invoice Financing", href: "#" },
       { name: "Insurance", href: "/insurance" },
     ],
   },
@@ -22,22 +26,24 @@ const footerColumns = [
     title: "Solutions",
     links: [
       { name: "For banks & liquidity providers", href: "/for-banks" },
-      { name: "For insurers", href: "/for-insurers" },
+      { name: "For healthcare providers", href: "#" },
+      { name: "For insurers", href: "#" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "/about" },
-      { name: "Careers", href: "/careers" },
-      { name: "Partners", href: "/partners" },
+      { name: "About", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Partners", href: "#" },
     ],
   },
   {
     title: "Resources",
     links: [
       { name: "Blog", href: "#" },
-      { name: "FAQ", href: "/faq" },
+      { name: "FAQ", href: "#" },
+      { name: "Developers", href: "#" },
     ],
   },
   {
@@ -50,7 +56,6 @@ const footerColumns = [
 ];
 
 export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
-  const [logoError, setLogoError] = useState(false);
   const bgColor = theme === "dark" ? "bg-[#060f00]" : "bg-white";
   const textColor = theme === "dark" ? "text-white" : "text-[#081f24]";
   const mutedTextColor = theme === "dark" ? "text-[#ffffff80]" : "text-[#081f2480]";
@@ -68,24 +73,44 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
       </div>
 
       <div className="flex flex-col items-start gap-10 pt-[100px] pb-10 px-6 md:px-[140px] self-stretch w-full">
+        {/* Footer columns with links - Equal spacing with justify-between */}
+        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
+          {footerColumns.map((column, index) => (
+            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
+              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
+                {column.title}
+              </div>
+
+              <div className="flex flex-col items-start gap-4">
+                {column.links.map((link, linkIndex) => (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* Top section with logo, tagline, address and social links */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 lg:gap-0 self-stretch w-full">
           <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
             {/* Logo with fallback - reduced by 60% (from h-8 to h-3.2, approximately h-3) */}
             <div className="flex items-center">
-              {!logoError ? (
-                <img
-                  className="w-auto h-3"
-                  alt="EnvoyX Logo"
-                  src="/logo-white.svg"
-                  onError={() => setLogoError(true)}
-                />
-              ) : (
-                <div className={`font-['Bricolage_Grotesque',Helvetica] font-bold ${textColor} text-2xl`}>
-                  ENVOYX
-                </div>
-              )}
+              <ImageWithFallback
+                className="w-auto h-3"
+                alt="EnvoyX Logo"
+                src="/logo-white.svg"
+                fallbackContent={
+                  <div className={`font-['Bricolage_Grotesque',Helvetica] font-bold ${textColor} text-2xl`}>
+                    ENVOYX
+                  </div>
+                }
+              />
             </div>
 
             <div className={`w-full font-['Bricolage_Grotesque',Helvetica] font-medium ${textColor} text-2xl md:text-3xl lg:text-[40px] leading-tight md:leading-[1.2] lg:leading-[56px] break-words`}>
@@ -120,31 +145,6 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
             </a>
           </div>
         </div>
-        
-        {/* Footer columns with links - Equal spacing with justify-between */}
-        <div className="flex flex-wrap justify-between gap-y-8 self-stretch w-full">
-          {footerColumns.map((column, index) => (
-            <div key={index} className="flex flex-col items-start gap-4 min-w-[150px]">
-              <div className={`font-['Neue_Montreal-Medium',Helvetica] font-medium ${accentColor} text-sm leading-5 w-fit mt-[-1.00px] whitespace-nowrap`}>
-                {column.title}
-              </div>
-
-              <div className="flex flex-col items-start gap-4">
-                {column.links.map((link, linkIndex) => (
-                  <Link
-                    key={linkIndex}
-                    href={link.href}
-                    className={`w-fit font-['Neue_Montreal-Regular',Helvetica] ${mutedTextColor} text-sm leading-5 whitespace-nowrap hover:opacity-80 transition-opacity`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        
 
         {/* Bottom section with disclaimers and copyright */}
         <div className="flex flex-col items-center gap-20 py-10 self-stretch w-full">
