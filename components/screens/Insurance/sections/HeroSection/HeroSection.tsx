@@ -13,7 +13,7 @@ export const HeroSection = (): JSX.Element => {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 z-0"></div>
+      <div className="absolute inset-0 bg-black/10 z-0"></div>
       <div className="relative z-10 w-full px-36 flex flex-col justify-start items-start gap-20">
         <div className="w-full flex flex-col justify-start items-center gap-14">
           <div className="flex flex-col justify-start items-center gap-10">
