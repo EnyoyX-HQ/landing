@@ -23,12 +23,6 @@ export const GrowthMachineSection = (): JSX.Element => {
   return (
     <section 
       className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden relative"
-      style={{
-        backgroundImage: 'url(/paint-2.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
     >
 
       {/* Content with relative positioning to appear above background */}
@@ -49,7 +43,14 @@ export const GrowthMachineSection = (): JSX.Element => {
               className="flex-1 bg-[#f8f6f2] rounded-[20px] border-4 border-transparent hover:border-[#66db4a] transition-all duration-300 overflow-hidden group"
             >
               <CardContent className="flex flex-col justify-end items-start p-0 h-full">
-              
+                {/* Image container with green background placeholder */}
+                <div className="w-full h-60 md:h-80 relative flex items-center justify-center">
+                  <img
+                    className="w-auto h-auto max-w-[150px] md:max-w-[200px] max-h-[150px] md:max-h-[200px] object-contain"
+                    alt={feature.title}
+                    src={feature.image}
+                  />
+                </div>
                 
                 {/* Content section */}
                 <div className="self-stretch p-4 md:p-6 lg:p-10 flex flex-col justify-start items-start gap-2">
