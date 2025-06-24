@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export const HeroSection = (): JSX.Element => {
   return (
     <div 
-      className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 flex flex-col justify-start items-center gap-10 overflow-hidden relative"
+      className="w-full mx-auto h-[800px] pt-36 bg-stone-900 flex flex-col justify-start items-center gap-10 overflow-hidden relative"
       style={{
         backgroundImage: "url('/hero-insurance.png')",
         backgroundSize: 'cover',
