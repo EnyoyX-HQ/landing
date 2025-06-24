@@ -25,7 +25,7 @@ export const DemoSection = (): JSX.Element => {
       <div className="w-[full] pt-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
         <div className="self-stretch px-36 flex flex-col justify-start items-start gap-5">
           <div className="self-stretch flex flex-col justify-start items-start gap-5">
-            <div className="w-[737px] justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
+            <div className="w-[full] justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
               Improve Your Cash Flow with EnvoyX in 3 Simple Steps
             </div>
             <div className="w-[full] justify-start text-[#081f24] text-lg font-normal font-['Neue_Montreal'] leading-7">
