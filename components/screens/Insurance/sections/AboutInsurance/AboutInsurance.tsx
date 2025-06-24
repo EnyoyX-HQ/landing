@@ -43,7 +43,7 @@ export const AboutInsurance = (): JSX.Element => {
       <div className="pt-24 flex justify-start items-center gap-2.5">
         <img 
           className="w-[528px] h-[683.51px] rounded-[40px]" 
-          src="https://placehold.co/528x684" 
+          src="/family-laughs.png" 
           alt="Healthcare illustration"
         />
       </div>
