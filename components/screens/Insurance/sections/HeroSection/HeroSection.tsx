@@ -25,7 +25,7 @@ export const HeroSection = (): JSX.Element => {
                 </Button>
               </div>
             </div>
-            <div className="h-14 px-4 py-3 bg-stone-100 rounded-full flex justify-center items-center gap-3 overflow-hidden">
+            <div className="h-14 px-4 py-3 rounded-full flex justify-center items-center gap-3 overflow-hidden">
               <Button className="all-[unset] justify-start text-gray-900 text-base font-medium font-['Neue_Montreal'] capitalize">
                 Create a custom product
               </Button>
