@@ -115,7 +115,7 @@ export const ServicesSection = (): JSX.Element => {
               alt="Family health coverage"
               src="/frank-mckenna-lhojrolclx4-unsplash-1.png"
             />
-            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-[30px] flex flex-col gap-3 md:gap-5">
+            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-[px] flex flex-col gap-3 md:gap-5">
               {individualFeatures.map((feature, index) => (
                 <Badge
                   key={index}
