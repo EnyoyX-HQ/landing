@@ -20,12 +20,12 @@ export const HeroSection = (): JSX.Element => {
           <div className="inline-flex justify-start items-center gap-3">
             <div className="flex justify-start items-start gap-3">
               <div className="h-14 px-6 py-3 bg-lime-300 rounded-[100px] flex justify-center items-center gap-3 overflow-hidden">
-                <Button className="all-[unset] justify-start text-gray-900 text-base font-medium font-['Neue_Montreal'] capitalize leading-normal">
+                <Button className="all-[unset] justify-start text-gray- text-base font-medium font-['Neue_Montreal'] capitalize leading-normal">
                   See our health plans
                 </Button>
               </div>
             </div>
-            <div className="h-14 px-4 py-3 rounded-full flex justify-center items-center gap-3 overflow-hidden">
+            <div className="h-14 px-4 py-3 bg-stone-100 rounded-full flex justify-center items-center gap-3 overflow-hidden">
               <Button className="all-[unset] justify-start text-gray-900 text-base font-medium font-['Neue_Montreal'] capitalize">
                 Create a custom product
               </Button>
