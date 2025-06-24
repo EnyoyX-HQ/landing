@@ -41,7 +41,7 @@ export const GrowthMachineSection = (): JSX.Element => {
               {/* Image container - positioned at top like in reference */}
               <div className="w-full h-80 relative bg-[#f8f6f2] flex items-center justify-center overflow-hidden">
                 <img
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                   alt={feature.title}
                   src={feature.image}
                 />
