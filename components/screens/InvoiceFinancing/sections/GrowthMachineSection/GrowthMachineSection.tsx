@@ -31,7 +31,7 @@ export const GrowthMachineSection = (): JSX.Element => {
         </div>
       </div>
       
-      <div className="w-full flex flex-col md:flex-row justify-start items-start gap-0">
+      <div className="w-full flex flex-col md:flex-row justify-start items-start gap-5">
         {features.map((feature, index) => (
           <Card 
             key={index} 
@@ -39,7 +39,7 @@ export const GrowthMachineSection = (): JSX.Element => {
           >
             <CardContent className="flex flex-col justify-end items-start p-0 h-full">
               {/* Image container - positioned at top like in reference */}
-              <div className="w-full h-80 relative bg-[#f8f6f2] flex items-center justify-center overflow-hidden">
+              <div className="w-full h-80 relative bg-[#f8f6f2] flex justify-center overflow-hidden">
                 <img
                   className="w-full h-full object-contain p-0"
                   alt={feature.title}
