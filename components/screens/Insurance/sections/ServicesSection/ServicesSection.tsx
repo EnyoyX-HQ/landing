@@ -30,7 +30,7 @@ export const ServicesSection = (): JSX.Element => {
         <div className="hidden lg:block absolute right-0 top-0 w-[664px] h-full">
           <div className="relative w-[1089px] h-[891px] top-[-238px] left-[-425px]">
             <img
-              className="absolute w-[664px] h-[600px] top-[238px] left-[425px] object-cover"
+              className="absolute w-[664px] h-[full] top-[238px] left-[425px] object-cover"
               alt="Abstract top view"
               src="/paint-white.svg"
             />
