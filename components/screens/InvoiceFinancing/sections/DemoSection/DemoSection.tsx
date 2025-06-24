@@ -23,7 +23,7 @@ export const DemoSection = (): JSX.Element => {
     <section className="flex flex-col items-start gap-20 px-6 md:px-[140px] py-12 md:py-[100px] relative w-full bg-white z-[9]">
       {/* 3-Step Process Section */}
       <div className="w-full pt-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
-        <div className="self-stretch px-6 md:px-36 flex flex-col justify-start items-start gap-5">
+        <div className="self-stretch px-6 md:px-0 flex flex-col justify-start items-start gap-5">
           <div className="self-stretch flex flex-col justify-start items-start gap-5">
             <div className="w-full justify-start text-[#081f24] text-2xl md:text-3xl lg:text-4xl font-bold font-['Bricolage_Grotesque'] leading-[28.8px] md:leading-tight lg:leading-[56px]">
               Improve Your Cash Flow with EnvoyX in 3 Simple Steps
