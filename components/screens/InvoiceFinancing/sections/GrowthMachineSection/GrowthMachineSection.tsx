@@ -35,7 +35,8 @@ export const GrowthMachineSection = (): JSX.Element => {
         {features.map((feature, index) => (
           <Card 
             key={index} 
-            className="flex-1 bg-[#f8f6f2] rounded-[20px] border-4 border-transparent hover:border-[#000000] transition-all duration-300 overflow-hidden group"
+            className="flex-1 bg-[#f8f6f2] rounded-[20px] border-2
+            border-transparent hover:border-[#66db4a] transition-all duration-300 overflow-hidden group"
           >
             <CardContent className="flex flex-col justify-end items-start p-0 h-full">
               {/* Image container - positioned at top like in reference */}
