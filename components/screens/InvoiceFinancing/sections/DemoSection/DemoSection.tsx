@@ -34,7 +34,7 @@ export const DemoSection = (): JSX.Element => {
           </div>
         </div>
         
-        <div className="self-stretch px-6 md:px-36 inline-flex flex-col md:flex-row justify-start items-start gap-10">
+        <div className="self-stretch px-6 md:px-0 inline-flex flex-col md:flex-row justify-start items-start gap-10">
           {processSteps.map((step, index) => (
             <div key={index} className={`flex-1 self-stretch inline-flex flex-col justify-start items-start gap-2 ${index === 1 ? 'md:px-2.5' : index === 2 ? 'md:pl-7' : ''}`}>
               <div className="self-stretch justify-start text-[#081f24] text-lg md:text-xl font-medium font-['Bricolage_Grotesque'] leading-6 md:leading-loose">
