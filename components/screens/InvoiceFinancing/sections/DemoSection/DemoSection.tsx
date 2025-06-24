@@ -51,8 +51,9 @@ export const DemoSection = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="w-full flex justify-center relative">
-        {/* Background image positioned behind the demo image */}
+      {/* Demo image container with background - Full width with padding */}
+      <div className="w-screen relative -mx-6 md:-mx-[140px] py-[100px]">
+        {/* Background image positioned to fill entire width */}
         <div 
           className="absolute inset-0 w-full h-full"
           style={{
@@ -63,12 +64,14 @@ export const DemoSection = (): JSX.Element => {
           }}
         />
         
-        {/* Demo image with relative positioning to appear above background */}
-        <img
-          className="relative z-10 w-full max-w-[1200px] h-auto object-cover"
-          alt="EnvoyX Platform Demo - Invoice financing dashboard showing eligibility check, invoice review, and payment processing"
-          src="/product-demo.svg"
-        />
+        {/* Demo image with relative positioning and proper padding */}
+        <div className="relative z-10 px-6 md:px-[140px] flex justify-center">
+          <img
+            className="w-full max-w-[1200px] h-auto object-cover"
+            alt="EnvoyX Platform Demo - Invoice financing dashboard showing eligibility check, invoice review, and payment processing"
+            src="/product-demo.svg"
+          />
+        </div>
       </div>
     </section>
   );
