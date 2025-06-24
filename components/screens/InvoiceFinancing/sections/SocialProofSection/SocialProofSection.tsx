@@ -33,7 +33,7 @@ export const SocialProofSection = (): JSX.Element => {
       
       <div className="w-[full] inline-flex justify-start items-center gap-5">
         {statistics.map((stat, index) => (
-          <Card key={index} className="flex-1 h-0 p-10 bg-[#f8f6f2] rounded-[20px] border-none shadow-none">
+          <Card key={index} className="flex-1 h-auto p-10 bg-[#f8f6f2] rounded-[20px] border-none shadow-none">
             <CardContent className="inline-flex flex-col justify-between items-center p-0 h-full">
               <div className="self-stretch flex flex-col justify-start items-start gap-4">
                 <div className="self-stretch text-center justify-start text-[#081f24] text-4xl font-medium font-['Bricolage_Grotesque'] leading-10">
