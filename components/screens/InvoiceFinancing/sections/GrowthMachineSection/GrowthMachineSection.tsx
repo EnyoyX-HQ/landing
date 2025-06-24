@@ -39,9 +39,9 @@ export const GrowthMachineSection = (): JSX.Element => {
           >
             <CardContent className="flex flex-col justify-end items-start p-0 h-full">
               {/* Image container - positioned at top like in reference */}
-              <div className="w-full h-80 relative bg-[#f8f6f2] flex justify-center overflow-hidden">
+              <div className="w-full h-80 relative bg-[#f8f6f2] flex items-center justify-center overflow-hidden">
                 <img
-                  className="w-full h-full object-contain p-0"
+                  className="w-full h-full object-contain"
                   alt={feature.title}
                   src={feature.image}
                 />
