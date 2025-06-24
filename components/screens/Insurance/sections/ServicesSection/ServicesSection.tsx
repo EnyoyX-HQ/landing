@@ -85,10 +85,10 @@ export const ServicesSection = (): JSX.Element => {
         </CardContent>
       </Card>
 
-      <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-10 w-full">
+      <div className="flex flex-col lg:flex-row items-stretch gap-6 md:gap-10 w-full">
         {/* Individual & Families Card */}
         <Card className="flex flex-col justify-between p-6 md:p-10 bg-[#f0deb8] rounded-[40px] w-full lg:w-[576px] min-h-[400px] md:h-[563px]">
-          <CardContent className="p-0">
+          <CardContent className="p-0 flex flex-col justify-between h-full">
             <div className="flex flex-col gap-4 md:gap-5">
               <p className="text-sm md:text-base text-[#081f2480] [font-family:'Neue_Montreal-Regular',Helvetica]">
                 FOR INDIVIDUALS & FAMILIES
@@ -101,10 +101,10 @@ export const ServicesSection = (): JSX.Element => {
                 taxi drivers — can afford to see a doctor.
               </p>
             </div>
+            <Button className="h-12 px-6 w-60 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
+              Compare Health Plans
+            </Button>
           </CardContent>
-          <Button className="h-12 px-6 w-60 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
-            Compare Health Plans
-          </Button>
         </Card>
 
         {/* Image Card with Features */}
@@ -115,7 +115,7 @@ export const ServicesSection = (): JSX.Element => {
               alt="Family health coverage"
               src="/frank-mckenna-lhojrolclx4-unsplash-1.png"
             />
-            <div className="absolute bottom-6 md:bottom-10 left-0 md:left-[30px] flex flex-col gap-3 md:gap-5">
+            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-[30px] flex flex-col gap-3 md:gap-5">
               {individualFeatures.map((feature, index) => (
                 <Badge
                   key={index}
