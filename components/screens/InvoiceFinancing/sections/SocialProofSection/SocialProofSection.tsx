@@ -21,7 +21,7 @@ export const SocialProofSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-[full] px-36 py-0 bg-white inline-flex flex-col justify-start items-start gap-10 overflow-hidden">
+    <section className="w-[full] px-36 py-[100px] bg-white inline-flex flex-col justify-start items-start gap-10 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-5">
         <div className="w-[full] text-center justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
           EnvoyX by numbers since launch in 2023
