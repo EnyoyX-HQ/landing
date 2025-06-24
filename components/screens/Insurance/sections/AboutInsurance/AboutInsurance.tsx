@@ -18,7 +18,7 @@ export const AboutInsurance = (): JSX.Element => {
             <div className="w-4 h-4 relative overflow-hidden">
               <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
             </div>
-            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+            <div className="justify-start text-gray-900 text-l font-normal font-['Bricolage_Grotesque'] leading-loose">
               No medical check-ups to sign up
             </div>
           </div>
@@ -26,7 +26,7 @@ export const AboutInsurance = (): JSX.Element => {
             <div className="w-4 h-4 relative overflow-hidden">
               <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
             </div>
-            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+            <div className="justify-start text-gray-900 text-l font-normal font-['Bricolage_Grotesque'] leading-loose">
               Network of strong clinics, pharmacies & TPAs
             </div>
           </div>
@@ -34,7 +34,7 @@ export const AboutInsurance = (): JSX.Element => {
             <div className="w-4 h-4 relative overflow-hidden">
               <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
             </div>
-            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+            <div className="justify-start text-gray-900 text-l font-normal font-['Bricolage_Grotesque'] leading-loose">
               Get reimbursed fast. No stress.
             </div>
           </div>
