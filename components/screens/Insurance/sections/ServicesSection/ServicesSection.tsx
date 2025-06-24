@@ -109,7 +109,7 @@ export const ServicesSection = (): JSX.Element => {
 
         {/* Image Card with Features */}
         <Card className="relative rounded-[40px] overflow-hidden w-full lg:flex-1 min-h-[400px] md:h-[563px]">
-          <CardContent className="p-0 h-full">
+          <CardContent className="h-full">
             <img
               className="w-full h-full object-cover"
               alt="Family health coverage"
