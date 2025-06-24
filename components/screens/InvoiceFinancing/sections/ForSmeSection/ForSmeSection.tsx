@@ -18,16 +18,6 @@ export const ForSmeSection = (): JSX.Element => {
             invoice financing.
           </p>
         </div>
-
-        <Button
-          variant="outline"
-          className="h-14 px-[18px] py-3 bg-white rounded-[1000px] flex items-center gap-3 w-fit"
-        >
-          <span className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base">
-            Learn more about invoice financing
-          </span>
-          <img alt="Arrow icon" src="/frame-1.svg" />
-        </Button>
       </div>
 
       {/* Right image section - Changed from flex-1 to w-1/2 for 50% width */}
