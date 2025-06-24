@@ -6,7 +6,7 @@ export const GrowthMachineSection = (): JSX.Element => {
     {
       title: "Fast, flexible financing",
       description: "Get paid in 24 hours. Choose any invoice to finance, anytime.",
-      image: "/Flexible.svg"
+      image: "/flexible.svg"
     },
     {
       title: "Multi-branches & sub wallets", 
@@ -16,14 +16,22 @@ export const GrowthMachineSection = (): JSX.Element => {
     {
       title: "Simplest possible terms",
       description: "No hidden fees, zero surprises. What you see is what you pay",
-      image: "/finger.svg"
+      image: "/risk.svg"
     }
   ];
 
   return (
     <section 
       className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden relative"
+      style={{
+        backgroundImage: 'url(/paint-2.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/80 z-0"></div>
 
       {/* Content with relative positioning to appear above background */}
       <div className="relative z-10 w-full flex flex-col justify-start items-start gap-20">
@@ -43,10 +51,10 @@ export const GrowthMachineSection = (): JSX.Element => {
               className="flex-1 bg-[#f8f6f2] rounded-[20px] border-4 border-transparent hover:border-[#66db4a] transition-all duration-300 overflow-hidden group"
             >
               <CardContent className="flex flex-col justify-end items-start p-0 h-full">
-                {/* Image container with green background placeholder */}
-                <div className="w-full h-60 md:h-80 relative flex items-center justify-center">
+                {/* Image container - matching the reference design */}
+                <div className="w-full h-60 md:h-80 relative bg-[#f8f6f2] flex items-center justify-center p-6 md:p-8">
                   <img
-                    className="w-auto h-auto max-w-[150px] md:max-w-[200px] max-h-[150px] md:max-h-[200px] object-contain"
+                    className="w-full h-full object-contain max-w-[200px] md:max-w-[250px] max-h-[200px] md:max-h-[250px]"
                     alt={feature.title}
                     src={feature.image}
                   />
