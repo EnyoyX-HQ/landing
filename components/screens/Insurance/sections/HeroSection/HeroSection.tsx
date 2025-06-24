@@ -3,47 +3,36 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section className="relative z-[12] w-full bg-[#163300] pt-[140px] overflow-hidden">
-      <div className="absolute w-full h-[556px] bottom-0 left-0">
-        <img
-          className="w-full h-full object-cover"
-          alt="Healthcare coverage visualization"
-          src="/group-1410103959.png"
-        />
-      </div>
-
-      <div className="container mx-auto px-6 md:px-[140px] mb-20">
-        <div className="flex flex-col items-center gap-14 w-full">
-          <div className="flex flex-col items-center gap-1 w-full">
-            <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-[#ffee78] text-base text-center leading-6">
-              Comprehensive Health Insurance for Everyone
-            </p>
-
-            <div className="flex flex-col items-center gap-10">
-              <h1 className="w-full max-w-[901px] [font-family:'Bricolage_Grotesque',Helvetica] font-bold text-white text-3xl md:text-4xl lg:text-[64px] text-center leading-[36px] md:leading-tight lg:leading-[normal]">
-                Healthcare that fits your life.
-              </h1>
-
-              <p className="w-full max-w-[708px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-white text-base md:text-lg text-center leading-6 md:leading-7">
-                Affordable health plans designed for individuals, families, and businesses across Africa.
-              </p>
+    <div className="w-[1512px] h-[800px] pt-36 bg-stone-900 inline-flex flex-col justify-start items-start gap-10 overflow-hidden">
+      <div className="self-stretch px-36 flex flex-col justify-start items-start gap-20">
+        <div className="self-stretch flex flex-col justify-start items-center gap-14">
+          <div className="flex flex-col justify-start items-center gap-10">
+            <div className="w-[1040px] text-center justify-start">
+              <span className="text-white text-6xl font-bold font-['Bricolage_Grotesque']">Quality </span>
+              <span className="text-green-400 text-6xl font-bold font-['Bricolage_Grotesque']">|</span>
+              <span className="text-white text-6xl font-bold font-['Bricolage_Grotesque']"> Affordable Healthcare</span>
+            </div>
+            <div className="w-[708px] text-center justify-start text-white text-lg font-normal font-['Neue_Montreal'] leading-7">
+              Get the care you need without breaking the bank.<br/>
+              Whether you're a business or a family, EnvoyX Care makes healthcare simple, affordable, and accessible.
             </div>
           </div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <Button className="h-14 px-6 py-3 bg-[#66db4a] rounded-[100px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base tracking-[-0.35px] leading-6 hover:bg-[#5bc942]">
-              Compare Health Plans
-            </Button>
-
-            <Button
-              variant="outline"
-              className="h-14 px-[18px] py-3 bg-[#f8f6f2] rounded-[1000px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-[#081f24] text-base leading-[normal] border-none hover:bg-[#eae8e4]"
-            >
-              Learn More About Coverage
-            </Button>
+          <div className="inline-flex justify-start items-center gap-3">
+            <div className="flex justify-start items-start gap-3">
+              <div className="h-14 px-6 py-3 bg-lime-300 rounded-[100px] flex justify-center items-center gap-3 overflow-hidden">
+                <Button className="all-[unset] justify-start text-gray-900 text-base font-medium font-['Neue_Montreal'] capitalize leading-normal">
+                  See our health plans
+                </Button>
+              </div>
+            </div>
+            <div className="h-14 px-4 py-3 bg-stone-100 rounded-full flex justify-center items-center gap-3 overflow-hidden">
+              <Button className="all-[unset] justify-start text-gray-900 text-base font-medium font-['Neue_Montreal'] capitalize">
+                Create a custom product
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
