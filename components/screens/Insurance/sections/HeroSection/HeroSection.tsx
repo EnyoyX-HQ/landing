@@ -3,11 +3,10 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <div className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 bg-[src="/banks-hero-left.svg"] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center gap-10 overflow-hidden relative">
+    <div className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 bg-[url('/banks-hero-left.svg')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center gap-10 overflow-hidden relative">
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>
       <div className="relative z-10 w-full px-36 flex flex-col justify-start items-start gap-20">
-      <div className="w-full px-36 flex flex-col justify-start items-start gap-20">
         <div className="w-full flex flex-col justify-start items-center gap-14">
           <div className="flex flex-col justify-start items-center gap-10">
             <div className="w-full max-w-[1040px] text-center">
