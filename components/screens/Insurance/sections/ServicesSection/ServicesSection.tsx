@@ -32,7 +32,7 @@ export const ServicesSection = (): JSX.Element => {
             <img
               className="absolute w-[664px] h-[600px] top-[238px] left-[425px] object-cover"
               alt="Abstract top view"
-              src="/abstract-top-view-egg-yolk-2.png"
+              src="/paint-white.svg"
             />
             <div className="absolute w-[891px] h-[891px] top-0 left-0 bg-white rounded-[445.5px] blur-[50px]" />
           </div>
