@@ -12,8 +12,8 @@ export const Insurance = (): JSX.Element => {
       <NavigationSection />
       <HeroSection />
       <AboutInsurance />
-      <MainContentSection />
       <ServicesSection />
+      <MainContentSection />
       <FooterSection />
     </div>
   );
