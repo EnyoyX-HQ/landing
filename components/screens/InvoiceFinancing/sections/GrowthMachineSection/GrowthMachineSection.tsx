@@ -21,17 +21,17 @@ export const GrowthMachineSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden relative">
-      {/* Background image - fills entire container */}
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          className="w-full h-full object-cover object-center"
-          alt="Background pattern"
-          src="/paint-2.png"
-        />
-        {/* Optional overlay for better text readability */}
-        <div className="absolute inset-0 bg-white/80"></div>
-      </div>
+    <section 
+      className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden relative"
+      style={{
+        backgroundImage: 'url(/paint-2.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Optional overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/80"></div>
 
       {/* Content with relative positioning to appear above background */}
       <div className="relative z-10 w-full flex flex-col justify-start items-start gap-20">
