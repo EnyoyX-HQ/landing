@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HealthcareSection = (): JSX.Element => {
+export const AboutInsurance = (): JSX.Element => {
   return (
     <div className="w-[1512px] px-36 py-24 bg-stone-100 inline-flex justify-start items-start gap-20 overflow-hidden">
       <div className="flex-1 self-stretch inline-flex flex-col justify-between items-start">
