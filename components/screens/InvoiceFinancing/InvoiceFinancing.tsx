@@ -16,10 +16,10 @@ export const InvoiceFinancing = (): JSX.Element => {
     <div className="flex flex-col w-full bg-white">
       <HeaderSection />
       <HeroSection />
-      <DemoSection />
-      <SocialProofSection />
       <PartnersSection />
       <ForSmeSection />
+      <DemoSection />
+      <SocialProofSection />
       <HomePageWrapperSection />
       <GrowthMachineSection />
       <MainContentSection />
