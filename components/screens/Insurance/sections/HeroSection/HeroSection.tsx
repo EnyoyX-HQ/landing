@@ -3,7 +3,15 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <div className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 bg-[url('/banks-hero-left.svg')] bg-cover bg-center bg-no-repeat flex flex-col justify-start items-center gap-10 overflow-hidden relative">
+    <div 
+      className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 flex flex-col justify-start items-center gap-10 overflow-hidden relative"
+      style={{
+        backgroundImage: "url('/banks-hero-left.svg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>
       <div className="relative z-10 w-full px-36 flex flex-col justify-start items-start gap-20">
