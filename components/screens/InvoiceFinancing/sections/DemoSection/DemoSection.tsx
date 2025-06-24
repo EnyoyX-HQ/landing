@@ -22,7 +22,7 @@ export const DemoSection = (): JSX.Element => {
   return (
     <section className="flex flex-col items-start gap-20 px-6 md:px-[140px] py-12 md:py-[100px] relative w-full bg-white z-[9]">
       {/* 3-Step Process Section */}
-      <div className="w-[1512px] pt-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
+      <div className="w-[full] pt-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
         <div className="self-stretch px-36 flex flex-col justify-start items-start gap-5">
           <div className="self-stretch flex flex-col justify-start items-start gap-5">
             <div className="w-[737px] justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
