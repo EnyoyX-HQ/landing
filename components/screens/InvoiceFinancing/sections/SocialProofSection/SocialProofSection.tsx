@@ -9,7 +9,7 @@ export const SocialProofSection = (): JSX.Element => {
       description: "Every business that submits invoices through us are duly verified. And we use data to constantly ensure they remain eligible for credit."
     },
     {
-      number: "10+", 
+      number: "3+", 
       title: "Healthcare invoice payers",
       description: "Our network is supported by over 10 healthcare invoice payers including insurers, third-party payment administrators."
     },
@@ -21,7 +21,7 @@ export const SocialProofSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-[1512px] px-36 py-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
+    <section className="w-[full] px-36 py-24 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-5">
         <div className="w-[881px] text-center justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
           EnvoyX by numbers since launch in 2023
