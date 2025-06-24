@@ -6,7 +6,7 @@ export const HeroSection = (): JSX.Element => {
     <div 
       className="w-full max-w-[1512px] mx-auto h-[800px] pt-36 bg-stone-900 flex flex-col justify-start items-center gap-10 overflow-hidden relative"
       style={{
-        backgroundImage: "url('/banks-hero-left.svg')",
+        backgroundImage: "url('/hero-insurance.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
