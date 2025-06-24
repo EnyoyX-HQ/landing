@@ -30,8 +30,6 @@ export const GrowthMachineSection = (): JSX.Element => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Optional overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/80"></div>
 
       {/* Content with relative positioning to appear above background */}
       <div className="relative z-10 w-full flex flex-col justify-start items-start gap-20">
