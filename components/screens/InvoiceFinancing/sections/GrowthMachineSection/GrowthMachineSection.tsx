@@ -44,10 +44,6 @@ export const GrowthMachineSection = (): JSX.Element => {
                   className="w-full h-full object-contain p-4"
                   alt={feature.title}
                   src={feature.image}
-                  onError={(e) => {
-                    console.error(`Failed to load image: ${feature.image}`);
-                    e.currentTarget.style.display = 'none';
-                  }}
                 />
               </div>
               
