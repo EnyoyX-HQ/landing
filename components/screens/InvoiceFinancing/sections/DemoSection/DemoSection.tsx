@@ -28,7 +28,7 @@ export const DemoSection = (): JSX.Element => {
             <div className="w-[737px] justify-start text-[#081f24] text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
               Improve Your Cash Flow with EnvoyX in 3 Simple Steps
             </div>
-            <div className="w-[807px] justify-start text-[#081f24] text-lg font-normal font-['Neue_Montreal'] leading-7">
+            <div className="w-[full] justify-start text-[#081f24] text-lg font-normal font-['Neue_Montreal'] leading-7">
               Manage finances, unlock competitive yield, and access AI-powered capital markets solutions—all in one platform.
             </div>
           </div>
