@@ -3,18 +3,18 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <div className="w-full h-[967px] pt-36 bg-[#192517] inline-flex flex-col justify-start items-start gap-10 overflow-hidden relative">
-      <div className="self-stretch px-36 flex flex-col justify-start items-start gap-20">
+    <div className="w-full min-h-screen bg-[#192517] flex flex-col justify-start items-start gap-10 overflow-hidden relative">
+      <div className="flex-grow px-6 md:px-36 py-20 flex flex-col justify-center items-start gap-20">
         <div className="self-stretch flex flex-col justify-start items-center gap-14">
           <div className="self-stretch flex flex-col justify-start items-center gap-1">
-            <div className="w-[708px] text-center justify-start text-lime-300 text-base font-normal font-['Neue_Montreal'] leading-normal">
+            <div className="w-full max-w-[708px] text-center justify-start text-lime-300 text-base font-normal font-['Neue_Montreal'] leading-normal">
               Digital Invoice financing platform for B2B businesses
             </div>
             <div className="flex flex-col justify-start items-center gap-10">
-              <div className="w-[901px] text-center justify-start text-white text-6xl font-bold font-['Bricolage_Grotesque']">
+              <div className="w-full max-w-[901px] text-center justify-start text-white text-3xl md:text-4xl lg:text-6xl font-bold font-['Bricolage_Grotesque'] leading-tight">
                 Unlock payments and credit for you & your buyers
               </div>
-              <div className="w-[708px] text-center justify-start text-white text-lg font-normal font-['Neue_Montreal'] leading-7">
+              <div className="w-full max-w-[708px] text-center justify-start text-white text-base md:text-lg font-normal font-['Neue_Montreal'] leading-6 md:leading-7">
                 Access fast, flexible financing backed by your pending insurance reimbursements. EnvoyX helps you turn invoices into working capital for growth opportunities.
               </div>
             </div>
