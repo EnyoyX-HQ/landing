@@ -3,6 +3,7 @@ import { CallToActionSection } from "./sections/CallToActionSection/CallToAction
 import { DemoSection } from "./sections/DemoSection/DemoSection";
 import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { ForSmeSection } from "./sections/ForSmeSection/ForSmeSection";
+import { GrowthMachineSection } from "./sections/GrowthMachineSection/GrowthMachineSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { HomePageWrapperSection } from "./sections/HomePageWrapperSection/HomePageWrapperSection";
 import { MainContentSection } from "./sections/MainContentSection/MainContentSection";
@@ -43,6 +44,7 @@ export const InvoiceFinancing = (): JSX.Element => {
       <PartnersSection />
       <ForSmeSection />
       <HomePageWrapperSection />
+      <GrowthMachineSection />
       <MainContentSection />
       <CallToActionSection />
       
