@@ -1,134 +1,52 @@
-import { CheckIcon } from "lucide-react";
 import React from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 
-// Data for feature badges
-const employerFeatures = [
-  "Add employees in minutes",
-  "Customize coverage for different staff levels",
-  "Track benefits usage in real-time",
-];
-
-// Data for individual plan features
-const individualFeatures = [
-  "Plans from just 1,500 CFA/month",
-  "80%–100% refunds on consultations, medications, maternity & more",
-  "Covered in your neighborhood and beyond",
-];
-
-export const ServicesSection = (): JSX.Element => {
+export const HealthcareSection = (): JSX.Element => {
   return (
-    <section className="bg-[#F8F6F2] py-12 md:py-24 px-6 md:px-12 lg:px-[140px] flex flex-col gap-10 w-full">
-      <h2 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
-        Built for People & Businesses
-      </h2>
-
-      <Card className="p-6 md:p-10 bg-white rounded-[40px] overflow-hidden relative flex flex-col items-start justify-between">
-        {/* Background image with overlay effect - Hidden on mobile for better performance */}
-        <div className="hidden lg:block absolute right-0 top-0 w-[664px] h-full">
-          <div className="relative w-[1089px] h-[891px] top-[-238px] left-[-425px]">
-            <img
-              className="absolute w-[664px] h-[600px] top-[238px] left-[425px] object-cover"
-              alt="Abstract top view"
-              src="/abstract-top-view-egg-yolk-2.png"
-            />
-            <div className="absolute w-[891px] h-[891px] top-0 left-0 bg-white rounded-[445.5px] blur-[50px]" />
+    <div className="w-[1512px] px-36 py-24 bg-stone-100 inline-flex justify-start items-start gap-20 overflow-hidden">
+      <div className="flex-1 self-stretch inline-flex flex-col justify-between items-start">
+        <div className="self-stretch flex flex-col justify-start items-start gap-5">
+          <div className="self-stretch justify-start text-gray-900 text-4xl font-bold font-['Bricolage_Grotesque'] leading-[56px]">
+            Healthcare shouldn't be a luxury.
+          </div>
+          <div className="w-[553px] justify-start text-gray-900 text-lg font-normal font-['Neue_Montreal'] leading-7">
+            EnvoyX Care is a micro health insurance product made for everyday people and businesses in Côte d'Ivoire.<br/>
+            We help individuals, families, and employers protect what matters most — health without heavy paperwork or high premiums.
           </div>
         </div>
-
-        <CardContent className="p-0 z-10 w-full">
-          <div className="flex flex-col gap-6 md:gap-10">
-            {/* Header section */}
-            <div className="flex flex-col items-start">
-              <p className="text-sm md:text-base text-[#081f2480] [font-family:'Neue_Montreal-Regular',Helvetica]">
-                FOR EMPLOYERS
-              </p>
-              <div className="flex flex-col gap-4 md:gap-5">
-                <h3 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica] max-w-[499px]">
-                  Empower & protect your team&apos;s health
-                </h3>
-                <p className="text-base md:text-lg text-[#081f24b2] [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[490px] leading-6 md:leading-7">
-                  Your team deserves care that fits your budget. Healthy
-                  workers, healthy business.
-                </p>
-              </div>
+        <div className="w-[538px] flex flex-col justify-start items-start gap-5">
+          <div className="px-10 py-6 bg-white rounded-full inline-flex justify-start items-center gap-4">
+            <div className="w-4 h-4 relative overflow-hidden">
+              <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
             </div>
-
-            {/* Features section */}
-            <div className="flex flex-wrap gap-3 md:gap-4 max-w-[602px]">
-              {employerFeatures.map((feature, index) => (
-                <Badge
-                  key={index}
-                  className="flex items-center gap-2 p-3 md:p-4 bg-white rounded-full border border-[#081f241a] font-normal text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]"
-                >
-                  <CheckIcon className="w-4 h-4 flex-shrink-0" />
-                  <span className="whitespace-nowrap">{feature}</span>
-                </Badge>
-              ))}
-            </div>
-
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-3">
-              <Button className="w-full sm:w-auto h-12 px-6 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium">
-                Enrol Your Team Now
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto h-12 px-4 md:px-[18px] py-3 bg-[#f8f6f2] rounded-[1000px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium border-none"
-              >
-                Create a Custom Health Plan
-              </Button>
+            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+              No medical check-ups to sign up
             </div>
           </div>
-        </CardContent>
-      </Card>
-
-      <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-10 w-full">
-        {/* Individual & Families Card */}
-        <Card className="flex flex-col justify-between p-6 md:p-10 bg-[#f0deb8] rounded-[40px] w-full lg:w-[576px] min-h-[400px] md:h-[563px]">
-          <CardContent className="p-0">
-            <div className="flex flex-col gap-4 md:gap-5">
-              <p className="text-sm md:text-base text-[#081f2480] [font-family:'Neue_Montreal-Regular',Helvetica]">
-                FOR INDIVIDUALS & FAMILIES
-              </p>
-              <h3 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
-                Secure your families&apos; future
-              </h3>
-              <p className="text-base md:text-lg text-[#081f24b2] [font-family:'Neue_Montreal-Regular',Helvetica] leading-6 md:leading-7">
-                We designed EnvoyX Care so that anyone — from market sellers to
-                taxi drivers — can afford to see a doctor.
-              </p>
+          <div className="px-10 py-6 bg-white rounded-full inline-flex justify-start items-center gap-4">
+            <div className="w-4 h-4 relative overflow-hidden">
+              <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
             </div>
-          </CardContent>
-          <Button className="h-12 px-6 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
-            Compare Health Plans
-          </Button>
-        </Card>
-
-        {/* Image Card with Features */}
-        <Card className="relative rounded-[40px] overflow-hidden w-full lg:flex-1 min-h-[400px] md:h-[563px]">
-          <CardContent className="p-0 h-full">
-            <img
-              className="w-full h-full object-cover"
-              alt="Family health coverage"
-              src="/frank-mckenna-lhojrolclx4-unsplash-1.png"
-            />
-            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-[30px] flex flex-col gap-3 md:gap-5">
-              {individualFeatures.map((feature, index) => (
-                <Badge
-                  key={index}
-                  className="flex items-start gap-2 px-4 md:px-8 py-3 md:py-4 bg-white rounded-full font-normal text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[280px] md:max-w-none"
-                >
-                  <CheckIcon className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span className="leading-tight">{feature}</span>
-                </Badge>
-              ))}
+            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+              Network of strong clinics, pharmacies & TPAs
             </div>
-          </CardContent>
-        </Card>
+          </div>
+          <div className="px-10 py-6 bg-white rounded-full inline-flex justify-start items-center gap-4">
+            <div className="w-4 h-4 relative overflow-hidden">
+              <div className="w-3 h-3 left-[1.50px] top-[1.50px] absolute bg-green-400"></div>
+            </div>
+            <div className="justify-start text-gray-900 text-xl font-normal font-['Bricolage_Grotesque'] leading-loose">
+              Get reimbursed fast. No stress.
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+      <div className="pt-24 flex justify-start items-center gap-2.5">
+        <img 
+          className="w-[528px] h-[683.51px] rounded-[40px]" 
+          src="https://placehold.co/528x684" 
+          alt="Healthcare illustration"
+        />
+      </div>
+    </div>
   );
 };
