@@ -102,7 +102,7 @@ export const ServicesSection = (): JSX.Element => {
               </p>
             </div>
           </CardContent>
-          <Button className="h-12 px-6 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
+          <Button className="h-12 px-3 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
             Compare Health Plans
           </Button>
         </Card>
