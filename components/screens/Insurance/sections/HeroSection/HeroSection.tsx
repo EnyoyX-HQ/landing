@@ -33,4 +33,4 @@ export const HeroSection = (): JSX.Element => {
           </div>
         </div>
       </div>
-    <
+  
