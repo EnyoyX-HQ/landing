@@ -21,8 +21,20 @@ export const GrowthMachineSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden">
-      <div className="self-stretch flex flex-col justify-start items-start gap-20">
+    <section className="w-full px-6 md:px-[140px] py-24 bg-white flex flex-col justify-start items-start gap-20 overflow-hidden relative">
+      {/* Background image - fills entire container */}
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          className="w-full h-full object-cover object-center"
+          alt="Background pattern"
+          src="/paint-2.png"
+        />
+        {/* Optional overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/80"></div>
+      </div>
+
+      {/* Content with relative positioning to appear above background */}
+      <div className="relative z-10 w-full flex flex-col justify-start items-start gap-20">
         <div className="flex flex-col justify-start items-start gap-5">
           <div className="w-full max-w-[815px] justify-start text-[#081f24] text-2xl md:text-3xl lg:text-[40px] font-bold font-['Bricolage_Grotesque'] leading-[28.8px] md:leading-tight lg:leading-[56px]">
             Turn your invoices into a growth machine
@@ -32,7 +44,7 @@ export const GrowthMachineSection = (): JSX.Element => {
           </div>
         </div>
         
-        <div className="self-stretch flex flex-col md:flex-row justify-start items-start gap-5">
+        <div className="w-full flex flex-col md:flex-row justify-start items-start gap-5">
           {features.map((feature, index) => (
             <Card 
               key={index} 
@@ -40,20 +52,20 @@ export const GrowthMachineSection = (): JSX.Element => {
             >
               <CardContent className="flex flex-col justify-end items-start p-0 h-full">
                 {/* Image container with green background placeholder */}
-                <div className="w-full h-80 relative bg-[#66db4a] flex items-center justify-center">
+                <div className="w-full h-60 md:h-80 relative bg-[#66db4a] flex items-center justify-center">
                   <img
-                    className="w-auto h-auto max-w-[200px] max-h-[200px] object-contain"
+                    className="w-auto h-auto max-w-[150px] md:max-w-[200px] max-h-[150px] md:max-h-[200px] object-contain"
                     alt={feature.title}
                     src={feature.image}
                   />
                 </div>
                 
                 {/* Content section */}
-                <div className="self-stretch p-6 md:p-10 flex flex-col justify-start items-start gap-2">
-                  <div className="self-stretch justify-start text-[#081f24] text-lg md:text-xl font-medium font-['Bricolage_Grotesque'] leading-6 md:leading-loose">
+                <div className="self-stretch p-4 md:p-6 lg:p-10 flex flex-col justify-start items-start gap-2">
+                  <div className="self-stretch justify-start text-[#081f24] text-base md:text-lg lg:text-xl font-medium font-['Bricolage_Grotesque'] leading-6 md:leading-loose">
                     {feature.title}
                   </div>
-                  <div className="self-stretch justify-start text-[#081f24]/70 text-base md:text-lg font-normal font-['Neue_Montreal'] leading-6 md:leading-7">
+                  <div className="self-stretch justify-start text-[#081f24]/70 text-sm md:text-base lg:text-lg font-normal font-['Neue_Montreal'] leading-5 md:leading-6 lg:leading-7">
                     {feature.description}
                   </div>
                 </div>
