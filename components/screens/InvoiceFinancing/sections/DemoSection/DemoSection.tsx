@@ -20,7 +20,7 @@ export const DemoSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-start gap-20 px-6 md:px-[140px] py-12 md:py-[100px] relative w-full bg-white z-[9]">
+    <section className="flex flex-col items-start gap-0 px-6 md:px-[140px] py-12 md:py-[100px] relative w-full bg-white z-[9]">
       {/* 3-Step Process Section */}
       <div className="w-full pt-0 bg-white inline-flex flex-col justify-start items-start gap-20 overflow-hidden">
         <div className="self-stretch px-6 md:px-0 flex flex-col justify-start items-start gap-5">
