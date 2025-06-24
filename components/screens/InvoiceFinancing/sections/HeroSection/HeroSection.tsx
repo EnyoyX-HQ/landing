@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <div className="w-full h-[1200px] pt-36 bg-[#192517] inline-flex flex-col justify-start items-start gap-10 overflow-hidden relative">
+    <div className="w-full h-[1050px] pt-36 bg-[#192517] inline-flex flex-col justify-start items-start gap-10 overflow-hidden relative">
       <div className="self-stretch px-36 flex flex-col justify-start items-start gap-20">
         <div className="self-stretch flex flex-col justify-start items-center gap-14">
           <div className="self-stretch flex flex-col justify-start items-center gap-1">
