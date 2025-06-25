@@ -174,7 +174,7 @@ export const MegaMenu = ({ theme = "light" }: MegaMenuProps): JSX.Element => {
   const menuItems = ["Products", "Solutions", "Resources", "Company"];
 
   const renderProductsMenu = () => (
-    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14">
+    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14 shadow-lg border border-gray-100">
       <div className="w-64 inline-flex flex-col justify-start items-start gap-10">
         {megaMenuData.Products.sections[0].items.map((item, index) => (
           <div key={index} className="self-stretch flex flex-col justify-start items-start gap-2">
@@ -208,7 +208,7 @@ export const MegaMenu = ({ theme = "light" }: MegaMenuProps): JSX.Element => {
   );
 
   const renderSolutionsMenu = () => (
-    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14">
+    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14 shadow-lg border border-gray-100">
       <div className="w-64 inline-flex flex-col justify-start items-start gap-10">
         {megaMenuData.Solutions.sections[0].items.map((item, index) => (
           <div key={index} className="self-stretch flex flex-col justify-start items-start gap-2">
@@ -242,7 +242,7 @@ export const MegaMenu = ({ theme = "light" }: MegaMenuProps): JSX.Element => {
   );
 
   const renderResourcesMenu = () => (
-    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14">
+    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14 shadow-lg border border-gray-100">
       <div className="w-64 inline-flex flex-col justify-start items-start gap-10">
         {megaMenuData.Resources.sections[0].items.map((item, index) => (
           <div key={index} className="self-stretch flex flex-col justify-start items-start gap-2">
@@ -276,7 +276,7 @@ export const MegaMenu = ({ theme = "light" }: MegaMenuProps): JSX.Element => {
   );
 
   const renderCompanyMenu = () => (
-    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14">
+    <div className="p-10 bg-white rounded-xl inline-flex justify-start items-start gap-14 shadow-lg border border-gray-100">
       <div className="w-64 inline-flex flex-col justify-start items-start gap-10">
         {megaMenuData.Company.sections[0].items.map((item, index) => (
           <div key={index} className="self-stretch flex flex-col justify-start items-start gap-2">
