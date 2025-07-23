@@ -2,8 +2,9 @@
 
 import { MapPinIcon } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { Separator } from "../../ui/separator";
+import { ImageWithFallback } from "../ImageWithFallback";
 
 interface FooterProps {
   theme?: "light" | "dark";
@@ -55,7 +56,6 @@ const footerColumns = [
 ];
 
 export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
-  const [logoError, setLogoError] = useState(false);
   const bgColor = theme === "dark" ? "bg-[#060f00]" : "bg-white";
   const textColor = theme === "dark" ? "text-white" : "text-[#081f24]";
   const mutedTextColor = theme === "dark" ? "text-[#ffffff80]" : "text-[#081f2480]";
@@ -101,18 +101,16 @@ export const Footer = ({ theme = "dark" }: FooterProps): JSX.Element => {
           <div className="flex flex-col items-start gap-4 w-full lg:flex-1 lg:max-w-none">
             {/* Logo with fallback - reduced by 60% (from h-8 to h-3.2, approximately h-3) */}
             <div className="flex items-center">
-              {!logoError ? (
-                <img
-                  className="w-auto h-3"
-                  alt="EnvoyX Logo"
-                  src="/logo-white.svg"
-                  onError={() => setLogoError(true)}
-                />
-              ) : (
-                <div className={`font-['Bricolage_Grotesque',Helvetica] font-bold ${textColor} text-2xl`}>
-                  ENVOYX
-                </div>
-              )}
+              <ImageWithFallback
+                className="w-auto h-3"
+                alt="EnvoyX Logo"
+                src="/logo-white.svg"
+                fallbackContent={
+                  <div className={`font-['Bricolage_Grotesque',Helvetica] font-bold ${textColor} text-2xl`}>
+                    ENVOYX
+                  </div>
+                }
+              />
             </div>
 
             <div className={`w-full font-['Bricolage_Grotesque',Helvetica] font-medium ${textColor} text-2xl md:text-3xl lg:text-[40px] leading-tight md:leading-[1.2] lg:leading-[56px] break-words`}>

@@ -41,11 +41,11 @@ export const CallToActionSection = (): JSX.Element => {
 
           <div className="flex flex-col items-start gap-12 relative z-10 max-w-[815px]">
             <div className="flex flex-col items-start gap-5">
-              <h2 className="text-[#081f24] text-3xl md:text-[40px] font-bold leading-[56px] [font-family:'Bricolage_Grotesque',Helvetica] tracking-[0]">
+              <h2 className="text-[#081f24] text-2xl md:text-3xl lg:text-[40px] font-bold leading-[28.8px] md:leading-tight lg:leading-[56px] [font-family:'Bricolage_Grotesque',Helvetica] tracking-[0]">
                 Own your business growth with fast invoice financing with EnvoyX
               </h2>
 
-              <p className="text-[#081f24] text-lg font-normal leading-7 [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[716px]">
+              <p className="text-[#081f24] text-base md:text-lg font-normal leading-6 md:leading-7 [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[716px]">
                 EnvoyX is committed to implementing industry-leading practices
                 to ensure the integrity and security of our infrastructure and
                 all operations throughout our company.

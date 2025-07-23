@@ -20,8 +20,8 @@ const individualFeatures = [
 
 export const ServicesSection = (): JSX.Element => {
   return (
-    <section className="bg-[#f3efe8] py-12 md:py-24 px-6 md:px-12 lg:px-[140px] flex flex-col gap-10 w-full">
-      <h2 className="text-2xl md:text-[40px] leading-tight md:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
+    <section className="bg-[#F8F6F2] py-12 md:py-24 px-6 md:px-12 lg:px-[140px] flex flex-col gap-10 w-full">
+      <h2 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
         Built for People & Businesses
       </h2>
 
@@ -30,9 +30,9 @@ export const ServicesSection = (): JSX.Element => {
         <div className="hidden lg:block absolute right-0 top-0 w-[664px] h-full">
           <div className="relative w-[1089px] h-[891px] top-[-238px] left-[-425px]">
             <img
-              className="absolute w-[664px] h-[600px] top-[238px] left-[425px] object-cover"
+              className="absolute w-[664px] h-[full] top-[238px] left-[425px] object-cover"
               alt="Abstract top view"
-              src="/abstract-top-view-egg-yolk-2.png"
+              src="/paint-white.svg"
             />
             <div className="absolute w-[891px] h-[891px] top-0 left-0 bg-white rounded-[445.5px] blur-[50px]" />
           </div>
@@ -46,7 +46,7 @@ export const ServicesSection = (): JSX.Element => {
                 FOR EMPLOYERS
               </p>
               <div className="flex flex-col gap-4 md:gap-5">
-                <h3 className="text-2xl md:text-[40px] leading-tight md:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica] max-w-[499px]">
+                <h3 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica] max-w-[499px]">
                   Empower & protect your team&apos;s health
                 </h3>
                 <p className="text-base md:text-lg text-[#081f24b2] [font-family:'Neue_Montreal-Regular',Helvetica] max-w-[490px] leading-6 md:leading-7">
@@ -85,15 +85,15 @@ export const ServicesSection = (): JSX.Element => {
         </CardContent>
       </Card>
 
-      <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-10 w-full">
+      <div className="flex flex-col lg:flex-row items-stretch gap-6 md:gap-10 w-full">
         {/* Individual & Families Card */}
         <Card className="flex flex-col justify-between p-6 md:p-10 bg-[#f0deb8] rounded-[40px] w-full lg:w-[576px] min-h-[400px] md:h-[563px]">
-          <CardContent className="p-0">
+          <CardContent className="p-0 flex flex-col justify-between h-full">
             <div className="flex flex-col gap-4 md:gap-5">
               <p className="text-sm md:text-base text-[#081f2480] [font-family:'Neue_Montreal-Regular',Helvetica]">
                 FOR INDIVIDUALS & FAMILIES
               </p>
-              <h3 className="text-2xl md:text-[40px] leading-tight md:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
+              <h3 className="text-xl md:text-2xl lg:text-[40px] leading-[24px] md:leading-tight lg:leading-[56px] font-bold text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
                 Secure your families&apos; future
               </h3>
               <p className="text-base md:text-lg text-[#081f24b2] [font-family:'Neue_Montreal-Regular',Helvetica] leading-6 md:leading-7">
@@ -101,10 +101,10 @@ export const ServicesSection = (): JSX.Element => {
                 taxi drivers — can afford to see a doctor.
               </p>
             </div>
+            <Button className="h-12 px-6 w-60 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
+              Compare Health Plans
+            </Button>
           </CardContent>
-          <Button className="h-12 px-6 py-3 bg-[#66db4a] rounded-[100px] text-sm md:text-base text-[#081f24] [font-family:'Neue_Montreal-Medium',Helvetica] tracking-[-0.35px] font-medium mt-6">
-            Compare Health Plans
-          </Button>
         </Card>
 
         {/* Image Card with Features */}
@@ -115,7 +115,7 @@ export const ServicesSection = (): JSX.Element => {
               alt="Family health coverage"
               src="/frank-mckenna-lhojrolclx4-unsplash-1.png"
             />
-            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-[30px] flex flex-col gap-3 md:gap-5">
+            <div className="absolute bottom-6 md:bottom-10  flex p-10 flex-col gap-3 md:gap-5">
               {individualFeatures.map((feature, index) => (
                 <Badge
                   key={index}

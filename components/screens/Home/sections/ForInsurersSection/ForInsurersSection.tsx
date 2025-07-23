@@ -10,10 +10,10 @@ export const ForInsurersSection = (): JSX.Element => {
         <Card className="flex-1 h-auto lg:h-[600px] bg-[#f8f6f2] rounded-[20px] p-0 border-none">
           <CardContent className="flex flex-col justify-between h-full p-8 md:p-10">
             <div className="flex flex-col gap-5">
-              <h2 className="font-semibold text-3xl md:text-[40px] leading-tight md:leading-[56px] text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
+              <h2 className="font-semibold text-2xl md:text-3xl lg:text-[40px] leading-[28.8px] md:leading-tight lg:leading-[56px] text-[#081f24] [font-family:'Bricolage_Grotesque',Helvetica]">
                 For insurers
               </h2>
-              <p className="text-lg leading-7 text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]">
+              <p className="text-base md:text-lg leading-6 md:leading-7 text-[#081f24] [font-family:'Neue_Montreal-Regular',Helvetica]">
                 EnvoyX isn&apos;t just a platform—it&apos;s a partnership.
                 Deploy working capital to businesses, strengthen your
                 financial offerings while supporting businesses in managing

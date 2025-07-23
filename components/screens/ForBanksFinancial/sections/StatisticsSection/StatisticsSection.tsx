@@ -1,53 +1,40 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 
 export const StatisticsSection = (): JSX.Element => {
+  const statistics = [
+    {
+      number: "800+",
+      description: "Verified healthcare providers",
+    },
+    {
+      number: "10+",
+      description: "Healthcare invoice payers",
+    },
+    {
+      number: "89.93%",
+      description: "Reduce invoice accuracy and repayment",
+    },
+  ];
+
   return (
-    <section className="flex flex-col md:flex-row w-full relative z-[4]">
-      {/* Left content section */}
-      <div className="flex flex-col items-start gap-10 py-20 md:py-32 px-6 md:px-0 relative flex-1 bg-[#192517] overflow-hidden">
-        {/* Background vector */}
-        <img
-          className="absolute w-full max-w-[1324px] h-auto top-[-210px] left-[-310px]"
-          alt="Background vector"
-          src="/vector-1.svg"
-        />
-
-        <div className="flex flex-col w-full max-w-[900px] items-start gap-20 md:pl-[140px] md:pr-20 relative z-10">
-          <div className="flex flex-col items-start gap-14 w-full">
-            <div className="flex flex-col items-start gap-10 w-full">
-              <h2 className="mt-[-1.00px] font-['Bricolage_Grotesque',Helvetica] font-bold text-white text-4xl md:text-6xl leading-tight">
-                Unlock New Opportunities in Healthcare Financing
-              </h2>
-
-              <p className="font-['Neue_Montreal-Regular',Helvetica] font-normal text-white text-lg leading-7">
-                Manage finances, unlock competitive yield, and access AI-powered
-                capital markets solutions—all in one platform.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Button className="h-14 px-[18px] py-3 bg-[#f8f6f2] text-[#192517] rounded-[1000px] hover:bg-[#e8e6e2]">
-                <span className="font-['Neue_Montreal-Medium',Helvetica] font-medium text-base">
-                  Talk To Sales Team
-                </span>
-              </Button>
-            </div>
-
-            <p className="font-['Bricolage_Grotesque',Helvetica] font-normal text-white text-base leading-6">
-              Trusted by Africa&apos;s leading financial institutions
-            </p>
-          </div>
-        </div>
+    <section className="flex flex-col items-start gap-20 px-8 py-24 md:px-[140px] md:py-[100px] relative w-full bg-white z-[3] overflow-hidden">
+      <div className="flex flex-col items-center gap-5 w-full">
+        <h2 className="w-full max-w-[881px] text-center text-[#081f24] text-2xl md:text-3xl lg:text-[40px] font-bold [font-family:'Bricolage_Grotesque',Helvetica] leading-[28.8px] md:leading-tight lg:leading-[56px]">
+          Plug in to access 800+ verified healthcare insurance invoices due for payment
+        </h2>
       </div>
 
-      {/* Right image section */}
-      <div className="flex w-full md:w-[612px] bg-[#192517]">
-        <img
-          className="w-full h-full object-cover"
-          alt="Healthcare professional"
-          src="/andriyko-podilnyk-21qmaxlw0mc-unsplash-1.png"
-        />
+      <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-[1232px] mx-auto">
+        {statistics.map((stat, index) => (
+          <div key={index} className="flex-1 flex flex-col items-start gap-4">
+            <div className="text-[#081f24] text-4xl md:text-5xl lg:text-7xl font-medium [font-family:'Bricolage_Grotesque',Helvetica]">
+              {stat.number}
+            </div>
+            <div className="text-[#081f24b2] text-lg md:text-xl font-normal [font-family:'Neue_Montreal-Regular',Helvetica]">
+              {stat.description}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
